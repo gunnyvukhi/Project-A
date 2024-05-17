@@ -13,3 +13,18 @@ class DB {
         return self::$instance;
     }
 }
+
+$demo = 1;
+$demo = 2;
+$demo = 3; 
+echo $demo;
+$demo = 4;
+echo $demo;
+/*git branch
+
+
+git pull origin <branch_name>
+
+
+git push origin <branch_name>
+*/
