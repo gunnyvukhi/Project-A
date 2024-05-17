@@ -1,27 +1,25 @@
 <?php
 
-class DB {
-    private static $instance = NULL;
+class DB extends PDO
+{
+    // confing database
+    private $hostName = 'localhost';
+    
+    private $dbName = 'project_a';
 
-    private function __construct() {}
+    private $user = 'root';
 
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-            self::$instance = new PDO('mysql:host=localhost;dbname=database', 'root', 'root', $pdo_options);
+    private $pass = '';
+
+    public function __construct()
+    {
+        
+        try {
+            parent::__construct("mysql: host=". $this->hostName ."; dbname=".$this->dbName.";", $this->user, $this->pass);
+            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die($e->getMessage());
         }
-        return self::$instance;
     }
-}
 
-$demo = 1;
-$demo = 2;
-$demo = 3; 
-echo $demo;
-$demo = 4;
-echo $demo;
-/*
-git add config/db.php
->> git commit -m "Your commit message"
->> git push origin main
-*/
+}
