@@ -14,12 +14,7 @@ class DB {
     }
 }
 
-$demo = 1;
-$demo = 2;
-$demo = 3; 
-echo $demo;
-$demo = 4;
-echo $demo;
+
 /*
 git add config/db.php
 >> git commit -m "Your commit message"
