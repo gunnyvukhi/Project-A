@@ -20,11 +20,8 @@ $demo = 3;
 echo $demo;
 $demo = 4;
 echo $demo;
-/*git branch
-
-
-git pull origin <branch_name>
-
-
-git push origin <branch_name>
+/*
+git add config/db.php
+>> git commit -m "Your commit message"
+>> git push origin main
 */
