@@ -1,19 +1,27 @@
-<?php
+<?php 
 
-class DB {
-    private static $instance = NULL;
 
-    private function __construct() {}
 
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-            self::$instance = new PDO('mysql:host=localhost;dbname=database', 'root', 'root', $pdo_options);
+class DB extends PDO
+{
+    // confing database
+    private $hostName = 'localhost';
+    
+    private $dbName = 'project-a';
+
+    private $user = 'root';
+
+    private $pass = '';
+
+    public function __construct()
+    {
+        
+        try {
+            parent::__construct("mysql: host=". $this->hostName ."; dbname=".$this->dbName.";", $this->user, $this->pass);
+            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die($e->getMessage());
         }
-        return self::$instance;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 5b14206c4ab872cf32dd2bf641588829944cb019
 }
