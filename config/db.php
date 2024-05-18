@@ -12,4 +12,8 @@ class DB {
         }
         return self::$instance;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b14206c4ab872cf32dd2bf641588829944cb019
 }
