@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./Resources/css/mystyle.css" type="text/css">
-    <script type="text/javascript" src="jquery-3.3.1.js"></script>
-
+    <link rel="stylesheet" href="../css/loginStyle.css" type="text/css">
+    <script lang="javascript" type="text/javascript" src="../js/login.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <label for="username">Username</label>
-        <input type="text" id="username" required>
-        <label for="password">Password</label>
-        <input type="password" id="password" required>
-        <button onclick="login()">Login</button>
-        <p id="message">HEllo</p>
+    <!-- thẻ chứa background -->
+    <div id="background"></div>
+
+    <!-- thẻ chứa form Login -->
+    <div class="container loginContainer">
+        <form method="post" action="">
+            <h2>Đăng nhập</h2>
+            <!-- Email Login -->
+            <label for="Email"><img src="../image/emailLogin.png" alt="Email"></label>
+            <input type="email" name="Email" id="Email" placeholder="Email">
+            <!-- Password Login -->
+            <label for="password"><img src="../image/passwordLogin.png" alt="Password"></label>
+            <input type="password" name="password" id="password" placeholder="Password"><br>
+            <!-- Remember Me Login -->
+            <input type="checkbox" name="rememberMe" id="rememberMe">
+            <button onclick="rememberMechecked()" id="rememberMeButton" type="button">Lưu mật khẩu</button>
+            <!-- Forget Password -->
+            <a href="#" id="forgotPassword">Quên mật khẩu</a>
+            <!-- Submit -->
+            <button id="logIn" onclick="login()" type="submit">Đăng nhập</button>
+            <!-- Sign in -->
+            <p id="signIn">Chưa có tài khoản? <a href="#">Đăng kí</a></p>
+            <p id="result"></p>
+        </form>
     </div>
-</body>
-</html>

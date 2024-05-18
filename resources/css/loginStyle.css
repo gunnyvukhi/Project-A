@@ -1,0 +1,127 @@
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#background{
+    background-image: url(https://storage.googleapis.com/hust-files/2021-11-15/5807675312963584/background-new-page_.9m.jpeg);
+    position: absolute;
+    background-size: cover;
+    background-position-y: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+
+.container {
+    display: flex;
+    width: 360px;
+    padding: 16px;
+    background-color: #f0f0f0;
+    margin: 0 auto;
+    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+img {
+    position: relative;
+    top: 12px;
+}
+
+form h2{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 290px !important;
+    height: 32px;
+    padding: 0 0;
+    margin: 12px 0;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    color: black;
+    font-size: 16px;
+}
+input[type="password"]{
+    margin-bottom: 30px;
+}
+
+input[type="email"]:focus, input[type="password"]:focus{
+    outline: none;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    position: relative;
+    width: 20px;
+    top: 3px;
+    left: 4px;
+}
+
+#rememberMeButton{
+    font-size: 14px;
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+}
+
+#forgotPassword{
+    margin-left: 100px;
+    font-size: 14px;
+    text-align: right;
+}
+
+#logIn {
+    background-color: #74b9ff;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.8;
+    font-size: 18px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+#logIn:hover {
+    opacity:1;
+}
+
+#signIn {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+a:link {
+    color: #46a3ff;
+}
+
+a:visited{
+    color: #46a3ff;
+}
+
+#result {
+    text-align: center;
+    margin-top: 12px;
+    color: rgba(157, 29, 31, 1);
+}
