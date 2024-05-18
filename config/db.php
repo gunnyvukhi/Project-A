@@ -1,25 +1,15 @@
 <?php
 
-class DB extends PDO
-{
-    // confing database
-    private $hostName = 'localhost';
-    
-    private $dbName = 'project_a';
+class DB {
+    private static $instance = NULL;
 
-    private $user = 'root';
+    private function __construct() {}
 
-    private $pass = '';
-
-    public function __construct()
-    {
-        
-        try {
-            parent::__construct("mysql: host=". $this->hostName ."; dbname=".$this->dbName.";", $this->user, $this->pass);
-            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die($e->getMessage());
+    public static function getInstance() {
+        if (!isset(self::$instance)) {
+            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            self::$instance = new PDO('mysql:host=localhost;dbname=database', 'root', 'root', $pdo_options);
         }
+        return self::$instance;
     }
-
 }
