@@ -19,6 +19,9 @@
     z-index: -1;
 }
 
+/*                                 */
+/*           Form Đăng Nhập        */
+/*                                 */
 
 .container {
     display: flex;
@@ -45,8 +48,8 @@ form h2{
     margin-bottom: 16px;
 }
 
-input[type="email"], input[type="password"] {
-    width: 290px !important;
+input[type="email"], input[type="password"], input[type="text"] {
+    width: 290px;
     height: 32px;
     padding: 0 0;
     margin: 12px 0;
@@ -59,11 +62,11 @@ input[type="email"], input[type="password"] {
     color: black;
     font-size: 16px;
 }
-input[type="password"]{
+#loginContainer input[type="password"]{
     margin-bottom: 30px;
 }
 
-input[type="email"]:focus, input[type="password"]:focus{
+input:focus{
     outline: none;
 }
 
@@ -71,7 +74,7 @@ input[type="checkbox"] {
     cursor: pointer;
     position: relative;
     width: 20px;
-    top: 3px;
+    top: 1.5px;
     left: 4px;
 }
 
@@ -88,7 +91,7 @@ input[type="checkbox"] {
     text-align: right;
 }
 
-#logIn {
+.submitButton {
     background-color: #74b9ff;
     color: white;
     padding: 14px 20px;
@@ -102,11 +105,11 @@ input[type="checkbox"] {
     font-weight: 500;
 }
 
-#logIn:hover {
+.submitButton:hover {
     opacity:1;
 }
 
-#signIn {
+.otherChoice {
     margin-top: 16px;
     text-align: center;
     font-size: 14px;
@@ -124,4 +127,96 @@ a:visited{
     text-align: center;
     margin-top: 12px;
     color: rgba(157, 29, 31, 1);
+}
+
+/*                                 */
+/*           Form Đăng kí          */
+/*                                 */
+
+#SignInContainer {
+    input[id = "name"], input[id = "Email"], input[type="password"]{
+    width: 100%;
+}
+}
+
+#SignInContainer h2 {
+    margin-bottom: 8px;
+}
+
+input[id="mobileNo"]{
+    width: 50%;
+}
+
+input[id="national"]{
+    margin-left: 13%;
+    width: 35%;
+}
+
+#birthDateLabel{
+    font-size: 16px;
+    margin: 12px 0;
+    width: 18%;
+    color: gray;
+    text-align: left;
+}
+
+input[type="date"]{
+    width: 36%;
+    height: 24px;
+    margin: 12px 8px;
+    border: gray 1px solid;
+    border-radius: 4px;
+    text-align: center;
+}
+
+input[type="radio"]{
+    width: unset;
+    position: relative;
+    top: 3.2px;
+}
+
+#SignInContainer input[id="password"]{
+    margin-top: 8px;
+}
+
+
+#SignInContainer{
+    display: none;
+}
+
+/*                                 */
+/*       Form Quên mật khẩu        */
+/*                                 */
+
+#forgotPasswordMessage{
+    font-size: 14px  ;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#forgotPasswordContainer{
+    display: none;
+}
+
+#messageContainer{
+    width: 600px;
+    padding: 50px;
+    display: block;
+    border-radius: 20px;
+}
+
+#messageContainer h2{
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#passwordResult {
+    text-align: center;
+    margin-top: 12px;
+    color: rgba(157, 29, 31, 1);
+}
+
+#messageContainer{
+    display: none;
 }

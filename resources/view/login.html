@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/loginStyle.css" type="text/css">
-    <script lang="javascript" type="text/javascript" src="../js/login.js"></script>
 </head>
 
 <body>
@@ -17,24 +16,83 @@
     <div id="background"></div>
 
     <!-- thẻ chứa form Login -->
-    <div class="container loginContainer">
+    <div class="container" id="loginContainer">
         <form method="post" action="">
             <h2>Đăng nhập</h2>
             <!-- Email Login -->
             <label for="Email"><img src="../image/emailLogin.png" alt="Email"></label>
-            <input type="email" name="Email" id="Email" placeholder="Email">
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
             <!-- Password Login -->
             <label for="password"><img src="../image/passwordLogin.png" alt="Password"></label>
-            <input type="password" name="password" id="password" placeholder="Password"><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
             <!-- Remember Me Login -->
             <input type="checkbox" name="rememberMe" id="rememberMe">
             <button onclick="rememberMechecked()" id="rememberMeButton" type="button">Lưu mật khẩu</button>
             <!-- Forget Password -->
             <a href="#" id="forgotPassword">Quên mật khẩu</a>
             <!-- Submit -->
-            <button id="logIn" onclick="login()" type="submit">Đăng nhập</button>
+            <button class="submitButton" id="logInButton" onclick="login()" type="submit">Đăng nhập</button>
             <!-- Sign in -->
-            <p id="signIn">Chưa có tài khoản? <a href="#">Đăng kí</a></p>
+            <p class="otherChoice">Chưa có tài khoản? <a class="signIn" href="#">Đăng kí</a></p>
             <p id="result"></p>
         </form>
     </div>
+
+    <!-- thẻ chứa form Sign in -->
+    <div class="container" id="SignInContainer">
+        <form method="post" action="">
+            <h2>Đăng kí</h2>
+            <!-- Name Sign In -->
+            <input type="text" name="name" id="name" placeholder="Họ và tên" required>
+            <!-- Email đăng kí -->
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
+            <!-- Số điện thoại đăng kí -->
+            <input type="text" name="mobileNo" id="mobileNo" placeholder="Số điện thoại" required>
+            <!-- Quốc tịch đăng kí -->
+            <input type="text" name="national" id="national" placeholder="Quốc tịch" required>
+            <!-- Ngày sinh đăng kí -->
+            <label for="birthDate" id="birthDateLabel">Ngày sinh</label>
+            <input type="date" name="birthDate" id="birthDate" min="2004-01-01" required>
+            <!-- Giới tính đăng kí -->
+            <input type="radio" name="gender" id="nam" value="nam" required> <label for="nam">Nam</label>
+            <input type="radio" name="gender" id="nu" value="nu" required> <label for="nu">Nữ</label>
+            <!-- Password Sigh in -->
+            <input type="password" name="password" id="password" placeholder="Mật Khẩu" required>
+            <!-- Password Confirm Sigh in -->
+            <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Nhập lại mật khẩu" required>
+            <!-- Submit -->
+            <button class="submitButton" id="signInButton" onclick="" type="submit">Đăng kí</button>
+            <!-- Sign in -->
+            <p class="otherChoice">Đã có tài khoản? <a class="logIn" href="#">Đăng nhập</a></p>
+        </form>
+    </div>
+
+    <!-- thẻ chứa form quên mật khẩu -->
+    <div class="container" id="forgotPasswordContainer">
+        <form method="post" action="">
+            <h2>Forgot your password?</h2>
+            <p id="forgotPasswordMessage">Xin hãy nhập tài khoản Email của bạn để khôi phục mật khẩu</p>
+            <!-- Email Login -->
+            <label for="Email"><img src="../image/emailLogin.png" alt="Email"></label>
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
+
+            <!-- Submit -->
+            <button class="submitButton" id="forgotPasswordButton" onclick="afterForgotPassword()" type="submit">Khôi phục
+                mật khẩu</button>
+            <!-- Kết quả -->
+            <p id="passwordResult"></p>
+            <!-- Sign in -->
+            <p class="otherChoice">Chưa có tài khoản? <a class="signIn" href="#">Đăng kí</a></p>
+            <p class="otherChoice"><a class="logIn" href="#">Quay lại trang đăng nhập</a></p>
+        </form>
+    </div>
+
+    <!-- Sau khi khôi phục mật khẩu -->
+    <div class="container" id="messageContainer">
+            <h2>Chúng tôi đã gửi link khôi phục đến địa chỉ Email của bạn</h2><br>
+            <p class="otherChoice"><a class="logIn" href="#">Quay lại trang đăng nhập</a></p>
+    </div>
+
+    <script lang="javascript" type="text/javascript" src="../js/login.js"></script>
+</body>
+</html>
