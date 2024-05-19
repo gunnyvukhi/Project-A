@@ -7,7 +7,7 @@ function rememberMechecked() {
 // Nếu Login thất bại thì success = 0;
 let success = 1;
 function login() {
-    if ((!document.getElementById('Email').vaule) || (!document.getElementById('password').vaule)){
+    if ((!document.getElementById('Email').value) || (!document.getElementById('password').value)){
         success = 0;
     }
     if (!success) {
