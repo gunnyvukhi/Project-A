@@ -6,8 +6,7 @@ require_once 'config/db.php';
 
 class LoginController {
     public function login() {
-
-        //demo code
+        $check = 0;
         
         if (isset($_POST['submit'])) {
             $email = $_POST['Email'];
@@ -25,11 +24,18 @@ class LoginController {
                 echo "<script>success=1</script>";
                 header('Location: http://localhost/project-a/');
             } else {
-                echo "<script>success=0</script>";
+                echo "<script>document.getElementById('result').innerHTML = 'Sai tài khoản email hoặc mật khẩu';</script>";
+                $check = 1;
+
             }
         }
+        if($check) {
+            require_once 'resources/view/login.html';
+            echo "<script>document.getElementById('result').innerHTML = 'Sai tài khoản email hoặc mật khẩu';</script>";
+        }else{
+            require_once 'resources/view/login.html';
+        }
 
-        require_once 'resources/view/login.html';
     }
 
 

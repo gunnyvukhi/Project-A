@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 17, 2024 lúc 04:54 PM
+-- Thời gian đã tạo: Th5 20, 2024 lúc 05:16 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -156,6 +156,14 @@ CREATE TABLE `user_basic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `user_basic`
+--
+
+INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `create_at`) VALUES
+(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL),
+(2, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatan@gmail.com', '0336054243', '2024-05-01', 'nam', NULL);
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -230,6 +238,12 @@ ALTER TABLE `user_basic`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `activity_log`
+--
+ALTER TABLE `activity_log`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `address`
 --
 ALTER TABLE `address`
@@ -242,6 +256,12 @@ ALTER TABLE `friends`
   MODIFY `friend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300624;
 
 --
+-- AUTO_INCREMENT cho bảng `user_basic`
+--
+ALTER TABLE `user_basic`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
 
@@ -249,8 +269,8 @@ ALTER TABLE `friends`
 -- Các ràng buộc cho bảng `activity_log`
 --
 ALTER TABLE `activity_log`
-  ADD CONSTRAINT `activity_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`),
-  ADD CONSTRAINT `activity_log_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `friends` (`friend_id`);
+  ADD CONSTRAINT `activity_log_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `friends` (`friend_id`),
+  ADD CONSTRAINT `activity_log_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
 
 --
 -- Các ràng buộc cho bảng `address`
@@ -259,23 +279,10 @@ ALTER TABLE `address`
   ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `user_about` (`address_id`);
 
 --
--- Các ràng buộc cho bảng `events`
---
-ALTER TABLE `events`
-  ADD CONSTRAINT `fk_Events_User_basic1` FOREIGN KEY (`Invitees_Userid`) REFERENCES `user_basic` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_Events_User_basic2` FOREIGN KEY (`Going_Userid`) REFERENCES `user_basic` (`User_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Các ràng buộc cho bảng `friends`
 --
 ALTER TABLE `friends`
   ADD CONSTRAINT `friends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
-
---
--- Các ràng buộc cho bảng `pages`
---
-ALTER TABLE `pages`
-  ADD CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
 
 --
 -- Các ràng buộc cho bảng `photos`
@@ -284,18 +291,17 @@ ALTER TABLE `photos`
   ADD CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
 
 --
+-- Các ràng buộc cho bảng `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
+
+--
 -- Các ràng buộc cho bảng `user_about`
 --
 ALTER TABLE `user_about`
   ADD CONSTRAINT `fk_User_about_Address1` FOREIGN KEY (`address_id`) REFERENCES `address` (`Address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_about_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
-
---
--- Các ràng buộc cho bảng `user_basic`
---
-ALTER TABLE `user_basic`
-  ADD CONSTRAINT `user_basic_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_about` (`User_id`),
-  ADD CONSTRAINT `user_basic_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `posts` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
