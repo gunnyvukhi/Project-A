@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loginStyle.css" type="text/css">
+</head>
+
+<body>
+    <!-- thẻ chứa background -->
+    <div id="background"></div>
+
+    <!-- thẻ chứa form Sign in -->
+    <div class="container" id="SignInContainer">
+        <form method="post" action="">
+            <h2>Đăng kí</h2>
+            <!-- Name Sign In -->
+            <input type="text" name="name" id="name" placeholder="Họ và tên" required>
+            <!-- Email đăng kí -->
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
+            <!-- Số điện thoại đăng kí -->
+            <input type="text" name="mobileNo" id="mobileNo" placeholder="Số điện thoại" required>
+            <!-- Quốc tịch đăng kí -->
+            <input type="text" name="national" id="national" placeholder="Quốc tịch" required>
+            <!-- Ngày sinh đăng kí -->
+            <label for="birthDate" id="birthDateLabel">Ngày sinh</label>
+            <input type="date" name="birthDate" id="birthDate" min="2004-01-01" required>
+            <!-- Giới tính đăng kí -->
+            <input type="radio" name="gender" id="nam" value="nam" required> <label for="nam">Nam</label>
+            <input type="radio" name="gender" id="nu" value="nu" required> <label for="nu">Nữ</label>
+            <!-- Password Sigh in -->
+            <input type="password" name="password" id="password" placeholder="Mật Khẩu" required>
+            <!-- Password Confirm Sigh in -->
+            <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Nhập lại mật khẩu" required>
+            <!-- Submit -->
+            <button class="submitButton" id="signInButton" onclick="" type="submit">Đăng kí</button>
+            <!-- Sign in -->
+            <p class="otherChoice">Đã có tài khoản? <a class="logIn" href="./login.html">Đăng nhập</a></p>
+        </form>
+    </div>
+    <script lang="javascript" type="text/javascript" src="../js/login.js"></script>
+
+</body>
+</html>
