@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/loginStyle.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/loginStyle.css" type="text/css">
 </head>
 
 <body>
@@ -20,23 +20,23 @@
         <form method="post" action="">
             <h2>Đăng nhập</h2>
             <!-- Email Login -->
-            <label for="Email"><img src="../image/emailLogin.png" alt="Email"></label>
+            <label for="Email"><img src="resources/image/emailLogin.png" alt="Email"></label>
             <input type="email" name="Email" id="Email" placeholder="Email" required>
             <!-- Password Login -->
-            <label for="password"><img src="../image/passwordLogin.png" alt="Password"></label>
+            <label for="password"><img src="resources/image/passwordLogin.png" alt="Password"></label>
             <input type="password" name="password" id="password" placeholder="Password" required><br>
             <!-- Remember Me Login -->
             <input type="checkbox" name="rememberMe" id="rememberMe">
             <button onclick="rememberMechecked()" id="rememberMeButton" type="button">Lưu mật khẩu</button>
             <!-- Forget Password -->
-            <a href="./forgotPassword.html" id="forgotPassword">Quên mật khẩu</a>
+            <a href="resources/forgotPassword.html" id="forgotPassword">Quên mật khẩu</a>
             <!-- Submit -->
-            <button class="submitButton" id="logInButton" onclick="login()" type="submit">Đăng nhập</button>
+            <button class="submitButton" id="logInButton" onclick="login()" type="submit" name="submit">Đăng nhập</button>
             <!-- Sign in -->
-            <p class="otherChoice">Chưa có tài khoản? <a class="signIn" href="./signIn.html">Đăng kí</a></p>
+            <p class="otherChoice">Chưa có tài khoản? <a class="signIn" href="./signIn">Đăng kí</a></p>
             <p id="result"></p>
         </form>
     </div>
-    <script lang="javascript" type="text/javascript" src="../js/login.js"></script>
+    <script lang="javascript" type="text/javascript" src="resources/js/login.js"></script>
 </body>
 </html>

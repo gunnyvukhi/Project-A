@@ -27,7 +27,7 @@
             $login = new LoginController();
             $login->login();
             break;
-        case 'register':
+        case 'signIn':
             require_once 'app/controller/auth/registerController.php';
             $register = new RegisterController();
             $register->register();

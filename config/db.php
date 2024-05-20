@@ -7,7 +7,7 @@ class DB extends PDO
     // confing database
     private $hostName = 'localhost';
     
-    private $dbName = 'project-a';
+    private $dbName = 'project_a';
 
     private $user = 'root';
 
