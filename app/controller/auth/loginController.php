@@ -35,7 +35,6 @@ class LoginController {
         }else{
             require_once 'resources/view/login.html';
         }
-
     }
 
 

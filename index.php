@@ -4,6 +4,7 @@
     require_once 'app/controller/homeController.php';
     require_once 'app/controller/auth/loginController.php';
     require_once 'app/controller/auth/registerController.php';
+    require_once 'app/controller/auth/forgotPasswordController.php';
 
 
 
@@ -31,6 +32,14 @@
             require_once 'app/controller/auth/registerController.php';
             $register = new RegisterController();
             $register->register();
+            break;
+        case 'forgotPassword':
+            require_once 'app/controller/auth/forgotPasswordController.php';
+            $forgotPassword = new ForgotPasswordController();
+            $forgotPassword->forgotPassword();
+            break;
+        case 'forgetPasswordResult':
+            require_once 'resources/view/forgetPasswordResult.html';
             break;
         default:
             echo "404 Not Found";
