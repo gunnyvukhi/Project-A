@@ -1,0 +1,199 @@
+* {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header {
+    width: 100vw;
+    height: 64px;
+    position: fixed;
+    z-index: 10;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #ffffff;
+}
+
+#backgorund {
+  background-color: #F0F2F5;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -99;
+}
+header *{
+  margin: 8px;
+  position: fixed;
+  z-index: 99;
+}
+
+/*                                 */
+/*               logo              */
+/*                                 */
+
+a[alt="Youcie"]{
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  border-radius: 24px;
+  left: 8px;
+}
+
+#logo {
+  height: 48px;
+  margin: 0px;
+  border-radius: 24px;
+}
+
+/*                                 */
+/*            Tìm kiếm             */
+/*                                 */
+
+.searchContainer{
+  background-color: #F0F2F5;
+  width: 240px;
+  height: 48px;
+  margin: 8px;
+  border-radius: 24px;
+  left: 72px;
+  label{
+    width: 240px;
+    height: 48px;
+    margin: 0px;
+    border-radius: 24px;
+    cursor:text;
+  }
+  img{
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+    z-index: 99;
+  }
+  input{
+    width: 192px;
+    height: 48px;
+    border-radius: 24px;
+    left: 128px;
+    margin: 0px;
+    text-align: start;
+    background-color: #F0F2F5;
+    z-index: 10;
+    border: none;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  input:focus{
+    outline: none;
+  }
+}
+
+
+/*                                 */
+/*        Chọn Page ở giữa         */
+/*                                 */
+
+.allSection{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  left: 444px;
+  list-style: none;
+  height: 64px;
+  margin: 0;
+  justify-content: center;
+}
+
+.allSection a{
+  width: 280px;
+  height: 56px;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.currentSection{
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: 56px;
+}
+
+.currentSection:hover{
+  border-radius: 12px;
+  background-color: rgba(169, 169, 169, 0.15);
+}
+
+#mainPage{
+  left: 454px;
+}
+
+.currentSection img{
+  width: 40px;
+  margin: 8px;
+  /* color: #4D4D4D */
+}
+
+#watchPage{
+  left: 754px;
+}
+
+/*                                 */
+/*          Nemu bên phải          */
+/*                                 */
+
+.allNemuContainer{
+  width: 200px;
+  height: 56px;
+  right: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+  list-style: none;
+  margin: 0;
+}
+
+.nemu{
+  width: 48px;
+  height: 48px;
+}
+
+.nemu a{
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  border:black solid 1.6px;
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  img{
+    width: 32px;
+  }
+}
+
+#profile{
+    right: 36px;
+    img{
+      right: 44px;
+    }
+}
+
+#notification{
+  right: 100px;
+  img{
+    right: 108px;
+  }
+}
+
+#message{
+  right: 164px;
+  img{
+    right: 172px;
+  }
+}
