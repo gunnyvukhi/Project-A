@@ -51,7 +51,7 @@
             <p></p>
             <a name="" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa chi tiết</a>
         </div>
-        <div id="Post" class="ProfilePart2">
+        <div id="Profile_Post" class="ProfilePart2">
             <div id="NewPost" class="ProfilePost">
                 <img src="resources/image/avatar.jpg" id="NewPost_Avatar" class="NewPost_Avatar" alt="">
                 <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
