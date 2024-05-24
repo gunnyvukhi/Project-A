@@ -5,6 +5,23 @@ var current=document.getElementById('mainPage');
 current.classList.remove('currentSection', 'selectSection');
 current.classList.add('currentSection');
 
+document.getElementById('newPostFileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var preview = document.getElementById('previewNewPostFile');
+    var buttonImportFile = document.getElementById('selectFileForNewPost');
 
+        preview.innerHTML = '';
+        buttonImportFile.style.display = 'none';
+    var img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    img.style.width = '468px';
+    img.style.display = 'block';
+    img.style.borderRadius = '24px'
+    preview.appendChild(img);
+});
+
+function importFile(){
+    document.getElementById('newPostFileInput').click();
+}
 
 
