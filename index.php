@@ -38,6 +38,10 @@
             $forgotPassword = new ForgotPasswordController();
             $forgotPassword->forgotPassword();
             break;
+        case 'mainPage':
+            require_once 'resources\view\mainPage.php';
+            break;
+
         case 'forgetPasswordResult':
             require_once 'resources/view/forgetPasswordResult.html';
             break;

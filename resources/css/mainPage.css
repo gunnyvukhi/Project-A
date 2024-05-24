@@ -1,0 +1,130 @@
+body{
+    background-color: #F0F2F5;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*                              */
+/*         Khu vực chính        */
+/*                              */
+
+#mainContentMidContainer{
+    width: 600px;
+    height: 100vh !important;
+    position: absolute !important;
+    top: 80px;
+    left: 444px;
+    border-radius: 24px;
+    .postContainer{
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        z-index: 2;
+        width: 600px;
+        height: fit-content;
+        border-radius: 24px;
+        background-color: #ffffff;
+        box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 16px;
+    }
+}
+
+#addNewPost{
+    width: 600px;
+    display: flex;
+    border-bottom: #e1e2e3 solid 1px;
+    padding-bottom: 16px;
+    a{
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+    };
+    img{
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+    };
+
+    input[id="newPostCaptions"]{
+        height: 40px;
+        margin: 0px;
+        margin-left: 8px;
+        border: none;
+        border-radius: 24px;
+        width: 520px;
+        background-color: #e1e2e3;
+        font-size: 16px;
+        text-indent: 16px;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    input[id="newPostCaptions"]:hover{
+        opacity: 2;
+    }
+}
+
+.newPostOtherOption{
+    width: 600px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    button{
+        width: 176px;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 600;
+        height: 40px;
+        border: none;
+        margin-top: 16px;
+        border-radius: 12px;
+        color: rgb(104, 104, 104);
+        background-color: #ffffff;
+        cursor: pointer;
+        text-align: center;
+        text-indent: 24px;
+        img{
+            width: 24px; height: 24px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            transform: translate(-32px,-4px);
+        }
+
+    }
+    button:hover{
+        background-color: rgba(169, 169, 169, 0.15);
+    }
+}
+
+/*                              */
+/*         Khu vực phải         */
+/*                              */
+#mainContentRightContainer{
+    width: 320px;
+    height: 100vh !important;
+    border: solid 1px black !important;
+    position: absolute !important;
+    top: 80px;
+    right: 8.8px;
+    border-radius: 24px;
+}
+
+/*                              */
+/*         Khu vực trái         */
+/*                              */
+#mainContentLeftContainer{
+    width: 320px;
+    height: 100vh !important;
+    border: solid 1px black !important;
+    position: absolute !important;
+    top: 80px;
+    left: 8.8px;
+    border-radius: 24px;
+}
