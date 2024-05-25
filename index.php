@@ -1,11 +1,33 @@
-<?php 
+<?php
+    
+    ini_set('session.use_only_cookie' , TRUE);
+    ini_set('session.use_strict_mode' , TRUE);
+
+    session_set_cookie_params([
+        'lifetime' => 1800,
+        "domain" => "localhost",
+        "path" => "/",
+        "secure" => TRUE,
+        "httpOnly" => TRUE
+    ]);
+    
     session_start();
+
+    if (!isset($_SESSION['lastGenerated'])) {
+        session_regenerate_id(TRUE);
+        $_SESSION['lastGenerated'] = time();
+    } else {
+        $lastTime = 60 * 60 * 24;
+        if (time() - $_SESSION['lastGenerated'] >= $lastTime) {
+            session_regenerate_id(TRUE);
+            $_SESSION['lastGenerated'] = time();
+        }
+    }
 
     require_once 'app/controller/homeController.php';
     require_once 'app/controller/auth/loginController.php';
     require_once 'app/controller/auth/registerController.php';
     require_once 'app/controller/auth/forgotPasswordController.php';
-
 
 
 

@@ -1,7 +1,7 @@
-<?php include "header.html";
+<?php include "header.php";
 $userName = "user";
 $avatarLink = 'resources/image/demoPersonIcon.png'
-    ?>
+?>
 
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 
