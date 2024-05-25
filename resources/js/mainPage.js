@@ -20,8 +20,14 @@ document.getElementById('newPostFileInput').addEventListener('change', function(
     preview.appendChild(img);
 });
 
+
+function openNewPostForm(){
+    document.getElementById('modalBackGround').style.display = 'block';
+};
+function closeNewPostForm() {
+    document.getElementById('modalBackGround').style.display = 'none';
+};
+
 function importFile(){
     document.getElementById('newPostFileInput').click();
-}
-
-
+};
