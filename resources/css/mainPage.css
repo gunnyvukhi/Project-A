@@ -19,19 +19,87 @@ body{
     top: 80px;
     left: 444px;
     border-radius: 24px;
-    .postContainer{
-        display: flex !important;
-        flex-direction: row;
-        flex-wrap: wrap;
-        z-index: 2;
-        width: 600px;
+}
+
+.postContainer{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 2;
+    width: 600px;
+    height: fit-content;
+    border-radius: 24px;
+    background-color: #ffffff;
+    box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    margin-bottom: 16px;
+    .nameTimeContainer{
+        width: 520px;
+        height: 40px;
+        margin-left: 8px;
+    }
+    .userName{
+        width: fit-content;
         height: fit-content;
-        border-radius: 24px;
-        background-color: #ffffff;
-        box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        padding: 16px;
+        font-size: 20px;
+        text-align: left;
+    }
+    .timePosted{
+        width: fit-content;
+        height: fit-content;
+        font-size: 12px;
+        text-align: left;
+        color: rgb(136, 136, 136);
+        font-weight: 500;
+    }
+
+    .contentContainer{
+        width: 568px;
+        height: fit-content;
+        .postCaption{
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        .postPhoto{
+            width: 568px;
+            border-radius: 12px;
+        }
+    }
+    .LikeShareContainer{
+        margin-top: 8px;
+        padding-top: 8px;
+        width: 568px;
+        border-top: #e1e2e3 solid 1px;
+        display: flex;
+        justify-content: space-evenly;
+        .LikeShareButton{
+            margin: 0px;
+            width: 176px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 16px;
+            text-indent: 16px;
+            font-weight: 600;
+            background-color: #ffffff;
+            color: rgb(104, 104, 104);
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            img{
+                width: 24px;
+                position: absolute;
+                transform: translate(-28px, -5.6px);
+            }
+        }
+        .LikeShareButton:hover{
+            background-color: rgba(169, 169, 169, 0.15);
+        }
+        .LikeShareButton:active{
+            background-color: rgba(169, 169, 169, 0.3);
+        }
     }
 }
+
 
 #addNewPost{
     width: 600px;
@@ -48,6 +116,7 @@ body{
         background-color: #e1e2e3;
         font-size: 16px;
         text-indent: 16px;
+        text-align: left;
         cursor: pointer;
         opacity: 0.8;
     }
@@ -104,6 +173,9 @@ body{
     }
     button:hover{
         background-color: rgba(169, 169, 169, 0.15);
+    }
+    button:active{
+        background-color: rgba(169, 169, 169, 0.3);
     }
 }
 

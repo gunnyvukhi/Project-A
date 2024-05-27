@@ -31,3 +31,25 @@ function closeNewPostForm() {
 function importFile(){
     document.getElementById('newPostFileInput').click();
 };
+
+function deleteCreatingPost(){
+    document.getElementById('newPostFileInput').value = ''
+    document.getElementById('newPostCaption').value = ''
+    document.getElementById('newPostPrivacy').value = ''
+    document.getElementById('previewNewPostFile').innerHTML = ''
+    document.getElementById('selectFileForNewPost').style.display = 'block'
+    document.getElementById('modalBackGround').style.display = 'none';
+};
+
+var pressed = 1;
+function LikeButton(){
+    if (pressed % 2 == 1) {
+        document.getElementById('likeButton').style.color = '#46A3FF';
+        document.getElementById('likeButtonImg').src = 'resources/image/likeIcon2.png';
+    } else {
+        console.log(pressed);
+        document.getElementById('likeButton').style.color = '#686868';
+        document.getElementById('likeButtonImg').src = 'resources/image/likeIcon1.png';
+    }
+    pressed = pressed + 1;
+}
