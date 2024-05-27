@@ -32,7 +32,7 @@
     z-index: 8;
     left: 50px;
     top: 500px;
-    
+
 }
 
 #icon2 {
@@ -48,7 +48,7 @@
     left: 325px;
     top: 630px;
     font-size: 30px;
-}   
+}
 
 .outside {
     width: 80%;
@@ -58,29 +58,20 @@
     border-bottom: 0.75px solid #E4E6EB;
 }
 
-/* #themtin {
-    position: absolute;
-    right: 430px;
-    top: 690px;
-}
 
-#chinhsua {
-    position: absolute;
-    right: 200px;
-    top: 690px;
-} */
 
-#Profile_Header_Button{
+#Profile_Header_Button {
     position: relative;
     top: 30px;
     right: 50px;
 }
 
-#Profile_Header_themtin{
+#Profile_Header_themtin {
     position: absolute;
     right: 250px;
 }
-#Profile_Header_chinhsua{
+
+#Profile_Header_chinhsua {
     position: absolute;
     right: 0px;
 }
@@ -91,13 +82,14 @@
     width: 90%;
 }
 
-ul,li {
+ul,
+li {
     display: inline-block;
     justify-content: space-around;
     padding-right: 15px;
 }
 
-#Decription{
+#Decription {
     position: absolute;
     left: 50px;
     top: 840px;
@@ -109,87 +101,77 @@ ul,li {
     padding-bottom: 10px;
 }
 
-#gioithieu{
+#gioithieu {
     padding-left: 15px;
     font-size: 25px;
     text-align: left;
 }
 
-#nickname{
-    
+#nickname {
+
     font-size: 20px;
 }
 
 
 
-#Profile2{
+#Profile2 {
     display: flexbox;
     width: 90%;
-  
+
 }
 
 
 
-#Profile_Post{
+#Profile_Post {
     width: 60%;
     left: 40%;
     position: relative;
 
 }
 
-/* #Profile_NewPost{
-    border-radius: 24px;
-    border: 1px solid #E4E6EB;
-    height: 100px;
-}
-
-#NewPost_avatar{
-    position: absolute;
-    display: flex;
-}
-
-#NewPost_text{
-    position: absolute;
-    left: 100px;
-    top: 20px;
-} */
 
 
-#Decription_gioithieu{
+
+#Decription_gioithieu {
     text-align: left;
     margin-left: 50px;
     font-size: 29px;
 }
 
-#PostList1{
+#PostList1 {
     display: block;
     justify-content: space-around;
     margin-top: 20px;
     border-radius: 24px;
     border: 1px solid #E4E6EB;
 }
-#PostList1_Header{
+
+#PostList1_Header {
     width: 100wh;
     height: 50px;
-    
+
 }
-#PostList1_Avatar{
+
+#PostList1_Avatar {
     position: absolute;
     display: flex;
     top: 8px;
     margin-left: 30px;
 }
-.PostList_Avatar{
+
+.PostList_Avatar {
     width: 25px;
     height: 25px;
 }
-#PostList1_Name{
+
+#PostList1_Name {
     position: absolute;
     left: 60px;
     top: 8px;
     font-size: 15px;
 }
-#PostList1_EditButton{
+
+#PostList1_EditButton {
     position: absolute;
     right: 30px;
     top: 5px;
@@ -197,16 +179,16 @@ ul,li {
     border: none;
 }
 
-.PostList_Content_Text{
+.PostList_Content_Text {
     margin-left: 30px;
 }
 
-.PostList_Content_Image{
+.PostList_Content_Image {
     width: 100%;
     height: 100%;
 }
 
-.PostList_Button{
+.PostList_Button {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
@@ -214,17 +196,17 @@ ul,li {
     border-bottom: solid 0.75px #E4E6EB;
 }
 
-.PostList_Button_Detail{
+.PostList_Button_Detail {
     border: none;
 }
 
-.PostList_Comment{
+.PostList_Comment {
     margin-left: 15px;
     min-height: 35px;
     margin-top: 5px;
 }
 
-.PostList_Comment_Input{
+.PostList_Comment_Input {
     border-radius: 24px;
     border: 0.75px solid #E4E6EB;
     width: 90%;
