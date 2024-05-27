@@ -9,7 +9,6 @@ class HomeController {
         $PostModel = new PostModel();
         $data = $PostModel->getAllPost();
 
-
         
         require_once 'resources\view\mainPage.php';
     }
