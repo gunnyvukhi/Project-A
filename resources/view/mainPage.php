@@ -71,7 +71,7 @@ $avatarLink = 'resources/image/demoPersonIcon.png';
 
 
 <div id="mainContentRightContainer">
-
+    <?php var_dump($data) ?>
 </div>
 
 <div id="mainContentLeftContainer">
