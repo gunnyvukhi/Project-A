@@ -45,6 +45,9 @@
         case 'forgetPasswordResult':
             require_once 'resources/view/forgetPasswordResult.html';
             break;
+        case 'Profile':
+            require_once 'resources/view/Profile.php';
+            break; 
         default:
             echo "404 Not Found";
             break;

@@ -24,8 +24,10 @@
                 <img src="resources/image/avatar.jpg" id="avatar" class="img-thumbnail" alt="">
                 <i id="icon2" class="fa fa-camera" style="font-size:24px"></i>
                 <h2 class="name">Project-A</h2>
-                <a name="" id="themtin" class="btn btn-primary" href="#" role="button">Thêm vào tin</a>
-                <a name="" id="chinhsua" class="btn btn-primary" href="#" role="button">Chỉnh sửa trang cá nhân</a>
+                <div id="Profile_Header_Button" class="Profile_Header_Button">
+                    <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i>  Thêm vào tin</a>
+                    <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil" aria-hidden="true"></i>  Chỉnh sửa trang cá nhân</a>
+                </div>
             </div>
             <div class="Profile__header__menu" id="Profile__header__menu">
                 <ul>
@@ -35,7 +37,6 @@
                     <li>Bạn bè</li>
                     <li>Video</li>
                     <li>Xem thêm</li>
-                    <a name="" id="" class="btn btn-primary" href="#" role="button"></a>
                 </ul>
             </div>
         </div>
@@ -45,31 +46,59 @@
 
     <div id="Profile2" class="Profile2">
         <div id="Decription" class="ProfilePart2">
-            <p id="gioithieu">Giới thiệu</p>
-            <p id="nickname">Dien tu vien thong</p>
-            <a name="" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa tiểu sử</a>
-            <p></p>
-            <a name="" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa chi tiết</a>
+            <p id="Decription_gioithieu">Giới thiệu</p>
+            <p id="Decription_nickname">Dien tu vien thong</p>
+            <a name="Decription_Edit" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa tiểu sử</a>
+            <p id="Decription_Address" class="Decription_Detail">
+                <i class="fa fa-map-marker" aria-hidden="true"> Hà Nội </i>
+            </p>
+            <p id="Decription_Relationship" class="Decription_Detail">
+                <i class="fa fa-heart" aria-hidden="true"></i> Độc thân
+            </p>
+            <p id="Decription_Ig" class="Decription_Detail">
+                <i class="fa fa-instagram" aria-hidden="true"> dang___minh</i>
+            </p>
+            <a name="Decription_EditDetail" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa chi tiết</a>
         </div>
         <div id="Profile_Post" class="ProfilePart2">
-            <div id="NewPost" class="ProfilePost">
+            <!-- <div id="Profile_NewPost" class="ProfilePost">
                 <img src="resources/image/avatar.jpg" id="NewPost_Avatar" class="NewPost_Avatar" alt="">
                 <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
-            </div>
+            </div> -->
             <div id="PostList" class="ProfilePost">
-                <div id="PostList1" class="PostList">
-                    <img src="resources/image/avatar.jpg" id="PostList1_Avatar" class="PostList_Avatar" alt="">
-                    <p id="PostList1_Name" class="PostList_Name">Project-A</p>
-                </div>
+                <!-- <div id="PostList1" class="PostList">
+                    <div id="PostList1_Header" class="PostList_Header">
+                        <img src="resources/image/avatar.jpg" id="PostList1_Avatar" class="PostList_Avatar" alt="">
+                        <p id="PostList1_Name" class="PostList_Name">Project-A
+                            <span>đã cập nhật trạng thái</span>
+                        </p>
+                        <button id="PostList1_EditButton" class="PostList_Button">...</button>
+                    </div>
+                    <div id="PostList1_Content" class="PostList_Content">
+                        <p id="PostList1_Content_Text" class="PostList_Content_Text">Hello</p>
+                        <img src="resources/image/bia.jpg" id="PostList1_Content_Image" class="PostList_Content_Image" alt="">
+                    </div>
+                    <div id="PostList1_Footer" class="PostList_Footer">
+                        <div id="PostList1_Button" class="PostList_Button">
+                            <button id="PostList1_Like" class="PostList_Button_Detail">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"> 100</i>
+                            </button>
+                            <button id="PostList1_Comment" class="PostList_Button_Detail">
+                                <i class="fa fa-comment" aria-hidden="true"> 100</i>
+                            </button>
+                            <button id="PostList1_Share" class="PostList_Button_Detail">
+                                <i class="fa fa-share" aria-hidden="true"> 100</i>
+                            </button>
+                        </div>
+                        <div id="PostList1_Comment" class="PostList_Comment">
+                            <img src="resources/image/avatar.jpg" id="PostList1_Comment_Avatar" class="PostList_Avatar" alt="">
+                            <input type="text" id="PostList1_Comment_Input" class="PostList_Comment_Input" placeholder="    Viết bình luận">
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
-
-
-
-
-
-
 </body>
 
 </html>
