@@ -1,4 +1,4 @@
-<?php include_once 'header.php'; ?>
+<?php include_once 'header.html'; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/Profile.css">
-    <link rel="stylesheet" href="resources/css/mainPage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -42,35 +41,6 @@
             </div>
         </div>
     </div>
+    <div>
 
-
-
-    <div id="Profile2" class="Profile2">
-        <div id="Decription" class="ProfilePart2">
-            <p id="Decription_gioithieu">Giới thiệu</p>
-            <p id="Decription_nickname">Dien tu vien thong</p>
-            <a name="Decription_Edit" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa tiểu sử</a>
-            <p id="Decription_Address" class="Decription_Detail">
-                <i class="fa fa-map-marker" aria-hidden="true"> Hà Nội </i>
-            </p>
-            <p id="Decription_Relationship" class="Decription_Detail">
-                <i class="fa fa-heart" aria-hidden="true"></i> Độc thân
-            </p>
-            <p id="Decription_Ig" class="Decription_Detail">
-                <i class="fa fa-instagram" aria-hidden="true"> dang___minh</i>
-            </p>
-            <a name="Decription_EditDetail" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa chi tiết</a>
-        </div>
-        <div id="Profile_Post" class="ProfilePart2">
-            <!-- <div id="Profile_NewPost" class="ProfilePost">
-                <img src="resources/image/avatar.jpg" id="NewPost_Avatar" class="NewPost_Avatar" alt="">
-                <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
-            </div> -->
-            <div id="PostList" class="ProfilePost">
-                <?php include_once 'postedList.php' ?>  
-            </div>
-        </div>
     </div>
-</body>
-
-</html>
