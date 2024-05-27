@@ -18,6 +18,7 @@ document.getElementById('newPostFileInput').addEventListener('change', function(
     img.style.display = 'block';
     img.style.borderRadius = '24px'
     preview.appendChild(img);
+    document.getElementById('deleteFileForNewPost').style.display = 'block'
 });
 
 
@@ -33,13 +34,21 @@ function importFile(){
 };
 
 function deleteCreatingPost(){
-    document.getElementById('newPostFileInput').value = ''
+    document.getElementById('newPostFileInput').value = '';
     document.getElementById('newPostCaption').value = ''
     document.getElementById('newPostPrivacy').value = ''
     document.getElementById('previewNewPostFile').innerHTML = ''
     document.getElementById('selectFileForNewPost').style.display = 'block'
     document.getElementById('modalBackGround').style.display = 'none';
 };
+
+function deleteFile() {
+    document.getElementById('previewNewPostFile').innerHTML = ''
+    document.getElementById('selectFileForNewPost').style.display = 'block'
+    document.getElementById('newPostFileInput').value = ''
+    document.getElementById('deleteFileForNewPost').style.display = 'none'
+
+}
 
 var pressed = 1;
 function LikeButton(){
