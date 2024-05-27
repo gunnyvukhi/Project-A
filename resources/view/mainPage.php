@@ -1,7 +1,7 @@
 <?php include "header.php";
-$userName = $_SESSION['userName']  ;
+$userName = $_SESSION['userName'] ;
 $avatarLink = 'resources/image/demoPersonIcon.png';
-    ?>
+?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
 
@@ -10,11 +10,7 @@ $avatarLink = 'resources/image/demoPersonIcon.png';
     <div class="newPostForm">
         <button type="button" id="closeNewPostForm" onclick="closeNewPostForm()">&times;</button>
         <h2>Tạo bài viết</h2>
-<<<<<<< HEAD
-        <form method="post" action="" enctype="multipart/form-data">
-=======
         <form method="post" action="createPost" enctype="multipart/form-data" >
->>>>>>> b1c02c70d8e179b0c622e21d14b336842e4195ff
             <div class="postHead">
                 <!-- phần avatar -->
                 <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>'; ?>
@@ -74,11 +70,12 @@ $avatarLink = 'resources/image/demoPersonIcon.png';
 
 
 <div id="mainContentRightContainer">
-    <?php var_dump($data) ?>
+    
 </div>
 
 <div id="mainContentLeftContainer">
-
+<?php var_dump($data);
+?>
 </div>
 
 <script>

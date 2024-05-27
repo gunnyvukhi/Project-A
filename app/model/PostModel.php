@@ -19,7 +19,6 @@ class PostModel{
         $db = $db->query($sql);
         // chage to json
         $db = $db->fetchAll(PDO::FETCH_ASSOC);
-        $db = json_encode($db);
         return $db;
     }
 }
