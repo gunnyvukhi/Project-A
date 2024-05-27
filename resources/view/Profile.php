@@ -67,36 +67,7 @@
                 <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
             </div> -->
             <div id="PostList" class="ProfilePost">
-                <!-- <div id="PostList1" class="PostList">
-                    <div id="PostList1_Header" class="PostList_Header">
-                        <img src="resources/image/avatar.jpg" id="PostList1_Avatar" class="PostList_Avatar" alt="">
-                        <p id="PostList1_Name" class="PostList_Name">Project-A
-                            <span>đã cập nhật trạng thái</span>
-                        </p>
-                        <button id="PostList1_EditButton" class="PostList_Button">...</button>
-                    </div>
-                    <div id="PostList1_Content" class="PostList_Content">
-                        <p id="PostList1_Content_Text" class="PostList_Content_Text">Hello</p>
-                        <img src="resources/image/bia.jpg" id="PostList1_Content_Image" class="PostList_Content_Image" alt="">
-                    </div>
-                    <div id="PostList1_Footer" class="PostList_Footer">
-                        <div id="PostList1_Button" class="PostList_Button">
-                            <button id="PostList1_Like" class="PostList_Button_Detail">
-                                <i class="fa fa-thumbs-up" aria-hidden="true"> 100</i>
-                            </button>
-                            <button id="PostList1_Comment" class="PostList_Button_Detail">
-                                <i class="fa fa-comment" aria-hidden="true"> 100</i>
-                            </button>
-                            <button id="PostList1_Share" class="PostList_Button_Detail">
-                                <i class="fa fa-share" aria-hidden="true"> 100</i>
-                            </button>
-                        </div>
-                        <div id="PostList1_Comment" class="PostList_Comment">
-                            <img src="resources/image/avatar.jpg" id="PostList1_Comment_Avatar" class="PostList_Avatar" alt="">
-                            <input type="text" id="PostList1_Comment_Input" class="PostList_Comment_Input" placeholder="    Viết bình luận">
-                        </div>
-                    </div>
-                </div> -->
+                <?php include_once 'postedList.php' ?>  
             </div>
         </div>
     </div>

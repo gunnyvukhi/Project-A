@@ -10,11 +10,8 @@ $avatarLink = 'resources/image/demoPersonIcon.png';
     <div class="newPostForm">
         <button type="button" id="closeNewPostForm" onclick="closeNewPostForm()">&times;</button>
         <h2>Tạo bài viết</h2>
-<<<<<<< HEAD
         <form method="post" action="" enctype="multipart/form-data">
-=======
         <form method="post" action="createPost" enctype="multipart/form-data" >
->>>>>>> b1c02c70d8e179b0c622e21d14b336842e4195ff
             <div class="postHead">
                 <!-- phần avatar -->
                 <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>'; ?>

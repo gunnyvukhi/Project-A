@@ -1,5 +1,7 @@
 <?php
     $id = '';
+    $userName = $_SESSION['userName'];
+    $avatarLink = 'resources\image\demoPersonIcon.png';
     $timePosted = '2 hours ago';
     $caption = 'Trum Da Den';
     $photo = 'resources\image\bia.jpg';
