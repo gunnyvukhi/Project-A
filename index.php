@@ -1,8 +1,9 @@
 <?php
     
+    
     ini_set('session.use_only_cookie' , TRUE);
     ini_set('session.use_strict_mode' , TRUE);
-
+    
     session_set_cookie_params([
         'lifetime' => 1800,
         "domain" => "localhost",
@@ -62,6 +63,12 @@
             break;
         case 'mainPage':
             require_once 'resources\view\mainPage.php';
+            break;
+
+        case 'createPost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->createPost();
             break;
 
         case 'forgetPasswordResult':
