@@ -88,6 +88,12 @@
             $home = new HomeController();
             $home->deletePost();
             break;
+
+        case 'revertPost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->revertPost();
+            break;
         default:
             echo "404 Not Found";
             break;
