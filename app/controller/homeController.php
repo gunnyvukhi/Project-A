@@ -42,7 +42,7 @@ class HomeController {
 
 
     public function deletePost() {
-        if(isset($_POST['deletePost'])){
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deletePost'])){
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->deletePost($postId);
@@ -59,7 +59,7 @@ class HomeController {
     }
 
     public function revertPost() {
-        if(isset($_POST['revertButton'])){
+        if(isset($_POST['revertPost'])){
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->revertPost($postId);

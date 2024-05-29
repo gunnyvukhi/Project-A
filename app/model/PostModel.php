@@ -22,7 +22,7 @@ class PostModel{
     }
 
     public function deletePost($postId){
-        $sql = "UPDATE posts SET is_deleted = 1 WHERE id = $postId";
+        $sql = "UPDATE posts SET is_deleted = 1 WHERE post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
@@ -45,7 +45,7 @@ class PostModel{
 
 
     public function revertPost($postId){
-        $sql = "UPDATE posts SET is_deleted = 0 WHERE id = $postId";
+        $sql = "UPDATE posts SET is_deleted = 0 WHERE post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
