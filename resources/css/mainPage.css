@@ -183,7 +183,9 @@ body{
     .commentsContainer{
         display: block;
         width: 100%;
-        height: fit-content;
+        height: 0px;
+        overflow: hidden;
+        transition: all 5s;
         a:link{
             color: rgb(104, 104, 104);
         }

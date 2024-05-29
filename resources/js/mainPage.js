@@ -77,6 +77,11 @@ function DeletePost(postDeleteId){
     }
     document.getElementById("deleteText" + postDeleteId).style.display = "block"
     document.getElementById("undoDelete" + postDeleteId).style.display = "block"
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/deletePost", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    postDeleteId = postDeleteId.slice(10, postDeleteId.length);
+    xhttp.send("postId=" + postDeleteId + "&deletePost=1");
 }
 
 function UndoDeletePost(postDeleteId){
@@ -91,6 +96,17 @@ function UndoDeletePost(postDeleteId){
     }
     document.getElementById("deleteText" + postDeleteId).style.display = "none"
     document.getElementById("undoDelete" + postDeleteId).style.display = "none"
+    xhttp.open("POST", "/revertPost", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    postDeleteId = postDeleteId.slice(10, postDeleteId.length);
+    xhttp.send("postId=" + postDeleteId + "&deletePost=0");
+}
+
+
+function display_Comment(id){
+    postId = id.slice(13, id.length);
+    commentsContainerId = "commentsContainer" + postId;
+    document.getElementById(commentsContainerId).style.height = "fit-content";
 }
 
 function send_comment(commentId){

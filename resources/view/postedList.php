@@ -1,4 +1,5 @@
 <?php
+    echo "<script type='text/javascript' language='JavaScript'></script>";
     foreach (array_reverse($data) as $postData){
         if ($postData["user_id"] == $_SESSION['userId']){
             $postId = 'postNumber'. strval($postData["post_id"]);
@@ -37,13 +38,13 @@
 
             <!-- Like, comment, chia sẻ bài viết -->
             <form class="LikeShareContainer" method="post" action="">
-                <button class="LikeShareButton" name="likeButton" id="likeButton" type="button" onclick="LikeButton()" alt="0"><img src="resources\image\likeIcon1.png" id="likeButtonImg" alt="like" />Thích</button>
-                <button class="LikeShareButton" name="commentButton" id="commentButton" type="button" onclick=""><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
-                <button class="LikeShareButton" name="shareButton" id="shareButton" type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
+                <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton()" alt="0"><img src="resources\image\likeIcon1.png" id="likeButtonImg" alt="like" />Thích</button>
+                <button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
+                <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
             </form>
 
             <!-- GỬi bình luận bài viết -->
-            <div class="commentsContainer">
+            <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
                 <a href="#" onclick="" class="moreComments">Xem thêm bình luận</a><br>
                 <form action="" class="sendComment" method="post">
                     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . '/></a>
