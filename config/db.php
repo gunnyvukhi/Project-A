@@ -11,7 +11,7 @@ class DB extends PDO
 
     private $user = 'root';
 
-    private $pass = '';
+    private $pass = 'password';
 
     public function __construct()
     {

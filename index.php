@@ -74,7 +74,7 @@
         case 'forgetPasswordResult':
             require_once 'resources/view/forgetPasswordResult.html';
             break;
-        case 'Profile':
+        case 'profile':
             require_once 'app/controller/profileController.php';
             $profile = new profileController();
             $profile->index();
@@ -82,6 +82,12 @@
         case 'Profile_Decription':
             require_once 'resources/view/Profile_Decription.php';
             break; 
+
+        case 'deletePost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->deletePost();
+            break;
         default:
             echo "404 Not Found";
             break;

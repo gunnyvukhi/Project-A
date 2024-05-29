@@ -7,7 +7,12 @@ require_once 'app/model/PostModel.php';
 class HomeController {
     public function index() {
         $PostModel = new PostModel();
-        $data = $PostModel->getAllPost();     
+        $data = $PostModel->getAllPost();  
+        
+        //check is_deleted
+        $data = array_filter($data, function($post){
+            return $post['is_deleted'] == 0;
+        });
         require_once 'resources\view\mainPage.php';
     }
 
@@ -22,13 +27,42 @@ class HomeController {
             $newPostPrivacy = $_POST['newPostPrivacy'];
             $newPostImage = $dir . $newPostFile['name'];
             $newPostUserId = $_SESSION['userId'];
+            $created_at = date('Y-m-d H:i:s');
+            $updated_at = date('Y-m-d H:i:s');
+            $is_deleted = 0;
 
 
             $newPost = new PostModel();
-            $newPost->createPost($newPostUserId, $newPostCaption, $newPostImage, $newPostPrivacy);
+            $newPost->createPost($newPostUserId, $newPostCaption, $newPostImage, $newPostPrivacy, 0, $created_at, $updated_at, $is_deleted);
             header('Location: http://localhost/project-a/');
 
 
+        }
+    }
+
+
+    public function deletePost() {
+        if(isset($_POST['deletePost'])){
+            $postId = $_POST['postId'];
+            $PostModel = new PostModel();
+            $PostModel->deletePost($postId);
+        }
+    }
+
+    public function likePost() {
+        if(isset($_POST['likeButton'])){
+            $postId = $_POST['postId'];
+            $PostModel = new PostModel();
+            $PostModel->likePost($postId);
+            header('Location: http://localhost/project-a/');
+        }
+    }
+
+    public function revertPost() {
+        if(isset($_POST['revertButton'])){
+            $postId = $_POST['postId'];
+            $PostModel = new PostModel();
+            $PostModel->revertPost($postId);
         }
     }
 }
