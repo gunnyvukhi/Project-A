@@ -76,7 +76,7 @@
             break;
         case 'Profile':
             require_once 'resources/view/Profile.php';
-            break; 
+            break;
             case 'Profile_Decription':
                 require_once 'resources/view/Profile_Decription.php';
                 break; 
