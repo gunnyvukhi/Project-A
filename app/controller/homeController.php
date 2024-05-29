@@ -7,9 +7,7 @@ require_once 'app/model/PostModel.php';
 class HomeController {
     public function index() {
         $PostModel = new PostModel();
-        $data = $PostModel->getAllPost();
-
-        
+        $data = $PostModel->getAllPost();     
         require_once 'resources\view\mainPage.php';
     }
 

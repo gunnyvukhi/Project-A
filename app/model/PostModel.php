@@ -17,7 +17,6 @@ class PostModel{
         $sql = "SELECT * FROM posts";
         $db = new DB;
         $db = $db->query($sql);
-        // chage to json
         $db = $db->fetchAll(PDO::FETCH_ASSOC);
         return $db;
     }

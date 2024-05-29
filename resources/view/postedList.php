@@ -1,5 +1,5 @@
 <?php
-    foreach (array_reverse($data) as $postData){
+    foreach ($data as $postData){
         if ($postData["user_id"] == $_SESSION['userId']){
             $timePosted = '2 hours ago';
             $caption = $postData['content'];

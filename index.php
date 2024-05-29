@@ -75,11 +75,13 @@
             require_once 'resources/view/forgetPasswordResult.html';
             break;
         case 'Profile':
-            require_once 'resources/view/Profile.php';
+            require_once 'app/controller/profileController.php';
+            $profile = new profileController();
+            $profile->index();
             break; 
-            case 'Profile_Decription':
-                require_once 'resources/view/Profile_Decription.php';
-                break; 
+        case 'Profile_Decription':
+            require_once 'resources/view/Profile_Decription.php';
+            break; 
         default:
             echo "404 Not Found";
             break;
