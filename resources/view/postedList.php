@@ -1,5 +1,4 @@
 <?php
-    echo "<script type='text/javascript' language='JavaScript'></script>";
     foreach (array_reverse($data) as $postData){
         if ($postData["user_id"] == $_SESSION['userId']){
             $postId = 'postNumber'. strval($postData["post_id"]);
