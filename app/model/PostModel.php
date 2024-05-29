@@ -7,7 +7,7 @@ require_once 'config/db.php';
 class PostModel{
 
     public function createPost($user_id, $content, $image, $privacy_level, $count_like, $creat_at, $updated_at, $is_deleted){
-        $sql = "INSERT INTO posts (user_id, content, image, privacy_level, count_like, create_at, update_at, is_deleted) VALUES ('$user_id', '$content', '$image', '$privacy_level')";
+        $sql = "INSERT INTO posts (user_id, content, image, privacy_level, count_like, create_at, update_at, is_deleted) VALUES ('$user_id', '$content', '$image', '$privacy_level', '$count_like', '$creat_at', '$updated_at', '$is_deleted')";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
