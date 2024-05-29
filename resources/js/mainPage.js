@@ -62,3 +62,41 @@ function LikeButton(){
     }
     pressed = pressed + 1;
 }
+
+var array_style = []
+function DeletePost(postDeleteId){
+    postDeleteId = postDeleteId.slice(6, postDeleteId.length);
+    postDelete = document.getElementById(postDeleteId);
+    var nodes = postDelete.childNodes;
+    let array = ['div', 'a', 'form', 'input', 'select', 'button', 'textarea', 'img']
+    for(var i=0; i<nodes.length; i++) {
+        if (array.includes(nodes[i].nodeName.toLowerCase())) {
+            array_style[i] = nodes[i].style.display;
+            nodes[i].style.display = 'none';
+        }
+    }
+    document.getElementById("deleteText" + postDeleteId).style.display = "block"
+    document.getElementById("undoDelete" + postDeleteId).style.display = "block"
+}
+
+function UndoDeletePost(postDeleteId){
+    postDeleteId = postDeleteId.slice(10, postDeleteId.length);
+    postDelete = document.getElementById(postDeleteId);
+    var nodes = postDelete.childNodes;
+    let array = ['div', 'a', 'form', 'input', 'select', 'button', 'textarea', 'img']
+    for(var i=0; i<nodes.length; i++) {
+        if (array.includes(nodes[i].nodeName.toLowerCase())) {
+            nodes[i].style.display = array_style[i];
+        }
+    }
+    document.getElementById("deleteText" + postDeleteId).style.display = "none"
+    document.getElementById("undoDelete" + postDeleteId).style.display = "none"
+}
+
+function send_comment(commentId){
+    postId = commentId.slice(13, commentId.length);
+    comment_Text_Id = document.getElementById('newComment' + postId);
+    comment_Text = comment_Text_Id.value
+    comment_Text_Id.value = '';
+    console.log(comment_Text);
+}

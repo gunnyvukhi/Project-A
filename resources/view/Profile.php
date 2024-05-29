@@ -67,7 +67,7 @@
                 <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
             </div> -->
             <div id="PostList" class="ProfilePost">
-                <?php include_once 'postedList.php' ?>  
+                <?php include_once 'postedList.php' ?> 
             </div>
         </div>
     </div>

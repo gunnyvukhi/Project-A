@@ -1,4 +1,4 @@
-<?php include "header.php";?>
+<?php include "header.php"; ?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
 
@@ -7,7 +7,7 @@
     <div class="newPostForm">
         <button type="button" id="closeNewPostForm" onclick="closeNewPostForm()">&times;</button>
         <h2>Tạo bài viết</h2>
-        <form method="post" action="createPost" enctype="multipart/form-data" >
+        <form method="post" action="createPost" enctype="multipart/form-data">
             <div class="postHead">
                 <!-- phần avatar -->
                 <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>'; ?>
@@ -40,8 +40,9 @@
             </div>
             <!-- Đăng/Hủy bài viết-->
             <div class="btnContainer">
-                <button type="submit" name="submit" id="uploadNewPost" onclick="" >Đăng</button>
-                <button type="reset" id="resetNewPost" onclick="deleteCreatingPost()">Hủy</button></div>
+                <button type="submit" name="submit" id="uploadNewPost" onclick="">Đăng</button>
+                <button type="reset" id="resetNewPost" onclick="deleteCreatingPost()">Hủy</button>
+            </div>
         </form>
     </div>
 </div>
@@ -53,7 +54,8 @@
         <div id="addNewPost">
             <!-- phần avatar -->
             <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>' ?>
-            <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào ?</button>
+            <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào
+                ?</button>
         </div>
         <!-- các lựa chọn khác -->
         <div class="newPostOtherOption">
@@ -65,17 +67,15 @@
                     src="resources\image\albumIcon.png" alt="album">Album mới</button>
         </div>
     </div>
-    <?php require_once 'postedList.php'?>
+    <?php require_once 'postedList.php' ?>
 </div>
 
 
 <div id="mainContentRightContainer">
-    
+
 </div>
 
 <div id="mainContentLeftContainer">
-<?php var_dump($data);
-?>
 </div>
 
 <script>
