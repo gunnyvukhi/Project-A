@@ -79,10 +79,11 @@ function DeletePost(postDeleteId){
     document.getElementById("deleteText" + postDeleteId).style.display = "block"
     document.getElementById("undoDelete" + postDeleteId).style.display = "block"
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/deletePost", true);
+    xhttp.open("POST", "deletePost", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     postDeleteId = postDeleteId.slice(10, postDeleteId.length);
     xhttp.send("postId=" + postDeleteId + "&deletePost=1");
+    console.log(postDeleteId);  
 }
 
 function UndoDeletePost(postDeleteId){
@@ -97,10 +98,12 @@ function UndoDeletePost(postDeleteId){
     }
     document.getElementById("deleteText" + postDeleteId).style.display = "none"
     document.getElementById("undoDelete" + postDeleteId).style.display = "none"
-    xhttp.open("POST", "/revertPost", true);
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "revertPost", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     postDeleteId = postDeleteId.slice(10, postDeleteId.length);
-    xhttp.send("postId=" + postDeleteId + "&deletePost=0");
+    xhttp.send("postId=" + postDeleteId + "&revertPost=0");
+    console.log(postDeleteId);
 }
 
 
