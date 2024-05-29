@@ -1,7 +1,5 @@
 <?php
 
-
-require_once 'config/db.php';
 require_once 'app/model/PostModel.php';
 
 class HomeController {
@@ -54,7 +52,6 @@ class HomeController {
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->likePost($postId);
-            header('Location: http://localhost/project-a/');
         }
     }
 
@@ -63,6 +60,40 @@ class HomeController {
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->revertPost($postId);
+        }
+    }
+
+    public function commentPost() {
+        if(isset($_POST['commentPost'])){
+            $postId = $_POST['postId'];
+            $userId = $_SESSION['userId'];
+            $content = $_POST['commentContent'];
+            $created_at = date('Y-m-d H:i:s');
+            $updated_at = date('Y-m-d H:i:s');
+            $PostModel = new PostModel();
+            $PostModel->commentPost($postId, $userId, $content, $created_at, $updated_at);
+        }
+    }
+
+    public function updatePost() {
+        if(isset($_POST['updatePost'])){
+            $postId = $_POST['postId'];
+            $content = $_POST['newPostCaption'];
+            $dir = "resources/image/post/";
+            $newPostFile = $_FILES['newPostFileInput'];
+            move_uploaded_file($newPostFile['tmp_name'], $dir . $newPostFile['name']);
+            $image = $dir . $newPostFile['name'];
+            $PostModel = new PostModel();
+            $PostModel->updatePost($postId, $content, $image);
+        }
+    }
+
+    public function updateCommentPost() {
+        if(isset($_POST['updateComment'])){
+            $commentId = $_POST['commentId'];
+            $content = $_POST['newCommentContent'];
+            $PostModel = new PostModel();
+            $PostModel->updateCommentPost($commentId, $content);
         }
     }
 }

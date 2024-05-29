@@ -13,10 +13,11 @@ class RegisterController {
             $birthDate = $_POST['birthDate'];
             $gender = $_POST['gender'];
             $confirmPassword = $_POST['passwordConfirm'];
+            $create_at = date('Y-m-d H:i:s');
 
             if ($password == $confirmPassword) {
                 $db = new DB();
-                $sql = "INSERT INTO user_basic (last_name, email, password, mobile_no, birth_date, gender) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender')";
+                $sql = "INSERT INTO user_basic (last_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
                 $user = $db->query($sql);
                 // echo "<script>success=1</script>";
                 header('Location: http://localhost/project-a/login');
