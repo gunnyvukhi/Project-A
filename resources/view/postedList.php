@@ -1,7 +1,7 @@
 <?php
     echo "<script type='text/javascript' language='JavaScript'></script>";
     foreach (array_reverse($data) as $postData){
-        if ($postData["user_id"] == $_SESSION['userId']){
+        if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = '2 hours ago';
             $caption = $postData['content'];
@@ -38,7 +38,7 @@
 
             <!-- Like, comment, chia sẻ bài viết -->
             <form class="LikeShareContainer" method="post" action="">
-                <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton()" alt="0"><img src="resources\image\likeIcon1.png" id="likeButtonImg" alt="like" />Thích</button>
+                <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton(this.id)" alt="0"><img src="resources\image\likeIcon1.png" id='. "likeButtonImg" . $postId  .' alt="like" />Thích</button>
                 <button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
                 <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
             </form>
@@ -54,7 +54,10 @@
                     <button type="button" class="submitComment" id='. "submitComment" . $postId  .' name="submitComment" onclick="send_comment(this.id)"><img src="resources\image\sendCommentIcon.png" alt="send"></button>
                 </form>
                 <div class="comments">
-                othercomment
+                    <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . '/></a>
+                    <div class="othersComments">
+                    <p></p>
+                    </div>
                 </div>
             </div>
         </div>';

@@ -51,14 +51,15 @@ function deleteFile() {
 }
 
 var pressed = 1;
-function LikeButton(){
+function LikeButton(id){
+    postId = id.slice(10, id.length);
     if (pressed % 2 == 1) {
-        document.getElementById('likeButton').style.color = '#46A3FF';
-        document.getElementById('likeButtonImg').src = 'resources/image/likeIcon2.png';
+        document.getElementById(id).style.color = '#46A3FF';
+        document.getElementById('likeButtonImg' + postId).src = 'resources/image/likeIcon2.png';
     } else {
         console.log(pressed);
-        document.getElementById('likeButton').style.color = '#686868';
-        document.getElementById('likeButtonImg').src = 'resources/image/likeIcon1.png';
+        document.getElementById(id).style.color = '#686868';
+        document.getElementById('likeButtonImg' + postId).src = 'resources/image/likeIcon1.png';
     }
     pressed = pressed + 1;
 }
@@ -106,7 +107,12 @@ function UndoDeletePost(postDeleteId){
 function display_Comment(id){
     postId = id.slice(13, id.length);
     commentsContainerId = "commentsContainer" + postId;
-    document.getElementById(commentsContainerId).style.height = "fit-content";
+    if (document.getElementById(commentsContainerId).style.maxHeight == '0px' || document.getElementById(commentsContainerId).style.maxHeight == ''){
+        document.getElementById(commentsContainerId).style.maxHeight = '600px';
+    } else {
+        document.getElementById(commentsContainerId).style.maxHeight = '0px';
+    }
+    
 }
 
 function send_comment(commentId){
