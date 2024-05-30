@@ -112,6 +112,16 @@
             $home = new HomeController();
             $home->commentPost();
             break;
+        case 'hiddenPost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->hiddenPost();
+            break;
+        case 'unHiddenPost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->unHiddenPost();
+            break;
         default:
             echo "404 Not Found";
             break;

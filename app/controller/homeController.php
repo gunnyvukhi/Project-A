@@ -1,6 +1,7 @@
 <?php
 
 require_once 'app/model/PostModel.php';
+require_once 'app/model/HiddenPostModel.php';
 
 class HomeController {
     public function index() {
@@ -11,6 +12,20 @@ class HomeController {
         $data = array_filter($data, function($post){
             return $post['is_deleted'] == 0;
         });
+
+        //check hidden post with post_id
+        $HiddenPostModel = new HiddenPostModel();
+        $hiddenPosts = $HiddenPostModel->getHiddenPosts($_SESSION['userId']);
+
+        $data = array_filter($data, function($post) use ($hiddenPosts){
+            foreach($hiddenPosts as $hiddenPost){
+                if($post['post_id'] == $hiddenPost['post_id']){
+                    return false;
+                }
+            }
+            return true;
+        });
+
         require_once 'resources\view\mainPage.php';
     }
 
@@ -94,6 +109,26 @@ class HomeController {
             $content = $_POST['newCommentContent'];
             $PostModel = new PostModel();
             $PostModel->updateCommentPost($commentId, $content);
+        }
+    }
+
+    //hiddent post
+    public function hiddenPost() {
+        if(isset($_POST['hiddenPost'])){
+            $postId = $_POST['postId'];
+            $userId = $_SESSION['userId'];
+            $HiddenPostModel = new HiddenPostModel();
+            $HiddenPostModel->createHiddenPost($userId, $postId);
+        }
+    }
+
+    //unhide post
+    public function unhiddenPost() {
+        if(isset($_POST['unhiddenPost'])){
+            $postId = $_POST['postId'];
+            $userId = $_SESSION['userId'];
+            $HiddenPostModel = new HiddenPostModel();
+            $HiddenPostModel->deleteHiddenPost($userId, $postId);
         }
     }
 }
