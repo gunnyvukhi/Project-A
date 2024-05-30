@@ -29,7 +29,7 @@ class PostModel{
     }
 
     public function likePost($postId){
-        $sql = "UPDATE posts SET count_like = count_like + 1 WHERE id = $postId";
+        $sql = "UPDATE posts SET count_like = count_like + 1 WHERE post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
@@ -53,6 +53,20 @@ class PostModel{
 
     public function updatePost($postId, $content, $image){
         $sql = "UPDATE posts SET content = '$content', image = '$image' WHERE id = $postId";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
+    public function commentPost($postId, $userId, $content, $creat_at, $updated_at){
+        $sql = "INSERT INTO comments (post_id, user_id, comment_content, create_at, update_at) VALUES ('$postId', '$userId', '$content', '$creat_at', '$updated_at')";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
+    public function updateCommentPost($commentId, $content){
+        $sql = "UPDATE comments SET comment_content = '$content' WHERE comment_id = $commentId";
         $db = new DB;
         $db = $db->query($sql);
         return $db;

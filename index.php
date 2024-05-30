@@ -40,6 +40,14 @@
 
     //default route (http://localhost/project-a/)
 
+    //Kiem tra neu khong co session thi chuyen ve trang login
+    if (!isset($_SESSION['userId'])) {
+        require_once 'app/controller/auth/loginController.php';
+        $login = new LoginController();
+        $login->login();
+        return;
+    }
+
     switch ($url[2]) {
         case '':
             require_once 'app/controller/homeController.php';
@@ -93,6 +101,16 @@
             require_once 'app/controller/homeController.php';
             $home = new HomeController();
             $home->revertPost();
+            break;
+        case 'likePost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->likePost();
+            break;
+        case 'commentPost':
+            require_once 'app/controller/homeController.php';
+            $home = new HomeController();
+            $home->commentPost();
             break;
         default:
             echo "404 Not Found";

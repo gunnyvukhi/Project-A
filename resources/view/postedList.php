@@ -1,9 +1,10 @@
 <?php
-    echo "<script type='text/javascript' language='JavaScript'></script>";
+    include_once 'app\model\MainPageModel.php';
+    echo "<script type='text/javascript' language='JavaScript'>var All_comments = []</script>";
     foreach (array_reverse($data) as $postData){
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
-            $timePosted = '2 hours ago';
+            $timePosted = Get_Time(strval($postData["update_at"]));
             $caption = $postData['content'];
             $photo = $postData['image'];
             $like_num = 0;
@@ -45,21 +46,20 @@
 
             <!-- GỬi bình luận bài viết -->
             <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
-                <a href="#" onclick="" class="moreComments">Xem thêm bình luận</a><br>
+                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button><br>
                 <form action="" class="sendComment" method="post">
                     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . '/></a>
 
                     <!-- Nơi viết bình luận -->
                     <textarea name="newComment" id='. "newComment" . $postId  .' class="newComment" placeholder="Viết bình luận..."></textarea>
                     <button type="button" class="submitComment" id='. "submitComment" . $postId  .' name="submitComment" onclick="send_comment(this.id)"><img src="resources\image\sendCommentIcon.png" alt="send"></button>
-                </form>
-                <div class="comments">
-                    <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . '/></a>
-                    <div class="othersComments">
-                    <p></p>
-                    </div>
-                </div>
+                </form>';
+
+                $commentsContent = ["Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời" ,"Quá tuyệt vời"];
+                $commentsContent = json_encode($commentsContent);
+                echo '<script lang="javascript" type="text/javascript">All_comments['. $postData["post_id"] .'] = '. $commentsContent .'</script>
             </div>
+            <button type="button" class="lessComments" id='. "lessComments" . $postId  .' onclick="LessComments(this.id)">Ẩn bình luận</button>
         </div>';
         }
     }

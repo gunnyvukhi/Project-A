@@ -75,8 +75,9 @@
 
 </div>
 
-<div id="mainContentLeftContainer">
-    <?php var_dump($data)?>
+<div id="mainContentLeftContainer"> 
+    <?php var_dump($data);
+    ?>
 </div>
 
 <script>
