@@ -7,8 +7,6 @@ class profileController
 {
     public function index()
     {
-        
-        
         $userModel = new UserModel();
         $user = $userModel->getUserById($_SESSION['userId']);
 

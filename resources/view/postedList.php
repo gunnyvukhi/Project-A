@@ -1,10 +1,17 @@
 <?php
+    include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
     echo "<script type='text/javascript' language='JavaScript'>var All_comments = []</script>";
+
     foreach (array_reverse($data) as $postData){
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
+
+            $PostUserModel = new UserModel();
+            $PostUser = $PostUserModel->getUserById($postData["user_id"]);
+            $userName = $PostUser["last_name"];
+            
             $caption = $postData['content'];
             $photo = $postData['image'];
             $like_num = 0;

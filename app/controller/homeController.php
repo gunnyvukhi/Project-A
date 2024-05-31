@@ -25,6 +25,7 @@ class HomeController {
             $newPostPrivacy = $_POST['newPostPrivacy'];
             $newPostImage = $dir . $newPostFile['name'];
             $newPostUserId = $_SESSION['userId'];
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
             $created_at = date('Y-m-d H:i:s');
             $updated_at = date('Y-m-d H:i:s');
             $is_deleted = 0;

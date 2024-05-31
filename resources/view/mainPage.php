@@ -10,11 +10,11 @@
         <form method="post" action="createPost" enctype="multipart/form-data">
             <div class="postHead">
                 <!-- phần avatar -->
-                <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>'; ?>
+                <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
                 <!-- Những ai có thể thấy bài viết này ? -->
                 <div class="containerNamePrivacy">
                     <!-- phần tên người dùng -->
-                    <?php echo '<p class="userName">' . $userName . '</p>' ?>
+                    <?php echo '<p class="userName">' . $currentUserName . '</p>' ?>
                     <!-- đây là chỗ chọn chế độ chia sẻ-->
                     <select name="newPostPrivacy" id="newPostPrivacy">
                         <option value="public" selected>Công khai</option>
@@ -53,7 +53,7 @@
     <div class="postContainer">
         <div id="addNewPost">
             <!-- phần avatar -->
-            <?php echo '<a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>' ?>
+            <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
             <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào
                 ?</button>
         </div>
@@ -72,12 +72,18 @@
 
 
 <div id="mainContentRightContainer">
-
+    <div class="newNotificationContainer">
+        <h3>Thông báo</h3>
+        <ul>
+            <li>Thông báo 1</li>
+            <li>Thông báo 2</li>
+            <li>Thông báo 3</li>
+        </ul>
+    </div>
 </div>
 
 <div id="mainContentLeftContainer"> 
-    <?php var_dump($data);
-    ?>
+
 </div>
 
 <script>
