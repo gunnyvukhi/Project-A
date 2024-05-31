@@ -40,32 +40,6 @@ $url = explode('/', $url);
 
 //default route (http://localhost/project-a/)
 
-<<<<<<< HEAD
-switch ($url[2]) {
-    case '':
-        require_once 'app/controller/homeController.php';
-        $home = new HomeController();
-        $home->index();
-        break;
-    case 'login':
-        require_once 'app/controller/auth/loginController.php';
-        $login = new LoginController();
-        $login->login();
-        break;
-    case 'signIn':
-        require_once 'app/controller/auth/registerController.php';
-        $register = new RegisterController();
-        $register->register();
-        break;
-    case 'forgotPassword':
-        require_once 'app/controller/auth/forgotPasswordController.php';
-        $forgotPassword = new ForgotPasswordController();
-        $forgotPassword->forgotPassword();
-        break;
-    case 'mainPage':
-        require_once 'resources\view\mainPage.php';
-        break;
-=======
     //Kiem tra neu khong co session thi chuyen ve trang login
     if (!isset($_SESSION['userId'])) {
         require_once 'app/controller/auth/loginController.php';
@@ -98,7 +72,6 @@ switch ($url[2]) {
         case 'mainPage':
             require_once 'resources\view\mainPage.php';
             break;
->>>>>>> 998d7335f7accc1e33f671a9e15181beb5f17cec
 
     case 'createPost':
         require_once 'app/controller/homeController.php';
@@ -106,21 +79,6 @@ switch ($url[2]) {
         $home->createPost();
         break;
 
-<<<<<<< HEAD
-    case 'forgetPasswordResult':
-        require_once 'resources/view/forgetPasswordResult.html';
-        break;
-    case 'Profile':
-        require_once 'resources/view/Profile.php';
-        break;
-    case 'Profile_Decription':
-        require_once 'resources/view/Profile_Decription.php';
-        break;
-    default:
-        echo "404 Not Found";
-        break;
-}
-=======
         case 'forgetPasswordResult':
             require_once 'resources/view/forgetPasswordResult.html';
             break;
@@ -129,7 +87,7 @@ switch ($url[2]) {
             $profile = new profileController();
             $profile->index();
             break; 
-        case 'Profile_Decription':
+        case 'Profiles_Decription':
             require_once 'resources/view/Profile_Decription.php';
             break; 
 
@@ -168,4 +126,3 @@ switch ($url[2]) {
             echo "404 Not Found";
             break;
     }
->>>>>>> 998d7335f7accc1e33f671a9e15181beb5f17cec

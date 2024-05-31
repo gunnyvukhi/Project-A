@@ -121,7 +121,7 @@
         </div>
         <div id="Profile2_DecriptionPage_tongquan">
             <div class="Profile2_Decription_tongquan_detail">
-                <div id="CongViec">
+                <div id="Work">
                     <p id="CongViec_title">Công việc</p>
                     <div id="CongViec_btn"></div>
                     <div id="CongViec_Now"></div>
@@ -154,8 +154,6 @@
                     <i class="fa fa-phone" aria-hidden="true"> Số điện thoại</i>
                     <button id="Profile2_DecriptionPage_tongquan_detail_icon_phone" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                 </div>
-
-
             </div>
         </div>
     </div>
