@@ -1,5 +1,6 @@
 <?php
-    
+$currentUserName = $_SESSION['userName'] ;
+$avatarLink = 'resources/image/demoPersonIcon.png';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@
             <li class="currentSection selectSection" id="watchPage"><a href="#" alt="Watch"><img id = "watchIcon" src="resources/image/watchIcon1.png" alt="Watch"></a></li>
         </ul>
         <ul class="allNemuContainer">
-            <li class="nemu" id="profile"><a href="#" alt="$Name"><img src="resources/image/demoPersonIcon.png" alt="Person"></a></li>
+            <?php echo '<li class="nemu" id="profile"><a href="#" alt='. $currentUserName .'><img src='. $avatarLink .' alt="Person"></a></li>' ?>
             <li class="nemu" id="notification"><a href="#" alt="Thông báo"><img src="resources/image/notificationIcon1.png" alt="Notification"></a></li>
             <li class="nemu" id="message"><a href="#" alt="Tin nhắn"><img src="resources/image/messageIcon1.png" alt="Message"></a></li>
         </ul>

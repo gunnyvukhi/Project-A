@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th5 27, 2024 lúc 08:52 AM
+-- Thời gian đã tạo: Th5 29, 2024 lúc 09:08 AM
 -- Phiên bản máy phục vụ: 8.0.29
 -- Phiên bản PHP: 8.3.7
 
@@ -49,6 +49,21 @@ CREATE TABLE `address` (
   `zipcode` int(10) UNSIGNED ZEROFILL DEFAULT NULL,
   `region` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `comment_content` text,
+  `create_at` int DEFAULT NULL,
+  `update_at` int DEFAULT NULL,
+  `post_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -102,16 +117,19 @@ CREATE TABLE `posts` (
   `content` text,
   `privacy_level` varchar(12) DEFAULT NULL,
   `image` text CHARACTER SET utf8mb3 COLLATE utf8_general_ci,
+  `count_like` bigint DEFAULT '0',
   `create_at` datetime DEFAULT NULL,
-  `update_at` datetime DEFAULT NULL
+  `update_at` datetime DEFAULT NULL,
+  `is_deleted` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Đang đổ dữ liệu cho bảng `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `user_id`, `content`, `privacy_level`, `image`, `create_at`, `update_at`) VALUES
-(1, 1, 'cotent', 'public', 'resources/image/post/Pizza_suon_non.jpg', NULL, NULL);
+INSERT INTO `posts` (`post_id`, `user_id`, `content`, `privacy_level`, `image`, `count_like`, `create_at`, `update_at`, `is_deleted`) VALUES
+(1, 1, 'cotent', 'public', 'resources/image/post/Pizza_suon_non.jpg', NULL, NULL, NULL, NULL),
+(2, 1, 'content', 'public', 'resources/image/post/Pizza_suon_non.jpg', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -154,8 +172,7 @@ CREATE TABLE `user_basic` (
 --
 
 INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `status`, `create_at`) VALUES
-(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, NULL, NULL),
-(2, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatan@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, NULL, NULL);
+(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -174,6 +191,12 @@ ALTER TABLE `activity_log`
 ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`),
   ADD UNIQUE KEY `Address_id_UNIQUE` (`address_id`);
+
+--
+-- Chỉ mục cho bảng `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Chỉ mục cho bảng `events`
@@ -237,6 +260,12 @@ ALTER TABLE `address`
   MODIFY `address_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200531;
 
 --
+-- AUTO_INCREMENT cho bảng `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `friends`
 --
 ALTER TABLE `friends`
@@ -246,7 +275,7 @@ ALTER TABLE `friends`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `post_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `user_basic`

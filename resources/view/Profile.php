@@ -76,7 +76,11 @@
         </div>
         <div id="Profile_Post" class="ProfilePart2">
             <div id="PostList" class="ProfilePost">
+<<<<<<< HEAD
                 <?php include_once 'postedList.php' ?>
+=======
+                <?php include_once 'postedList.php' ?> 
+>>>>>>> 998d7335f7accc1e33f671a9e15181beb5f17cec
             </div>
         </div>
     </div>
