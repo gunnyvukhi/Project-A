@@ -8,8 +8,8 @@
     echo '  <div class="postContainer">
     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>
     <div class="nameTimeContainer">
-        <p class="userName">' . $userName . '</p>
-        <p class="timePosted">' . $timePosted . '</p>
+        <p class="userName mb-0">' . $userName . '</p>
+        <p class="timePosted mb-0">' . $timePosted . '</p>
     </div>
     <div class="contentContainer">
         <p class="postCaption">' . $caption . '</p>

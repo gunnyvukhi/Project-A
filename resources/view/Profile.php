@@ -26,23 +26,36 @@
                 <i id="icon2" class="fa fa-camera" style="font-size:24px"></i>
                 <h2 class="name"> <?php   ?> </h2>
                 <div id="Profile_Header_Button" class="Profile_Header_Button">
-                    <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i>  Thêm vào tin</a>
-                    <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil" aria-hidden="true"></i>  Chỉnh sửa trang cá nhân</a>
+                    <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm vào tin</a>
+                    <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Chỉnh sửa trang cá nhân</a>
                 </div>
             </div>
             <div class="Profile__header__menu" id="Profile__header__menu">
                 <ul>
-                    <li>Bài viết</li>
-                    <li>Giới thiệu</li>
-                    <li>Ảnh</li>
-                    <li>Bạn bè</li>
-                    <li>Video</li>
-                    <li>Xem thêm</li>
+                    <li>
+                        <button id="button_baiviet" class="btn btn-default"> Bài viết</button>
+                    </li>
+                    <li>
+                        <button id="button_gioithieu" class="btn btn-default">Giới thiệu</button>
+                    </li>
+                    <li>
+                        <button id="button_anh" class="btn btn-default">Ảnh</button>
+                    </li>
+                    <li>
+                        <button id="button_banbe" class="btn btn-default">Bạn bè</button>
+                    </li>
+                    <li>
+                        <button id="button_video" class="btn btn-default">Video</button>
+                    </li>
+                    <li>
+                        <button id="button_xemthem" class="btn btn-default">Xem thêm</button>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
+    <!-- Phần bài viết của trang Profile -->
 
 
     <div id="Profile2" class="Profile2">
@@ -62,15 +75,89 @@
             <a name="Decription_EditDetail" id="" class="btn btn-primary" href="#" role="button">Chỉnh sửa chi tiết</a>
         </div>
         <div id="Profile_Post" class="ProfilePart2">
-            <!-- <div id="Profile_NewPost" class="ProfilePost">
-                <img src="resources/image/avatar.jpg" id="NewPost_Avatar" class="NewPost_Avatar" alt="">
-                <input type="text" id="NewPost_Input" class="NewPost_Input" placeholder="Bạn đang nghĩ gì?">
-            </div> -->
             <div id="PostList" class="ProfilePost">
-                <?php include_once 'postedList.php' ?>  
+                <?php include_once 'postedList.php' ?>
             </div>
         </div>
     </div>
+
+
+    <!--  Phần giới thiệu của Profile -->
+
+
+
+    <div id="Profile2_DecriptionPage" class="Profile2">
+        <div id="Profile2_DecriptionPage_btn" class="">
+            <div class="Profile2_DecriptionPage_Inside">
+                <p id="Decription_gioithieu">Giới thiệu</p>
+            </div>
+            <div id="Profile2_DecriptionPage_menu" class="">
+                <ul>
+                    <li>
+                        <button id="button_tongquan" class="btn btn-default"> Tổng quan</button>
+                    </li>
+                    <li>
+                        <button id="button_cvvahv" class="btn btn-default">Công việc và học vấn</button>
+                    </li>
+                    <li>
+                        <button id="button_nts" class="btn btn-default">Nơi từng sống</button>
+                    </li>
+                    <li>
+                        <button id="button_ttlh" class="btn btn-default">Thông tin liên hệ và cơ bản</button>
+                    </li>
+                    <li>
+                        <button id="button_gd" class="btn btn-default">Gia đình và các mối quan hệ</button>
+                    </li>
+                    
+                    <li>
+                        <button id="button_sk" class="btn btn-default">Sự kiện trong đời</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="Profile2_DecriptionPage_tongquan">
+            <div class="Profile2_Decription_tongquan_detail">
+                <div id="CongViec">
+                    <p id="CongViec_title">Công việc</p>
+                    <div id="CongViec_btn"></div>
+                    <div id="CongViec_Now"></div>
+                </div>
+                <div id="DaiHoc"></div>
+                <div id="TruongTrungHoc"></div>
+            </div>
+            <div id="Profile2_DecriptionPage_tongquan_1" class="Profile2_DecriptionPage_tongquan_detail">
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i class="fa fa-briefcase" aria-hidden="true"> Đang làm việc tại</i>
+                    <button id="Profile2_DecriptionPage_tongquan_detail_icon_working" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i id="Profile2_DecriptionPage_tongquan_detail_icon_study" class="fa fa-graduation-cap" aria-hidden="true"> Đã học tại</i>
+                    <button class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i class="fa fa-home" aria-hidden="true"> Sống tại</i>
+                    <button id="Profile2_DecriptionPage_tongquan_detail_icon_detail" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i class="fa fa-map-marker" aria-hidden="true"> Đến từ</i>
+                    <button id="Profile2_DecriptionPage_tongquan_detail_icon_home" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i class="fa fa-heart" aria-hidden="true"> Đang</i>
+                    <button id="Profile2_DecriptionPage_tongquan_detail_icon_address" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+                <div class="Profile2_DecriptionPage_tongquan_detail_icon">
+                    <i class="fa fa-phone" aria-hidden="true"> Số điện thoại</i>
+                    <button id="Profile2_DecriptionPage_tongquan_detail_icon_phone" class="Profile2_DecriptionPage_tongquan_detail_icon_btn"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="resources/js/Profile.js"></script>
 </body>
 
 </html>

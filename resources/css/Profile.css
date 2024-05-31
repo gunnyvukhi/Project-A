@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F0F2F5;
+    background-color: #fff;
     font-family: "Inter", sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .Profile__header__cover {
@@ -91,14 +92,16 @@ li {
 
 #Decription {
     position: absolute;
-    left: 50px;
-    top: 840px;
+    left: 180px;
+    top: 855px;
     font-size: 15px;
     border-radius: 24px;
     border: 1px solid #E4E6EB;
     width: 30%;
     text-align: center;
     padding-bottom: 10px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #gioithieu {
@@ -124,8 +127,8 @@ li {
 
 #Profile_Post {
     width: 60%;
-    left: 40%;
-    position: relative;
+    left: 650px;
+    position: absolute;
 
 }
 
@@ -136,6 +139,7 @@ li {
     text-align: left;
     margin-left: 50px;
     font-size: 29px;
+    margin-top: 10px;
 }
 
 #PostList1 {
@@ -164,20 +168,7 @@ li {
     height: 25px;
 }
 
-#PostList1_Name {
-    position: absolute;
-    left: 60px;
-    top: 8px;
-    font-size: 15px;
-}
 
-#PostList1_EditButton {
-    position: absolute;
-    right: 30px;
-    top: 5px;
-    font-size: 15px;
-    border: none;
-}
 
 .PostList_Content_Text {
     margin-left: 30px;
@@ -211,4 +202,68 @@ li {
     border: 0.75px solid #E4E6EB;
     width: 90%;
     margin-left: 20px;
+}
+
+#PostList {
+    margin-top: 20px;
+    position: relative;
+}
+
+#Profile2_DecriptionPage {
+    position: absolute;
+    display: none;
+    left: 180px;
+    border-radius: 24px;
+    border: 1px solid #E4E6EB;
+    min-height: 420px;
+    width: 75%;
+    top: 855px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    #Profile2_DecriptionPage_Inside {
+        left: 10px;
+        top: 10px;
+    }
+
+    #Profile2_DecriptionPage_btn {
+        width: 30%;
+        border-right: 0.75px solid #E4E6EB;
+        #Profile2_DecriptionPage_menu{
+            li{
+                padding-bottom: 15px;
+            }
+        }
+    }
+
+    #Profile2_DecriptionPage_tongquan {
+        position: relative;
+        width: 70%;
+
+    }
+
+    #Profile2_DecriptionPage_tongquan_1 {
+        left: 20px;
+        top: 20px;
+        align-items: center;
+        display: block;
+        position: absolute;
+
+        .Profile2_DecriptionPage_tongquan_detail_icon {
+            padding: 20px;
+            font-size: large;
+            width: 600px;
+            position: relative;
+
+            .Profile2_DecriptionPage_tongquan_detail_icon_btn {
+                position: absolute;
+                right: 20px;
+                display: inline-flex;
+                padding: 0;
+                border: none;
+                background: none;
+            }
+        }
+
+    }
 }
