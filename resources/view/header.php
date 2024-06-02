@@ -82,6 +82,7 @@ if (isset($_SESSION['userAvatar'])){
     <!-- NEMU đăng xuất -->
     <div class="logoutNemuContainer" id="logoutNemuContainer">
         <div class="YourProfile">
+            <!-- trang trí -->
             <div class="yourProfileAvaName">
                 <?php
                 echo '<img src='.$currentUserAvatarLink.' alt="">
@@ -90,6 +91,7 @@ if (isset($_SESSION['userAvatar'])){
             </div>
             <a href="#" class="profileLink">Xem trang cá nhân của bạn</a>
         </div>
+        <!-- Form đăng xuất -->
         <form action="" method="post">
             <button type="button" name="helpbtn"><img src="resources\image\helpIcon.png">Trợ giúp và hỗ trợ</button><br>
             <button type="button" name="resetPassword"><img src="resources\image\resetPasswordIcon.png">Đặt lại mật khẩu</button><br>
