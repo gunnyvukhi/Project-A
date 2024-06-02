@@ -14,10 +14,12 @@ class logoutController {
             session_unset();
             session_destroy();
 
+
             //delete cookie
             setcookie('email', '', time() - 1);
             setcookie('password', '', time() - 1);
-            
+
+            //redirect to login page
             header('Location: http://localhost/project-a/login');
     }
 }

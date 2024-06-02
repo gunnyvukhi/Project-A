@@ -7,6 +7,18 @@ require_once 'config/db.php';
 
 
 class UserDetailModel{
+
+    // get user detail
+    public function getUserDetail($user_id){
+        $sql = "SELECT * FROM user_basic WHERE user_id = $user_id";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
+
+
+
     //user_id,	occupation,	education_level	,lives_in	,address_id	,date_of_joining	,update_at
     public function createUserDetail($user_id, $occupation, $education_level, $lives_in, $address_id, $date_of_joining, $update_at){
         $sql = "INSERT INTO user_basic (user_id, occupation, education_level, lives_in, address_id, date_of_joining, update_at) 

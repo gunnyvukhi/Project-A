@@ -41,13 +41,13 @@
     //default route (http://localhost/project-a/)
 
     //Kiem tra neu khong co session thi chuyen ve trang login
-    if (!isset($_SESSION['userId'])) {
-        require_once 'app/controller/auth/loginController.php';
-        $login = new LoginController();
-        $login->login();
-        return;
+    if($url[2] != 'login' && $url[2] != 'signIn' && $url[2] != 'forgotPassword' && $url[2] != 'forgetPasswordResult' && $url[2] != 'logout'){
+        if(!isset($_SESSION['userId'])){
+            header('Location: http://localhost/project-a/login');
+        }
     }
 
+    
     switch ($url[2]) {
         case '':
             require_once 'app/controller/homeController.php';
