@@ -58,7 +58,9 @@ class LoginController {
                     $_SESSION['userEmail'] = $user['email'];
                     $_SESSION['userAvatar'] = $user['avatar'];
                     $_SESSION['userId'] = $user['user_id'];
-                    header('Location: http://localhost/project-a/');
+                    //inder value 
+                    echo "<script>document.getElementById('Email').value = {$user['email']};</script>";
+                    echo "<script>document.getElementById('password').value = {$user['password']};</script>";
                 }
             }
             

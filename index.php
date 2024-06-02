@@ -122,6 +122,14 @@
             $home = new HomeController();
             $home->unHiddenPost();
             break;
+        case 'logout':
+            session_unset();
+            session_destroy();
+            //delete cookie
+            setcookie('email', '', time() - 1);
+            setcookie('password', '', time() - 1);
+            header('Location: http://localhost/project-a/');
+            break;
         default:
             echo "404 Not Found";
             break;
