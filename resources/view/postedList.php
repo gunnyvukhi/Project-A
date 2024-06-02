@@ -2,8 +2,9 @@
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
     echo "<script type='text/javascript' language='JavaScript'>var All_comments = []</script>";
-
-    foreach (array_reverse($data) as $postData){
+    $NewPostData = $data;
+    shuffle($NewPostData);
+    foreach ($NewPostData as $postData){
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -16,7 +17,14 @@
             $photo = $postData['image'];
             $like_num = 0;
             $comment_num = 0;
-            $avatarLink = 'resources\image\demoPersonIcon.png';
+            
+            if (isset($PostUser["avatar"])){
+                $avatarLink = $PostUser["avatar"];
+            } else {
+                $avatarLink = 'resources\image\demoPersonIcon.png';
+            }
+            
+
             echo '  <div class="postContainer" id='. $postId .'>
             <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>
             <div class="nameTimeContainer">
@@ -71,4 +79,3 @@
         }
     }
 
-?>

@@ -10,7 +10,7 @@
         <form method="post" action="createPost" enctype="multipart/form-data">
             <div class="postHead">
                 <!-- phần avatar -->
-                <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
+                <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
                 <!-- Những ai có thể thấy bài viết này ? -->
                 <div class="containerNamePrivacy">
                     <!-- phần tên người dùng -->
@@ -53,7 +53,7 @@
     <div class="postContainer">
         <div id="addNewPost">
             <!-- phần avatar -->
-            <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
+            <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
             <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào
                 ?</button>
         </div>
@@ -72,12 +72,29 @@
 
 
 <div id="mainContentRightContainer">
+
     <div class="newNotificationContainer">
         <h3>Thông báo</h3>
         <ul>
-            <li>Thông báo 1</li>
-            <li>Thông báo 2</li>
-            <li>Thông báo 3</li>
+            <?php
+                echo '<li><a href="#" class="NotificationLink">
+                <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $userName . ' />
+                <div class="NotificationContentContainer">
+                    <p class="NotificationContent"><b>' . $userName . '</b> đã thêm một ảnh mới vào Album của họ</p>
+                    <p class="NotificationTime">' . $timePosted . '</p>
+                </div>
+                </a>
+                </li>';
+            ?>
+        </ul>
+    </div>
+
+    <div class="FriendsListContainer">
+        <h3>Online</h3>
+        <ul>
+            <li>Bạn 1</li>
+            <li>Bạn 2</li>
+            <li>Bạn 3</li>
         </ul>
     </div>
 </div>

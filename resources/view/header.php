@@ -1,6 +1,11 @@
 <?php
 $currentUserName = $_SESSION['userName'] ;
-$avatarLink = 'resources/image/demoPersonIcon.png';
+if (isset($_SESSION['userAvatar'])){
+    $currentUserAvatarLink = $_SESSION['userAvatar'];
+} else {
+    $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,23 +19,62 @@ $avatarLink = 'resources/image/demoPersonIcon.png';
     <link rel="stylesheet" href="resources/css/header.css" type="text/css">
 </head>
 <body>
-    <div id="backgorund"></div>
     <header>
-        <a href="#" alt="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
-        <div class="searchContainer">
-            <label for="searchBox"></label>
-            <img src="resources/image/searchIcon.png" alt="Search">
-            <input type="text" name="searchBox" id="searchBox" placeholder="Tìm kiếm">
+        <!-- Logo bên trái -->
+        <div class="logoContainer">
+            <a href="#" alt="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
         </div>
-        <ul class="allSection">
-            <li class="currentSection selectSection" id="mainPage"><a href="#" alt="Trang Chủ"><img id="homeIcon" src="resources/image/homeIcon1.png" alt="Trang chủ"></a></li>
-            <li class="currentSection selectSection" id="watchPage"><a href="#" alt="Watch"><img id = "watchIcon" src="resources/image/watchIcon1.png" alt="Watch"></a></li>
-        </ul>
-        <ul class="allNemuContainer">
-            <?php echo '<li class="nemu" id="profile"><a href="#" alt='. $currentUserName .'><img src='. $avatarLink .' alt="Person"></a></li>' ?>
-            <li class="nemu" id="notification"><a href="#" alt="Thông báo"><img src="resources/image/notificationIcon1.png" alt="Notification"></a></li>
-            <li class="nemu" id="message"><a href="#" alt="Tin nhắn"><img src="resources/image/messageIcon1.png" alt="Message"></a></li>
-        </ul>
+
+        <!-- Thanh tìm kiếm -->
+        <div class="searchContainer">
+        <div class="searchBox" id="searchBox">
+            <form name="search">
+                <input type="text" name="searchBoxInput" class="searchBoxInput" id="searchBoxInput">
+            </form>
+            <img id="searchImage" src="resources\image\searchIcon.png">
+        </div>
+        </div>
+        <!-- Nemu ở giữa -->
+        <div class="sectionContainer">
+
+        </div>
+        <!-- Nemu bên phải -->
+        <div class="allNemuContainer">
+            <ul>
+                <li>
+                    <a class="NemuOtherOptions" id="NemuOtherOptionsBtn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img id="NemuOtherOptions" src="resources\image\nemuOptionIcon1.png"></img>
+                    </a>
+                </li>
+                <li>
+                    <a class="NemuOtherOptions" id="messageBtn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img id="messageImg" src="resources\image\messageIcon1.png"></img>
+                    </a>
+                </li>
+                <li>
+                    <a class="NemuOtherOptions" id="NotificationBtn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img id="NotificationImg" src="resources\image\notificationIcon1.png"></img>
+                    </a>
+                </li>
+                <li>
+                    <a class="NemuOtherOptions" id="CurrentUserBtn" href="#">
+                    <?php echo '<img id="CurrentUserImg" src='. $currentUserAvatarLink. '></img>' ?>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
     <script lang="javascript" type="text/javascript" src="resources/js/header.js"></script>
 
