@@ -123,12 +123,9 @@
             $home->unHiddenPost();
             break;
         case 'logout':
-            session_unset();
-            session_destroy();
-            //delete cookie
-            setcookie('email', '', time() - 1);
-            setcookie('password', '', time() - 1);
-            header('Location: http://localhost/project-a/');
+            require_once 'app/controller/auth/logoutController.php';
+            $logout = new logoutController();
+            $logout->logout();
             break;
         default:
             echo "404 Not Found";

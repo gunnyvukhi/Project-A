@@ -35,6 +35,10 @@ class LoginController {
                     setcookie('password', $password, time() - 1);
                 }
 
+                //setting status user
+                $sql = "UPDATE user_basic SET status = 'online' WHERE email = '$email'";
+                $db->query($sql);
+
 
                 echo "<script>success=1</script>";
                 header('Location: http://localhost/project-a/');
