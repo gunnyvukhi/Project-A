@@ -35,9 +35,11 @@ if (isset($_SESSION['userAvatar'])){
         </div>
         </div>
         <!-- Nemu ở giữa -->
-        <div class="sectionContainer">
-
-        </div>
+        <ul class="sectionContainer">
+            <li id="HomeMarker"><a href="#" id="Home" class="headerSection"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
+            <li id="FollowingMarker"><a href="#" id="Following" class="headerSection"><img id="FollowingIcon" src="resources\image\followingIcon1.png"></a></li>
+            <li id="ReelsMarker"><a href="#" id="Reels" class="headerSection"><img id="ReelsIcon" src="resources\image\watchIcon1.png"></a></li>
+        </ul>
         <!-- Nemu bên phải -->
         <div class="allNemuContainer">
             <ul>

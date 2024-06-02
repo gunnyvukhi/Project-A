@@ -1,9 +1,7 @@
-document.getElementById('homeIcon').src = 'resources/image/homeIcon2.png';
-document.getElementById('mainPage').style = 'border-bottom: #74b9ff solid 2.4px';
-var css = '#mainPage::hover{border-radius: 0px; background-color: #F0F2F5}';
-var current=document.getElementById('mainPage');
-current.classList.remove('currentSection', 'selectSection');
-current.classList.add('currentSection');
+document.getElementById('HomeIcon').src = 'resources/image/homeIcon2.png';
+document.getElementById('HomeMarker').style = 'border-bottom: #74b9ff solid 3.2px';
+
+document.getElementById('Home').classList.remove('headerSection');
 
 document.getElementById('newPostFileInput').addEventListener('change', function(event) {
     var file = event.target.files[0];
