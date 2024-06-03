@@ -22,7 +22,7 @@ if (isset($_SESSION['userAvatar'])){
     <header>
         <!-- Logo bên trái -->
         <div class="logoContainer">
-            <a href="#" alt="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
+            <a href="http://localhost/project-A/" alt="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
         </div>
 
         <!-- Thanh tìm kiếm -->
@@ -36,7 +36,7 @@ if (isset($_SESSION['userAvatar'])){
         </div>
         <!-- Nemu ở giữa -->
         <ul class="sectionContainer">
-            <li id="HomeMarker"><a href="#" id="Home" class="headerSection"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
+            <li id="HomeMarker"><a href="http://localhost/project-A/" id="Home" class="headerSection"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
             <li id="FollowingMarker"><a href="#" id="Following" class="headerSection"><img id="FollowingIcon" src="resources\image\followingIcon1.png"></a></li>
             <li id="ReelsMarker"><a href="#" id="Reels" class="headerSection"><img id="ReelsIcon" src="resources\image\watchIcon1.png"></a></li>
         </ul>
@@ -89,7 +89,7 @@ if (isset($_SESSION['userAvatar'])){
                 <p>'.$currentUserName.'</p>'
                 ?>
             </div>
-            <a href="#" class="profileLink">Xem trang cá nhân của bạn</a>
+            <a href="http://localhost/project-a/profile" class="profileLink">Xem trang cá nhân của bạn</a>
         </div>
         <!-- Form đăng xuất -->
         <form action="" method="post">

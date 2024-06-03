@@ -10,7 +10,7 @@
         <form method="post" action="createPost" enctype="multipart/form-data">
             <div class="postHead">
                 <!-- phần avatar -->
-                <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
+                <?php echo '<a href="http://localhost/project-a/profile" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
                 <!-- Những ai có thể thấy bài viết này ? -->
                 <div class="containerNamePrivacy">
                     <!-- phần tên người dùng -->
@@ -53,7 +53,7 @@
     <div class="postContainer">
         <div id="addNewPost">
             <!-- phần avatar -->
-            <?php echo '<a href="#" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
+            <?php echo '<a href="http://localhost/project-a/profile" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
             <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào
                 ?</button>
         </div>
