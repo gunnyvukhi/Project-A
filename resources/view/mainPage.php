@@ -73,22 +73,6 @@
 
 <div id="mainContentRightContainer">
 
-    <div class="newNotificationContainer">
-        <h3>Thông báo</h3>
-        <ul>
-            <?php
-                echo '<li><a href="#" class="NotificationLink">
-                <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $userName . ' />
-                <div class="NotificationContentContainer">
-                    <p class="NotificationContent"><b>' . $userName . '</b> đã thêm một ảnh mới vào Album của họ</p>
-                    <p class="NotificationTime">' . $timePosted . '</p>
-                </div>
-                </a>
-                </li>';
-            ?>
-        </ul>
-    </div>
-
     <div class="FriendsListContainer">
         <h3>Online</h3>
         <ul>
