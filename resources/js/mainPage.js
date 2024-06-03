@@ -54,7 +54,8 @@ function LikeButton(id){
     if (pressed % 2 == 1) {
         document.getElementById(id).style.color = '#46A3FF';
         document.getElementById('likeButtonImg' + postId).src = 'resources/image/likeIcon2.png';
-        xhttp.open("POST", "", true);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "likePost", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         postId = postId.slice(10, postId.length);
         xhttp.send("postId=" + postId + "&like=1");
@@ -62,19 +63,13 @@ function LikeButton(id){
         console.log(pressed);
         document.getElementById(id).style.color = '#686868';
         document.getElementById('likeButtonImg' + postId).src = 'resources/image/likeIcon1.png';
-        xhttp.open("POST", "", true);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "unlikePost", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         postId = postId.slice(10, postId.length);
         xhttp.send("postId=" + postId + "&unlike=1");
     }
     pressed = pressed + 1;
-    
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "likePost", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    postId = postId.slice(10, postId.length);
-    xhttp.send("postId=" + postId + "&like=1");
-    console.log(postId);
 }
 
 
