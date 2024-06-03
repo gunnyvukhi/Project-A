@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
     $id = '';
     $userName = $_SESSION['userName'];
     $avatarLink = 'resources\image\demoPersonIcon.png';
@@ -22,7 +22,6 @@
         <button class="LikeShareButton" name="shareButton" id="shareButton" type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Share</button>
     </form>
 </div>';
-=======
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
     echo "<script type='text/javascript' language='JavaScript'>var All_comments = []</script>";
@@ -103,8 +102,3 @@
         }
     }
 
-<<<<<<< HEAD
->>>>>>> 998d7335f7accc1e33f671a9e15181beb5f17cec
-?>
-=======
->>>>>>> 09bcfbc23bcac744d4f035ee01ff23f8a65f6541
