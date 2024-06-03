@@ -103,4 +103,30 @@ class PostModel{
 
         return $db;
     }
+
+    //hasUserLikedPost
+    public function hasUserLikedPost($userId, $postId){
+        $sql = "SELECT * FROM post_likes WHERE user_id = $userId AND post_id = $postId";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetch(PDO::FETCH_ASSOC);
+        if ($db) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //check if user has liked post in post_likes table
+    public function hasLike($userId, $postId){
+        $sql = "INSERT INTO post_likes (user_id, post_id) VALUES ($userId, $postId)";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
+
+
+
+
 }

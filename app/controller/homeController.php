@@ -34,6 +34,17 @@ class HomeController {
             return $post;
         }, $data);
 
+        //check user has liked post
+        $data = array_map(function($post){
+            $PostModel = new PostModel();
+            $post['hasLiked'] = $PostModel->hasUserLikedPost($_SESSION['userId'], $post['post_id']);
+            return $post;
+        }, $data);
+
+        echo '<pre>';
+        var_dump($data);
+        echo '</pre>';
+
         require_once 'resources\view\mainPage.php';
     }
 
@@ -74,8 +85,13 @@ class HomeController {
     public function likePost() {
         if(isset($_POST['postId'])){
             $postId = $_POST['postId'];
+            $userId = $_SESSION['userId'];
             $PostModel = new PostModel();
-            $PostModel->likePost($postId);
+            if (!$PostModel->hasUserLikedPost($userId, $postId)) {
+                //like post in post_likes table
+                $PostModel->hasLike($userId, $postId);
+                $PostModel->likePost($postId);
+            }
         }
     }
 
