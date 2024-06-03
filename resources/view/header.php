@@ -99,5 +99,22 @@ if (isset($_SESSION['userAvatar'])){
             <button type="button" name="logout"><img src="resources\image\logoutIcon.png">Đăng xuất</button>
         </form>
     </div>
+
+    <!-- Bảng thông báo -->
+    <div class="newNotificationContainer" id="newNotificationContainer">
+        <h3>Thông báo</h3>
+        <ul>
+            <?php
+                echo '<li><a href="#" class="NotificationLink">
+                <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
+                <div class="NotificationContentContainer">
+                    <p class="NotificationContent"><b>' . $currentUserName . '</b> đã thêm một ảnh mới vào Album của họ</p>
+                    <p class="NotificationTime">vừa xong</p>
+                </div>
+                </a>
+                </li>';
+            ?>
+        </ul>
+    </div>
     <script lang="javascript" type="text/javascript" src="resources/js/header.js"></script>
 
