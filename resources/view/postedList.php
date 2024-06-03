@@ -15,7 +15,7 @@
             
             $caption = $postData['content'];
             $photo = $postData['image'];
-            $like_num = 0;
+            $like_num = $postData['count_like'];
             $comment_num = 0;
             
             if (isset($PostUser["avatar"])){

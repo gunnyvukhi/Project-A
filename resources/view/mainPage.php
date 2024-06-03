@@ -84,7 +84,7 @@
 </div>
 
 <div id="mainContentLeftContainer"> 
-
+    <?php var_dump($data[3]) ?>
 </div>
 
 <script>
