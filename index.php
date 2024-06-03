@@ -40,38 +40,38 @@ $url = explode('/', $url);
 
 //default route (http://localhost/project-a/)
 
-    //Kiem tra neu khong co session thi chuyen ve trang login
-    if($url[2] != 'login' && $url[2] != 'signIn' && $url[2] != 'forgotPassword' && $url[2] != 'forgetPasswordResult' && $url[2] != 'logout'){
-        if(!isset($_SESSION['userId'])){
-            header('Location: http://localhost/project-a/login');
-        }
+//Kiem tra neu khong co session thi chuyen ve trang login
+if ($url[2] != 'login' && $url[2] != 'signIn' && $url[2] != 'forgotPassword' && $url[2] != 'forgetPasswordResult' && $url[2] != 'logout') {
+    if (!isset($_SESSION['userId'])) {
+        header('Location: http://localhost/project-a/login');
     }
+}
 
-    
-    switch ($url[2]) {
-        case '':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->index();
-            break;
-        case 'login':
-            require_once 'app/controller/auth/loginController.php';
-            $login = new LoginController();
-            $login->login();
-            break;
-        case 'signIn':
-            require_once 'app/controller/auth/registerController.php';
-            $register = new RegisterController();
-            $register->register();
-            break;
-        case 'forgotPassword':
-            require_once 'app/controller/auth/forgotPasswordController.php';
-            $forgotPassword = new ForgotPasswordController();
-            $forgotPassword->forgotPassword();
-            break;
-        case 'mainPage':
-            require_once 'resources\view\mainPage.php';
-            break;
+
+switch ($url[2]) {
+    case '':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->index();
+        break;
+    case 'login':
+        require_once 'app/controller/auth/loginController.php';
+        $login = new LoginController();
+        $login->login();
+        break;
+    case 'signIn':
+        require_once 'app/controller/auth/registerController.php';
+        $register = new RegisterController();
+        $register->register();
+        break;
+    case 'forgotPassword':
+        require_once 'app/controller/auth/forgotPasswordController.php';
+        $forgotPassword = new ForgotPasswordController();
+        $forgotPassword->forgotPassword();
+        break;
+    case 'mainPage':
+        require_once 'resources\view\mainPage.php';
+        break;
 
     case 'createPost':
         require_once 'app/controller/homeController.php';
@@ -79,55 +79,60 @@ $url = explode('/', $url);
         $home->createPost();
         break;
 
-        case 'forgetPasswordResult':
-            require_once 'resources/view/forgetPasswordResult.html';
-            break;
-        case 'profile':
-            require_once 'app/controller/profileController.php';
-            $profile = new profileController();
-            $profile->index();
-            break; 
-        case 'Profiles_Decription':
-            require_once 'resources/view/Profile_Decription.php';
-            break; 
+    case 'forgetPasswordResult':
+        require_once 'resources/view/forgetPasswordResult.html';
+        break;
+    case 'profile':
+        require_once 'app/controller/profileController.php';
+        $profile = new profileController();
+        $profile->index();
+        break;
+    case 'Profiles_Decription':
+        require_once 'resources/view/Profile_Decription.php';
+        break;
 
-        case 'deletePost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->deletePost();
-            break;
+    case 'deletePost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->deletePost();
+        break;
 
-        case 'revertPost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->revertPost();
-            break;
-        case 'likePost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->likePost();
-            break;
-        case 'commentPost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->commentPost();
-            break;
-        case 'hiddenPost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->hiddenPost();
-            break;
-        case 'unHiddenPost':
-            require_once 'app/controller/homeController.php';
-            $home = new HomeController();
-            $home->unHiddenPost();
-            break;
-        case 'logout':
-            require_once 'app/controller/auth/logoutController.php';
-            $logout = new logoutController();
-            $logout->logout();
-            break;
-        default:
-            echo "404 Not Found";
-            break;
-    }
+    case 'revertPost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->revertPost();
+        break;
+    case 'likePost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->likePost();
+        break;
+    case 'unlikePost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->unlikePost();
+        break;
+    case 'commentPost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->commentPost();
+        break;
+    case 'hiddenPost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->hiddenPost();
+        break;
+    case 'unHiddenPost':
+        require_once 'app/controller/homeController.php';
+        $home = new HomeController();
+        $home->unHiddenPost();
+        break;
+    case 'logout':
+        require_once 'app/controller/auth/logoutController.php';
+        $logout = new logoutController();
+        $logout->logout();
+        break;
+    default:
+        echo "404 Not Found";
+        break;
+}

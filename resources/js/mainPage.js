@@ -60,11 +60,13 @@ function LikeButton(id){
         document.getElementById('likeButtonImg' + postId).src = 'resources/image/likeIcon1.png';
     }
     pressed = pressed + 1;
-
-    xhttp.open("POST", "", true);
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "likePost", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     postId = postId.slice(10, postId.length);
     xhttp.send("postId=" + postId + "&like=1");
+    console.log(postId);
 }
 
 
@@ -127,7 +129,7 @@ function send_comment(commentId){
     comment_Text_Id.value = '';
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "", true);
+    xhttp.open("POST", "commentPost", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     postId = postId.slice(10, postId.length);
     xhttp.send("postId=" + postId + "&comment=" + comment_Text);

@@ -25,6 +25,14 @@ class HomeController {
             }
             return true;
         });
+        
+        //add comment to post with post_id
+        $data = array_map(function($post){
+            $PostModel = new PostModel();
+            $comments = $PostModel->getCommentByPostId($post['post_id']);
+            $post['comments'] = $comments;
+            return $post;
+        }, $data);
 
         require_once 'resources\view\mainPage.php';
     }
@@ -64,10 +72,18 @@ class HomeController {
     }
 
     public function likePost() {
-        if(isset($_POST['likeButton'])){
+        if(isset($_POST['postId'])){
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->likePost($postId);
+        }
+    }
+
+    public function unlikePost() {
+        if(isset($_POST['postId'])){
+            $postId = $_POST['postId'];
+            $PostModel = new PostModel();
+            $PostModel->unlikePost($postId);
         }
     }
 
@@ -80,10 +96,10 @@ class HomeController {
     }
 
     public function commentPost() {
-        if(isset($_POST['commentPost'])){
+        if(isset($_POST['comment'])){
             $postId = $_POST['postId'];
             $userId = $_SESSION['userId'];
-            $content = $_POST['commentContent'];
+            $content = $_POST['comment'];
             $created_at = date('Y-m-d H:i:s');
             $updated_at = date('Y-m-d H:i:s');
             $PostModel = new PostModel();
