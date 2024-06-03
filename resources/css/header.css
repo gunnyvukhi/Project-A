@@ -268,3 +268,89 @@ header {
     border-radius: 12px;
   }
 }
+
+
+/*                                 */
+/*          Nemu LogOut            */
+/*                                 */
+
+.logoutNemuContainer{
+  width: 320px;
+  height: 400px !important;
+  border-radius: 24px;
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  top: 72px;
+  right: 8px;
+  padding: 16px;
+  display: none;
+  .YourProfile{
+    width: 284px;
+    height: 120px !important;
+    border-radius: 24px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 12px;
+    .yourProfileAvaName{
+      padding: 12px 0px;
+      margin: 0px 12px 12px 12px;
+      display: flex;
+      align-items: center;
+      border-bottom: #e1e2e3 solid 2.4px;
+
+      img{
+      height: 48px;
+      width: 48px;
+      border-radius: 24px;
+      }
+
+      p{
+        font-size: 16px;
+        margin-left: 8px;
+        height: 20px;
+      }
+    }
+    .profileLink:link{
+      color: #46A3FF;
+      text-decoration: inherit;
+    }
+    .profileLink:visited{
+      color: #46A3FF;
+      text-decoration: inherit;
+    }
+    .profileLink{
+      margin-left: 16px;
+      color: #46A3FF;
+      font-weight: 600;
+    }
+  }
+
+  form{
+    display: block;
+  }
+
+  form button{
+    width: 284px;
+    height: 48px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-indent: 40px;
+    img{
+      position: absolute;
+      height: 24px;
+      transform: translate(-32px, -3px);
+    }
+  }
+  button:hover{
+    background-color: rgba(169, 169, 169, 0.16);
+  }
+}

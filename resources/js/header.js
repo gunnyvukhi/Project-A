@@ -41,5 +41,14 @@ document.getElementById('searchBox').addEventListener('mouseout', function() {
         search_content.style = 'width: 48px; border-radius: 24px;';
         document.getElementById('searchImage').style.display = 'unset';
     }
-    
+});
+
+CurrentUserBtnClicled = 0;
+document.getElementById('CurrentUserBtn').addEventListener('click', function() {
+    if (CurrentUserBtnClicled % 2 == 0){
+        document.getElementById('logoutNemuContainer').style.display = 'block';
+    }else{
+        document.getElementById('logoutNemuContainer').style.display = 'none'
+    }
+    CurrentUserBtnClicled += 1;
 });
