@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #F0F2F5;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -12,7 +12,7 @@ body{
 /*         Khu vực chính        */
 /*                              */
 
-#mainContentMidContainer{
+#mainContentMidContainer {
     width: 600px;
     height: 100vh !important;
     position: absolute !important;
@@ -21,7 +21,7 @@ body{
     border-radius: 24px;
 }
 
-.postContainer{
+.postContainer {
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
@@ -30,15 +30,16 @@ body{
     height: fit-content;
     border-radius: 24px;
     background-color: #ffffff;
-    box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 16px;
     margin-bottom: 16px;
-    .nameTimeContainer{
+
+    .nameTimeContainer {
         width: 400px;
         height: 40px;
         margin-left: 8px;
-    
-        .userName{
+
+        .userName {
             width: fit-content;
             height: fit-content;
             font-size: 16px;
@@ -46,7 +47,8 @@ body{
             text-align: left;
             margin: 0;
         }
-        .timePosted{
+
+        .timePosted {
             width: fit-content;
             height: fit-content;
             font-size: 12px;
@@ -56,9 +58,10 @@ body{
             margin: 0;
         }
     }
-    button[class="deletePost"]{
+
+    button[class="deletePost"] {
         margin-left: auto;
-        justify-self:end;
+        justify-self: end;
         width: 40px;
         height: 40px;
         z-index: 9;
@@ -71,16 +74,19 @@ body{
         cursor: pointer;
         opacity: 0.5;
     }
-    button[class="deletePost"]:hover{
+
+    button[class="deletePost"]:hover {
         opacity: 1;
     }
-    p[class="deletePostText"]{
+
+    p[class="deletePostText"] {
         font-size: 16px;
         margin: 16px;
         height: 20px;
         display: none;
     }
-    button[class="undoDeletePost"]{
+
+    button[class="undoDeletePost"] {
         font-size: 16px;
         height: 44px;
         width: 92px;
@@ -95,32 +101,39 @@ body{
         border: none;
         cursor: pointer;
     }
-    button[class="undoDeletePost"]:hover{
+
+    button[class="undoDeletePost"]:hover {
         background-color: rgba(169, 169, 169, 0.5);
     }
-    button[class="undoDeletePost"]:active{
+
+    button[class="undoDeletePost"]:active {
         background-color: rgba(169, 169, 169, 0.8);
     }
-    .contentContainer{
+
+    .contentContainer {
         width: 568px;
         height: fit-content;
-        .postCaption{
+
+        .postCaption {
             font-size: 16px;
             margin-top: 16px;
             margin-bottom: 8px;
             margin-left: 8px;
         }
-        .postPhoto{
+
+        .postPhoto {
             width: 568px;
             border-radius: 12px;
         }
     }
-    .LikeShareNumberContainer{
+
+    .LikeShareNumberContainer {
         width: 100%;
         height: fit-content;
         display: flex;
         justify-content: space-between;
-            .likeNumber{
+
+        .likeNumber {
             text-indent: 20px;
             color: rgb(104, 104, 104);
             font-size: 14px;
@@ -128,14 +141,16 @@ body{
             font-weight: 500;
             margin-top: 4px;
             margin-left: 16px;
-            img{
+
+            img {
                 height: 20px;
                 border-radius: 10px;
                 position: absolute;
                 transform: translate(-24px, -3.2px);
             }
         }
-            .commentNumber{
+
+        .commentNumber {
             color: rgb(104, 104, 104);
             font-size: 14px;
             line-height: 16px;
@@ -145,7 +160,7 @@ body{
         }
     }
 
-    .LikeShareContainer{
+    .LikeShareContainer {
         margin-top: 8px;
         margin-bottom: 8px;
         padding-top: 8px;
@@ -154,7 +169,8 @@ body{
         border-bottom: #e1e2e3 solid 1px;
         display: flex;
         justify-content: space-evenly;
-        .LikeShareButton{
+
+        .LikeShareButton {
             margin: 0px;
             width: 176px;
             height: 40px;
@@ -167,26 +183,31 @@ body{
             cursor: pointer;
             border: none;
             border-radius: 12px;
-            img{
+
+            img {
                 width: 24px;
                 position: absolute;
                 transform: translate(-28px, -5.6px);
             }
         }
-        .LikeShareButton:hover{
+
+        .LikeShareButton:hover {
             background-color: rgba(169, 169, 169, 0.15);
         }
-        .LikeShareButton:active{
+
+        .LikeShareButton:active {
             background-color: rgba(169, 169, 169, 0.3);
         }
     }
-    .commentsContainer{
+
+    .commentsContainer {
         display: block;
         width: 100%;
         max-height: 0px;
         transition: all 1s ease-in-out;
         overflow: hidden;
-        .moreComments{
+
+        .moreComments {
             font-weight: 600;
             font-size: 14px;
             color: rgb(104, 104, 104);
@@ -195,14 +216,17 @@ body{
             background-color: transparent;
             cursor: pointer;
         }
-        .moreComments:hover{
+
+        .moreComments:hover {
             text-decoration-line: underline;
         }
-        .sendComment{
+
+        .sendComment {
             margin-top: 16px;
             width: 100%;
             display: flex;
-            textarea[class="newComment"]{
+
+            textarea[class="newComment"] {
                 margin-left: 8px;
                 width: 496px;
                 min-height: 64px;
@@ -217,33 +241,39 @@ body{
                 text-align: start;
                 resize: none;
             }
-            textarea[class="newComment"]:focus{
+
+            textarea[class="newComment"]:focus {
                 outline: none;
             }
-            .submitComment{
+
+            .submitComment {
                 display: block;
                 height: 24px;
                 width: 24px;
                 padding: 0;
-                transform: translate(-32px,34px);
+                transform: translate(-32px, 34px);
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
-                img{
+
+                img {
                     height: 24px;
                     margin: 0;
                     opacity: 0.8;
                 }
-                img:hover{
+
+                img:hover {
                     opacity: 1;
                 }
             }
 
         }
-        .comments{
+
+        .comments {
             display: flex;
             margin-top: 16px;
-            .othersComments{
+
+            .othersComments {
                 margin-left: 8px;
                 width: 496px;
                 height: fit-content;
@@ -260,7 +290,8 @@ body{
         }
 
     }
-    .lessComments{
+
+    .lessComments {
         display: none;
         margin-top: 16px;
         margin-left: 464px;
@@ -273,19 +304,21 @@ body{
         cursor: pointer;
         position: relative;
     }
-    .lessComments:hover{
+
+    .lessComments:hover {
         text-decoration-line: underline;
     }
-    
+
 }
 
 
-#addNewPost{
+#addNewPost {
     width: 600px;
     display: flex;
     border-bottom: #e1e2e3 solid 1px;
     padding-bottom: 16px;
-    #newPostCaptionsBtn{
+
+    #newPostCaptionsBtn {
         height: 40px;
         margin: 0px;
         margin-left: 8px;
@@ -299,36 +332,41 @@ body{
         cursor: pointer;
         opacity: 0.8;
     }
-    #newPostCaptionsBtn:hover{
+
+    #newPostCaptionsBtn:hover {
         opacity: 2;
     }
-    #newPostCaptionsBtn:focus{
+
+    #newPostCaptionsBtn:focus {
         outline: none;
     }
 }
 
-.PostAva{
+.PostAva {
     margin: 0px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
 
-    img{
+    img {
         margin: 0px;
         width: 40px;
         height: 40px;
         border-radius: 20px;
-    };
+    }
+
+    ;
 }
 
-.newPostOtherOption{
+.newPostOtherOption {
     width: 600px;
     height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    button{
+
+    button {
         width: 176px;
         font-size: 16px;
         line-height: 16px;
@@ -342,19 +380,23 @@ body{
         cursor: pointer;
         text-align: center;
         text-indent: 24px;
-        img{
-            width: 24px; height: 24px;
+
+        img {
+            width: 24px;
+            height: 24px;
             margin: 0;
             padding: 0;
             position: absolute;
-            transform: translate(-32px,-4px);
+            transform: translate(-32px, -4px);
         }
 
     }
-    button:hover{
+
+    button:hover {
         background-color: rgba(169, 169, 169, 0.15);
     }
-    button:active{
+
+    button:active {
         background-color: rgba(169, 169, 169, 0.3);
     }
 }
@@ -368,12 +410,12 @@ body{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 
-.newPostForm{
+.newPostForm {
     margin-top: 80px;
     margin-bottom: 80px;
     position: relative;
@@ -382,24 +424,27 @@ body{
     transform: translate(-50%, 0);
     background-color: #ffffff;
     width: 520px;
-    height:fit-content;
+    height: fit-content;
     border-radius: 24px;
     padding: 16px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-    form{
+
+    form {
         padding-top: 16px;
     }
-    h2{
+
+    h2 {
         text-align: center;
         font-size: 20px;
         padding-bottom: 16px;
-        border-bottom:#e1e2e3 solid 0.8px;
+        border-bottom: #e1e2e3 solid 0.8px;
     }
-    #closeNewPostForm{
+
+    #closeNewPostForm {
         color: rgb(0, 0, 0);
         float: right;
         font-size: 28px;
@@ -408,23 +453,29 @@ body{
         background-color: #ffffff;
         opacity: 0.8;
         transform: translatey(-8px);
-      }
+    }
+
     #closeNewPostForm:hover,
     #closeNewPostForm:focus {
         text-decoration: none;
         cursor: pointer;
         opacity: 1;
-        }
-    .PostAva{
+    }
+
+    .PostAva {
         margin-top: 4.8px;
     }
-    .postHead{
+
+    .postHead {
         display: flex;
-        width: 484px; height:fit-content;
-        .containerNamePrivacy{
+        width: 484px;
+        height: fit-content;
+
+        .containerNamePrivacy {
             display: block;
             margin-left: 8px;
-            select[id="newPostPrivacy"]{
+
+            select[id="newPostPrivacy"] {
                 margin-top: 4px;
                 border-radius: 4px;
                 padding: 2.4px;
@@ -432,34 +483,40 @@ body{
                 font-weight: 600;
                 background-color: #e1e2e3;
                 border: none;
-                option{
+
+                option {
                     font-weight: 600;
                     border-radius: 0px;
                 }
             }
-            select[id="newPostPrivacy"]:focus{
+
+            select[id="newPostPrivacy"]:focus {
                 outline: none;
             }
         }
     }
-    .userName{
+
+    .userName {
         width: fit-content;
         font-size: 16px;
         font-weight: 600;
     }
-    textarea[id="newPostCaption"]{
+
+    textarea[id="newPostCaption"] {
         margin-top: 16px;
         width: 484px;
         height: 128px;
-        text-align:start;
+        text-align: start;
         font-size: 24px;
         resize: none;
         border: none;
     }
-    textarea[id="newPostCaption"]:focus{
+
+    textarea[id="newPostCaption"]:focus {
         outline: none;
     }
-    .containerForFile{
+
+    .containerForFile {
         margin-top: 16px;
         padding: 8px;
         width: 484px;
@@ -468,29 +525,35 @@ body{
         border-radius: 24px;
         display: flex;
         justify-content: end;
+
         input[id=newPostFileInput] {
-        display: none;
+            display: none;
         }
-        button[id="selectFileForNewPost"]{
-        display: block;
-        width: 468px;
-        height: 128px;
-        border-radius: 24px;
-        cursor: pointer;
-        border: none;
-        background-color: #f2f4f8;
+
+        button[id="selectFileForNewPost"] {
+            display: block;
+            width: 468px;
+            height: 128px;
+            border-radius: 24px;
+            cursor: pointer;
+            border: none;
+            background-color: #f2f4f8;
+
             img {
                 height: 64px;
             }
-            p{
+
+            p {
                 text-align: center;
                 font-size: 20px;
             }
         }
-        button[id="selectFileForNewPost"]:hover{
+
+        button[id="selectFileForNewPost"]:hover {
             background-color: #e1e2e3;
         }
-        button[id="deleteFileForNewPost"]{
+
+        button[id="deleteFileForNewPost"] {
             display: none;
             width: 40px;
             height: 40px;
@@ -504,60 +567,67 @@ body{
             background-color: transparent;
             cursor: pointer;
         }
-        button[id="deleteFileForNewPost"]:hover{
+
+        button[id="deleteFileForNewPost"]:hover {
             color: rgba(169, 169, 169, 1);
         }
-        #previewNewPostFile{
+
+        #previewNewPostFile {
             border-radius: 24px;
         }
     }
-    .btnContainer{
+
+    .btnContainer {
         margin-top: 16px;
         width: 484px;
         height: 32px;
 
-    #uploadNewPost{
-        float: right;
-        border: none;
-        border-radius: 12px;
-        height: 32px;
-        width: 56px;
-        background-color: rgb(56, 106, 255);
-        color: #ffffff;
-        cursor: pointer;
-        opacity: 0.6;
+        #uploadNewPost {
+            float: right;
+            border: none;
+            border-radius: 12px;
+            height: 32px;
+            width: 56px;
+            background-color: rgb(56, 106, 255);
+            color: #ffffff;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+
+        #uploadNewPost:hover {
+            opacity: 1;
+        }
+
+        #resetNewPost {
+            float: left;
+            border: none;
+            border-radius: 12px;
+            height: 32px;
+            width: 56px;
+            background-color: rgb(255, 56, 56);
+            color: #ffffff;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+
+        #resetNewPost:hover {
+            opacity: 1;
+        }
     }
-    #uploadNewPost:hover{
-        opacity: 1;
-    }
-    #resetNewPost{
-        float: left;
-        border: none;
-        border-radius: 12px;
-        height: 32px;
-        width: 56px;
-        background-color: rgb(255, 56, 56);
-        color: #ffffff;
-        cursor: pointer;
-        opacity: 0.6;
-    }
-    #resetNewPost:hover{
-        opacity: 1;
-    }
-}
 }
 
 
 /*                              */
 /*         Khu vực phải         */
 /*                              */
-#mainContentRightContainer{
+#mainContentRightContainer {
     width: 320px;
     height: fit-content;
     position: absolute !important;
     top: 80px;
     right: 8.8px;
     border-radius: 24px;
+
     .FriendsListContainer {
         width: 320px;
         display: flex;
@@ -568,10 +638,11 @@ body{
         height: fit-content;
         border-radius: 24px;
         background-color: #ffffff;
-        box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         padding: 16px;
         margin-bottom: 16px;
-        h3{
+
+        h3 {
             width: 50%;
             display: block;
             font-size: 20px;
@@ -584,25 +655,83 @@ body{
             padding-bottom: 8px !important;
         }
 
-        ul{
+        ul {
             width: 320px;
             height: fit-content;
             list-style: none;
-            li{
+
+            li {
                 width: 320px;
                 height: fit-content;
                 display: flex;
-                
+
+                a:link {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:active {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:visited {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:hover {
+                    color: inherit;
+                    text-decoration: none;
+                    background-color: #F0F2F5;
+                }
+
+                .NotificationLink {
+                    margin: 0px;
+                    width: 320px;
+                    height: fit-content;
+                    display: flex;
+                    padding: 8px;
+                    border-radius: 4px;
+                }
+
+                .NotificationAvaPic {
+                    margin: 0px;
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 24px;
+                }
+
+                .NotificationContentContainer {
+                    margin-top: 2px;
+                    margin-left: 8px;
+                    width: 248px;
+
+                    .NotificationContent {
+                        font-size: 14px;
+                        line-height: 16px;
+                        font-weight: 400;
+                    }
+
+                    .NotificationTime {
+                        font-size: 10px;
+                        line-height: 10px;
+                        font-weight: 700;
+                        margin-top: 6px;
+                        color: rgb(81, 81, 81);
+                        ;
+                    }
+                }
+
             }
         }
     }
-
 }
 
 /*                              */
 /*         Khu vực trái         */
 /*                              */
-#mainContentLeftContainer{
+#mainContentLeftContainer {
     width: 320px;
     height: 100vh !important;
     border: solid 1px black !important;

@@ -74,9 +74,18 @@
 <div id="mainContentRightContainer">
 
     <div class="FriendsListContainer">
-        <h3>Online</h3>
+        <h3>Người liên hệ</h3>
         <ul>
-            <li>Bạn 1</li>
+        <?php
+            echo '<li><a href="#" class="NotificationLink">
+                <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
+                <div class="NotificationContentContainer">
+                    <p class="NotificationContent"><b>' . $currentUserName . '</b> đã thêm một ảnh mới vào Album của họ</p>
+                    <p class="NotificationTime">vừa xong</p>
+                </div>
+                </a>
+            </li>';
+            ?>
             <li>Bạn 2</li>
             <li>Bạn 3</li>
         </ul>

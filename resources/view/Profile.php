@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/Profile.css">
     <link rel="stylesheet" href="resources/css/mainPage.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -76,11 +75,7 @@
         </div>
         <div id="Profile_Post" class="ProfilePart2">
             <div id="PostList" class="ProfilePost">
-<<<<<<< HEAD
                 <?php include_once 'postedList.php' ?>
-=======
-                <?php include_once 'postedList.php' ?> 
->>>>>>> 998d7335f7accc1e33f671a9e15181beb5f17cec
             </div>
         </div>
     </div>

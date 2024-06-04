@@ -40,11 +40,6 @@ class HomeController {
             $post['hasLiked'] = $PostModel->hasUserLikedPost($_SESSION['userId'], $post['post_id']);
             return $post;
         }, $data);
-
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre>';
-
         require_once 'resources\view\mainPage.php';
     }
 
