@@ -2,6 +2,7 @@
 
 require_once 'app/model/PostModel.php';
 require_once 'app/model/HiddenPostModel.php';
+require_once 'app/model/ActionLogModel.php';
 
 class HomeController {
     public function index() {
@@ -86,6 +87,9 @@ class HomeController {
                 //like post in post_likes table
                 $PostModel->hasLike($userId, $postId);
                 $PostModel->likePost($postId);
+                //add notification to action_log table
+                $ActionLogModel = new ActionLogModel();
+                $ActionLogModel->logAction($userId, $postId, 'like', date('Y-m-d H:i:s'));
             }
         }
     }
@@ -99,6 +103,10 @@ class HomeController {
             //unlike post in post_likes table
             $userId = $_SESSION['userId'];
             $PostModel->hasUnlike($userId, $postId);
+
+            //delete notification in action_log table
+            $ActionLogModel = new ActionLogModel();
+            $ActionLogModel->logAction($userId, $postId, 'unlike', date('Y-m-d H:i:s'));
             
         }
     }
@@ -120,6 +128,10 @@ class HomeController {
             $updated_at = date('Y-m-d H:i:s');
             $PostModel = new PostModel();
             $PostModel->commentPost($postId, $userId, $content, $created_at, $updated_at);
+
+            //add notification to action_log table
+            $ActionLogModel = new ActionLogModel();
+            $ActionLogModel->logAction($userId, $postId, 'comment', date('Y-m-d H:i:s'));
         }
     }
 
