@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th6 03, 2024 lúc 09:44 PM
+-- Thời gian đã tạo: Th6 07, 2024 lúc 09:28 AM
 -- Phiên bản máy phục vụ: 8.0.29
 -- Phiên bản PHP: 8.3.7
 
@@ -28,11 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `activity_log` (
+  `activity_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `friend_id` int DEFAULT NULL,
+  `post_id` int NOT NULL,
   `action_performed` varchar(15) DEFAULT NULL,
   `activity_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Đang đổ dữ liệu cho bảng `activity_log`
+--
+
+INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
+(0, 1, 2, 'like', '2024-06-07 09:11:48'),
+(1, 1, 2, 'like', '2024-06-07 09:23:14'),
+(2, 1, 2, 'unlike', '2024-06-07 09:23:24'),
+(3, 1, 2, 'comment', '2024-06-07 09:23:40');
 
 -- --------------------------------------------------------
 
@@ -70,7 +81,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `user_id`, `comment_content`, `create_at`, `update_at`, `post_id`) VALUES
-(1, 1, 'anhcoder', '2024-06-03 08:52:22', '2024-06-03 08:52:22', 2);
+(1, 1, 'anhcoder', '2024-06-03 08:52:22', '2024-06-03 08:52:22', 2),
+(2, 1, 'anhcoder', '2024-06-07 09:23:40', '2024-06-07 09:23:40', 2);
 
 -- --------------------------------------------------------
 
@@ -109,7 +121,7 @@ CREATE TABLE `hidden_posts` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
   `post_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Đang đổ dữ liệu cho bảng `hidden_posts`
@@ -156,7 +168,7 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`post_id`, `user_id`, `content`, `privacy_level`, `image`, `count_like`, `create_at`, `update_at`, `is_deleted`) VALUES
 (1, 1, 'cotent', 'public', 'resources/image/post/Pizza_suon_non.jpg', 0, NULL, NULL, 0),
 (2, 1, 'content', 'public', 'resources/image/post/Pizza_suon_non.jpg', 0, NULL, NULL, 0),
-(3, 1, 'content', 'public', 'resources/image/post/Pizza_suon_non.jpg', 2, '2024-05-29 10:05:13', '2024-05-29 10:05:13', 0);
+(3, 1, 'content', 'public', 'resources/image/post/Pizza_suon_non.jpg', 1, '2024-05-29 10:05:13', '2024-05-29 10:05:13', 0);
 
 -- --------------------------------------------------------
 
@@ -175,7 +187,7 @@ CREATE TABLE `post_likes` (
 --
 
 INSERT INTO `post_likes` (`id`, `user_id`, `post_id`) VALUES
-(1, 1, 3);
+(5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -229,8 +241,7 @@ INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `ema
 -- Chỉ mục cho bảng `activity_log`
 --
 ALTER TABLE `activity_log`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `friend_id` (`friend_id`);
+  ADD PRIMARY KEY (`user_id`,`post_id`,`activity_id`) USING BTREE;
 
 --
 -- Chỉ mục cho bảng `address`
@@ -309,12 +320,6 @@ ALTER TABLE `user_basic`
 --
 
 --
--- AUTO_INCREMENT cho bảng `activity_log`
---
-ALTER TABLE `activity_log`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `address`
 --
 ALTER TABLE `address`
@@ -324,7 +329,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `friends`
@@ -348,7 +353,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `post_likes`
 --
 ALTER TABLE `post_likes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `user_basic`
@@ -359,13 +364,6 @@ ALTER TABLE `user_basic`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
-
---
--- Các ràng buộc cho bảng `activity_log`
---
-ALTER TABLE `activity_log`
-  ADD CONSTRAINT `activity_log_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `friends` (`friend_id`),
-  ADD CONSTRAINT `activity_log_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user_basic` (`user_id`);
 
 --
 -- Các ràng buộc cho bảng `address`

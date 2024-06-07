@@ -41,6 +41,20 @@ class HomeController {
             $post['hasLiked'] = $PostModel->hasUserLikedPost($_SESSION['userId'], $post['post_id']);
             return $post;
         }, $data);
+
+
+        //get action log
+        $ActionLogModel = new ActionLogModel();
+        $actionLogs = $ActionLogModel->getActionLogByUserId($_SESSION['userId']);
+        $data = array_map(function($post) use ($actionLogs){
+            foreach($actionLogs as $actionLog){
+                if($post['post_id'] == $actionLog['post_id']){
+                    $post['actionLog'] = $actionLog;
+                }
+            }
+            return $post;
+        }, $data);
+
         require_once 'resources\view\mainPage.php';
     }
 
