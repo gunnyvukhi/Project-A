@@ -8,7 +8,7 @@ class ActionLogModel{
     //user_id	friend_id	action_performed	activity_date	
 
     public function logAction($user_id, $friend_id, $action_performed, $activity_date){
-        $sql = "INSERT INTO action_log (user_id, friend_id, action_performed, activity_date) VALUES ('$user_id', '$friend_id', '$action_performed', '$activity_date')";
+        $sql = "INSERT INTO action_log (user_id, friend_id, action_performed, activity_date) VALUES ($user_id, $friend_id, '$action_performed', '$activity_date')";
         $db = new DB;
         $db = $db->query($sql);
         return $db;

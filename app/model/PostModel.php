@@ -38,7 +38,7 @@ class PostModel{
 
     //unlike post
     public function unlikePost($postId){
-        $sql = "UPDATE posts SET count_like = count_like - 1 WHERE post_id = $postId";
+        $sql = "UPDATE posts SET count_like = count_like - 1 WHERE post_id = $postId && count_like > 0";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
@@ -120,6 +120,13 @@ class PostModel{
     //check if user has liked post in post_likes table
     public function hasLike($userId, $postId){
         $sql = "INSERT INTO post_likes (user_id, post_id) VALUES ($userId, $postId)";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
+    public function hasUnlike($userId, $postId){
+        $sql = "DELETE FROM post_likes WHERE user_id = $userId AND post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
         return $db;

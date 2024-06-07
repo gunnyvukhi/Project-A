@@ -95,6 +95,11 @@ class HomeController {
             $postId = $_POST['postId'];
             $PostModel = new PostModel();
             $PostModel->unlikePost($postId);
+
+            //unlike post in post_likes table
+            $userId = $_SESSION['userId'];
+            $PostModel->hasUnlike($userId, $postId);
+            
         }
     }
 
