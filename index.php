@@ -132,6 +132,9 @@ switch ($url[2]) {
         $logout = new logoutController();
         $logout->logout();
         break;
+    case 'following':
+        require_once 'resources\view\following.php';
+        break;
     default:
         echo "404 Not Found";
         break;

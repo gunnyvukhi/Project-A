@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 /*                              */
@@ -13,11 +16,12 @@ body {
 /*                              */
 
 #mainContentMidContainer {
+    margin-top: 16px;
     width: 600px;
-    height: 100vh !important;
-    position: absolute !important;
+    height: fit-content;
+    position: relative;
     top: 80px;
-    left: 444px;
+    /* left: 444px; */
     border-radius: 24px;
 }
 
@@ -279,12 +283,18 @@ body {
                 height: fit-content;
                 border-radius: 12px;
                 background-color: #e1e2e378;
-                padding: 12px;
+                padding: 8px 12px;
                 font-size: 14px;
                 line-height: 14px;
                 font-weight: 400;
                 border: none;
                 text-align: start;
+                .UserCommentName{
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    margin-bottom: 4px;
+                }
             }
 
         }
@@ -355,8 +365,6 @@ body {
         height: 40px;
         border-radius: 20px;
     }
-
-    ;
 }
 
 .newPostOtherOption {
@@ -618,42 +626,26 @@ body {
 
 
 /*                              */
-/*         Khu vực phải         */
+/*         Khu vực trái         */
 /*                              */
-#mainContentRightContainer {
+#mainContentLeftContainer {
     width: 320px;
     height: fit-content;
-    position: absolute !important;
+    position: relative;
     top: 80px;
-    right: 8.8px;
-    border-radius: 24px;
-
-    .FriendsListContainer {
+    /* left: 8.8px; */
+    overflow: auto;
+    .fuctionNemuContainer {
+        margin-top: 8px;
         width: 320px;
         display: flex;
-        justify-content: center;
+        justify-content:flex-start;
         align-content: center;
         flex-wrap: wrap;
-        width: 100%;
         height: fit-content;
-        border-radius: 24px;
-        background-color: #ffffff;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        padding: 16px;
-        margin-bottom: 16px;
-
-        h3 {
-            width: 50%;
-            display: block;
-            font-size: 20px;
-            text-align: center;
-            font-weight: 600;
-            color: rgb(70, 70, 70);
-            border-bottom: #e1e2e3 solid 2.4px;
-            height: 32px;
-            margin: 0;
-            padding-bottom: 8px !important;
-        }
+        background-color: transparent;
+        border-bottom: solid 2.4px #e1e2e3;
+        padding-bottom: 16px;
 
         ul {
             width: 320px;
@@ -683,60 +675,44 @@ body {
                 a:hover {
                     color: inherit;
                     text-decoration: none;
-                    background-color: #F0F2F5;
+                    background-color: #e1e2e3;
                 }
 
-                .NotificationLink {
+                .fuctionLink {
                     margin: 0px;
                     width: 320px;
                     height: fit-content;
                     display: flex;
                     padding: 8px;
-                    border-radius: 4px;
+                    border-radius: 8px;
                 }
 
-                .NotificationAvaPic {
+                .fuctionPic {
                     margin: 0px;
                     width: 48px;
                     height: 48px;
                     border-radius: 24px;
                 }
+                
+                .noRadion{
+                    border-radius: 0px !important;
+                }
 
-                .NotificationContentContainer {
-                    margin-top: 2px;
-                    margin-left: 8px;
+                .fuctionContainer {
                     width: 248px;
+                    display: flex;
+                    align-items: center;
 
-                    .NotificationContent {
-                        font-size: 14px;
+                    .fuctionName {
+                        font-size: 16px;
                         line-height: 16px;
-                        font-weight: 400;
-                    }
-
-                    .NotificationTime {
-                        font-size: 10px;
-                        line-height: 10px;
-                        font-weight: 700;
-                        margin-top: 6px;
-                        color: rgb(81, 81, 81);
-                        ;
+                        font-weight: 600;
+                        text-align: left;
+                        text-indent: 12px;
                     }
                 }
 
             }
         }
     }
-}
-
-/*                              */
-/*         Khu vực trái         */
-/*                              */
-#mainContentLeftContainer {
-    width: 320px;
-    height: 100vh !important;
-    border: solid 1px black !important;
-    position: absolute !important;
-    top: 80px;
-    left: 8.8px;
-    border-radius: 24px;
 }

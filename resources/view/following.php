@@ -1,3 +1,8 @@
+<?php require_once 'header.php' ?>
+<link rel="stylesheet" href="resources/css/following.css" type="text/css">
+<link rel="stylesheet" href="resources/css/event+friends.css" type="text/css">
+<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
+<div class="mainPostContainer">
 <?php
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
@@ -5,9 +10,8 @@
     var All_comments = [];
     var pressed = Array(999).fill(1);
     </script>';
-    $NewPostData = $data;
+    $NewPostData = $_SESSION['tempdata'];
     shuffle($NewPostData);
-    $_SESSION['tempdata'] = $NewPostData;
     foreach ($NewPostData as $postData){
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
@@ -61,7 +65,6 @@
                 <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton(this.id)" alt="0"><img src="resources\image\likeIcon1.png" id='. "likeButtonImg" . $postId  .' alt="like" />Thích</button>
                 ';
                 if ($postData["hasLiked"])
-
                 {
                  echo '<script>
                     pressed['. $postData["post_id"] .'] = 2;
@@ -90,7 +93,45 @@
             </div>
             <button type="button" class="lessComments" id='. "lessComments" . $postId  .' onclick="LessComments(this.id)">Ẩn bình luận</button>
         </div>';
-        echo '<script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>';
         }
     }
 
+?>
+</div>
+<?php echo '
+<link rel="stylesheet" href="resources\css\event+friends.css" type="text/css">
+<div id="mainContentRightContainer">
+    <div class="ListContainer">
+        <h3>Đang theo dõi</h3>
+        <ul>
+            <li>
+                <a href="#" class="ContentLink">
+                <img class="contentPic" src=' . $currentUserAvatarLink . ' />
+                <div class="ContentContainer">
+                    <p class="EventContent">Hôm nay là sinh nhật của Đào Đức Minh Hoàn</p>
+                </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ListContainer">
+        <h3>Người liên hệ</h3>
+        <ul>
+            <li>
+                <a href="#" class="ContentLink">
+                <img class="contentPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
+                <div class="ContentContainer">
+                    <p class="FriendsName">' . $currentUserName . '</p>
+                </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+' ?>
+
+<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
+<script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>
+</body>
+
+</html>

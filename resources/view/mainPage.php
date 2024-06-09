@@ -2,6 +2,70 @@
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
 
+<!-- Phần Nemu bên trái -->
+<div id="mainContentLeftContainer">
+    <div class="fuctionNemuContainer">
+        <ul>
+            <?php echo
+            '<li>
+                <a href="http://localhost/project-a/profile" class="fuctionLink">
+                <img class="fuctionPic" src="'. $currentUserAvatarLink .'" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">'. $currentUserName .'</p>
+                </div>
+                </a>
+            </li>';
+            ?>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\friendsIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Bạn bè</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\FollowingNemuIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Theo dõi</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic noRadion" src="resources\image\eventIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Sự kiện</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\groupIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Nhóm</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic noRadion" src="resources\image\videoNemuIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Video</p>
+                </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
 <!-- form tạo bài post mới-->
 <div id="modalBackGround">
     <div class="newPostForm">
@@ -10,7 +74,7 @@
         <form method="post" action="createPost" enctype="multipart/form-data">
             <div class="postHead">
                 <!-- phần avatar -->
-                <?php echo '<a href="http://localhost/project-a/profile" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
+                <?php echo '<a href="http://localhost/project-a/profile" class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
                 <!-- Những ai có thể thấy bài viết này ? -->
                 <div class="containerNamePrivacy">
                     <!-- phần tên người dùng -->
@@ -53,7 +117,7 @@
     <div class="postContainer">
         <div id="addNewPost">
             <!-- phần avatar -->
-            <?php echo '<a href="http://localhost/project-a/profile" alt=' . $currentUserName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
+            <?php echo '<a href="http://localhost/project-a/profile" class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>' ?>
             <button type="button" id="newPostCaptionsBtn" onclick="openNewPostForm()">Bạn đang cảm thấy thế nào
                 ?</button>
         </div>
@@ -71,30 +135,7 @@
 </div>
 
 
-<div id="mainContentRightContainer">
-
-    <div class="FriendsListContainer">
-        <h3>Người liên hệ</h3>
-        <ul>
-        <?php
-            echo '<li><a href="#" class="NotificationLink">
-                <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
-                <div class="NotificationContentContainer">
-                    <p class="NotificationContent"><b>' . $currentUserName . '</b> đã thêm một ảnh mới vào Album của họ</p>
-                    <p class="NotificationTime">vừa xong</p>
-                </div>
-                </a>
-            </li>';
-            ?>
-            <li>Bạn 2</li>
-            <li>Bạn 3</li>
-        </ul>
-    </div>
-</div>
-
-<div id="mainContentLeftContainer"> 
-    <?php var_dump($data[3]) ?>
-</div>
+<?php require_once 'Event+Friends.php'?>
 
 <script>
     function test() {

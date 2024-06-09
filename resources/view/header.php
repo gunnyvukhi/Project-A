@@ -5,7 +5,6 @@ if (isset($_SESSION['userAvatar'])){
 } else {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@ if (isset($_SESSION['userAvatar'])){
     <header>
         <!-- Logo bên trái -->
         <div class="logoContainer">
-            <a href="http://localhost/project-A/" alt="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
+            <a href="http://localhost/project-A/" title="Youcie"><img src="resources/image/logo.jpg" alt="Youcie" id="logo"></a>
         </div>
 
         <!-- Thanh tìm kiếm -->
@@ -36,15 +35,15 @@ if (isset($_SESSION['userAvatar'])){
         </div>
         <!-- Nemu ở giữa -->
         <ul class="sectionContainer">
-            <li id="HomeMarker"><a href="http://localhost/project-A/" id="Home" class="headerSection"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
-            <li id="FollowingMarker"><a href="#" id="Following" class="headerSection"><img id="FollowingIcon" src="resources\image\followingIcon1.png"></a></li>
-            <li id="ReelsMarker"><a href="#" id="Reels" class="headerSection"><img id="ReelsIcon" src="resources\image\watchIcon1.png"></a></li>
+            <li id="HomeMarker"><a href="http://localhost/project-a/" id="Home" class="headerSection" title="Home"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
+            <li id="FollowingMarker"><a href="http://localhost/project-a/following" id="Following" class="headerSection" title="For You"><img id="FollowingIcon" src="resources\image\followingIcon1.png"></a></li>
+            <li id="ReelsMarker"><a href="#" id="Reels" class="headerSection" title="Watch"><img id="ReelsIcon" src="resources\image\watchIcon1.png"></a></li>
         </ul>
         <!-- Nemu bên phải -->
         <div class="allNemuContainer">
             <ul>
                 <li>
-                    <a class="NemuOtherOptions" id="NemuOtherOptionsBtn" href="#">
+                    <a class="NemuOtherOptions" id="NemuOtherOptionsBtn" href="#" title="Nemu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -53,7 +52,7 @@ if (isset($_SESSION['userAvatar'])){
                     </a>
                 </li>
                 <li>
-                    <a class="NemuOtherOptions" id="messageBtn" href="#">
+                    <a class="NemuOtherOptions" id="messageBtn" href="#" title="Tin nhắn">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -62,7 +61,7 @@ if (isset($_SESSION['userAvatar'])){
                     </a>
                 </li>
                 <li>
-                    <a class="NemuOtherOptions" id="NotificationBtn" href="#">
+                    <a class="NemuOtherOptions" id="NotificationBtn" href="#" title="Thông báo">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -70,9 +69,9 @@ if (isset($_SESSION['userAvatar'])){
                     <img id="NotificationImg" src="resources\image\notificationIcon1.png"></img>
                     </a>
                 </li>
-                <li>
-                    <a class="NemuOtherOptions" id="CurrentUserBtn" href="#">
-                    <?php echo '<img id="CurrentUserImg" src='. $currentUserAvatarLink. '></img>' ?>
+                <li><?php echo 
+                    '<a class="NemuOtherOptions" id="CurrentUserBtn" href="#" title="'. $currentUserName .'">
+                    <img id="CurrentUserImg" src='. $currentUserAvatarLink. '></img>' ?>
                     </a>
                 </li>
             </ul>
@@ -85,8 +84,8 @@ if (isset($_SESSION['userAvatar'])){
             <!-- trang trí -->
             <div class="yourProfileAvaName">
                 <?php
-                echo '<img src='.$currentUserAvatarLink.' alt="">
-                <p>'.$currentUserName.'</p>'
+                echo '<img id="currentUserAvatarLink" src='.$currentUserAvatarLink.' alt="">
+                <p id="currentUserName">'.$currentUserName.'</p>'
                 ?>
             </div>
             <a href="http://localhost/project-a/profile" class="profileLink">Xem trang cá nhân của bạn</a>
