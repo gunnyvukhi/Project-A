@@ -25,6 +25,21 @@ body {
     border-radius: 24px;
 }
 
+.PostAva {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+}
+
 .postContainer {
     display: flex !important;
     flex-direction: row;
@@ -352,20 +367,6 @@ body {
     }
 }
 
-.PostAva {
-    margin: 0px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-
-    img {
-        margin: 0px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-    }
-}
 
 .newPostOtherOption {
     width: 600px;

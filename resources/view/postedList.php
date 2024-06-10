@@ -5,6 +5,7 @@
     var All_comments = [];
     var pressed = Array(999).fill(1);
     </script>';
+    echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
     $NewPostData = $data;
     shuffle($NewPostData);
     $_SESSION['tempdata'] = $NewPostData;
@@ -60,14 +61,15 @@
             <form class="LikeShareContainer" method="post" action="">
                 <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton(this.id)" alt="0"><img src="resources\image\likeIcon1.png" id='. "likeButtonImg" . $postId  .' alt="like" />Thích</button>
                 ';
-                if ($postData["hasLiked"])
-
-                {
+                if (isset($postData["hasLiked"])){
+                    if ($postData["hasLiked"])
+                    {
                  echo '<script>
                     pressed['. $postData["post_id"] .'] = 2;
                     document.getElementById("'. "likeButton" . $postId  .'").style.color = "#46A3FF";
                     document.getElementById("'. "likeButtonImg" . $postId  .'").src = "resources/image/likeIcon2.png";
                 </script>';
+                    }
                 }
                 echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
                 <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
