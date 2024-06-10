@@ -43,19 +43,18 @@ class HomeController {
         }, $data);
 
 
-        //get action log
+        //get all action log by post_id
         $ActionLogModel = new ActionLogModel();
-        $actionLogs = $ActionLogModel->getActionLogByUserId($_SESSION['userId']);
-        $data = array_map(function($post) use ($actionLogs){
-            foreach($actionLogs as $actionLog){
-                if($post['post_id'] == $actionLog['post_id']){
-                    $post['actionLog'] = $actionLog;
-                }
-            }
+        $data = array_map(function($post){
+            $ActionLogModel = new ActionLogModel();
+            $actionLogs = $ActionLogModel->getActionLogByPostId($post['post_id']);
+            $post['actionLogs'] = $actionLogs;
             return $post;
         }, $data);
 
+
         require_once 'resources\view\mainPage.php';
+        
     }
 
     public function createPost() {
@@ -77,7 +76,7 @@ class HomeController {
 
             $newPost = new PostModel();
             $newPost->createPost($newPostUserId, $newPostCaption, $newPostImage, $newPostPrivacy, 0, $created_at, $updated_at, $is_deleted);
-            header('Location: http://localhost/project-a/');
+            header('Location: ' . APPURL);
 
 
         }

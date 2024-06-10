@@ -20,7 +20,7 @@ class RegisterController {
                 $sql = "INSERT INTO user_basic (last_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
                 $user = $db->query($sql);
                 // echo "<script>success=1</script>";
-                header('Location: http://localhost/project-a/login');
+                header('Location: ' . APPURL . 'signIn');
             } else {
                 echo "<script>success=0</script>";
             }

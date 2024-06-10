@@ -32,6 +32,14 @@ class ActionLogModel{
         return $db;
     }
 
+    public function getActionLogByPostId($post_id){
+        $sql = "SELECT * FROM activity_log WHERE post_id = $post_id";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetchAll(PDO::FETCH_ASSOC);
+        return $db;
+    }
+
 
 
 }

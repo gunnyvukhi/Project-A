@@ -41,7 +41,7 @@ class LoginController {
 
 
                 echo "<script>success=1</script>";
-                header('Location: http://localhost/project-a/');
+                header('Location: ' . APPURL);
             } else {
                 echo "<script>document.getElementById('result').innerHTML = 'Sai tài khoản email hoặc mật khẩu';</script>";
                 $check = 1;
