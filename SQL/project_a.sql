@@ -192,6 +192,7 @@ CREATE TABLE IF NOT EXISTS `user_basic` (
   `birth_date` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `avatar` text,
+  `avatar_backgroud` text,
   `status` text,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`),
@@ -199,9 +200,9 @@ CREATE TABLE IF NOT EXISTS `user_basic` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.user_basic: ~2 rows (approximately)
-INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `status`, `create_at`) VALUES
-	(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, 'online', NULL),
-	(3, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', NULL, NULL, '2024-06-02 01:47:13');
+INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `avatar_backgroud`, `status`, `create_at`) VALUES
+	(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, 'user2.jpeg', 'online', NULL),
+	(3, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', NULL, 'user2.jpeg', NULL, '2024-06-02 01:47:13');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
