@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="#" class="fuctionLink">
+                <a href="http://localhost/project-a/following" class="fuctionLink">
                 <img class="fuctionPic" src="resources\image\FollowingNemuIcon.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Theo dõi</p>
@@ -54,7 +54,7 @@
             </li>
 
             <li>
-                <a href="#" class="fuctionLink">
+                <a href="http://localhost/project-a/watch" class="fuctionLink">
                 <img class="fuctionPic noRadion" src="resources\image\videoNemuIcon.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Video</p>

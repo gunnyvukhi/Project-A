@@ -119,6 +119,10 @@ switch ($url[2]) {
     case 'following':
         require_once 'resources\view\following.php';
         break;
+
+    case 'watch':
+        require_once 'resources\view\watch.php';
+        break;
     default:
         echo "404 Not Found";
         break;

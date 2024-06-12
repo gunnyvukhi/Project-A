@@ -7,8 +7,9 @@
     </script>';
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
     $NewPostData = $data;
-    shuffle($NewPostData);
+    var_dump($data);
     $_SESSION['tempdata'] = $NewPostData;
+    shuffle($NewPostData);
     foreach ($NewPostData as $postData){
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
@@ -21,7 +22,7 @@
             $caption = $postData['content'];
             $photo = $postData['image'];
             $like_num = $postData['count_like'];
-            $comment_num = 0;
+            $comment_num = count($postData['comments']);
             
             if (isset($PostUser["avatar"])){
                 $avatarLink = $PostUser["avatar"];
@@ -77,7 +78,7 @@
 
             <!-- GỬi bình luận bài viết -->
             <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
-                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button><br>
+                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button>
                 <form action="" class="sendComment" method="post">
                     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . '/></a>
 

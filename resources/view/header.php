@@ -37,7 +37,7 @@ if (isset($_SESSION['userAvatar'])){
         <ul class="sectionContainer">
             <li id="HomeMarker"><a href="http://localhost/project-a/" id="Home" class="headerSection" title="Home"><img id="HomeIcon" src="resources\image\homeIcon1.png"></a></li>
             <li id="FollowingMarker"><a href="http://localhost/project-a/following" id="Following" class="headerSection" title="For You"><img id="FollowingIcon" src="resources\image\followingIcon1.png"></a></li>
-            <li id="ReelsMarker"><a href="#" id="Reels" class="headerSection" title="Watch"><img id="ReelsIcon" src="resources\image\watchIcon1.png"></a></li>
+            <li id="WatchMarker"><a href="http://localhost/project-a/watch" id="Watch" class="headerSection" title="Watch"><img id="WatchIcon" src="resources\image\watchIcon1.png"></a></li>
         </ul>
         <!-- Nemu bên phải -->
         <div class="allNemuContainer">

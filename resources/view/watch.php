@@ -1,7 +1,74 @@
 <?php require_once 'header.php' ?>
-<link rel="stylesheet" href="resources/css/following.css" type="text/css">
-<link rel="stylesheet" href="resources/css/event+friends.css" type="text/css">
-<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
+<link rel="stylesheet" href="resources/css/watch.css" type="text/css">
+<script lang="javascript" type="text/javascript" src="resources/js/watch.js"></script>
+
+
+<!-- Phần Nemu bên trái -->
+<div id="mainContentLeftContainer">
+    <div class="fuctionNemuContainer">
+        <h>Video</h>
+        <form method="post" action="" class="SeachVideoForm">
+            <img src="resources\image\searchVideoIcon.png">
+            <input type="text" name="SeachVideo" id="SeachVideo" placeholder="Tìm kiếm video">
+        </form>
+        <ul>
+            <li>
+                <a href="http://localhost/project-a/watch" class="fuctionLink">
+                <img class="fuctionPic" id="watchMainPageIcon" src="resources\image\watchMainPageIcon1.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Trang Chủ</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\friendsIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Bạn bè</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost/project-a/following" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\FollowingNemuIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Theo dõi</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic noRadion" src="resources\image\eventIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Sự kiện</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink">
+                <img class="fuctionPic" src="resources\image\groupIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Nhóm</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="http://localhost/project-a/watch" class="fuctionLink">
+                <img class="fuctionPic noRadion" src="resources\image\videoNemuIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Video</p>
+                </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <div class="mainPostContainer">
 <?php
     include_once "app\model\UserModel.php";
@@ -11,23 +78,6 @@
     var pressed = Array(999).fill(1);
     </script>';
     $NewPostData = $_SESSION['tempdata'];
-
-    $notificationRawData = array_fill(0, 999, array_fill(0, 10, array()));
-    foreach ($NewPostData as $postData){
-        foreach ($postData["actionLogs"] as $notiData){
-            $postNotiId = $notiData["post_id"];
-            if ($notiData["action_performed"] == "like"){
-                $type = 1; // like là 1
-            } else if ($notiData["action_performed"] == "comment"){
-                $type = 2; // comment là 2
-            } else {
-                $type = 0;
-            };
-            array_push($notificationRawData[$postNotiId][$type], $notiData);
-        };
-    };
-    var_dump($notificationRawData[4][2]);
-
 
     shuffle($NewPostData);
     foreach ($NewPostData as $postData){
@@ -117,42 +167,11 @@
     }
 
 ?>
-</div>
-<?php echo '
-<link rel="stylesheet" href="resources\css\event+friends.css" type="text/css">
-<div id="mainContentRightContainer">
-    
-    <div class="ListContainer">
-        <h3>Đang theo dõi</h3>
-        <ul>
-            <li>
-                <a href="#" class="ContentLink">
-                <img class="contentPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
-                <div class="ContentContainer">
-                    <p class="FriendsName">' . $currentUserName . '</p>
-                </div>
-                </a>
-            </li>
-        </ul>
-    </div>
 
-    <div class="ListContainer">
-        <h3>Người liên hệ</h3>
-        <ul>
-            <li>
-                <a href="#" class="ContentLink">
-                <img class="contentPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
-                <div class="ContentContainer">
-                    <p class="FriendsName">' . $currentUserName . '</p>
-                </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-' ?>
 
-<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
+
+
+<script lang="javascript" type="text/javascript" src="resources/js/watch.js"></script>
 <script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>
 </body>
 
