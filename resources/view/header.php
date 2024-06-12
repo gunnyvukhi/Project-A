@@ -1,10 +1,16 @@
 <?php
+
+require_once 'app/controller/Controller.php';
+
 $currentUserName = $_SESSION['userName'] ;
 if (isset($_SESSION['userAvatar'])){
     $currentUserAvatarLink = $_SESSION['userAvatar'];
 } else {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
+
+$data = Controller::Data();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
