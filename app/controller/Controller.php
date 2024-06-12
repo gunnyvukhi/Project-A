@@ -59,18 +59,12 @@ class Controller{
         $EventModel = new EventModel();
         $events = $EventModel->getEventsByDate(date('Y-m-d'));
 
-        $data = array_map(function($post) use ($events){
-            $post['events'] = $events;
-            return $post;
-        }, $data);
+        $data['event'] = $events;
 
 
         //get all events before 2 days
         $eventsBeforeDate = $EventModel->getEventsBeforeDate(date('Y-m-d', strtotime('-2 days')));
-        $data = array_map(function($post) use ($eventsBeforeDate){
-            $post['eventsBeforeDate'] = $eventsBeforeDate;
-            return $post;
-        }, $data);
+        $data['eventbefore'] = $eventsBeforeDate;
 
 
         return $data;
