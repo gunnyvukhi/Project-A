@@ -7,7 +7,6 @@
     </script>';
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
     $NewPostData = $data;
-    var_dump($data);
     $_SESSION['tempdata'] = $NewPostData;
     shuffle($NewPostData);
     foreach ($NewPostData as $postData){

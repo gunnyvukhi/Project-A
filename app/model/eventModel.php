@@ -6,7 +6,7 @@ require_once 'config/db.php';
 class eventModel{
     // event_id,user_id, event_name,	event_date,	date_time
     public function createEvent($user_id, $event_name, $event_date, $date_time){
-        $sql = "INSERT INTO event (user_id, event_name, event_date, date_time) VALUES ($user_id, '$event_name', '$event_date', '$date_time')";
+        $sql = "INSERT INTO events (user_id, event_name, event_date, date_time) VALUES ($user_id, '$event_name', '$event_date', '$date_time')";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
@@ -29,16 +29,16 @@ class eventModel{
 
     //get all events
     public function getAllEvents(){
-        $sql = "SELECT * FROM event";
+        $sql = "SELECT * FROM events";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);
         return $db;
-    }   
+    }
 
     //thong bao cac su kien trong ngay
     public function getEventsByDate($event_date){
-        $sql = "SELECT * FROM event WHERE event_date = '$event_date'";
+        $sql = "SELECT * FROM events WHERE date_time = '$event_date'";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -47,7 +47,7 @@ class eventModel{
 
     //thong bao su kien truoc 2 ngay
     public function getEventsBeforeDate($event_date){
-        $sql = "SELECT * FROM event WHERE event_date = '$event_date'";
+        $sql = "SELECT * FROM events WHERE date_time = '$event_date'";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);

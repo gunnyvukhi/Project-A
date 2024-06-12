@@ -2,6 +2,11 @@
 <link rel="stylesheet" href="resources/css/watch.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/watch.js"></script>
 
+<pre>
+    <?php
+    print_r($data); ?>
+</pre>
+
 
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">
@@ -13,7 +18,7 @@
         </form>
         <ul>
             <li>
-                <a href="http://localhost/project-a/watch" class="fuctionLink">
+                <a href="http://localhost/project-a/watch" class="fuctionLink" id="TrangChu">
                 <img class="fuctionPic" id="watchMainPageIcon" src="resources\image\watchMainPageIcon1.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Trang Chủ</p>
