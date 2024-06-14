@@ -5,104 +5,345 @@
     background-color: #fff;
     font-family: "Inter", sans-serif;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+    .outside {
+        width: 80%;
+        margin: 0 auto;
+        justify-content: center;
+        position: relative;
+        border-bottom: 0.75px solid #E4E6EB;
+
+        .Profile__header__cover {
+            display: block;
+            position: relative;
+            text-align: start;
+            z-index: 0;
+
+            #icon1 {
+                position: absolute;
+                z-index: 9;
+                right: 15px;
+                top: 539px;
+                opacity: 0.5;
+            }
+
+            #cover {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        #Profile__header__avatar {
+
+
+            #icon2 {
+                position: absolute;
+                z-index: 9;
+                left: 230px;
+                top: 690px;
+                opacity: 0.5;
+            }
+
+            #ChangeAvatar {
+
+                #modalBackGround {
+                    display: none;
+                    position: fixed;
+                    z-index: 99;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgb(0, 0, 0);
+                    background-color: rgba(0, 0, 0, 0.4);
+                }
+
+                .ChangeAvatarForm {
+                    margin-top: 80px;
+                    margin-bottom: 80px;
+                    position: relative;
+                    z-index: 101;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    background-color: #ffffff;
+                    width: 520px;
+                    height: fit-content;
+                    border-radius: 24px;
+                    padding: 16px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    -webkit-animation-name: animatetop;
+                    -webkit-animation-duration: 0.4s;
+                    animation-name: animatetop;
+                    animation-duration: 0.4s;
+
+                    form {
+                        padding-top: 16px;
+                    }
+
+                    h2 {
+                        text-align: center;
+                        font-size: 20px;
+                        padding-bottom: 16px;
+                        border-bottom: #e1e2e3 solid 0.8px;
+                    }
+
+                    #closeNewPostForm {
+                        color: rgb(0, 0, 0);
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+                        border: none;
+                        background-color: #ffffff;
+                        opacity: 0.8;
+                        transform: translatey(-8px);
+                    }
+
+                    #closeNewPostForm:hover,
+                    #closeNewPostForm:focus {
+                        text-decoration: none;
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+
+                    .PostAva {
+                        margin-top: 4.8px;
+                    }
+
+                    .postHead {
+                        display: flex;
+                        width: 484px;
+                        height: fit-content;
+
+                        .containerNamePrivacy {
+                            display: block;
+                            margin-left: 8px;
+
+                            select[id="newPostPrivacy"] {
+                                margin-top: 4px;
+                                border-radius: 4px;
+                                padding: 2.4px;
+                                font-size: 12px;
+                                font-weight: 600;
+                                background-color: #e1e2e3;
+                                border: none;
+
+                                option {
+                                    font-weight: 600;
+                                    border-radius: 0px;
+                                }
+                            }
+
+                            select[id="newPostPrivacy"]:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+
+                    .userName {
+                        width: fit-content;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    textarea[id="newPostCaption"] {
+                        margin-top: 16px;
+                        width: 484px;
+                        height: 128px;
+                        text-align: start;
+                        font-size: 24px;
+                        resize: none;
+                        border: none;
+                    }
+
+                    textarea[id="newPostCaption"]:focus {
+                        outline: none;
+                    }
+
+                    .containerForFile {
+                        margin-top: 16px;
+                        padding: 8px;
+                        width: 484px;
+                        height: fit-content;
+                        border: #F0F2F5 1.6px solid;
+                        border-radius: 24px;
+                        display: flex;
+                        justify-content: end;
+
+                        input[id=newPostFileInput] {
+                            display: none;
+                        }
+
+                        button[id="selectFileForNewAvatar"] {
+                            display: block;
+                            width: 468px;
+                            height: 128px;
+                            border-radius: 24px;
+                            cursor: pointer;
+                            border: none;
+                            background-color: #f2f4f8;
+
+                            img {
+                                height: 64px;
+                            }
+
+                            p {
+                                text-align: center;
+                                font-size: 20px;
+                            }
+                        }
+
+                        button[id="selectFileForNewAvatar"]:hover {
+                            background-color: #e1e2e3;
+                        }
+
+                        button[id="deleteFileForNewAvatar"] {
+                            display: none;
+                            width: 40px;
+                            height: 40px;
+                            position: absolute;
+                            z-index: 103;
+                            font-size: 32px;
+                            border-radius: 20px;
+                            transform: translateY(-4px);
+                            color: #ffffff;
+                            border: none;
+                            background-color: transparent;
+                            cursor: pointer;
+                        }
+
+                        button[id="deleteFileForNewAvatar"]:hover {
+                            color: rgba(169, 169, 169, 1);
+                        }
+
+                        #previewNewPostFile {
+                            border-radius: 24px;
+                        }
+                    }
+
+                    .btnContainer {
+                        margin-top: 16px;
+                        width: 484px;
+                        height: 32px;
+
+                        #uploadNewAvatar {
+                            float: right;
+                            border: none;
+                            border-radius: 12px;
+                            height: 32px;
+                            width: 56px;
+                            background-color: rgb(56, 106, 255);
+                            color: #ffffff;
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+
+                        #uploadNewAvatar:hover {
+                            opacity: 1;
+                        }
+
+                        #resetNewPost {
+                            float: left;
+                            border: none;
+                            border-radius: 12px;
+                            height: 32px;
+                            width: 56px;
+                            background-color: rgb(255, 56, 56);
+                            color: #ffffff;
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+
+                        #resetNewPost:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .name {
+                position: absolute;
+                left: 325px;
+                top: 630px;
+                font-size: 30px;
+            }
+
+            #avatar {
+                position: absolute;
+                z-index: 8;
+                left: 50px;
+                top: 500px;
+
+            }
+
+            #Profile_Header_Button {
+                position: relative;
+                top: 30px;
+                right: 50px;
+
+                #Profile_Header_themtin {
+                    position: absolute;
+                    right: 220px;
+                    text-decoration: none;
+                    color: #fff;
+                    background-color: #0866FF;
+                    height: 36px;
+                    width: 132px;
+                    font-size: 15px;
+                    text-align: center;
+                    padding-top: 9px;
+                    border-radius: 5px;
+                }
+
+                #Profile_Header_chinhsua {
+                    position: absolute;
+                    right: 33px;
+                    text-decoration: none;
+                    color: #65676B;
+                    background-color: #E4E6EB;
+                    height: 36px;
+                    width: 170px;
+                    font-size: 15px;
+                    text-align: center;
+                    padding-top: 9px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .Profile__header__menu {
+        margin-top: 150px;
+        border-top: solid 0.75px #E4E6EB;
+        width: 90%;
+
+        ul,
+        li {
+            display: inline-block;
+            justify-content: space-around;
+            padding-right: 15px;
+
+
+            button {
+                border: none;
+                border-radius: 5px;
+                height: 25px;
+                width: 100px;
+                color: #65676B;
+                background-color: #fff;
+                font-size: 15px;
+            }
+
+            .button:hover {
+                background-color: rgba(169, 169, 169, 0.16);
+
+                color: #65676B;
+            }
+        }
+    }
 }
 
-.Profile__header__cover {
-    display: block;
-    position: relative;
-    text-align: start;
-    z-index: 0;
-}
-
-#cover {
-    width: 100%;
-    display: block;
-}
-
-
-#icon1 {
-    position: absolute;
-    z-index: 9;
-    right: 50px;
-    top: 580px;
-    opacity: 0.5;
-}
-
-#avatar {
-    position: absolute;
-    z-index: 8;
-    left: 50px;
-    top: 500px;
-
-}
-
-#icon2 {
-    position: absolute;
-    z-index: 9;
-    left: 230px;
-    top: 690px;
-    opacity: 0.5;
-}
-
-.name {
-    position: absolute;
-    left: 325px;
-    top: 630px;
-    font-size: 30px;
-}
-
-.outside {
-    width: 80%;
-    margin: 0 auto;
-    justify-content: center;
-    position: relative;
-    border-bottom: 0.75px solid #E4E6EB;
-}
-
-
-
-#Profile_Header_Button {
-    position: relative;
-    top: 30px;
-    right: 50px;
-}
-
-#Profile_Header_themtin {
-    position: absolute;
-    right: 250px;
-}
-
-#Profile_Header_chinhsua {
-    position: absolute;
-    right: 0px;
-}
-
-.Profile__header__menu {
-    margin-top: 150px;
-    border-top: solid 0.75px #E4E6EB;
-    width: 90%;
-}
-
-ul,
-li {
-    display: inline-block;
-    justify-content: space-around;
-    padding-right: 15px;
-}
-
-#Decription {
-    position: absolute;
-    left: 180px;
-    top: 855px;
-    font-size: 15px;
-    border-radius: 24px;
-    border: 1px solid #E4E6EB;
-    width: 30%;
-    text-align: center;
-    padding-bottom: 10px;
-    background-color: #fff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
 
 #gioithieu {
     padding-left: 15px;
@@ -121,95 +362,72 @@ li {
     display: flexbox;
     width: 90%;
 
+    #Description {
+        position: absolute;
+        left: 180px;
+        top: 797px;
+        font-size: 15px;
+        border-radius: 24px;
+        border: 1px solid #E4E6EB;
+        width: 30%;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        .Description__Detail {
+            font-size: 15px;
+        }
+
+        #Description_gioithieu {
+            left: 15px;
+            margin-left: 25px;
+            font-size: 1.25rem;
+            margin-top: 10px;
+
+        }
+
+        #editBtn {
+            text-decoration: none;
+            color: #1c1e21;
+            background-color: #E4E6EB;
+            justify-content: center;
+            align-items: center;
+            width: 345px;
+            height: 28px;
+            border-radius: 5px;
+            display: flex;
+
+        }
+
+        #editDetailBtn {
+            text-decoration: none;
+            color: #1c1e21;
+            background-color: #E4E6EB;
+            justify-content: center;
+            align-items: center;
+            width: 345px;
+            height: 28px;
+            border-radius: 5px;
+            display: flex;
+        }
+
+    }
+
+    #Profile_Post {
+        width: 60%;
+        left: 590px;
+        position: absolute;
+
+        #PostList {
+            margin-top: 20px;
+            position: relative;
+        }
+    }
 }
 
 
-
-#Profile_Post {
-    width: 60%;
-    left: 650px;
-    position: absolute;
-
-}
-
-
-
-
-#Decription_gioithieu {
-    text-align: left;
-    margin-left: 50px;
-    font-size: 29px;
-    margin-top: 10px;
-}
-
-#PostList1 {
-    display: block;
-    justify-content: space-around;
-    margin-top: 20px;
-    border-radius: 24px;
-    border: 1px solid #E4E6EB;
-}
-
-#PostList1_Header {
-    width: 100wh;
-    height: 50px;
-
-}
-
-#PostList1_Avatar {
-    position: absolute;
-    display: flex;
-    top: 8px;
-    margin-left: 30px;
-}
-
-.PostList_Avatar {
-    width: 25px;
-    height: 25px;
-}
-
-
-
-.PostList_Content_Text {
-    margin-left: 30px;
-}
-
-.PostList_Content_Image {
-    width: 100%;
-    height: 100%;
-}
-
-.PostList_Button {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    border-top: solid 0.75px #E4E6EB;
-    border-bottom: solid 0.75px #E4E6EB;
-}
-
-.PostList_Button_Detail {
-    border: none;
-}
-
-.PostList_Comment {
-    margin-left: 15px;
-    min-height: 35px;
-    margin-top: 5px;
-}
-
-.PostList_Comment_Input {
-    border-radius: 24px;
-    border: 0.75px solid #E4E6EB;
-    width: 90%;
-    margin-left: 20px;
-}
-
-#PostList {
-    margin-top: 20px;
-    position: relative;
-}
-
-#Profile2_DecriptionPage {
+#Profile2_AboutPage {
     position: absolute;
     display: none;
     left: 180px;
@@ -217,53 +435,336 @@ li {
     border: 1px solid #E4E6EB;
     min-height: 420px;
     width: 75%;
-    top: 855px;
+    top: 797px;
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-    #Profile2_DecriptionPage_Inside {
-        left: 10px;
-        top: 10px;
-    }
 
-    #Profile2_DecriptionPage_btn {
+
+    #Profile__About__Btn {
         width: 30%;
         border-right: 0.75px solid #E4E6EB;
-        #Profile2_DecriptionPage_menu{
-            li{
+
+        #Profile2_AboutPage_menu {
+            li {
                 padding-bottom: 15px;
+                list-style-type: none;
+
+                .Description__button {
+                    border: none;
+                    border-radius: 5px;
+                    height: 100%;
+                    width: 100%;
+                    color: #65676B;
+                    background-color: #fff;
+                    font-size: 15px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .Profile2_AboutPage_Inside {
+            left: 10px;
+            top: 10px;
+            margin-left: 20px;
+
+            #About {
+                left: 15px;
+                margin-left: 25px;
+                font-size: 1.25rem;
+                margin-top: 10px;
+
             }
         }
     }
 
-    #Profile2_DecriptionPage_tongquan {
-        position: relative;
+    #Profile__About__Content {
+
         width: 70%;
-
-    }
-
-    #Profile2_DecriptionPage_tongquan_1 {
-        left: 20px;
-        top: 20px;
-        align-items: center;
         display: block;
-        position: absolute;
 
-        .Profile2_DecriptionPage_tongquan_detail_icon {
-            padding: 20px;
-            font-size: large;
-            width: 600px;
-            position: relative;
+        #Overview {
+            left: 20px;
+            top: 20px;
+            align-items: center;
+            display: block;
 
-            .Profile2_DecriptionPage_tongquan_detail_icon_btn {
-                position: absolute;
-                right: 20px;
-                display: inline-flex;
-                padding: 0;
-                border: none;
-                background: none;
+            #working{
+                display: none;
             }
+
+            /* tam thoi de display: none; */
+            .Profile__About__Edit {
+                height: 420px;
+                display: none;
+
+                /* dang cai dat display: none; bt: block */
+
+                #EditArea {
+                    display: block;
+                    height: fit-content;
+
+                    .EditGroup {
+                        display: block;
+                        align-items: center;
+                        width: 539px;
+                        padding: 10px;
+                        margin: 15px;
+
+                        .textArea {
+                            width: 100%;
+                            height: 36px;
+                            border: 0.5px solid #E4E6EB;
+                            border-radius: 5px;
+                            background-color: #fff;
+                            padding-left: 10px;
+                            font-size: 10px;
+
+                            ::placeholder {
+                                border: 0.1px solid #1c1e21;
+                            }
+                        }
+
+                        #Privacy {
+                            top: 30px;
+                            display: flex;
+                            align-items: center;
+                            /* justify-content: space-between; */
+                            width: 100%;
+                            padding: 15px;
+                            border-top: 0.5px solid #E4E6EB;
+                            position: relative;
+
+                            #privacybtn {
+                                top: 5px;
+                                position: relative;
+                                left: 20px;
+                            }
+
+                            #save {
+                                position: absolute;
+                                right: 10px;
+                                background-color: #E4E6EB;
+                                color: #1c1e21;
+                                border-radius: 5px;
+                                width: 82px;
+                                height: 35px;
+                                border: none;
+                            }
+
+                            #cancel {
+                                position: absolute;
+                                right: 110px;
+                                background-color: #E4E6EB;
+                                color: #1c1e21;
+                                border-radius: 5px;
+                                width: 82px;
+                                height: 35px;
+                                border: none;
+                            }
+                        }
+
+                        #edit__btn {
+                            display: block;
+                            height: fit-content;
+
+
+
+                            .btn {
+                                height: 35px;
+                                width: 70px;
+                                color: #1c1e21;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                font-size: 15px;
+                                display: flex;
+                            }
+
+                            #Year {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .Overview__Content {
+                padding: 20px;
+                margin: 20px;
+                width: 600px;
+                position: relative;
+                display: block;
+
+                .Overview__Content__btn {
+                    position: absolute;
+                    right: 20px;
+                    display: inline-flex;
+                    padding: 0;
+                    border: none;
+                    background: none;
+                }
+            }
+
         }
 
+
+        #WorkAndEducation {
+            display: none;
+            /* đặt là block nhưng tạm thời là none */
+            left: 20px;
+            top: 20px;
+
+            .Container {
+                width: 70%;
+                padding: 10px;
+                margin: 10px;
+                display: block;
+
+                .Profile__About__Edit {
+
+                    height: 420px;
+                    display: block;
+
+                    /* dang cai dat display: none; */
+
+                    #EditArea {
+                        display: block;
+                        height: fit-content;
+
+                        .EditGroup {
+                            display: block;
+                            align-items: center;
+                            width: 539px;
+                            padding: 10px;
+                            margin: 15px;
+
+                            .textArea {
+                                width: 100%;
+                                height: 36px;
+                                border: 0.5px solid #E4E6EB;
+                                border-radius: 5px;
+                                background-color: #fff;
+                                padding-left: 10px;
+                                font-size: 10px;
+
+                                ::placeholder {
+                                    border: 0.1px solid #1c1e21;
+                                }
+                            }
+
+                            #Privacy {
+                                top: 30px;
+                                display: inline-block;
+                                align-items: center;
+                                /* justify-content: space-between; */
+                                width: 100%;
+                                padding: 15px;
+                                border-top: 0.5px solid #E4E6EB;
+                                position: relative;
+
+                                #privacybtn {
+                                    top: 5px;
+                                    position: relative;
+                                    left: 20px;
+                                }
+
+                                #save {
+                                    position: absolute;
+                                    right: 10px;
+                                    background-color: #E4E6EB;
+                                    color: #1c1e21;
+                                    border-radius: 5px;
+                                    width: 82px;
+                                    height: 35px;
+                                    border: none;
+                                }
+
+                                #cancel {
+                                    position: absolute;
+                                    right: 102px;
+                                    background-color: #E4E6EB;
+                                    color: #1c1e21;
+                                    border-radius: 5px;
+                                    width: 82px;
+                                    height: 35px;
+                                    border: none;
+                                }
+                            }
+
+                            #edit__btn {
+                                display: block;
+                                height: fit-content;
+
+
+
+                                .btn {
+                                    height: 35px;
+                                    width: 70px;
+                                    color: #1c1e21;
+                                    background-color: #fff;
+                                    border-radius: 5px;
+                                    font-size: 15px;
+                                    display: flex;
+                                }
+
+                                #Year {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .Title {
+                    font-size: 1.25rem;
+                }
+
+                .Add {
+                    display: flex;
+
+                    .icon {
+                        width: 20px;
+                    }
+
+                    .text {
+                        font-size: 15px;
+                        color: #0866FF;
+                    }
+                }
+
+                .Detail {
+                    margin-top: 15px;
+
+                    #editBtn {
+                        position: absolute;
+                        right: 20px;
+                        display: inline-flex;
+                        padding: 0;
+                        border: none;
+                        background: none;
+                    }
+
+                    .img {
+                        display: inline-flex;
+
+                        .contentContainer {
+                            display: inline;
+
+                            a {
+                                font-size: 1rem;
+
+                                p {
+                                    font-size: 1.25rem;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
 }
