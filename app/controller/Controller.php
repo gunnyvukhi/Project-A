@@ -55,6 +55,14 @@ class Controller{
             return $post;
         }, $data);
 
+        //check not show action log my post
+        $data = array_map(function($post){
+            $post['actionLogs'] = array_filter($post['actionLogs'], function($actionLog){
+                return $actionLog['user_id'] != $_SESSION['userId'];
+            });
+            return $post;
+        }, $data);
+
         //get all events with now date
         $EventModel = new EventModel();
         $events = $EventModel->getEventsByDate(date('Y-m-d'));
@@ -65,6 +73,8 @@ class Controller{
         //get all events before 2 days
         $eventsBeforeDate = $EventModel->getEventsBeforeDate(date('Y-m-d', strtotime('-2 days')));
         $data['eventbefore'] = $eventsBeforeDate;
+
+        
 
 
         return $data;

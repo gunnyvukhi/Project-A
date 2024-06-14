@@ -18,9 +18,9 @@ class FriendModel
 
 
 
-    public function createFriend($user_id, $friends_User_id, $start_date)
+    public function addFriend($user_id, $friends_User_id, $start_date)
     {
-        $sql = "INSERT INTO friends (user_id, friends_User_id, start_date) VALUES ('$user_id', '$friends_User_id', '$start_date')";
+        $sql = "INSERT INTO friends (user_id, friends_User_id, start_date) VALUES ($user_id, $friends_User_id, '$start_date')";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
