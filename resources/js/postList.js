@@ -109,7 +109,7 @@ function More_comments(id){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = All_comments[id_][i]["avatar"];
+            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 
@@ -185,7 +185,7 @@ function send_comment(commentId){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = All_comments[id_][i]["avatar"];
+            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 

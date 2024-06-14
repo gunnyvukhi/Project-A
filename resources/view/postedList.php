@@ -1,15 +1,15 @@
 <?php
-    include_once "app\model\UserModel.php";
-    include_once 'app\model\MainPageModel.php';
     echo '<script>
     var All_comments = [];
     var pressed = Array(999).fill(1);
     </script>';
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
     $NewPostData = $data;
-    $_SESSION['tempdata'] = $NewPostData;
     shuffle($NewPostData);
-    foreach ($NewPostData as $postData){
+    for ($i = 0; $i < count($NewPostData); $i++)
+    {
+        if (!isset($NewPostData[$i]["user_id"])){continue;}
+        $postData = $NewPostData[$i];
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -24,7 +24,7 @@
             $comment_num = count($postData['comments']);
             
             if (isset($PostUser["avatar"])){
-                $avatarLink = $PostUser["avatar"];
+                $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
             } else {
                 $avatarLink = 'resources\image\demoPersonIcon.png';
             }

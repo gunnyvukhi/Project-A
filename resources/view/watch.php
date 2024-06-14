@@ -2,12 +2,6 @@
 <link rel="stylesheet" href="resources/css/watch.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/watch.js"></script>
 
-<pre>
-    <?php
-    print_r($data); ?>
-</pre>
-
-
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">
     <div class="fuctionNemuContainer">
@@ -76,16 +70,20 @@
 
 <div class="mainPostContainer">
 <?php
+
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
     echo '<script>
     var All_comments = [];
     var pressed = Array(999).fill(1);
-    </script>';
-    $NewPostData = $_SESSION['tempdata'];
+    </sc>';
 
+    $NewPostData = $data;
     shuffle($NewPostData);
-    foreach ($NewPostData as $postData){
+    for ($i = 0; $i < count($NewPostData); $i++)
+    {
+        if (!isset($NewPostData[$i]["user_id"])){continue;}
+        $postData = $NewPostData[$i];
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -100,7 +98,7 @@
             $comment_num = 0;
             
             if (isset($PostUser["avatar"])){
-                $avatarLink = $PostUser["avatar"];
+                $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
             } else {
                 $avatarLink = 'resources\image\demoPersonIcon.png';
             }

@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="resources/css/event+friends.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
 <div class="mainPostContainer">
+
 <?php
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
@@ -10,27 +11,14 @@
     var All_comments = [];
     var pressed = Array(999).fill(1);
     </script>';
-    $NewPostData = $_SESSION['tempdata'];
 
-    $notificationRawData = array_fill(0, 999, array_fill(0, 10, array()));
-    foreach ($NewPostData as $postData){
-        foreach ($postData["actionLogs"] as $notiData){
-            $postNotiId = $notiData["post_id"];
-            if ($notiData["action_performed"] == "like"){
-                $type = 1; // like là 1
-            } else if ($notiData["action_performed"] == "comment"){
-                $type = 2; // comment là 2
-            } else {
-                $type = 0;
-            };
-            array_push($notificationRawData[$postNotiId][$type], $notiData);
-        };
-    };
-    var_dump($notificationRawData[4][2]);
-
-
+    $NewPostData = $data;
+    
     shuffle($NewPostData);
-    foreach ($NewPostData as $postData){
+    for ($i = 0; $i < count($NewPostData); $i++)
+    {
+        if (!isset($NewPostData[$i]["user_id"])){continue;}
+        $postData = $NewPostData[$i];
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -45,7 +33,7 @@
             $comment_num = 0;
             
             if (isset($PostUser["avatar"])){
-                $avatarLink = $PostUser["avatar"];
+                $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
             } else {
                 $avatarLink = 'resources\image\demoPersonIcon.png';
             }

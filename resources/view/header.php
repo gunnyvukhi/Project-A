@@ -1,10 +1,10 @@
 <?php
-
-require_once 'app/controller/Controller.php';
-
+include_once "app\model\UserModel.php";
+require_once 'app\controller\Controller.php';
+include_once 'app\model\MainPageModel.php';
 $currentUserName = $_SESSION['userName'] ;
 if (isset($_SESSION['userAvatar'])){
-    $currentUserAvatarLink = $_SESSION['userAvatar'];
+    $currentUserAvatarLink = 'resources\image\userAvater\\' . $_SESSION['userAvatar'];
 } else {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
@@ -110,6 +110,62 @@ $data = Controller::Data();
         <h3>Thông báo</h3>
         <ul>
             <?php
+                // lấy dữ liệu thông báo
+                $notificationRawData = array_fill(0, count($data), array_fill(0, 4, array()));
+                foreach ($data as $postData){
+                    if (!isset($postData["actionLogs"])){continue;}
+                    foreach ($postData["actionLogs"] as $notiData){
+                        $postNotiId = $notiData["post_id"];
+                        if ($notiData["action_performed"] == "like"){
+                            $type = 1; // like là 1
+                        } else if ($notiData["action_performed"] == "like"){
+                            $type = 2; // unlike là 2
+                        } else if ($notiData["action_performed"] == "comment"){
+                            $type = 3; // comment là 3
+                        } else {
+                            $type = 0;
+                        };
+                        array_push($notificationRawData[$postNotiId][$type], $notiData);
+                    };
+                };
+
+// Xử lí Like và Unlike
+$PUM = new UserModel();
+foreach ($notificationRawData as $ThisPostNoti){
+    $like = count($ThisPostNoti[1]) - count($ThisPostNoti[2]);
+    if ($like > 0) {
+        $ActionUser1 = $PUM->getUserById($ThisPostNoti[1][0]["user_id"]);
+        $firstLikeName = $ActionUser1["last_name"];
+        $firstLikeUserAvatarLink = 'resources\image\userAvater\\' . $ActionUser1["avatar"];
+        $timeNoti = Get_Time(strval($ThisPostNoti[1][0]["activity_date"]));
+        $ActionUser2 = $PUM->getUserById($ThisPostNoti[1][1]["user_id"]);
+        $secondLikeName = $ActionUser2["last_name"];
+        $Noi_dung = '';
+        if ($like == 1){
+            $Noi_dung ='<b>'. $firstLikeName . '</b> đã thích bài viết của bạn';
+        } else if ($like == 2){
+            $Noi_dung ='<b>'. $firstLikeName . '</b> và <b>' . $secondLikeName . '</b> đã thích bài viết của bạn';
+        }
+        else if ($like > 2){
+            $NumTemp = $like - 2;
+            $Noi_dung ='<b>'. $firstLikeName . '</b>, <b>' . $secondLikeName . '</b> và '. $NumTemp .' đã thích bài viết của bạn';
+        }
+        echo '<li><a href="#" class="NotificationLink">
+        <img class="NotificationAvaPic" src=' . $firstLikeUserAvatarLink . ' alt=' . $firstLikeName . ' />
+        <div class="NotificationContentContainer">
+            <p class="NotificationContent">' . $Noi_dung . '</p>
+            <p class="NotificationTime">'.$timeNoti.'</p>
+        </div>
+        </a>
+        </li>';
+    }
+
+    $comments = count($ThisPostNoti[3]);
+    if ($comments > 0) {
+        continue;
+    }
+}
+                
                 echo '<li><a href="#" class="NotificationLink">
                 <img class="NotificationAvaPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
                 <div class="NotificationContentContainer">
