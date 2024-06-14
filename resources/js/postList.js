@@ -185,7 +185,7 @@ function send_comment(commentId){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
+            avatar_picture.src = All_comments[id_][i]["avatar"];
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 
@@ -209,6 +209,14 @@ function send_comment(commentId){
     };
     display_comments[id_] += 1;
     document.getElementById("lessComments" + postId).style.display = "block";
+
+    comment_Number_all = document.getElementById('commentNumber' + postId).innerHTML;
+    comment_Number = String(comment_Number_all).split(" ")[0];
+    console.log(comment_Number);
+    comment_Number = parseInt(comment_Number);
+    comment_Number += 1;
+    document.getElementById('commentNumber' + postId).innerHTML = String(comment_Number) + " lượt bình luận" ;
+
 
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "commentPost", true);

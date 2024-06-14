@@ -54,7 +54,7 @@
             echo '</div>
             <div class="LikeShareNumberContainer">
                 <div class="likeNumber" id='. "likeNumber" . $postId . '><img src="resources\image\likeNumberIcon.png" id="likeNumIcon" alt="like">'. $like_num .' lượt thích</div>
-                <div class="commentNumber">'. $comment_num .' lượt bình luận</div>
+                <div class="commentNumber" id='. "commentNumber" . $postId . '>'. $comment_num .' lượt bình luận</div>
             </div>
 
             <!-- Like, comment, chia sẻ bài viết -->

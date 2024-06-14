@@ -182,7 +182,7 @@ $data = Controller::Data();
 
                 $comments = count($ThisPostNoti[3]);
                 if ($comments > 0) {
-                    $test = 1;
+                    var_dump($ThisPostNoti[3]);
                 }
             }
             ?>
