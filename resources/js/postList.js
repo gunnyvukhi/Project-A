@@ -86,12 +86,16 @@ function display_Comment(id){
 }
 
 
-display_comments = Array(999).fill(1);
+display_comments = Array(999).fill(2);
 last_display_comments = Array(999).fill(0);
 function More_comments(id){
     postId = id.slice(12, id.length);
     id_ = postId.slice(10, postId.length);
 
+    if ((display_comments[id_]) > 2){
+        last_display_comments[id_] = display_comments[id_]-2;
+    }
+    
     for (let i = last_display_comments[id_]; i <= display_comments[id_]; i++){
         if (i >= All_comments[id_].length) {continue};
         postComments = document.getElementById("commentsContainer" + postId)
@@ -105,7 +109,7 @@ function More_comments(id){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = All_comments[id_][i]["avatar"];
+            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 
@@ -181,7 +185,7 @@ function send_comment(commentId){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = All_comments[id_][i]["avatar"];
+            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 
@@ -204,7 +208,7 @@ function send_comment(commentId){
         postComments.appendChild(container);
     };
     display_comments[id_] += 1;
-
+    document.getElementById("lessComments" + postId).style.display = "block";
 
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "commentPost", true);

@@ -1,6 +1,4 @@
 <?php
-    include_once "app\model\UserModel.php";
-    include_once 'app\model\MainPageModel.php';
     echo '<script>
     var All_comments = [];
     var pressed = Array(999).fill(1);
@@ -8,8 +6,10 @@
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
     $NewPostData = $data;
     shuffle($NewPostData);
-    $_SESSION['tempdata'] = $NewPostData;
-    foreach ($NewPostData as $postData){
+    for ($i = 0; $i < count($NewPostData); $i++)
+    {
+        if (!isset($NewPostData[$i]["user_id"])){continue;}
+        $postData = $NewPostData[$i];
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -21,10 +21,10 @@
             $caption = $postData['content'];
             $photo = $postData['image'];
             $like_num = $postData['count_like'];
-            $comment_num = 0;
+            $comment_num = count($postData['comments']);
             
             if (isset($PostUser["avatar"])){
-                $avatarLink = $PostUser["avatar"];
+                $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
             } else {
                 $avatarLink = 'resources\image\demoPersonIcon.png';
             }
@@ -77,7 +77,7 @@
 
             <!-- GỬi bình luận bài viết -->
             <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
-                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button><br>
+                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button>
                 <form action="" class="sendComment" method="post">
                     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . '/></a>
 
