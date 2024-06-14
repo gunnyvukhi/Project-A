@@ -24,8 +24,6 @@ if (!isset($_SESSION['lastGenerated'])) {
         $_SESSION['lastGenerated'] = time();
     }
 }
-
-//define('APPURL', 'http://localhost/project-a/');
 define('APPURL', 'http://localhost/project-a/');
 
 require_once 'app/controller/homeController.php';
@@ -40,10 +38,6 @@ require_once 'app/controller/auth/logoutController.php';
 $url = $_SERVER['REQUEST_URI'];
 
 $url = explode('/', $url);
-
-// echo var_dump($url);
-
-//default route (http://localhost/project-a/)
 
 //Kiem tra neu khong co session thi chuyen ve trang login
 if ($url[2] != 'login' && $url[2] != 'signIn' && $url[2] != 'forgotPassword' && $url[2] != 'forgetPasswordResult' && $url[2] != 'logout') {
