@@ -32,6 +32,7 @@ require_once 'app/controller/auth/registerController.php';
 require_once 'app/controller/auth/forgotPasswordController.php';
 require_once 'app/controller/profileController.php';
 require_once 'app/controller/auth/logoutController.php';
+require_once 'app/controller/friendController.php';
 
 
 
@@ -116,6 +117,11 @@ switch ($url[2]) {
 
     case 'watch':
         require_once 'resources\view\watch.php';
+        break;
+
+    case 'addFriend':
+        $friend = new FriendController();
+        $friend->addFriend();
         break;
     default:
         echo "404 Not Found";

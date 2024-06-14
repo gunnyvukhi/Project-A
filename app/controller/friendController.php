@@ -13,12 +13,11 @@ class FriendController
         require_once 'resources/view/friend.php';
     }
 
-    public function createFriend()
+    public function addFriend()
     {
         if (isset($_POST['submit'])) {
             $FriendModel = new FriendModel();
-            $FriendModel->createFriend($_SESSION['userId'], $_POST['friends_User_id'], date('Y-m-d H:i:s'));
-            header('Location: ' . APPURL . 'friend');
+            $FriendModel->addFriend($_SESSION['userId'], $_POST['friends_User_id'], date('Y-m-d H:i:s'));
         }
     }
 
