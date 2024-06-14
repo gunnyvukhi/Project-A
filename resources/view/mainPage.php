@@ -1,3 +1,4 @@
+
 <?php require_once "header.php"; ?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>

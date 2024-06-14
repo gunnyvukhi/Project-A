@@ -13,7 +13,6 @@
     </script>';
 
     $NewPostData = $data;
-    
     shuffle($NewPostData);
     for ($i = 0; $i < count($NewPostData); $i++)
     {

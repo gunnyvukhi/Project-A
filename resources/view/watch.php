@@ -70,13 +70,12 @@
 
 <div class="mainPostContainer">
 <?php
-
     include_once "app\model\UserModel.php";
     include_once 'app\model\MainPageModel.php';
     echo '<script>
     var All_comments = [];
     var pressed = Array(999).fill(1);
-    </sc>';
+    </script>';
 
     $NewPostData = $data;
     shuffle($NewPostData);
