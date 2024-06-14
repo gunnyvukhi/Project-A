@@ -138,6 +138,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `count_like` bigint DEFAULT '0',
   `create_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
+  `is_video` int DEFAULT NULL,
+  `is_ads` int DEFAULT NULL,
   `is_deleted` int DEFAULT '0',
   PRIMARY KEY (`post_id`),
   KEY `user_id` (`user_id`),
