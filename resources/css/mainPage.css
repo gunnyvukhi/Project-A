@@ -15,7 +15,7 @@ body {
 /*         Khu vực chính        */
 /*                              */
 
-#mainContentMidContainer {
+.mainContentMidContainer {
     margin-top: 16px;
     width: 600px;
     height: fit-content;

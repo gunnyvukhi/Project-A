@@ -120,6 +120,7 @@ $data = Controller::Data();
             // lấy dữ liệu thông báo
             $notificationRawData = array_fill(0, count($data), array_fill(0, 4, array()));
             foreach ($data as $postData) {
+                
                 if (!isset($postData["actionLogs"])) {
                     continue;
                 }
@@ -132,17 +133,19 @@ $data = Controller::Data();
                         $type = 1; // like là 1
                     } else if ($notiData["action_performed"] == "unlike") {
                         $type = 2; // unlike là 2
-                    } else if ($notiData["action_performed"] == "comment") {
-                        $type = 3; // comment là 3
                     } else {
                         $type = 0;
                     }
                     ;
                     array_push($notificationRawData[$postNotiId][$type], $notiData);
                 }
+                foreach ($postData["comments"] as $commentNotification) {
+                    array_push($notificationRawData[$postNotiId][3], $commentNotification);
+                }
                 ;
             }
             ;
+            $finalNotification = array(); // lưu tất cả thống báo sau khi xử lí tại đây
             // Xử lí Like và Unlike
             $PUM = new UserModel();
             for($i=0; $i<count($notificationRawData); $i++) {
@@ -156,7 +159,6 @@ $data = Controller::Data();
                     $firstLikeName = $ActionUser1["last_name"];
                     $firstLikeUserAvatarLink = 'resources\image\userAvater\\' . $ActionUser1["avatar"];
                     $timeNoti = Get_Time(strval($ThisPostNoti[1][0]["activity_date"]));
-
                     $Noi_dung = '';
                     if ($like == 1) {
                         $Noi_dung = '<b>' . $firstLikeName . '</b> đã thích bài viết của bạn';
@@ -170,7 +172,8 @@ $data = Controller::Data();
                         $NumTemp = $like - 2;
                         $Noi_dung = '<b>' . $firstLikeName . '</b>, <b>' . $secondLikeName . '</b> và ' . $NumTemp . ' người khác đã thích bài viết của bạn';
                     }
-                    echo '<li><a href="#" class="NotificationLink">
+            
+                    $temp = '<li><a href="#" class="NotificationLink">
                             <img class="NotificationAvaPic" src=' . $firstLikeUserAvatarLink . ' alt=' . $firstLikeName . ' />
                             <div class="NotificationContentContainer">
                                 <p class="NotificationContent">' . $Noi_dung . '</p>
@@ -178,12 +181,37 @@ $data = Controller::Data();
                             </div>
                             </a>
                             </li>';
+                    array_push($finalNotification, [$temp, $ThisPostNoti[1][0]["activity_date"]]);
                 }
-
+                
                 $comments = count($ThisPostNoti[3]);
                 if ($comments > 0) {
-                    var_dump($ThisPostNoti[3]);
+                    foreach ($ThisPostNoti[3] as $comment_) {
+                    $timeNoti = Get_Time(strval($comment_['update_at']));
+                    $temp = '<li><a href="#" class="NotificationLink">
+                    <img class="NotificationAvaPic" src="resources\image\userAvater\\' . $comment_['avatar'] . '" alt=' .  $comment_['user_name'] . ' />
+                    <div class="NotificationContentContainer">
+                        <p class="NotificationContent"><b>' . $comment_['user_name'] . '</b> đã bình luận về một bài viết của bạn</p>
+                        <p class="NotificationTime">' . $timeNoti . '</p>
+                    </div>
+                    </a>
+                    </li>';
+                    array_push($finalNotification, [$temp, $comment_['update_at']]);
+                    }
                 }
+            }
+
+            // sắp xếp lại thông báo
+            function custom_sort($a, $b) {
+                $x = (int) strtotime($a[1]);
+                $y = (int) strtotime($b[1]);
+                return $x <= $y; // Replace this with your comparison logic
+            }
+            usort($finalNotification, "custom_sort");
+
+            // in ra thông báo
+            foreach ($finalNotification as $PrintedNotification){
+                echo $PrintedNotification[0];
             }
             ?>
         </ul>

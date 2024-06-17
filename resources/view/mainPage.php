@@ -113,7 +113,7 @@
 </div>
 
 <!-- thẻ chứa nội dung ở giữa trang -->
-<div id="mainContentMidContainer">
+<div class="mainContentMidContainer" id="mainContainer">
     <!-- thẻ chứa phần thêm post mới. Lưu ý đây chỉ là phần giao diện, ko lấy thông tin ở đây ̣̣̣̣̣ -->
     <div class="postContainer">
         <div id="addNewPost">
@@ -144,6 +144,7 @@
     }
 </script>
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
+<script lang="javascript" type="text/javascript" src="resources/js/scrolling.js"></script>
 </body>
 
 </html>

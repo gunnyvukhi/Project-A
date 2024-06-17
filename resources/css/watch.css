@@ -26,7 +26,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     z-index: 2;
-    width: 800px;
+    width: 1000px !important;
     height: fit-content;
     border-radius: 24px;
     background-color: #ffffff;
@@ -111,7 +111,7 @@ body {
     }
 
     .contentContainer {
-        width: 768px;
+        width: 968px;
         height: fit-content;
 
         .postCaption {
@@ -120,9 +120,17 @@ body {
             margin-bottom: 8px;
             margin-left: 8px;
         }
+        .playVideoIcon{
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            z-index: 10;
+            transform: translate(452px, 240.5px);
+            border-radius: 12px;
+        }
 
         .postPhoto {
-            width: 768px;
+            width: 968px;
             border-radius: 12px;
         }
     }
@@ -132,7 +140,7 @@ body {
         height: fit-content;
         display: flex;
         justify-content: space-between;
-
+        margin-top: 8px;
         .likeNumber {
             text-indent: 20px;
             color: rgb(104, 104, 104);
@@ -164,7 +172,7 @@ body {
         margin-top: 8px;
         margin-bottom: 8px;
         padding-top: 8px;
-        width: 768px;
+        width: 968px;
         border-top: #e1e2e3 solid 1px;
         border-bottom: #e1e2e3 solid 1px;
         display: flex;
@@ -228,7 +236,7 @@ body {
 
             textarea[class="newComment"] {
                 margin-left: 8px;
-                width: 696px;
+                width: 896px;
                 min-height: 64px;
                 height: fit-content;
                 border-radius: 12px;
@@ -275,7 +283,7 @@ body {
 
             .othersComments {
                 margin-left: 8px;
-                width: 696px;
+                width: 896px;
                 height: fit-content;
                 border-radius: 12px;
                 background-color: #e1e2e378;
@@ -301,7 +309,7 @@ body {
     .lessComments {
         display: none;
         margin-top: 16px;
-        margin-left: 664px;
+        margin-left: 864px;
         font-weight: 600;
         font-size: 14px;
         color: rgb(104, 104, 104);
@@ -338,7 +346,7 @@ body {
 /*                              */
 
 #mainContentLeftContainer {
-    width: 336px;
+    width: 400px !important;
     height: 4000px;
     position: relative;
     .fuctionNemuContainer {
@@ -457,3 +465,99 @@ body {
         }
     }
 }
+
+
+/*                              */
+/*          Phần Video          */
+/*                              */
+
+#post-video {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+.video-js {
+    width: 968px;
+    height: 544.5px;
+    cursor: pointer;
+  }
+  
+  .vjs-custom-theme {
+    .vjs-control-bar{
+      background-color: transparent !important;
+    }
+    .vjs-big-play-button {
+      opacity: 0 !important;
+    }
+    .vjs-volume-control {
+      align-items: center !important;
+    }
+    
+    .vjs-fullscreen-control {
+      .vjs-icon-placeholder {
+        &:before {
+          line-height: 30px;
+        }
+      }
+    }
+    button {
+      &:hover {
+        color: #fff;
+      }
+    }
+  
+    .vjs-progress-control .vjs-progress-holder {
+      margin: 0 10px;
+      background: rgba(255, 255, 255, 0.25);
+      height: 1px;
+    }
+    .vjs-progress-control {
+      &:hover {
+        .vjs-play-progress:before {
+          top: -7px !important;
+        }
+      }
+    }
+  
+    .vjs-control-bar {
+      height: 54px;
+      background: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      visibility: visible;
+      opacity: 1;
+      -webkit-transition: visibility 0.1s, opacity 0.1s;
+      -o-transition: visibility 0.1s, opacity 0.1s;
+      transition: visibility 0.1s, opacity 0.1s;
+    }
+    .vjs-volume-panel {
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+      order: 4;
+      display: flex;
+      align-items: center;
+    }
+  
+    .vjs-fullscreen-control {
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 5;
+      order: 5;
+    }
+    .vjs-picture-in-picture-control,
+    .vjs-remaining-time {
+      display: none;
+    }
+    .vjs-play-control {
+      width: 5em !important;
+    }
+    .vjs-play-control .vjs-icon-placeholder::before {
+      font-size: 2.4em !important;
+      line-height: 1.2 !important;
+    }
+  
+    .vjs-play-control.vjs-playing .vjs-icon-placeholder::before {
+        font-size: 2.4em !important;
+        line-height: 1.2 !important;
+    }
+  }
+  

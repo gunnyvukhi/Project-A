@@ -10,6 +10,7 @@
     {
         if (!isset($NewPostData[$i]["user_id"])){continue;}
         $postData = $NewPostData[$i];
+        if ($postData["is_video"] == 1){continue;}
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));

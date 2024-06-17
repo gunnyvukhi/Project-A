@@ -26,11 +26,10 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
 
 -- Dumping data for table project_a.activity_log: ~4 rows (approximately)
 INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
-	(0, 1, 2, 'like', '2024-06-07 09:11:48'),
-	(1, 1, 2, 'like', '2024-06-07 09:23:14'),
-	(2, 1, 2, 'unlike', '2024-06-07 09:23:24'),
-	(3, 1, 2, 'comment', '2024-06-07 09:23:40'),
-	(4, 1, 2, 'like', '2024-06-10 01:14:01');
+(1, 1, 5, 'like', '2024-06-14 08:31:53'),
+(2, 2, 5, 'like', '2024-06-14 08:31:53'),
+(3, 5, 5, 'like', NULL),
+(4, 6, 5, 'like', NULL);
 
 -- Dumping structure for table project_a.address
 CREATE TABLE IF NOT EXISTS `address` (
@@ -203,8 +202,12 @@ CREATE TABLE IF NOT EXISTS `user_basic` (
 
 -- Dumping data for table project_a.user_basic: ~2 rows (approximately)
 INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `avatar_backgroud`, `status`, `create_at`) VALUES
-	(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', NULL, 'user2.jpeg', 'online', NULL),
-	(3, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', NULL, 'user2.jpeg', NULL, '2024-06-02 01:47:13');
+(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', 'user1.jpg', 'user1.jpeg', 'online', NULL),
+(2, NULL, 'Đặng Nhật Minh', '12345', 'Minh@gmail.com', '0123456789', '2024-06-03', 'Nam', NULL, NULL, NULL, NULL),
+(3, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', 'user2.jpg', 'user2.jpeg', NULL, '2024-06-02 01:47:13'),
+(4, NULL, 'Nguyễn Tuấn Anh', '12345', 'gunnytuananh@gmail.com', '0879524005', '2024-06-03', 'nam', 'user3.jpeg', 'user3.jpeg', 'online', '2024-06-12 04:56:10'),
+(5, NULL, 'Nguyễn Tuấn Em', '12345', 'gunnytuananh2@gmail.com', '0879524005', '2024-06-02', 'nam', NULL, NULL, NULL, '2024-06-12 05:00:18'),
+(6, NULL, 'Phan Anh Hữu', '12345', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

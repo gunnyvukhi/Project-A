@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="resources/css/following.css" type="text/css">
 <link rel="stylesheet" href="resources/css/event+friends.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
-<div class="mainPostContainer">
+<div class="mainPostContainer" id="mainContainer">
 
 <?php
     include_once "app\model\UserModel.php";
@@ -11,13 +11,14 @@
     var All_comments = [];
     var pressed = Array(999).fill(1);
     </script>';
-
+    
     $NewPostData = $data;
     shuffle($NewPostData);
     for ($i = 0; $i < count($NewPostData); $i++)
     {
         if (!isset($NewPostData[$i]["user_id"])){continue;}
         $postData = $NewPostData[$i];
+        if ($postData["is_video"] == 1){continue;}
         if (($postData["user_id"] == $_SESSION['userId'] && $postData["privacy_level"] == "private") || ($postData["privacy_level"] == "public")){
             $postId = 'postNumber'. strval($postData["post_id"]);
             $timePosted = Get_Time(strval($postData["update_at"]));
@@ -29,7 +30,7 @@
             $caption = $postData['content'];
             $photo = $postData['image'];
             $like_num = $postData['count_like'];
-            $comment_num = 0;
+            $comment_num = count($postData['comments']);
             
             if (isset($PostUser["avatar"])){
                 $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
@@ -62,7 +63,7 @@
             echo '</div>
             <div class="LikeShareNumberContainer">
                 <div class="likeNumber" id='. "likeNumber" . $postId . '><img src="resources\image\likeNumberIcon.png" id="likeNumIcon" alt="like">'. $like_num .' lượt thích</div>
-                <div class="commentNumber">'. $comment_num .' lượt bình luận</div>
+                <div class="commentNumber" id='. "commentNumber" . $postId . '>'. $comment_num .' lượt bình luận</div>
             </div>
 
             <!-- Like, comment, chia sẻ bài viết -->
@@ -72,11 +73,11 @@
                 if (isset($postData["hasLiked"])){
                     if ($postData["hasLiked"])
                     {
-                    echo '<script>
-                        pressed['. $postData["post_id"] .'] = 2;
-                        document.getElementById("'. "likeButton" . $postId  .'").style.color = "#46A3FF";
-                        document.getElementById("'. "likeButtonImg" . $postId  .'").src = "resources/image/likeIcon2.png";
-                    </script>';
+                 echo '<script>
+                    pressed['. $postData["post_id"] .'] = 2;
+                    document.getElementById("'. "likeButton" . $postId  .'").style.color = "#46A3FF";
+                    document.getElementById("'. "likeButtonImg" . $postId  .'").src = "resources/image/likeIcon2.png";
+                </script>';
                     }
                 }
                 echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
@@ -85,7 +86,7 @@
 
             <!-- GỬi bình luận bài viết -->
             <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
-                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button><br>
+                <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button>
                 <form action="" class="sendComment" method="post">
                     <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . '/></a>
 
@@ -100,6 +101,7 @@
             </div>
             <button type="button" class="lessComments" id='. "lessComments" . $postId  .' onclick="LessComments(this.id)">Ẩn bình luận</button>
         </div>';
+        echo '<script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>';
         }
     }
 
@@ -141,6 +143,7 @@
 
 <script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
 <script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>
+<script lang="javascript" type="text/javascript" src="resources/js/scrolling.js"></script>
 </body>
 
 </html>
