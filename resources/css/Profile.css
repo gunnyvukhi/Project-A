@@ -32,6 +32,7 @@
                 width: 100%;
                 display: block;
             }
+
         }
 
         #Profile__header__avatar {
@@ -43,6 +44,223 @@
                 left: 230px;
                 top: 690px;
                 opacity: 0.5;
+            }
+
+            #ChangeCover {
+
+                #modalBackGround1 {
+                    display: none;
+                    position: fixed;
+                    z-index: 99;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgb(0, 0, 0);
+                    background-color: rgba(0, 0, 0, 0.4);
+                }
+
+                .ChangeCoverForm {
+                    margin-top: 80px;
+                    margin-bottom: 80px;
+                    position: relative;
+                    z-index: 101;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    background-color: #ffffff;
+                    width: 520px;
+                    height: fit-content;
+                    border-radius: 24px;
+                    padding: 16px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    -webkit-animation-name: animatetop;
+                    -webkit-animation-duration: 0.4s;
+                    animation-name: animatetop;
+                    animation-duration: 0.4s;
+
+                    form {
+                        padding-top: 16px;
+                    }
+
+                    h2 {
+                        text-align: center;
+                        font-size: 20px;
+                        padding-bottom: 16px;
+                        border-bottom: #e1e2e3 solid 0.8px;
+                    }
+
+                    #closeNewPostForm {
+                        color: rgb(0, 0, 0);
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+                        border: none;
+                        background-color: #ffffff;
+                        opacity: 0.8;
+                        transform: translatey(-8px);
+                    }
+
+                    #closeNewPostForm:hover,
+                    #closeNewPostForm:focus {
+                        text-decoration: none;
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+
+                    .PostAva {
+                        margin-top: 4.8px;
+                    }
+
+                    .postHead {
+                        display: flex;
+                        width: 484px;
+                        height: fit-content;
+
+                        .containerNamePrivacy {
+                            display: block;
+                            margin-left: 8px;
+
+                            select[id="newPostPrivacy"] {
+                                margin-top: 4px;
+                                border-radius: 4px;
+                                padding: 2.4px;
+                                font-size: 12px;
+                                font-weight: 600;
+                                background-color: #e1e2e3;
+                                border: none;
+
+                                option {
+                                    font-weight: 600;
+                                    border-radius: 0px;
+                                }
+                            }
+
+                            select[id="newPostPrivacy"]:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+
+                    .userName {
+                        width: fit-content;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    textarea[id="newPostCaption"] {
+                        margin-top: 16px;
+                        width: 484px;
+                        height: 128px;
+                        text-align: start;
+                        font-size: 24px;
+                        resize: none;
+                        border: none;
+                    }
+
+                    textarea[id="newPostCaption"]:focus {
+                        outline: none;
+                    }
+
+                    .containerForFile {
+                        margin-top: 16px;
+                        padding: 8px;
+                        width: 484px;
+                        height: fit-content;
+                        border: #F0F2F5 1.6px solid;
+                        border-radius: 24px;
+                        display: flex;
+                        justify-content: end;
+
+                        input[id=newPostFileInput] {
+                            display: none;
+                        }
+
+                        button[id="selectFileForNewCover"] {
+                            display: block;
+                            width: 468px;
+                            height: 128px;
+                            border-radius: 24px;
+                            cursor: pointer;
+                            border: none;
+                            background-color: #f2f4f8;
+
+                            img {
+                                height: 64px;
+                            }
+
+                            p {
+                                text-align: center;
+                                font-size: 20px;
+                            }
+                        }
+
+                        button[id="selectFileForNewCover"]:hover {
+                            background-color: #e1e2e3;
+                        }
+
+                        button[id="deleteFileForNewCover"] {
+                            display: none;
+                            width: 40px;
+                            height: 40px;
+                            position: absolute;
+                            z-index: 103;
+                            font-size: 32px;
+                            border-radius: 20px;
+                            transform: translateY(-4px);
+                            color: #ffffff;
+                            border: none;
+                            background-color: transparent;
+                            cursor: pointer;
+                        }
+
+                        button[id="deleteFileForNewCover"]:hover {
+                            color: rgba(169, 169, 169, 1);
+                        }
+
+                        #previewNewPostFile {
+                            border-radius: 24px;
+                        }
+                    }
+
+                    .btnContainer {
+                        margin-top: 16px;
+                        width: 484px;
+                        height: 32px;
+
+                        #uploadNewCover {
+                            float: right;
+                            border: none;
+                            border-radius: 12px;
+                            height: 32px;
+                            width: 56px;
+                            background-color: rgb(56, 106, 255);
+                            color: #ffffff;
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+
+                        #uploadNewCover:hover {
+                            opacity: 1;
+                        }
+
+                        #resetNewPost {
+                            float: left;
+                            border: none;
+                            border-radius: 12px;
+                            height: 32px;
+                            width: 56px;
+                            background-color: rgb(255, 56, 56);
+                            color: #ffffff;
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+
+                        #resetNewPost:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
             }
 
             #ChangeAvatar {
@@ -362,7 +580,7 @@
     display: flexbox;
     width: 90%;
 
-    #Description {
+    #Intro {
         position: absolute;
         left: 180px;
         top: 797px;
@@ -375,11 +593,50 @@
         background-color: #fff;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-        .Description__Detail {
+        .Intro__Detail {
             font-size: 15px;
         }
 
-        #Description_gioithieu {
+        .Intro__Edit {
+            display: block;
+
+            #Intro__EditArea{
+                display: none;
+            }
+            
+
+            #Intro__Edit__textArea {
+                width: 345px;
+                height: 56px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                color: #1c1e21;
+                background-color: #E4E6EB;
+                text-align: center;
+                align-items: center;
+            }
+
+            #save {
+                text-decoration: none;
+                color: #1c1e21;
+                background-color: #E4E6EB;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            #cancel {
+                text-decoration: none;
+                color: #1c1e21;
+                background-color: #E4E6EB;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+
+        #Intro_gioithieu {
             left: 15px;
             margin-left: 25px;
             font-size: 1.25rem;
@@ -397,7 +654,7 @@
             height: 28px;
             border-radius: 5px;
             display: flex;
-
+            margin-top: 10px;
         }
 
         #editDetailBtn {
@@ -450,7 +707,7 @@
                 padding-bottom: 15px;
                 list-style-type: none;
 
-                .Description__button {
+                .Intro__button {
                     border: none;
                     border-radius: 5px;
                     height: 100%;
@@ -489,7 +746,7 @@
             align-items: center;
             display: block;
 
-            #working{
+            #workingEdit {
                 display: none;
             }
 
@@ -500,7 +757,7 @@
 
                 /* dang cai dat display: none; bt: block */
 
-                #EditArea {
+                .EditArea {
                     display: block;
                     height: fit-content;
 
@@ -623,11 +880,11 @@
                 .Profile__About__Edit {
 
                     height: 420px;
-                    display: block;
+                    display: none;
 
                     /* dang cai dat display: none; */
 
-                    #EditArea {
+                    .EditArea {
                         display: block;
                         height: fit-content;
 
@@ -718,6 +975,17 @@
 
                 .Title {
                     font-size: 1.25rem;
+                    position: relative;
+
+                    #Overview__Content__HighSchool {
+                        position: absolute;
+                        right: 20px;
+                        display: inline-flex;
+                        padding: 0;
+                        border: none;
+                        background: none;
+                    }
+
                 }
 
                 .Add {
@@ -736,7 +1004,7 @@
                 .Detail {
                     margin-top: 15px;
 
-                    #editBtn {
+                    #Overview__Content__working2 {
                         position: absolute;
                         right: 20px;
                         display: inline-flex;
