@@ -33,6 +33,7 @@ require_once 'app/controller/auth/forgotPasswordController.php';
 require_once 'app/controller/profileController.php';
 require_once 'app/controller/auth/logoutController.php';
 require_once 'app/controller/friendController.php';
+require_once 'app/controller/advController.php';
 
 
 
@@ -81,6 +82,14 @@ switch ($url[2]) {
         $profile = new profileController();
         $profile->index();
         break;
+    case 'ChangeAvatar':
+        $profile = new profileController();
+        $profile->ChangeAvatar();
+        break;
+    case 'ChangeBackground':
+        $profile = new profileController();
+        $profile->ChangeBackground();
+        break;
     case 'Profiles_Decription':
         require_once 'resources/view/Profile_Decription.php';
         break;
@@ -123,6 +132,16 @@ switch ($url[2]) {
         $friend = new FriendController();
         $friend->addFriend();
         break;
+
+    case 'add-adv':
+        $adv = new advController();
+        $adv->add();
+        break;
+    case 'adv-view-plus':
+        $adv = new advController();
+        $adv->viewPlus();
+        break;
+
     default:
         echo "404 Not Found";
         break;

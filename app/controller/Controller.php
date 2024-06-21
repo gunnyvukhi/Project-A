@@ -5,6 +5,7 @@ require_once 'app/model/PostModel.php';
 require_once 'app/model/HiddenPostModel.php';
 require_once 'app/model/ActionLogModel.php';
 require_once 'app/model/EventModel.php';
+require_once 'app/model/FriendModel.php';
 
 
 class Controller{
@@ -78,5 +79,39 @@ class Controller{
 
 
         return $data;
+    }
+
+
+    public static function DataFriend(){
+        $FriendModel = new FriendModel();
+        //get all friend 
+        $friends = $FriendModel->getAllFriend();
+
+        // check la ban be khi ca hai deu co user_id trong cot user_id va friends_User_id
+        foreach($friends as $key => $friend){
+            foreach($friends as $key2 => $friend2){
+                if($friend['user_id'] == $friend2['friends_User_id'] && $friend['friends_User_id'] == $friend2['user_id']){
+                    $friends[$key]['isFriend'] = 1;
+                }
+            }
+        }
+
+        //check if have not isFriend then isFollow
+        $follow = [];
+        $friendIs = [];
+        foreach($friends as $key => $friend){
+            if(isset($friend['isFriend'])){
+                $friendIs[] = $friend;
+            }else{
+                $follow[] = $friend;
+            }
+        }
+
+        //remove isFriend duplicate
+        foreach($friendIs as $key => $friend){
+            
+        }
+
+        return $friendIs;
     }
 }

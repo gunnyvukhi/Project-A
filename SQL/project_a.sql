@@ -14,6 +14,18 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+
+
+CREATE TABLE `advs` (
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
+	`caption` TEXT NULL,
+	`image` TEXT NULL,
+	`create_at` DATETIME NULL,
+	`end_at` DATETIME NULL
+)
+;
+
 -- Dumping structure for table project_a.activity_log
 CREATE TABLE IF NOT EXISTS `activity_log` (
   `activity_id` int NOT NULL,

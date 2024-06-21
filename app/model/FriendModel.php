@@ -10,9 +10,19 @@ class FriendModel
     //get user who are friend with me
     public function getFriendWithMe($user_id)
     {
-        $sql = "SELECT * FROM friends WHERE friends_User_id = $user_id";
+        $sql = "SELECT * FROM friends WHERE user_id = $user_id";
         $db = new DB;
         $db = $db->query($sql);
+        return $db;
+    }
+
+    //get all friend
+    public function getAllFriend()
+    {
+        $sql = "SELECT * FROM friends";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetchAll(PDO::FETCH_ASSOC);
         return $db;
     }
 
