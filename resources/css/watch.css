@@ -1,0 +1,563 @@
+body {
+    background-color: #F0F2F5;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.mainPostContainer {
+    margin-top: 96px;
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.postContainer {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 2;
+    width: 1000px !important;
+    height: fit-content;
+    border-radius: 24px;
+    background-color: #ffffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    .nameTimeContainer {
+        width: 400px;
+        height: 40px;
+        margin-left: 8px;
+
+        .userName {
+            width: fit-content;
+            height: fit-content;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: left;
+            margin: 0;
+        }
+
+        .timePosted {
+            width: fit-content;
+            height: fit-content;
+            font-size: 12px;
+            text-align: left;
+            color: rgb(136, 136, 136);
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+
+    button[class="deletePost"] {
+        margin-left: auto;
+        justify-self: end;
+        width: 40px;
+        height: 40px;
+        z-index: 9;
+        font-size: 32px;
+        border-radius: 20px;
+        transform: translate(8px, -12px);
+        color: #000000;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    button[class="deletePost"]:hover {
+        opacity: 1;
+    }
+
+    p[class="deletePostText"] {
+        font-size: 16px;
+        margin: 16px;
+        height: 20px;
+        display: none;
+    }
+
+    button[class="undoDeletePost"] {
+        font-size: 16px;
+        height: 44px;
+        width: 92px;
+        display: none;
+        margin: 4px;
+        margin-left: 52px;
+        border-radius: 8px;
+        background-color: rgba(169, 169, 169, 0.3);
+        text-align: center;
+        opacity: 1;
+        color: rgb(104, 104, 104);
+        border: none;
+        cursor: pointer;
+    }
+
+    button[class="undoDeletePost"]:hover {
+        background-color: rgba(169, 169, 169, 0.5);
+    }
+
+    button[class="undoDeletePost"]:active {
+        background-color: rgba(169, 169, 169, 0.8);
+    }
+
+    .contentContainer {
+        width: 968px;
+        height: fit-content;
+
+        .postCaption {
+            font-size: 16px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            margin-left: 8px;
+        }
+        .playVideoIcon{
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            z-index: 10;
+            transform: translate(452px, 240.5px);
+            border-radius: 12px;
+        }
+
+        .postPhoto {
+            width: 968px;
+            border-radius: 12px;
+        }
+    }
+
+    .LikeShareNumberContainer {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        .likeNumber {
+            text-indent: 20px;
+            color: rgb(104, 104, 104);
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 500;
+            margin-top: 4px;
+            margin-left: 16px;
+
+            img {
+                height: 20px;
+                border-radius: 10px;
+                position: absolute;
+                transform: translate(-24px, -3.2px);
+            }
+        }
+
+        .commentNumber {
+            color: rgb(104, 104, 104);
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 500;
+            margin-top: 4px;
+            margin-right: 16px;
+        }
+    }
+
+    .LikeShareContainer {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding-top: 8px;
+        width: 968px;
+        border-top: #e1e2e3 solid 1px;
+        border-bottom: #e1e2e3 solid 1px;
+        display: flex;
+        justify-content: space-evenly;
+
+        .LikeShareButton {
+            margin: 0px;
+            width: 176px;
+            height: 40px;
+            font-size: 16px;
+            line-height: 16px;
+            text-indent: 16px;
+            font-weight: 600;
+            background-color: #ffffff;
+            color: rgb(104, 104, 104);
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+
+            img {
+                width: 24px;
+                position: absolute;
+                transform: translate(-28px, -5.6px);
+            }
+        }
+
+        .LikeShareButton:hover {
+            background-color: rgba(169, 169, 169, 0.15);
+        }
+
+        .LikeShareButton:active {
+            background-color: rgba(169, 169, 169, 0.3);
+        }
+    }
+
+    .commentsContainer {
+        display: block;
+        width: 100%;
+        max-height: 0px;
+        transition: all 1s ease-in-out;
+        overflow: hidden;
+
+        .moreComments {
+            font-weight: 600;
+            font-size: 14px;
+            color: rgb(104, 104, 104);
+            height: 16px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .moreComments:hover {
+            text-decoration-line: underline;
+        }
+
+        .sendComment {
+            margin-top: 16px;
+            width: 100%;
+            display: flex;
+
+            textarea[class="newComment"] {
+                margin-left: 8px;
+                width: 896px;
+                min-height: 64px;
+                height: fit-content;
+                border-radius: 12px;
+                background-color: #e1e2e378;
+                padding: 12px;
+                font-size: 14px;
+                line-height: 14px;
+                font-weight: 400;
+                border: none;
+                text-align: start;
+                resize: none;
+            }
+
+            textarea[class="newComment"]:focus {
+                outline: none;
+            }
+
+            .submitComment {
+                display: block;
+                height: 24px;
+                width: 24px;
+                padding: 0;
+                transform: translate(-32px, 34px);
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                img {
+                    height: 24px;
+                    margin: 0;
+                    opacity: 0.8;
+                }
+
+                img:hover {
+                    opacity: 1;
+                }
+            }
+
+        }
+
+        .comments {
+            display: flex;
+            margin-top: 16px;
+
+            .othersComments {
+                margin-left: 8px;
+                width: 896px;
+                height: fit-content;
+                border-radius: 12px;
+                background-color: #e1e2e378;
+                padding: 8px 12px;
+                font-size: 14px;
+                line-height: 14px;
+                font-weight: 400;
+                border: none;
+                text-align: start;
+
+                .UserCommentName {
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 16px;
+                    margin-bottom: 4px;
+                }
+            }
+
+        }
+
+    }
+
+    .lessComments {
+        display: none;
+        margin-top: 16px;
+        margin-left: 864px;
+        font-weight: 600;
+        font-size: 14px;
+        color: rgb(104, 104, 104);
+        height: 16px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .lessComments:hover {
+        text-decoration-line: underline;
+    }
+
+    .PostAva {
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+    }
+}
+
+
+/*                              */
+/*      Khu vực Nemu trái       */
+/*                              */
+
+#mainContentLeftContainer {
+    width: 400px !important;
+    height: 4000px;
+    position: relative;
+    .fuctionNemuContainer {
+        width: 336px;
+        padding: 80px 8px 8px 8px;
+        height: 4000px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        flex-wrap: wrap;
+        position: fixed;
+
+        h{
+            width: 320px;
+            height: fit-content;
+            font-size: 24px;
+            font-weight: 600;
+            text-indent: 8px;
+        }
+        .SeachVideoForm{
+            border-radius: 20px;
+            height: 40px;
+            margin: 16px 8px;
+            width: 304px;
+            background-color: rgba(169, 169, 169, 0.2);
+            display: flex;
+
+            img{
+                width: 20px; height: 20px;
+                margin: 10px 8px 10px 10px;
+            }
+
+            #SeachVideo{
+                height: 40px;
+                width: 266px;
+                background-color: transparent;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                border: none !important;
+                font-size: 14px;
+                line-height: 14px;
+            }
+            #SeachVideo:focus{
+                outline: none;
+            }
+        }
+
+        ul {
+            width: 320px;
+            height: fit-content;
+            list-style: none;
+
+            li {
+                width: 320px;
+                height: fit-content;
+                display: flex;
+
+                a:link {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:active {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:visited {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                a:hover {
+                    color: inherit;
+                    text-decoration: none;
+                    background-color: #e1e2e3;
+                }
+
+                .fuctionLink {
+                    margin: 0px;
+                    width: 320px;
+                    height: fit-content;
+                    display: flex;
+                    padding: 8px;
+                    border-radius: 8px;
+                }
+
+                .fuctionPic {
+                    margin: 0px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                }
+                
+                .noRadion{
+                    border-radius: 0px !important;
+                }
+
+                .fuctionContainer {
+                    width: 248px;
+                    display: flex;
+                    align-items: center;
+
+                    .fuctionName {
+                        font-size: 16px;
+                        line-height: 16px;
+                        font-weight: 600;
+                        text-align: left;
+                        text-indent: 12px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+/*                              */
+/*          Phần Video          */
+/*                              */
+
+#post-video {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+.video-js {
+    width: 968px;
+    height: 544.5px;
+    cursor: pointer;
+  }
+  
+  .vjs-custom-theme {
+    .vjs-control-bar{
+      background-color: transparent !important;
+    }
+    .vjs-big-play-button {
+      opacity: 0 !important;
+    }
+    .vjs-volume-control {
+      align-items: center !important;
+    }
+    
+    .vjs-fullscreen-control {
+      .vjs-icon-placeholder {
+        &:before {
+          line-height: 30px;
+        }
+      }
+    }
+    button {
+      &:hover {
+        color: #fff;
+      }
+    }
+  
+    .vjs-progress-control .vjs-progress-holder {
+      margin: 0 10px;
+      background: rgba(255, 255, 255, 0.25);
+      height: 1px;
+    }
+    .vjs-progress-control {
+      &:hover {
+        .vjs-play-progress:before {
+          top: -7px !important;
+        }
+      }
+    }
+  
+    .vjs-control-bar {
+      height: 54px;
+      background: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      visibility: visible;
+      opacity: 1;
+      -webkit-transition: visibility 0.1s, opacity 0.1s;
+      -o-transition: visibility 0.1s, opacity 0.1s;
+      transition: visibility 0.1s, opacity 0.1s;
+    }
+    .vjs-volume-panel {
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+      order: 4;
+      display: flex;
+      align-items: center;
+    }
+  
+    .vjs-fullscreen-control {
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 5;
+      order: 5;
+    }
+    .vjs-picture-in-picture-control,
+    .vjs-remaining-time {
+      display: none;
+    }
+    .vjs-play-control {
+      width: 5em !important;
+    }
+    .vjs-play-control .vjs-icon-placeholder::before {
+      font-size: 2.4em !important;
+      line-height: 1.2 !important;
+    }
+  
+    .vjs-play-control.vjs-playing .vjs-icon-placeholder::before {
+        font-size: 2.4em !important;
+        line-height: 1.2 !important;
+    }
+  }
+  

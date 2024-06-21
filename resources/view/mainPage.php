@@ -1,4 +1,5 @@
-<?php include "header.php"; ?>
+
+<?php require_once "header.php"; ?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
 
@@ -27,7 +28,7 @@
             </li>
 
             <li>
-                <a href="#" class="fuctionLink">
+                <a href="http://localhost/project-a/following" class="fuctionLink">
                 <img class="fuctionPic" src="resources\image\FollowingNemuIcon.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Theo dõi</p>
@@ -54,7 +55,7 @@
             </li>
 
             <li>
-                <a href="#" class="fuctionLink">
+                <a href="http://localhost/project-a/watch" class="fuctionLink">
                 <img class="fuctionPic noRadion" src="resources\image\videoNemuIcon.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Video</p>
@@ -112,7 +113,7 @@
 </div>
 
 <!-- thẻ chứa nội dung ở giữa trang -->
-<div id="mainContentMidContainer">
+<div class="mainContentMidContainer" id="mainContainer">
     <!-- thẻ chứa phần thêm post mới. Lưu ý đây chỉ là phần giao diện, ko lấy thông tin ở đây ̣̣̣̣̣ -->
     <div class="postContainer">
         <div id="addNewPost">
@@ -143,6 +144,7 @@
     }
 </script>
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
+<script lang="javascript" type="text/javascript" src="resources/js/scrolling.js"></script>
 </body>
 
 </html>

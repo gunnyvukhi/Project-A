@@ -5,6 +5,8 @@ require_once 'app/model/PostModel.php';
 require_once 'app/model/HiddenPostModel.php';
 require_once 'app/model/ActionLogModel.php';
 require_once 'app/model/EventModel.php';
+require_once 'app/model/FriendModel.php';
+require_once 'app/model/AdvModel.php';
 
 
 class Controller{
@@ -55,6 +57,14 @@ class Controller{
             return $post;
         }, $data);
 
+        //check not show action log my post
+        $data = array_map(function($post){
+            $post['actionLogs'] = array_filter($post['actionLogs'], function($actionLog){
+                return $actionLog['user_id'] != $_SESSION['userId'];
+            });
+            return $post;
+        }, $data);
+
         //get all events with now date
         $EventModel = new EventModel();
         $events = $EventModel->getEventsByDate(date('Y-m-d'));
@@ -66,7 +76,45 @@ class Controller{
         $eventsBeforeDate = $EventModel->getEventsBeforeDate(date('Y-m-d', strtotime('-2 days')));
         $data['eventbefore'] = $eventsBeforeDate;
 
+        //get all adv
+        $AdvModel = new AdvModel();
+        $advs = $AdvModel->getAdv();
+        $data['adv'] = $advs;
+
+        
+
 
         return $data;
+    }
+
+
+    public static function DataFriend(){
+        $FriendModel = new FriendModel();
+        //get all friend 
+        $friends = $FriendModel->getAllFriend();
+
+        // check la ban be khi ca hai deu co user_id trong cot user_id va friends_User_id
+        foreach($friends as $key => $friend){
+            foreach($friends as $key2 => $friend2){
+                if($friend['user_id'] == $friend2['friends_User_id'] && $friend['friends_User_id'] == $friend2['user_id']){
+                    $friends[$key]['isFriend'] = 1;
+                }
+            }
+        }
+
+        //check if have not isFriend then isFollow
+        $follow = [];
+        $friendIs = [];
+        foreach($friends as $key => $friend){
+            if(isset($friend['isFriend'])){
+                $friendIs[] = $friend;
+            }else{
+                $follow[] = $friend;
+            }
+        }
+
+        
+
+        return $friendIs;
     }
 }

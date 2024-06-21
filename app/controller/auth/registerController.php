@@ -19,8 +19,8 @@ class RegisterController {
                 $db = new DB();
                 $sql = "INSERT INTO user_basic (last_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
                 $user = $db->query($sql);
-                // echo "<script>success=1</script>";
-                header('Location: ' . APPURL . 'signIn');
+
+                header('Location: ' . APPURL . 'login');
             } else {
                 echo "<script>success=0</script>";
             }

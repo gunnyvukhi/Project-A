@@ -15,7 +15,7 @@ body {
 /*         Khu vực chính        */
 /*                              */
 
-#mainContentMidContainer {
+.mainContentMidContainer {
     margin-top: 16px;
     width: 600px;
     height: fit-content;
@@ -23,21 +23,6 @@ body {
     top: 80px;
     /* left: 444px; */
     border-radius: 24px;
-}
-
-.PostAva {
-    margin: 0px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-
-    img {
-        margin: 0px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-    }
 }
 
 .postContainer {
@@ -367,6 +352,20 @@ body {
     }
 }
 
+.PostAva {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+}
 
 .newPostOtherOption {
     width: 600px;

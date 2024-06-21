@@ -34,7 +34,7 @@ class eventModel{
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);
         return $db;
-    }   
+    }
 
     //thong bao cac su kien trong ngay
     public function getEventsByDate($event_date){
