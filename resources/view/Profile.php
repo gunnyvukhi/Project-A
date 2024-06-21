@@ -1,4 +1,10 @@
-<?php include_once 'header.php'; ?>
+<?php include_once 'header.php';
+
+// echo "<pre>";
+// print_r($userDetail);
+// echo "</pre>";
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -6,7 +12,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/Profile.css">
-    <!-- <link rel="stylesheet" href="resources/css/mainPage.css"> -->
 </head>
 
 <body>
@@ -735,6 +740,12 @@
                     <button class="Friend__button" id="Request">Lời mời kết bạn</button>
                 </li>
             </ul>
+        </div>
+        <div id="FriendList">
+            <?php foreach($FriendId as $i){ ?>
+
+
+            <?php } ?>
         </div>
     </div>
 
