@@ -6,6 +6,7 @@ require_once 'app/model/HiddenPostModel.php';
 require_once 'app/model/ActionLogModel.php';
 require_once 'app/model/EventModel.php';
 require_once 'app/model/FriendModel.php';
+require_once 'app/model/AdvModel.php';
 
 
 class Controller{
@@ -75,6 +76,11 @@ class Controller{
         $eventsBeforeDate = $EventModel->getEventsBeforeDate(date('Y-m-d', strtotime('-2 days')));
         $data['eventbefore'] = $eventsBeforeDate;
 
+        //get all adv
+        $AdvModel = new AdvModel();
+        $advs = $AdvModel->getAdv();
+        $data['adv'] = $advs;
+
         
 
 
@@ -107,10 +113,7 @@ class Controller{
             }
         }
 
-        //remove isFriend duplicate
-        foreach($friendIs as $key => $friend){
-            
-        }
+        
 
         return $friendIs;
     }

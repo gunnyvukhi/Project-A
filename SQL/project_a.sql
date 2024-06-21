@@ -21,10 +21,10 @@ CREATE TABLE `advs` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
 	`caption` TEXT NULL,
 	`image` TEXT NULL,
+	`option` TEXT NULL,
 	`create_at` DATETIME NULL,
-	`end_at` DATETIME NULL
-)
-;
+	`end_at` DATETIME NULL,
+);
 
 -- Dumping structure for table project_a.activity_log
 CREATE TABLE IF NOT EXISTS `activity_log` (
