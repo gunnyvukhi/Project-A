@@ -86,7 +86,7 @@ switch ($url[2]) {
         $profile = new profileController();
         $profile->ChangeAvatar();
         break;
-    case 'ChangeBackground':
+    case 'ChangeCover':
         $profile = new profileController();
         $profile->ChangeBackground();
         break;
