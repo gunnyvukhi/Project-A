@@ -18,12 +18,17 @@ class advController{
             $caption = $_POST['caption'];
             $views = $_POST['views'];
             $image = $_FILES['image']['name'];
+            
             $create_at = date('Y-m-d H:i:s');
             $end_at = $_POST['end_at'];
             $end_at = date('Y-m-d H:i:s', strtotime($create_at . ' + ' . $end_at . ' days'));
             $target = 'resources\image\adv\\' . $image;
             move_uploaded_file($_FILES['image']['tmp_name'], $target);
-            $advModel->addAdv($caption, $views, $image, $create_at, $end_at);
+
+            $trend = $_POST['trend'];
+            $max_view = $_POST['max_view'];
+            $advModel->addAdv($caption, $views, $image, $create_at, $end_at, $trend, $max_view);
+            header('Location: ' . APPURL);
         }
     }
 
