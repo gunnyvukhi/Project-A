@@ -21,6 +21,7 @@ document.getElementById('searchBox').addEventListener('mouseout', function() {
 
 CurrentUserBtnClicked = 0;
 NotificationBtnClicked = 0;
+MenuBtnClicked = 0;
 
 /* chuyển động nemu logout */
 
@@ -29,6 +30,8 @@ function logout_nemu() {
         document.getElementById('logoutNemuContainer').style.display = 'block';
         if (NotificationBtnClicked % 2 == 1){
             notification_box();
+        } else if (MenuBtnClicked % 2 == 1){
+            Menu_box()
         }
         
     }else{
@@ -47,6 +50,8 @@ function notification_box(){
         NotificationBtnMove();
         if (CurrentUserBtnClicked % 2 == 1){
             logout_nemu();
+        }else if (MenuBtnClicked % 2 == 1){
+            Menu_box()
         }
     }else{
         document.getElementById('newNotificationContainer').style.display = 'none'
@@ -87,26 +92,50 @@ function NotificationBtnBack(){
 
 /* chuyển động của nút NEMU khác */
 
-function NemuOtherOptionsBtnMove(){
-    document.getElementById('NemuOtherOptionsBtn').childNodes[1].style = 'transform: scaleX(0);transform-origin: left;transition: transform .5s; background: #46A3FF';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[3].style = 'transform: scale(1); transform-origin: top; transition: transform .5s; background: #46A3FF';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[5].style = 'transform: scaleX(0);transform-origin: right; transition: transform .5s; background: #46A3FF';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[7].style = 'transform: scale(1); transform-origin: bottom; transition: transform .5s; background: #46A3FF';
-    document.getElementById('NemuOtherOptions').src = 'resources/image/nemuOptionIcon2.png';
+function Menu_box(){
+    if (MenuBtnClicked % 2 == 0){
+        document.getElementById('MenuContainer').style.display = 'flex';
+        menuBtnMove();
+        if (CurrentUserBtnClicked % 2 == 1){
+            logout_nemu();
+        } else if (NotificationBtnClicked % 2 == 1){
+            notification_box();
+        }
+    }else{
+        document.getElementById('MenuContainer').style.display = 'none'
+        document.getElementById('menuBtn').blur();
+        menuBtnnBack();
+        
+    }
+    MenuBtnClicked += 1;
 }
 
-function NemuOtherOptionsBtnnBack(){
-    document.getElementById('NemuOtherOptionsBtn').childNodes[1].style = '';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[3].style = '';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[5].style = '';
-    document.getElementById('NemuOtherOptionsBtn').childNodes[7].style = '';
-    document.getElementById('NemuOtherOptions').src = 'resources/image/nemuOptionIcon1.png';
+document.getElementById('menuBtn').addEventListener('click', Menu_box);
+
+
+
+function menuBtnMove(){
+    document.getElementById('menuBtn').childNodes[1].style = 'transform: scaleX(0);transform-origin: left;transition: transform .5s; background: #46A3FF';
+    document.getElementById('menuBtn').childNodes[3].style = 'transform: scale(1); transform-origin: top; transition: transform .5s; background: #46A3FF';
+    document.getElementById('menuBtn').childNodes[5].style = 'transform: scaleX(0);transform-origin: right; transition: transform .5s; background: #46A3FF';
+    document.getElementById('menuBtn').childNodes[7].style = 'transform: scale(1); transform-origin: bottom; transition: transform .5s; background: #46A3FF';
+    document.getElementById('menuImg').src = 'resources/image/nemuOptionIcon2.png';
 }
-document.getElementById('NemuOtherOptionsBtn').addEventListener('mouseover', function() {
-    NemuOtherOptionsBtnMove()
+
+function menuBtnnBack(){
+    document.getElementById('menuBtn').childNodes[1].style = '';
+    document.getElementById('menuBtn').childNodes[3].style = '';
+    document.getElementById('menuBtn').childNodes[5].style = '';
+    document.getElementById('menuBtn').childNodes[7].style = '';
+    document.getElementById('menuImg').src = 'resources/image/nemuOptionIcon1.png';
+}
+document.getElementById('menuBtn').addEventListener('mouseover', function() {
+    menuBtnMove()
 });
-document.getElementById('NemuOtherOptionsBtn').addEventListener('mouseout', function() {
-    NemuOtherOptionsBtnnBack()
+document.getElementById('menuBtn').addEventListener('mouseout', function() {
+    if (MenuBtnClicked % 2 == 0){
+        menuBtnnBack();
+    }
 });
 
 /* chuyển động của nút Message */

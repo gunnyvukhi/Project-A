@@ -1,7 +1,7 @@
 <?php
-include_once "app\model\UserModel.php";
+require_once "app\model\UserModel.php";
 require_once 'app\controller\Controller.php';
-include_once 'app\model\MainPageModel.php';
+require_once 'app\model\MainPageModel.php';
 $currentUserName = $_SESSION['userName'];
 if (isset($_SESSION['userAvatar'])) {
     $currentUserAvatarLink = 'resources\image\userAvater\\' . $_SESSION['userAvatar'];
@@ -26,6 +26,7 @@ $data = Controller::Data();
 </head>
 
 <body>
+    
     <header>
         <!-- Logo bên trái -->
         <div class="logoContainer">
@@ -55,12 +56,12 @@ $data = Controller::Data();
         <div class="allNemuContainer">
             <ul>
                 <li>
-                    <a class="NemuOtherOptions" id="NemuOtherOptionsBtn" href="#" title="Nemu">
+                    <a class="NemuOtherOptions" id="menuBtn" href="#" title="Nemu">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                        <img id="NemuOtherOptions" src="resources\image\nemuOptionIcon1.png"></img>
+                        <img id="menuImg" src="resources\image\nemuOptionIcon1.png"></img>
                     </a>
                 </li>
                 <li>
@@ -89,6 +90,123 @@ $data = Controller::Data();
             </ul>
         </div>
     </header>
+
+    <!-- NEMU Tất cả các tính năng -->
+     <div class="MenuContainer" id="MenuContainer">
+        <p class="menuTitle">Menu</p>
+        <div class="menuOptionsContainer">
+            <form method="post" action="" class="SeachMenuForm">
+                <img src="resources\image\searchVideoIcon.png">
+                <input type="text" name="SeachMenu" id="SeachMenu" placeholder="Tìm kiếm trong Menu">
+            </form>
+            <div class="menuSections" id="CommunityMenuContainer">
+                <p>Xã hội</p>
+                <ul>
+                    <li>
+                        <a href="#" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\eventIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Sự kiện</p>
+                                <p class="OptionsContent">Tổ chức hoặc tìm sự kiện cùng những hoạt động khác trên mạng và ở quanh đây</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\friendsIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Bạn bè</p>
+                                <p class="OptionsContent">Tìm kiếm bạn bè hoặc những người bạn có thể biết</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\groupIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Nhóm</p>
+                                <p class="OptionsContent">Kết nối với những người cùng chung sở thích</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\FollowingNemuIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Bảng tin</p>
+                                <p class="OptionsContent">Xem bài viết phù hợp của những người và Trang bạn theo dõi</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/project-a/" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\feedIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Bảng feed</p>
+                                <p class="OptionsContent">Xem bài viết gần đây nhất từ bạn bè, nhóm, Trang và hơn thế nữa</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/project-a/" class="MenuOptionsLink">
+                            <img class="MenuOptionsPic" src='resources\image\menuPageIcon.png'/>
+                            <div class="MenuOptionsContentContainer">
+                                <p class="Options">Trang</p>
+                                <p class="OptionsContent">Khám phá và kết nối với các doanh nghiệp trên toàn thế giới</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="menuSections" id="CommunityMenuContainer">
+                    <p>Giải trí</p>
+                    <ul>
+                        <li>
+                            <a href="#" class="MenuOptionsLink">
+                                <img class="MenuOptionsPic" src='resources\image\livestreamIcon.png'/>
+                                <div class="MenuOptionsContentContainer">
+                                    <p class="Options">Live streams</p>
+                                    <p class="OptionsContent">Xem, kết nối với những game và người phát trực tiếp mà bạn yêu thích</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="MenuOptionsLink">
+                                <img class="MenuOptionsPic" src='resources\image\playGameIcon.png'/>
+                                <div class="MenuOptionsContentContainer">
+                                    <p class="Options">Chơi game</p>
+                                    <p class="OptionsContent">Chơi game bạn yêu thích</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="MenuOptionsLink">
+                                <img class="MenuOptionsPic" src='resources\image\videoNemuIcon.png'/>
+                                <div class="MenuOptionsContentContainer">
+                                    <p class="Options">Xem Video</p>
+                                    <p class="OptionsContent">Đích đến của video phù hợp với sở thích và quan hệ kết nối của bạn</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="createNewContainer">
+            <p>Tạo</p>
+            <ul>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\uploadPostIcon.png" class="MenuCreatePic"><div class="textContainer">Bài viết</div></a></li>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\newsIcon.png" class="MenuCreatePic"><div class="textContainer">Tin</div></a></li>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\watchReelsIcon1.png" class="MenuCreatePic"><div class="textContainer">Thước phim</div></a></li>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\createEventIcon.png" class="MenuCreatePic"><div class="textContainer">Sự kiện</div></a></li>
+                <hr>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\createPageIcon.png" class="MenuCreatePic"><div class="textContainer">Trang</div></a></li>
+                <li><a href="#" class="MenuCreateLink" onclick="openAdvertiseNemu()"><img src="resources\image\createAdIcon1.png" class="MenuCreatePic"><div class="textContainer">Quảng cáo</div></a></li>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\createGroupIcon.png" class="MenuCreatePic"><div class="textContainer">Nhóm</div></a></li>
+                <li><a href="#" class="MenuCreateLink"><img src="resources\image\createReminderIcon.png" class="MenuCreatePic"><div class="textContainer">Lời nhắc</div></a></li>
+            </ul>
+        </div>
+     </div>
 
     <!-- NEMU đăng xuất -->
     <div class="logoutNemuContainer" id="logoutNemuContainer">
@@ -217,3 +335,4 @@ $data = Controller::Data();
         </ul>
     </div>
     <script lang="javascript" type="text/javascript" src="resources/js/header.js"></script>
+    <?php require_once 'advertise.php'; ?>

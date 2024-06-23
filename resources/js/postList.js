@@ -77,6 +77,10 @@ function UndoDeletePost(postDeleteId){
 function display_Comment(id){
     postId = id.slice(13, id.length);
     commentsContainerId = "commentsContainer" + postId;
+    id_ = postId.slice(10, postId.length);
+    if (All_comments[id_].length == 0) {document.getElementById("moreComments" + postId).style.display = 'none'}
+    else {document.getElementById("moreComments" + postId).style.display = 'block'}
+    
     if (document.getElementById(commentsContainerId).style.maxHeight == '0px' || document.getElementById(commentsContainerId).style.maxHeight == ''){
         document.getElementById(commentsContainerId).style.maxHeight = '600px';
     } else {
@@ -109,7 +113,11 @@ function More_comments(id){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
+            if (All_comments[id_][i]["avatar"].length < 25){
+                avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"];
+            } else {
+                avatar_picture.src = All_comments[id_][i]["avatar"]
+            }
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 
@@ -185,7 +193,12 @@ function send_comment(commentId){
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
-            avatar_picture.src = All_comments[id_][i]["avatar"];
+            if (All_comments[id_][i]["avatar"].length < 25){
+                avatar_picture.src = 'resources/image/userAvater/' + All_comments[id_][i]["avatar"]
+            } else {
+                avatar_picture.src = All_comments[id_][i]["avatar"];
+            }
+
         } else { avatar_picture.src = 'resources/image/demoPersonIcon.png' }
         
 

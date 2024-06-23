@@ -1,8 +1,11 @@
 
-<?php require_once "header.php"; ?>
+<?php   require_once "header.php";   ?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 <script lang="javascript" type="text/javascript" src="resources/js/mainPage.js"></script>
 
+<!-- <pre>
+    <?php //var_dump($data['adv']) ?>
+</pre> -->
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">
     <div class="fuctionNemuContainer">
@@ -44,21 +47,21 @@
                 </div>
                 </a>
             </li>
-
-            <li>
-                <a href="#" class="fuctionLink">
-                <img class="fuctionPic" src="resources\image\groupIcon.png" alt="" />
-                <div class="fuctionContainer">
-                    <p class="fuctionName">Nhóm</p>
-                </div>
-                </a>
-            </li>
-
+            
             <li>
                 <a href="http://localhost/project-a/watch" class="fuctionLink">
                 <img class="fuctionPic noRadion" src="resources\image\videoNemuIcon.png" alt="" />
                 <div class="fuctionContainer">
                     <p class="fuctionName">Video</p>
+                </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="fuctionLink" onclick="openAdvertiseNemu()">
+                <img class="fuctionPic" src="resources\image\createAdIcon.png" alt="" />
+                <div class="fuctionContainer">
+                    <p class="fuctionName">Quảng cáo</p>
                 </div>
                 </a>
             </li>
