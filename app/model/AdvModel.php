@@ -19,8 +19,8 @@ class AdvModel{
         return $db;
     }
 
-    public function addAdv($caption, $views, $image, $create_at, $end_at, $trend, $max_view){
-        $sql = "INSERT INTO advs (caption, views, image, create_at, end_at, trend, max_view) VALUES ('$caption', '$views', '$image', '$create_at', '$end_at', '$trend', '$max_view')";
+    public function addAdv($user_id, $caption, $views, $image, $create_at, $end_at, $trend, $max_view){
+        $sql = "INSERT INTO advs (user_id, caption, views, image, create_at, end_at, trend, max_view) VALUES ($user_id ,'$caption', '$views', '$image', '$create_at', '$end_at', '$trend', '$max_view')";
         $db = new DB;
         $db = $db->query($sql);
         return $db;
