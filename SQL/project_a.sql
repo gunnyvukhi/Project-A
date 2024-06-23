@@ -19,6 +19,7 @@
 
 CREATE TABLE `advs` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
+  `user_id` INT NULL,
 	`caption` TEXT NULL,
 	`image` TEXT NULL,
   `views` INT DEFAULT 0,

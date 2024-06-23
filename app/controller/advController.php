@@ -27,7 +27,8 @@ class advController{
 
             $trend = $_POST['trend'];
             $max_view = $_POST['max_view'];
-            $advModel->addAdv($caption, $views, $image, $create_at, $end_at, $trend, $max_view);
+            $user_id = $_SESSION['user_id'];
+            $advModel->addAdv($user_id, $caption, $views, $image, $create_at, $end_at, $trend, $max_view);
             header('Location: ' . APPURL);
         }
     }
