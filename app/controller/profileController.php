@@ -4,6 +4,7 @@ require_once "app/model/UserModel.php";
 require_once "app/model/PostModel.php";
 require_once "app/model/FriendModel.php";
 require_once "app/model/UserDetailModel.php";
+require_once "app/model/Controller.php";
 
 class profileController
 {
@@ -15,6 +16,9 @@ class profileController
         
         $userDetailModel = new UserDetailModel();
         $userDetail = $userDetailModel->getUserDetail($_SESSION['userId']);
+
+        $controller = new Controller();
+        $data = $controller->Data();
 
         require_once 'resources\view\Profile.php';
     }
