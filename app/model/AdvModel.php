@@ -35,7 +35,7 @@ class AdvModel{
 
     // view +1
     public function viewPlus($id){
-        $sql = "UPDATE advs SET views = views + 1 WHERE id = '$id'";
+        $sql = "UPDATE advs SET views = views + 1 WHERE id = $id";
         $db = new DB;
         $db = $db->query($sql);
         return $db;

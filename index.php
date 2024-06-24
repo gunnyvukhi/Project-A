@@ -48,6 +48,11 @@ if ($url[2] != 'login' && $url[2] != 'signIn' && $url[2] != 'forgotPassword' && 
     }
 }
 
+//cut url parameter
+if (strpos($url[2], '?') !== false) {
+    $url[2] = substr($url[2], 0, strpos($url[2], '?'));
+}
+
 $home = new HomeController();
 
 

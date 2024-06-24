@@ -83,7 +83,7 @@ const observer = new IntersectionObserver((entries) => {
         if (!Seen[id]){
             console.log(id);
             var xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "adv-view-plus", true);
+            xhttp.open("GET", "adv-view-plus?id=" + id, true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("id=" + id);
             Seen[id] = true;
