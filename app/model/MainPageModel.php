@@ -64,7 +64,7 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
         
 
         echo '  <div class="postContainer" id='. $postId .'>
-        <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></a>
+        <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' loading="lazy" /></a>
         <div class="nameTimeContainer">
             <p class="userName">' . $userName . '</p>
             <p class="timePosted">' . $timePosted . '</p>
@@ -82,7 +82,7 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
             <p class="postCaption">' . $caption . '</p>';
 
             if ($is_video == 1){
-                echo '<img class="playVideoIcon" id="playVideoIcon'. $postId .'" src="resources/image/playVideoIcon.png">
+                echo '<img class="playVideoIcon" loading="lazy" id="playVideoIcon'. $postId .'" src="resources/image/playVideoIcon.png">
                 <video
                     id="post-video'. $postId .'"
                     class="post-video video-js vjs-custom-theme"
@@ -98,18 +98,18 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
                     </p>
                 </video>';
             } else if (!($photo == 'resources/image/post/')){
-                echo '<img class="postPhoto" src="' . $photo . '">';
+                echo '<img class="postPhoto" loading="lazy" src="' . $photo . '">';
             };
 
         echo '</div>
         <div class="LikeShareNumberContainer">
-            <div class="likeNumber" id='. "likeNumber" . $postId . '><img src="resources\image\likeNumberIcon.png" id="likeNumIcon" alt="like">'. $like_num .' lượt thích</div>
+            <div class="likeNumber" id='. "likeNumber" . $postId . '><img loading="lazy" src="resources\image\likeNumberIcon.png" id="likeNumIcon" alt="like">'. $like_num .' lượt thích</div>
             <div class="commentNumber" id='. "commentNumber" . $postId . '>'. $comment_num .' lượt bình luận</div>
         </div>
 
         <!-- Like, comment, chia sẻ bài viết -->
         <form class="LikeShareContainer" method="post" action="">
-            <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton(this.id)" alt="0"><img src="resources\image\likeIcon1.png" id='. "likeButtonImg" . $postId  .' alt="like" />Thích</button>
+            <button class="LikeShareButton" name="likeButton" id='. "likeButton" . $postId  .' type="button" onclick="LikeButton(this.id)" alt="0"><img loading="lazy" src="resources\image\likeIcon1.png" id='. "likeButtonImg" . $postId  .' alt="like" />Thích</button>
             ';
             if (isset($hasLiked)){
                 if ($hasLiked)
@@ -121,19 +121,19 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
             </script>';
                 }
             }
-            echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
-            <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
+            echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img loading="lazy" src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
+            <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img loading="lazy" src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
         </form>
 
         <!-- GỬi bình luận bài viết -->
         <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
             <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button>
             <form action="" class="sendComment" method="post">
-                <a href="#" alt=' . $userName . ' class="PostAva"><img src="' . $currentUserAvatarLink . '"/></a>
+                <a href="#" alt=' . $userName . ' class="PostAva"><img loading="lazy" src="' . $currentUserAvatarLink . '"/></a>
 
                 <!-- Nơi viết bình luận -->
                 <textarea name="newComment" id='. "newComment" . $postId  .' class="newComment" placeholder="Viết bình luận..."></textarea>
-                <button type="button" class="submitComment" id='. "submitComment" . $postId  .' name="submitComment" onclick="send_comment(this.id)"><img src="resources\image\sendCommentIcon.png" alt="send"></button>
+                <button type="button" class="submitComment" id='. "submitComment" . $postId  .' name="submitComment" onclick="send_comment(this.id)"><img loading="lazy" src="resources\image\sendCommentIcon.png" alt="send"></button>
             </form>';
 
             $commentsContent = array_reverse($comment);
@@ -145,12 +145,15 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
     }
 
 
-function Create_adv($user_id, $adv_id, $caption, $photo){
+function Create_adv($user_id, $adv_id, $caption, $photo, $URL){
     $postId = 'advNumber'. strval($adv_id);
     $PostUserModel = new UserModel();
     $PostUser = $PostUserModel->getUserById($user_id);
     $userName = $PostUser["last_name"];
 
+    if (!isset($URL)) {
+        $URL = "#";
+    }
     
     if (isset($PostUser["avatar"])){
         $avatarLink = 'resources\image\userAvater\\' . $PostUser["avatar"];
@@ -159,9 +162,9 @@ function Create_adv($user_id, $adv_id, $caption, $photo){
     }
     
 
-    echo '<a href="#" class="advLink">
+    echo '<a href="'.$URL.'" target = "_ blank" class="advLink" id="URL'. strval($adv_id) .'">
     <div class="postContainer" id='. $postId .'>
-    <p class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' /></p>
+    <p class="PostAva"><img loading="lazy" src=' . $avatarLink . ' alt=' . $userName . ' /></p>
     <div class="nameTimeContainer">
         <p class="userName">' . $userName . '</p>
         <p class="timePosted">Quảng cáo</p>
@@ -171,7 +174,7 @@ function Create_adv($user_id, $adv_id, $caption, $photo){
         <p class="postCaption">' . $caption . '</p>';
 
         if (!($photo == 'resources/image/post/')){
-            echo '<img class="postPhoto" src="' . $photo . '">';
+            echo '<img loading="lazy" class="postPhoto" src="' . $photo . '">';
         };
 
     echo '</div> </div> </a>';

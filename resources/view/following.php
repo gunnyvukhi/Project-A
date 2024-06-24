@@ -1,7 +1,6 @@
 <?php require_once 'header.php' ?>
 <link rel="stylesheet" href="resources/css/following.css" type="text/css">
 <link rel="stylesheet" href="resources/css/event+friends.css" type="text/css">
-<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
 <div class="mainPostContainer" id="mainContainer">
 
 <?php
@@ -61,10 +60,7 @@
     </div>
 </div>
 ' ?>
-
-<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
-<script lang="javascript" type="text/javascript" src="resources/js/postList.js"></script>
-<script lang="javascript" type="text/javascript" src="resources/js/scrolling.js"></script>
 </body>
-
+<script lang="javascript" type="text/javascript" src="resources/js/following.js"></script>
+<?php include_once 'footer.php' ?>
 </html>

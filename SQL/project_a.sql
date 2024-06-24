@@ -21,6 +21,7 @@ CREATE TABLE `advs` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
   `user_id` INT NULL,
 	`caption` TEXT NULL,
+  `URL` TEXT NULL,
 	`image` TEXT NULL,
   `views` INT DEFAULT 0,
   `trend` INT NULL,
@@ -28,6 +29,10 @@ CREATE TABLE `advs` (
 	`create_at` DATETIME NULL,
 	`end_at` DATETIME NULL,
 );
+
+INSERT INTO `advs` (`id`, `user_id`, `caption`, `URL`, `image`, `views`, `trend`, `max_view`, `create_at`, `end_at`) VALUES
+(1, 4, 'Ahri Quỷ Vương Bất Tử', 'https://www.leagueoflegends.com/vi-vn/', 'ad1.jpg', 0, 5, 5000, '2024-06-24 04:05:10', '2024-07-24 04:05:10'),
+(2, 4, 'Inaaa', '', 'R.gif', 1, 10, 1000, '2024-06-24 04:18:45', '2024-07-08 04:18:45');
 
 -- Dumping structure for table project_a.activity_log
 CREATE TABLE IF NOT EXISTS `activity_log` (

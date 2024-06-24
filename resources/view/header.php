@@ -8,7 +8,6 @@ if (isset($_SESSION['userAvatar'])) {
 } else {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
-
 $data = Controller::Data();
 
 ?>
@@ -334,5 +333,4 @@ $data = Controller::Data();
             ?>
         </ul>
     </div>
-    <script lang="javascript" type="text/javascript" src="resources/js/header.js"></script>
     <?php require_once 'advertise.php'; ?>

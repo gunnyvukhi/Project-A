@@ -50,7 +50,7 @@
                 <!-- phần avatar -->
                 <?php echo '<a href="http://localhost/project-a/profile" class="PostAva"><img src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' /></a>'; ?>
                 <!-- phần tên người dùng -->
-                <?php echo '<p class="userName">' . $currentUserName . '</p>' ?>
+                <?php echo '<p class="userName">' . $currentUserName . '</p>'; ?>
                 </div>
                 
                 <!-- Các Lựa chọn cho quang cáo -->
@@ -109,5 +109,3 @@
         </form>
     </div>
 </div>
-
-<script src="resources\js\advertise.js" type="text/javascript"></script>

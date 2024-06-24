@@ -16,9 +16,9 @@ class advController{
         $advModel = new AdvModel();
         if(isset($_POST['submit'])){
             $caption = $_POST['caption'];
-            $views = $_POST['views'];
+            $views = 0;
             $image = $_FILES['image']['name'];
-            
+            $URL = $_POST['adLinkToBoxInput'];
             $create_at = date('Y-m-d H:i:s');
             $end_at = $_POST['end_at'];
             $end_at = date('Y-m-d H:i:s', strtotime($create_at . ' + ' . $end_at . ' days'));
@@ -27,8 +27,8 @@ class advController{
 
             $trend = $_POST['trend'];
             $max_view = $_POST['max_view'];
-            $user_id = $_SESSION['user_id'];
-            $advModel->addAdv($user_id, $caption, $views, $image, $create_at, $end_at, $trend, $max_view);
+            $user_id = $_SESSION['userId'];
+            $advModel->addAdv($user_id, $caption, $URL, $views, $image, $create_at, $end_at, $trend, $max_view);
             header('Location: ' . APPURL);
         }
     }

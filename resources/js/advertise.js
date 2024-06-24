@@ -70,14 +70,28 @@ document.getElementById('adLinkToBox').addEventListener('mouseout', function() {
     }
 });
 
-// const imgs = document.querySelectorAll('.advertiseImg img')
-// imgs.forEach(function(img){
-//     console.log(img.style);
-//     width = parseInt(img.style.width)
-//     height = parseInt(img.style.height)
-//     if (width > height) {
-//         img.style.height = '224px'
-//     } else {
-//         img.style.width = '224px'
-//     }
-// });
+
+
+const ads = document.querySelectorAll(".advLink");
+Seen = Array(ads.length).fill(false);
+ads.forEach(function (ad) {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+        id = ad.id.slice(3, ad.id.length);
+
+        if (!Seen[id]){
+            console.log(id);
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "adv-view-plus", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id=" + id);
+            Seen[id] = true;
+            console.log("Done");
+        }
+    }
+  });
+}, {});
+
+observer.observe(ad);
+})
