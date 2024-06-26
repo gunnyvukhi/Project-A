@@ -4,7 +4,7 @@ require_once "app/model/UserModel.php";
 require_once "app/model/PostModel.php";
 require_once "app/model/FriendModel.php";
 require_once "app/model/UserDetailModel.php";
-require_once "app/model/Controller.php";
+require_once 'app/controller/Controller.php';
 
 class profileController
 {
