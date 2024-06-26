@@ -1,23 +1,72 @@
-document.getElementById("button_gioithieu").onclick = function () {
-    console.log("test");
-    Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
-        element.style.display = "none";
+$UserId = 1;
+$SessionId = 1;
+
+// Kiểm tra xem người dùng có quyền chỉnh sửa hay không
+if ($SessionId != $UserId) {
+    document.querySelectorAll('.Overview__Content__btn').forEach(function(btn) {
+        btn.style.display = 'none';
     });
-    document.getElementById("Profile2_AboutPage").style.display = "flex";
 }
 
 
-document.getElementById("button_baiviet").onclick = function () {
-    console.log("test");
-    Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
-        element.style.display = "none";
+// document.getElementByClass("ProfileChangePage").onclick = function () {
+//     console.log("test");
+//     Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
+//         element.style.display = "none";
+//     });
+//     document.getElementById("Profile2").style.display = "block";
+
+// }
+document.querySelectorAll('.ProfileChangePage').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.Profile2').forEach(element => {
+            element.style.display = 'none';
+        });
+        var idParts = button.id.split('_');
+        if (idParts.length >= 2) {
+            var detail = idParts[1];
+            console.log(detail);
+            var targetElement = document.getElementById(detail);
+            if (targetElement) {
+                if (detail == "ProfileAbout") {
+                    targetElement.style.display = 'flex';
+                    console.log("flex");
+                }
+                else {
+                    targetElement.style.display = 'block';
+                    console.log("block");
+
+                }
+            } else {
+                console.log('No element found with id: ' + detail);
+            }
+        } else {
+            console.log('Invalid id format');
+        }
     });
-    document.getElementById("Profile2").style.display = "block";
-}
+});
+
+// document.getElementById("button_gioithieu").onclick = function () {
+//     console.log("test");
+//     Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
+//         element.style.display = "none";
+//     });
+//     document.getElementById("Profile2_AboutPage").style.display = "flex";
+// }
+
+
+// document.getElementById("button_baiviet").onclick = function () {
+//     console.log("test");
+//     Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
+//         element.style.display = "none";
+//     });
+//     document.getElementById("Profile2").style.display = "block";
+// }
 
 
 //phần chỉnh sửa của Overview__Work
 function OpenOverview(a) {
+    
     console.log("test");
     Array.prototype.forEach.call(document.getElementsByClassName("Overview__Content__btn"), function (element) {
         // element.style.display = "none";
