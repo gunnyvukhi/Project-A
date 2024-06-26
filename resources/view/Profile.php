@@ -1,4 +1,15 @@
 <?php include_once 'header.php';
+$UserId = 1;
+$SessionId = 1;
+$userName = "Dang Minh";
+$UserWork = "Công ty Nước Sạch Hà Nội";
+$UserPosition = "Giám đốc";
+$UserUniversity = "Đại học Bách Khoa Hà Nội";
+$UserHighSchool = "Trường THPT Chuyên Khoa Học Tự Nhiên";
+$UserLive = "Hà Nội";
+$UserHomeTown = "Hà Nội";
+$UserRelationship = "Độc thân";
+$UserPhone = "0123456789";
 
 // echo "<pre>";
 // print_r($userDetail);
@@ -27,7 +38,6 @@
                     <i id="icon1" class="fa fa-camera" style="font-size:24px" onclick="openChangeForm1()"></i>
                     <div class="Profile__header__cover__img">
                         <img src="resources/image/Profileimg/bia.jpg" id="cover" class="cover" alt="Cover">
-
                     </div>
                 </div>
             </div>
@@ -122,36 +132,36 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="name"> <?php   ?> </h2>
+                <h2 id="Username" class="name"> <?php echo $userName ?> </h2>
                 <div id="Profile_Header_Button" class="Profile_Header_Button">
-                    <!-- <?php if ($UserId == $_SessionId) { ?>
+                    <?php if ($SessionId == $UserId) {  ?>
                         <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add to story</a>
                         <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
                     <?php } else { ?>
                         <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add Friend </a>
                         <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Folow </a>
-                    <?php } ?> -->
+                    <?php } ?>
                 </div>
             </div>
             <div class="Profile__header__menu" id="Profile__header__menu">
                 <ul>
                     <li>
-                        <button id="button_baiviet" class="btn btn-default"> Bài viết</button>
+                        <button id="button_ProfilePost" class="ProfileChangePage"> Bài viết</button>
                     </li>
                     <li>
-                        <button id="button_gioithieu" class="btn btn-default">Giới thiệu</button>
+                        <button id="button_ProfileAbout" class="ProfileChangePage">Giới thiệu</button>
                     </li>
                     <li>
-                        <button id="button_anh" class="btn btn-default">Ảnh</button>
+                        <button id="button_anh" class="ProfileChangePage">Ảnh</button>
                     </li>
                     <li>
-                        <button id="button_banbe" class="btn btn-default">Bạn bè</button>
+                        <button id="button_banbe" class="ProfileChangePage">Bạn bè</button>
                     </li>
                     <li>
-                        <button id="button_video" class="btn btn-default">Video</button>
+                        <button id="button_video" class="ProfileChangePage">Video</button>
                     </li>
                     <li>
-                        <button id="button_xemthem" class="btn btn-default">Xem thêm</button>
+                        <button id="button_xemthem" class="ProfileChangePage">Xem thêm</button>
                     </li>
                 </ul>
             </div>
@@ -161,7 +171,7 @@
     <!-- Phần bài viết của trang Profile -->
 
 
-    <div id="Profile2" class="Profile2">
+    <div id="ProfilePost" class="Profile2">
         <div id="Intro" class="ProfilePart2">
             <p class="Intro__Detail" id="Intro_gioithieu">Giới thiệu</p>
             <p class="Intro__Detail" id="Intro_nickname">Dien tu vien thong</p>
@@ -203,7 +213,7 @@
 
 
 
-    <div id="Profile2_AboutPage" class="Profile2">
+    <div id="ProfileAbout" class="Profile2">
 
         <div id="Profile__About__Btn" class="">
             <div class="Profile2_AboutPage_Inside">
@@ -218,13 +228,13 @@
                         <button id="button__WorkAndEducation" class="Intro__button">Công việc và học vấn</button>
                     </li>
                     <li>
-                        <button id="button__Live" class="Intro__button">Nơi từng sống</button>
+                        <button id="button__PlacesLive" class="Intro__button">Nơi từng sống</button>
                     </li>
                     <li>
                         <button id="button__Contact" class="Intro__button">Thông tin liên hệ và cơ bản</button>
                     </li>
                     <li>
-                        <button id="button__Relationship" class="Intro__button">Gia đình và các mối quan hệ</button>
+                        <button id="button__FamilyAndRelationship" class="Intro__button">Gia đình và các mối quan hệ</button>
                     </li>
 
                     <li>
@@ -236,12 +246,14 @@
 
         <div id="Profile__About__Content">
 
-
-
             <!-- Profile__About__Overview -->
             <div id="Overview" class="Profile__About">
                 <div class="Overview__Content" id="workingContainer">
-                    <i class="fa fa-briefcase" aria-hidden="true"> Đang làm việc tại</i>
+                    <?php if ($UserWork != "") { ?>
+                        <i class="fa fa-briefcase" aria-hidden="true"> Đang làm việc tại <?php echo $UserWork ?></i>
+                    <?php } else { ?>
+                        <i class="fa fa-briefcase" aria-hidden="true"> Chưa có thông tin về công việc</i>
+                    <?php } ?>
                     <button id="Overview__Content__working" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                     <div id="working" class="Profile__About__Edit">
                         <form action="" method="Post">
@@ -295,7 +307,11 @@
 
 
                 <div id="HighSchoolContainer" class="Overview__Content">
-                    <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"> Đã học tại</i>
+                    <?php if ($UserHighSchool != "") { ?>
+                        <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"> Đã học tại <?php echo $UserHighSchool ?></i>
+                    <?php } else { ?>
+                        <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"> Chưa có thông tin về trường học</i>
+                    <?php } ?>
                     <button id="Overview__Content__HighSchool" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true""></i></button>
                     <div id=" HighSchool" class="Profile__About__Edit">
                             <form action="" method="Post">
@@ -349,13 +365,17 @@
                             </form>
 
                 </div>
+
+
+
+
             </div>
-
-
-
-
             <div class="Overview__Content" id="LiveContainer">
-                <i class="fa fa-home" aria-hidden="true"> Sống tại</i>
+                <?php if ($UserLive != "") { ?>
+                    <i class="fa fa-home" aria-hidden="true"> Sống tại <?php echo $UserLive ?></i>
+                <?php } else { ?>
+                    <i class="fa fa-homearia-hidden=" true"> Chưa có thông tin về nơi sống</i>
+                <?php } ?>
                 <button id="Overview__Content__Live" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                 <div id="Live" class="Profile__About__Edit">
                     <form action="" method="Post">
@@ -386,7 +406,11 @@
             </div>
 
             <div class="Overview__Content" id="HomeTownContainer">
-                <i class="fa fa-map-marker" aria-hidden="true"> Đến từ</i>
+                <?php if ($UserHomeTown != "") { ?>
+                    <i class="fa fa-map-marker" aria-hidden="true"> Đến từ <?php echo $UserHomeTown ?></i>
+                <?php } else { ?>
+                    <i class="fa fa-map-marker" aria-hidden="true"> Chưa có thông tin về quê quán</i>
+                <?php } ?>
                 <button id="Overview__Content__HomeTown" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                 <div id="HomeTown" class="Profile__About__Edit">
                     <form action="" method="Post">
@@ -416,10 +440,12 @@
                 </div>
             </div>
 
-
-
             <div class="Overview__Content" id="RelationshipContainer">
-                <i class="fa fa-heart" aria-hidden="true"> Đang</i>
+                <?php if ($UserRelationship != "") { ?>
+                    <i class="fa fa-heart" aria-hidden="true"> Đang <?php echo $UserRelationship ?></i>
+                <?php } else { ?>
+                    <i class="fa fa-heart" aria-hidden="true"> Chưa có thông tin về mối quan hệ</i>
+                <?php } ?>
                 <button id="Overview__Content__Relationship" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                 <div class="Profile__About__Edit" id="Relationship">
                     <form action="" method="Post">
@@ -470,9 +496,12 @@
                 </div>
             </div>
 
-
             <div class="Overview__Content" id="PhoneContainer">
-                <i class="fa fa-phone" aria-hidden="true"> Số điện thoại</i>
+                <?php if ($UserPhone != "") { ?>
+                    <i class="fa fa-phone" aria-hidden="true"> Số điện thoại <?php echo $UserPhone ?></i>
+                <?php } else { ?>
+                    <i class="fa fa-phone" aria-hidden="true"> Chưa có thông tin về số điện thoại</i>
+                <?php } ?>
                 <button id="Overview__Content__Phone" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                 <div id="Phone" class="Profile__About__Edit">
                     <form action="" method="Post">
@@ -504,20 +533,96 @@
 
 
 
-
         <!-- Phần About and education -->
 
         <div id="WorkAndEducation" class="Profile__About">
 
             <div id="Work" class="Container">
-
                 <div class="Title">
                     <p>Work</p>
                 </div>
                 <div id="working2" class="Profile__About__Edit">
+                    <form method="Post">
+                        <div class="EditArea">
+                            <div class="EditGroup" id="edit__Company">
+                                <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                            </div>
+                            <div class="EditGroup" id="edit__Position">
+                                <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                            </div>
+                            <div class="EditGroup" id="edit__Location">
+                                <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                            </div>
+                            <div class="EditGroup" id="edit__Description">
+                                <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                            </div>
+                            <div class="EditGroup" id="edit__btn">
+                                <div id="Year">
+                                    <a id="Yeartext">From</a>
+                                    <select class="btn" name="Year" id="YearSelect">
+                                        <option value="0">Year</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                                <div id="Privacy">
+                                    <select class="btn" name="privacy" id="privacybtn">
+                                        <option value="0">Privacy</option>
+                                        <option value="1">Public</option>
+                                        <option value="2">Friends</option>
+                                        <option value="3">Only me</option>
+                                    </select>
+                                    <div class="save">
+                                        <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                    </div>
+                                    <div class="cancel">
+                                        <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="Add">
+                    <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <a id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)">Add a workplace</a>
+                    </div>
+                </div>
+                <div class="Detail">
+                    <div class="img">
+                        <i class="fa fa-building-o" aria-hidden="true"> </i>
+                        <div class="contentContainer">
+                            <?php if ($UserWork != "" || $UserPosition != "") { ?>
+                                <a><?php echo $UserPosition ?> tại <a> <?php echo $UserWork ?></a>
+                                <?php } else { ?>
+                                    <a>Chưa có thông tin về công việc</a>
+                                <?php } ?>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div id="editIcon">
+                            <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="College" class="Container">
+
+                <div class="Title">
+                    <p>College</p>
+                </div>
+                <div id="CollegeEdit" class="Profile__About__Edit">
                     <div class="EditArea">
-                        <div class="EditGroup" id="edit__Company">
-                            <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                        <div class="EditGroup" id="edit__College">
+                            <input type="text" name="CollegeName" id="" class="textArea" placeholder="CollegeName"></input type="text">
                         </div>
                         <div class="EditGroup" id="edit__Position">
                             <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
@@ -562,166 +667,109 @@
                         <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     </div>
                     <div class="text">
-                        <a id="Overview__Content__working2" onclick="OpenOverview(this)">Add a workplace</a>
+                        <a id="Overview__Content__CollegeEdit" class="EditButton" onclick="OpenOverview(this)">Add a workplace</a>
                     </div>
                 </div>
                 <div class="Detail">
                     <div class="img">
-                        <i class="fa fa-building-o" aria-hidden="true"> </i>
+                        <i class="fa fa-university" aria-hidden="true"> </i>
                         <div class="contentContainer">
-                            <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                            <?php if ($UserUniversity != "") { ?>
+                                <a><?php echo "Đã học" ?> tại <a> <?php echo $UserUniversity ?></a>
+                                <?php } else { ?>
+                                    <a>Chưa có thông tin về đại học</a>
+                                <?php } ?>
                         </div>
                     </div>
                     <div class="content">
-                        <div id="position"></div>
-                        <div id="company"></div>
                         <div id="editIcon">
-                            <button id="Overview__Content__working2" class="" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                            <button id="Overview__Content__CollegeEdit" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div id="University" class="Container">
-
-                <div class="Title">
-                    <p>University</p>
-                </div>
-                <div id="UniversityEdit" class="Profile__About__Edit">
-                    <form action="" method="Post">
-                        <div class="EditArea">
-                            <div class="EditGroup" id="edit__University">
-                                <input type="text" name="University" id="" class="textArea" placeholder="School"></input type="text">
-                            </div>
-                            <div class="EditGroup" id="edit__Description">
-                                <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
-                            </div>
-                            <div class="EditGroup" id="edit__btn">
-                                <div id="Year">
-                                    <a id="Yeartext">From</a>
-                                    <select class="btn" name="Year" id="YearSelect">
-                                        <option value="0">Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                    </select>
-                                    <a id="Yeartext">to</a>
-                                    <select class="btn" name="Year" id="YearSelect">
-                                        <option value="0">Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                    </select>
-                                    <div id="Graduated">
-                                        <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
-                                    </div>
-                                </div>
-                                <div id="Privacy">
-                                    <select class="btn" name="privacy" id="privacybtn">
-                                        <option value="0">Privacy</option>
-                                        <option value="1">Public</option>
-                                        <option value="2">Friends</option>
-                                        <option value="3">Only me</option>
-                                    </select>
-                                    <div id="save1" class="save">
-                                        <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
-                                    </div>
-                                    <div id="cancel1" class="cancel">
-                                        <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-                <div class="Add">
-
-                    <div class="icon">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="text">
-                        <a id="Overview__Content__UniversityEdit" class="Overview__Content__btn" onclick="OpenOverview(this)">Add a university</a>
-                    </div>
-                </div>
-                <div class="Detail">
-
                 </div>
             </div>
 
             <div id="HighSchool" class="Container">
+
                 <div class="Title">
-                    <p>High school</p>
+                    <p>HighSchool</p>
                 </div>
-                <!-- <button id="Overview__Content__HighSchool" class="Overview__Content__btn" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true""></i></button> -->
-                    <div id=" HighSchoolEdit" class="Profile__About__Edit">
-                        <form action="" method="Post">
-                            <div class="EditArea">
-                                <div class="EditGroup" id="edit__University">
-                                    <input type="text" name="University" id="" class="textArea" placeholder="School"></input type="text">
+                <div id="HighSchoolEdit" class="Profile__About__Edit">
+                    <div class="EditArea">
+                        <div class="EditGroup" id="edit__HighSchool">
+                            <input type="text" name="HighSchoolName" id="" class="textArea" placeholder="HighSchoolName"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Position">
+                            <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Location">
+                            <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
                                 </div>
-                                <div class="EditGroup" id="edit__Description">
-                                    <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
-                                </div>
-                                <div class="EditGroup" id="edit__btn">
-                                    <div id="Year">
-                                        <a id="Yeartext">From</a>
-                                        <select class="btn" name="Year" id="YearSelect">
-                                            <option value="0">Year</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2020">2020</option>
-                                        </select>
-                                        <a id="Yeartext">to</a>
-                                        <select class="btn" name="Year" id="YearSelect">
-                                            <option value="0">Year</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2020">2020</option>
-                                        </select>
-                                        <div id="Graduated">
-                                            <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
-                                        </div>
-                                    </div>
-                                    <div id="Privacy">
-                                        <select class="btn" name="privacy" id="privacybtn">
-                                            <option value="0">Privacy</option>
-                                            <option value="1">Public</option>
-                                            <option value="2">Friends</option>
-                                            <option value="3">Only me</option>
-                                        </select>
-                                        <div id="save1" class="save">
-                                            <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
-                                        </div>
-                                        <div id="cancel1" class="cancel">
-                                            <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
-                                        </div>
-                                    </div>
+                                <div class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
                                 </div>
                             </div>
-                        </form>
-
-            </div>
-            <div class="Add">
-                <div class="icon">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="text">
-                    <!-- <a id="Overview__Content__HighSchoolEdit" onclick="OpenOverview(this)">Add a High school</a> -->
+                <div class="Add">
+                    <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <a id="Overview__Content__HighSchoolEdit" class="EditButton" onclick="OpenOverview(this)">Add a workplace</a>
+                    </div>
                 </div>
-            </div>
-            <div class="Detail">
+                <div class="Detail">
+                    <div class="img">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"> </i>
+                        <div class="contentContainer">
+                            <?php if ($UserHighSchool != "") { ?>
+                                <a><?php echo "Đã học" ?> tại <a> <?php echo $UserHighSchool ?></a>
+                                <?php } else { ?>
+                                    <a>Chưa có thông tin về trường học </a>
+                                <?php } ?>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div id="editIcon">
+                            <button id="Overview__Content__HighSchoolEdit" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+    </div>
+
+
+
+
     </div>
 
     <div class="Profile2" id="FriendsContainer">
@@ -742,7 +790,7 @@
             </ul>
         </div>
         <div id="FriendList">
-            <?php foreach($FriendId as $i){ ?>
+            <?php foreach ($FriendId as $i) { ?>
 
 
             <?php } ?>
@@ -752,8 +800,570 @@
 
 
     </div>
+
+
+
+    <!-- Phan Places Live -->
+    <div id="PlacesLive" class="Profile__About">
+
+        <div id="Live" class="Container">
+
+            <div class="Title">
+                <p>Places Live</p>
+            </div>
+            <div id="LiveEdit" class="Profile__About__Edit">
+                <div class="EditArea">
+                    <form action="" method="Post">
+                        <div class="EditGroup" id="edit__Company">
+                            <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Position">
+                            <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Location">
+                            <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="Add">
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <a id="Overview__Content__LiveEdit" onclick="OpenOverview(this)">Add a workplace</a>
+                </div>
+            </div>
+            <div class="Detail">
+                <div class="img">
+                    <i class="fa fa-building-o" aria-hidden="true"> </i>
+                    <div class="contentContainer">
+                        <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div id="position"></div>
+                    <div id="company"></div>
+                    <div id="editIcon">
+                        <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+
+
+    <!-- Phan Contact -->
+    <div id="Contact" class="Profile__About">
+
+        <div id="ContactInfo" class="Container">
+
+            <div class="Title">
+                <p>Contact Info</p>
+            </div>
+            <div id="ContactInfoEdit" class="Profile__About__Edit">
+                <div class="EditArea">
+                    <form action="" method="Post">
+                        <div class="EditGroup" id="edit__Company">
+                            <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Position">
+                            <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Location">
+                            <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="Add">
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <a id="Overview__Content__ContactInfoEdit" onclick="OpenOverview(this)">Add a workplace</a>
+                </div>
+            </div>
+            <div class="Detail">
+                <div class="img">
+                    <i class="fa fa-building-o" aria-hidden="true"> </i>
+                    <div class="contentContainer">
+                        <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div id="position"></div>
+                    <div id="company"></div>
+                    <div id="editIcon">
+                        <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="WebsiteAndSocialLinks" class="Container">
+
+            <div class="Title">
+                <p>Website And Social Links</p>
+            </div>
+            <div id="WebsiteAndSocialLinksEdit" class="Profile__About__Edit">
+                <form action="" method="Post">
+                    <div class="EditArea">
+                        <div class="EditGroup" id="edit__WebsiteAndSocialLinks">
+                            <input type="text" name="WebsiteAndSocialLinks" id="" class="textArea" placeholder="School"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <a id="Yeartext">to</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <div id="Graduated">
+                                    <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
+                                </div>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div id="save1" class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div id="cancel1" class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="Add">
+
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+
+                <div class="text">
+                    <a id="Overview__Content__WebsiteAndSocialLinksEdit" class="Overview__Content__btn" onclick="OpenOverview(this)">Add a university</a>
+                </div>
+            </div>
+            <div class="Detail">
+
+            </div>
+        </div>
+
+        <div id="BasicInfo" class="Container">
+
+            <div class="Title">
+                <p>Basic Info</p>
+            </div>
+            <div id="BasicInfoEdit" class="Profile__About__Edit">
+                <form action="" method="Post">
+                    <div class="EditArea">
+                        <div class="EditGroup" id="edit__University">
+                            <input type="text" name="University" id="" class="textArea" placeholder="School"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <a id="Yeartext">to</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <div id="Graduated">
+                                    <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
+                                </div>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div id="save1" class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div id="cancel1" class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="Add">
+
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+
+                <div class="text">
+                    <a id="Overview__Content__BasicInfoEdit" class="Overview__Content__btn" onclick="OpenOverview(this)">Add a university</a>
+                </div>
+            </div>
+            <div class="Detail">
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Phan FamilyAndRelationship -->
+    <div id="FamilyAndRelationship" class="Profile__About">
+
+        <div id="Relationship" class="Container">
+
+            <div class="Title">
+                <p>Relationship</p>
+            </div>
+            <div id="RelationshipEdit" class="Profile__About__Edit">
+                <div class="EditArea">
+                    <form action="" method="Post">
+                        <div class="EditGroup" id="edit__Company">
+                            <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Position">
+                            <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Location">
+                            <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="Add">
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <a id="Overview__Content__RelationshipEdit" onclick="OpenOverview(this)">Add a workplace</a>
+                </div>
+            </div>
+            <div class="Detail">
+                <div class="img">
+                    <i class="fa fa-building-o" aria-hidden="true"> </i>
+                    <div class="contentContainer">
+                        <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div id="position"></div>
+                    <div id="company"></div>
+                    <div id="editIcon">
+                        <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="FamilyMembers" class="Container">
+
+            <div class="Title">
+                <p>Family Members</p>
+            </div>
+            <div id="FamilyMembersEdit" class="Profile__About__Edit">
+                <form action="" method="Post">
+                    <div class="EditArea">
+                        <div class="EditGroup" id="edit__University">
+                            <input type="text" name="University" id="" class="textArea" placeholder="School"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <a id="Yeartext">to</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <div id="Graduated">
+                                    <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
+                                </div>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div id="save1" class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div id="cancel1" class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="Add">
+
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+
+                <div class="text">
+                    <a id="Overview__Content__FamilyMembersEdit" class="Overview__Content__btn" onclick="OpenOverview(this)">Add a university</a>
+                </div>
+            </div>
+            <div class="Detail">
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Phan Events -->
+    <div id="Events" class="Profile__About">
+        <div id="LifeEvents" class="Container">
+
+            <div class="Title">
+                <p>Life Events</p>
+            </div>
+            <div id="LifeEventsEdit" class="Profile__About__Edit">
+                <div class="EditArea">
+                    <form action="" method="Post">
+                        <div class="EditGroup" id="edit__Company">
+                            <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Position">
+                            <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Location">
+                            <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__Description">
+                            <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                        </div>
+                        <div class="EditGroup" id="edit__btn">
+                            <div id="Year">
+                                <a id="Yeartext">From</a>
+                                <select class="btn" name="Year" id="YearSelect">
+                                    <option value="0">Year</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                            </div>
+                            <div id="Privacy">
+                                <select class="btn" name="privacy" id="privacybtn">
+                                    <option value="0">Privacy</option>
+                                    <option value="1">Public</option>
+                                    <option value="2">Friends</option>
+                                    <option value="3">Only me</option>
+                                </select>
+                                <div class="save">
+                                    <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                </div>
+                                <div class="cancel">
+                                    <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="Add">
+                <div class="icon">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+                <div class="text">
+                    <a id="Overview__Content__LifeEventsEdit" onclick="OpenOverview(this)">Add a workplace</a>
+                </div>
+            </div>
+            <div class="Detail">
+                <div class="img">
+                    <i class="fa fa-building-o" aria-hidden="true"> </i>
+                    <div class="contentContainer">
+                        <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <div id="position"></div>
+                    <div id="company"></div>
+                    <div id="editIcon">
+                        <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+    <!-- Phan Photos cua Profile -->
+
+    <div id="Profile2__PhotosPage" class="Profile2">
+        <div id="Photos" class="PhotosPage">
+            <div id="btnContainer" class="btnContainer">
+                <ul>
+                    <li>
+                        <button class="btn" id="btn__OfYou" onclick="">Of You</button>
+                    </li>
+                    <li>
+                        <button class="btn" id="btn__YourPhotos" onclick="">Your Photos</button>
+                    </li>
+                    <li>
+                        <button class="btn" id="btn__Album" onclick="">Album</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="contentContainer" class="PhotosPage">
+
+            </div>
+        </div>
+    </div>
 
 
 
