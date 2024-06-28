@@ -143,6 +143,8 @@ class Controller{
             }
         }
 
+        
+
         //check if have not isFriend then isFollow
         $follow = [];
         $friendIs = [];
@@ -153,7 +155,44 @@ class Controller{
                 $follow[] = $friend;
             }
         }
+
+        //get avatar and name
+        $friendIs = array_map(function($friend){
+            $FriendModel = new FriendModel();
+            $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
+            $friend['last_name'] = $FriendModel->getName($friend['user_id']);
+            return $friend;
+        }, $friendIs);
+
+
+        $follow = array_map(function($friend){
+            if($friend['user_id'] != $_SESSION['userId']){
+               
+                $FriendModel = new FriendModel();
+                $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['user_id']);
+                return $friend;
+            }else{
+                $FriendModel = new FriendModel();
+                $friend['avatar'] = $FriendModel->getAvatar($friend['friends_User_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['friends_User_id']);
+                return $friend;
+            }
+        }, $follow);
+
+        //get friendIs with user_id or friends_User_id
+        $friendIs = array_filter($friendIs, function($friend){
+            return $friend['friends_User_id'] == $_SESSION['userId'];
+        });
+
+        //get follow with user_id or friends_User_id
         
+
+
+        
+
+        //gop lai thanh 1 mang
+        $friendIs = array_merge($friendIs, $follow);
 
         return $friendIs;
     }
