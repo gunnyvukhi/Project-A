@@ -46,56 +46,52 @@ document.querySelectorAll('.ProfileChangePage').forEach(button => {
     });
 });
 
-// document.getElementById("button_gioithieu").onclick = function () {
-//     console.log("test");
-//     Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
-//         element.style.display = "none";
-//     });
-//     document.getElementById("Profile2_AboutPage").style.display = "flex";
-// }
-
-
-// document.getElementById("button_baiviet").onclick = function () {
-//     console.log("test");
-//     Array.prototype.forEach.call(document.getElementsByClassName("Profile2"), function (element) {
-//         element.style.display = "none";
-//     });
-//     document.getElementById("Profile2").style.display = "block";
-// }
 
 
 //phần chỉnh sửa của Overview__Work
-function OpenOverview(a) {
+// function OpenOverview(a) {
     
-    console.log("test");
-    Array.prototype.forEach.call(document.getElementsByClassName("Overview__Content__btn"), function (element) {
-        // element.style.display = "none";
-    });
-    var idParts = a.id.split('__');
-    if (idParts.length >= 3) {
-        var detail = idParts[2];
-        console.log(detail);
-        var targetElement = document.getElementById(detail);
-        if (targetElement) {
-            targetElement.style.display = 'block';
-            console.log("done");
-        } else {
-            console.log('No element found with id: ' + detail);
-        }
-    } else {
-        console.log('Invalid id format');
-    }
-}       //click vào thì hiện ra
+//     console.log("test");
+//     Array.prototype.forEach.call(document.getElementsByClassName("Overview__Content__btn"), function (element) {
+//         // element.style.display = "none";
+//     });
+//     var idParts = a.id.split('__');
+//     if (idParts.length >= 3) {
+//         var detail = idParts[2];
+//         console.log(detail);
+//         var targetElement = document.getElementById(detail);
+//         if (targetElement) {
+//             targetElement.style.display = 'block';
+//             console.log("done");
+//         } else {
+//             console.log('No element found with id: ' + detail);
+//         }
+//     } else {
+//         console.log('Invalid id format');
+//     }
+// }       //click vào thì hiện ra
+
+function OpenOverview() {
+    // Ẩn thẻ div có id 'Overview'
+    document.getElementById('Overview').style.display = 'none';
+
+    // Hiển thị thẻ div có id 'Profile__About__Edit'
+    document.getElementById('Profile__About__Edit').style.display = 'block';
+
+}
+
+// Thêm event listener cho thẻ div có id 'Overview'
 
 
 
-function CloseOverview(a) {
+function CloseOverview(event) {
     console.log("test");
     var editElements = document.getElementsByClassName('Profile__About__Edit');
     Array.prototype.forEach.call(editElements, function (element) {
         element.style.display = 'none';
     });
 }
+
 //click vào thì ẩn đi
 
 //thay anh bia
