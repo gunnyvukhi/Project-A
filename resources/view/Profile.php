@@ -966,36 +966,16 @@ $UserBirthyear = 2005;
                 <div id="BasicInfoEdit" class="Profile__About__Edit">
                     <form action="" method="Post">
                         <div class="EditArea">
-                            <div class="EditGroup" id="edit__University">
-                                <input type="text" name="University" id="" class="textArea" placeholder="School"></input type="text">
+                            <div class="EditGroup" id="edit__Day">
+                                <input type="text" name="University" id="" class="textArea" placeholder="Day"></input type="text">
                             </div>
-                            <div class="EditGroup" id="edit__Description">
-                                <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
+                            <div class="EditGroup" id="edit__Month">
+                                <input type="text" name="Description" id="" class="textArea" placeholder="Month"></input type="text">
+                            </div>
+                            <div class="EditGroup" id="edit__Year">
+                                <input type="text" name="Description" id="" class="textArea" placeholder="Year"></input type="text">
                             </div>
                             <div class="EditGroup" id="edit__btn">
-                                <div id="Year">
-                                    <a id="Yeartext">From</a>
-                                    <select class="btn" name="Year" id="YearSelect">
-                                        <option value="0">Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                    </select>
-                                    <a id="Yeartext">to</a>
-                                    <select class="btn" name="Year" id="YearSelect">
-                                        <option value="0">Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                    </select>
-                                    <div id="Graduated">
-                                        <input type="checkbox" name="Graduated" id="Graduated">Graduated</input type="checkbox">
-                                    </div>
-                                </div>
                                 <div id="Privacy">
                                     <select class="btn" name="privacy" id="privacybtn">
                                         <option value="0">Privacy</option>
@@ -1026,14 +1006,22 @@ $UserBirthyear = 2005;
                     </div>
                 </div>
                 <div class="Detail">
-                    <?php if ($UserGender != "") { ?>
-                        <i class="fa fa-genderless" aria-hidden="true">
+                    <div>
+                        <?php if ($UserGender != "") { ?>
+                            <i class="fa fa-genderless" aria-hidden="true"></i>
                             <?php if ($UserGender == 1) echo "Male";
                             else echo "Female" ?></i>
-                    <?php } else { ?>
-                        <i class="fa fa-genderless" aria-hidden="true"> Chưa có thông tin về giới tính</i>
-                    <?php } ?>
-
+                        <?php } else { ?>
+                            <i class="fa fa-genderless" aria-hidden="true"> Chưa có thông tin về giới tính</i>
+                        <?php } ?>
+                    </div>
+                    <div>
+                        <?php if ($UserBirthdate != "" && $UserBirthmonth != "" && $UserBirthyear != "") { ?>
+                            <i class="fa fa-birthday-cake" aria-hidden="true"> Ngày sinh <?php echo $UserBirthdate ?> / <?php echo $UserBirthmonth ?> / <?php echo $UserBirthyear ?></i>
+                        <?php } else { ?>
+                            <i class="fa fa-birthday-cake" aria-hidden="true"> Chưa có thông tin về ngày sinh</i>
+                        <?php } ?>
+                    </div>
                     <div class="content">
                         <div id="editIcon">
                             <button id="Overview__Content__ContactInfoEdit" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
@@ -1054,28 +1042,13 @@ $UserBirthyear = 2005;
                 <div id="RelationshipEdit" class="Profile__About__Edit">
                     <div class="EditArea">
                         <form action="" method="Post">
-                            <div class="EditGroup" id="edit__Company">
-                                <input type="text" name="Company" id="" class="textArea" placeholder="Company"></input type="text">
-                            </div>
-                            <div class="EditGroup" id="edit__Position">
-                                <input type="text" name="Position" id="" class="textArea" placeholder="Position"></input type="text">
-                            </div>
-                            <div class="EditGroup" id="edit__Location">
-                                <input type="text" name="Location" id="" class="textArea" placeholder="City/Town"></input type="text">
-                            </div>
-                            <div class="EditGroup" id="edit__Description">
-                                <input type="text" name="Description" id="" class="textArea" placeholder="Description"></input type="text">
-                            </div>
                             <div class="EditGroup" id="edit__btn">
                                 <div id="Year">
                                     <a id="Yeartext">From</a>
-                                    <select class="btn" name="Year" id="YearSelect">
-                                        <option value="0">Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
+                                    <select class="btn" name="RelationshipSelect" id="RelationshipSelect">
+                                        <option value="Độc thân">Độc thân</option>
+                                        <option value="Đang hẹn hò">Đang hẹn hò</option>
+                                        <option value="Đang trong mối quan hệ phức tạp">Đang trong mối quan hệ phức tạp</option>
                                     </select>
                                 </div>
                                 <div id="Privacy">
@@ -1101,21 +1074,22 @@ $UserBirthyear = 2005;
                         <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     </div>
                     <div class="text">
-                        <a id="Overview__Content__RelationshipEdit" onclick="OpenOverview(this)">Add a workplace</a>
+                        <a id="Overview__Content__RelationshipEdit" onclick="OpenOverview(this)">Add a relationship</a>
                     </div>
                 </div>
                 <div class="Detail">
                     <div class="img">
-                        <i class="fa fa-building-o" aria-hidden="true"> </i>
                         <div class="contentContainer">
-                            <a>Sinh Viên tại <a>Đại học Bách Khoa Hà Nội</a></a>
+                            <?php if ($UserRelationship != "") { ?>
+                                <i class="fa fa-heart" aria-hidden="true"><?php echo $UserRelationship ?></i>
+                            <?php } else { ?>
+                                <i class="fa fa-heart" aria-hidden="true"> Chưa có thông tin về mối quan hệ</i>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="content">
-                        <div id="position"></div>
-                        <div id="company"></div>
                         <div id="editIcon">
-                            <button id="Overview__Content__working2" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
+                            <button id="Overview__Content__RelationshipEdit" class="EditButton" onclick="OpenOverview(this)"><i id="icondetail" class="fa fa-asterisk" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
