@@ -28,11 +28,17 @@
                 $timeLeft = strtotime($ad['end_at']) - strtotime($ad['create_at']);
                 $timeLeft = floor($timeLeft/(3600*24));
                 echo '
-                <a href="#" class="advertisePost" title="'. $ad['caption'] .'">
+                <a href="#" class="advertisePost" id="adReview'. $ad['id'] .'" title="'. $ad['caption'] .'">
+                <div class="deleteAd" onclick="deleteAd(this.id)" id="adDeleteButton'. $ad['id'] .'">X</div>
                 <div class="advertiseImg"><img src="resources\image\adv\\'. $ad['image'] .'" class="advPic"/></div>
-                <div class="adViewsAndTimeLeft"><img src="resources\image\adViewsIcon.png">'. $ad['views'] .'</div>
-                <div class="adViewsAndTimeLeft"><img src="resources\image\adTimeLeftIcon.png">'. $timeLeft .' ngày</div>
-                </a>';
+                <div class="adViewsAndTimeLeft"><img src="resources\image\adViewsIcon.png">'. $ad['views'] .'</div>';
+                if (($ad['max_view'] < $ad['views']) || (time() > strtotime($ad['end_at']))) {
+                    echo '<div class="adViewsAndTimeLeft">Đã kết thúc</div>
+                    <div class="adViewsAndTimeLeft"><img src="resources\image\adTimeLeftIcon.png">'. date('d/m/y',strtotime($ad['end_at'])) .'</div>
+                    </a>';
+                } else {
+                echo '<div class="adViewsAndTimeLeft"><img src="resources\image\adTimeLeftIcon.png">'. $timeLeft .' ngày</div>
+                </a>';}
             }
         ?>
         </div>
@@ -104,8 +110,22 @@
             <!-- Đăng/Hủy bài viết-->
             <div class="btnContainer">
                 <button type="submit" name="submit" id="uploadNewAdvertise" onclick="">Thanh toán và đăng</button>
+                <div class="FinnalCost">Giá: 56.000 VNĐ</div>
                 <button type="reset" id="resetNewAd" onclick="deleteCreatingAd()">Hủy</button>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- Bạn có chắc chắn muốn xóa quảng cáo này -->
+<div id="deleteAdReminderBackground">
+    <div class="deleteAdReminderContainer">
+        <h>Nhắc nhở</h>
+        <p>Bạn có chắc chắn muốn xóa quảng cáo này ?</p>
+        <div class="RemminderBtn">
+            <button type="reset" id="CancelDeleteBtn" class="deny" onclick="doneDeleteAd()">Hủy</button>
+            <button type="button" id="SubmitDeleteBtn" class="submit" onclick="doneDeleteAd('delete')">Xóa</button>
+        </div>
+        
     </div>
 </div>
