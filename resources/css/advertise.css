@@ -146,7 +146,16 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-
+            .deleteAd{
+                position: absolute;
+                font-size: 16px;
+                font-weight: 700;
+                transform: translate(208px,4px);
+                opacity: 0.2;
+            }
+            .deleteAd:hover{
+                opacity: 2;
+            }
             .advertiseImg {
                 width: 224px;
                 height: 224px;
@@ -183,6 +192,72 @@
         }
     }
 }
+
+
+#deleteAdReminderBackground {
+    display: none;
+    position: fixed;
+    z-index: 102;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    .deleteAdReminderContainer{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: #ffffff;
+        width: 640px;
+        height: 112px;
+        border-radius: 12px;
+        padding: 16px 16px 16px 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        h{
+            font-size: 18px;
+            font-weight: 600;
+            width: 608px;
+            height: 34px;
+            text-align: center;
+            border-bottom: rgba(169, 169, 169, 0.6) 1px solid;
+            margin-bottom: 16px;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            width: 360px;
+            height: 34px;
+            text-align: center;
+        }
+        button{
+            width: 56px;
+            height: 28px;
+            border-radius: 4px;
+            margin-left: 24px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            opacity: 0.6;
+        }
+        button:hover{
+            opacity: 1;
+        }
+        .deny{
+            background-color: rgb(255, 56, 56);
+        }
+        .submit{
+            background-color: rgb(56, 106, 255);
+        }
+    }
+}
+
 
 /*--------------------------------------*/
 /*---------Form tạo ra Ad mới-----------*/
@@ -439,6 +514,12 @@
             width: 484px;
             height: 32px;
 
+            .FinnalCost{
+                position: absolute;
+                transform: translate(180px, 8px);
+                font-size: 14px;
+                font-weight: 600;
+            }
             #uploadNewAdvertise {
                 float: right;
                 border: none;

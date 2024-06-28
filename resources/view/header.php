@@ -9,6 +9,20 @@ if (isset($_SESSION['userAvatar'])) {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
 $data = Controller::Data();
+$NewPostData = $data;
+shuffle($NewPostData);
+
+$adNum = 0;
+$ad_data = array();
+foreach ($data['adv'] as $temp) {
+    if (($temp['max_view'] < $temp['views']) || (time() > strtotime($temp['end_at'])) ){
+        continue;
+    }
+    for ($i = 0; $i < $temp['trend']; $i++) {
+        array_push($ad_data, $temp);
+    }
+}
+shuffle($ad_data);
 
 ?>
 <!DOCTYPE html>

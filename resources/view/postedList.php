@@ -4,18 +4,7 @@
     var pressed = Array(999).fill(1);
     </script>';
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
-    $NewPostData = $data;
-    shuffle($NewPostData);
-
-    $adNum = 0;
-    $ad_data = array();
-    foreach ($data['adv'] as $temp) {
-        for ($i = 0; $i < $temp['trend']; $i++) {
-            array_push($ad_data, $temp);
-        }
-    }
-    shuffle($ad_data);
-
+ 
     for ($i = 0; $i < count($NewPostData); $i++)
     {
         if (!isset($NewPostData[$i]["user_id"])){continue;}

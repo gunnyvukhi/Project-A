@@ -95,3 +95,18 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(ad);
 })
+
+var aWait = 0;
+function deleteAd(id) {
+    document.getElementById('deleteAdReminderBackground').style.display = 'block';
+    aWait = id.slice(14, id.length);
+}
+
+function doneDeleteAd(command) {
+    document.getElementById('deleteAdReminderBackground').style.display = 'none';
+    if (command){
+        document.getElementById("adReview" + aWait).style.display = 'none';
+        console.log('deleted');
+    }
+}
+

@@ -90,7 +90,7 @@ class Controller{
 
     public static function DataFriend(){
         $FriendModel = new FriendModel();
-        //get all friend 
+        //get all friend
         $friends = $FriendModel->getAllFriend();
 
         // check la ban be khi ca hai deu co user_id trong cot user_id va friends_User_id
