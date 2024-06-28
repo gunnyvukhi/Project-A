@@ -71,13 +71,6 @@
 
 <div class="mainPostContainer" id="mainContainer">
 <?php
-    include_once "app\model\UserModel.php";
-    include_once 'app\model\MainPageModel.php';
-    echo '<script>
-    var All_comments = [];
-    var pressed = Array(999).fill(1);
-    </script>';
-
     for ($i = 0; $i < count($NewPostData); $i++)
     {
         if (!isset($NewPostData[$i]["user_id"])){continue;}
@@ -89,7 +82,7 @@
             $postData['count_like'], $postData['comments'], $postData["hasLiked"], $currentUserAvatarLink);
             }
 
-        if (Rate(10)) {
+        if (Rate(20)) {
             if (!isset($ad_data[$adNum])) {
                 $adNum = 0;
             }

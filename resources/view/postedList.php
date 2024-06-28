@@ -1,8 +1,4 @@
 <?php
-    echo '<script>
-    var All_comments = [];
-    var pressed = Array(999).fill(1);
-    </script>';
     echo '<link rel="stylesheet" href="resources/css/post.css" type="text/css">';
  
     for ($i = 0; $i < count($NewPostData); $i++)

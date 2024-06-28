@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="resources/css/advertise.css" type="text/css">
 
 <!-- Nemu display ad -->
 <div id="adBackGround">

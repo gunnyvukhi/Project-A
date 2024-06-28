@@ -163,7 +163,7 @@ function Create_adv($user_id, $adv_id, $caption, $photo, $URL){
     
 
     echo '<a href="'.$URL.'" target = "_ blank" class="advLink" id="URL'. strval($adv_id) .'">
-    <div class="postContainer" id='. $postId .'>
+    <div class="postContainer advPostContainer" id='. $postId .'>
     <p class="PostAva"><img loading="lazy" src=' . $avatarLink . ' alt=' . $userName . ' /></p>
     <div class="nameTimeContainer">
         <p class="userName">' . $userName . '</p>

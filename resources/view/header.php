@@ -2,27 +2,15 @@
 require_once "app\model\UserModel.php";
 require_once 'app\controller\Controller.php';
 require_once 'app\model\MainPageModel.php';
+
 $currentUserName = $_SESSION['userName'];
 if (isset($_SESSION['userAvatar'])) {
     $currentUserAvatarLink = 'resources\image\userAvater\\' . $_SESSION['userAvatar'];
 } else {
     $currentUserAvatarLink = 'resources\image\demoPersonIcon.png';
 }
-$data = Controller::Data();
-$NewPostData = $data;
-shuffle($NewPostData);
 
-$adNum = 0;
-$ad_data = array();
-foreach ($data['adv'] as $temp) {
-    if (($temp['max_view'] < $temp['views']) || (time() > strtotime($temp['end_at'])) ){
-        continue;
-    }
-    for ($i = 0; $i < $temp['trend']; $i++) {
-        array_push($ad_data, $temp);
-    }
-}
-shuffle($ad_data);
+$data = Controller::Data();
 
 ?>
 <!DOCTYPE html>
@@ -36,6 +24,7 @@ shuffle($ad_data);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/header.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/advertise.css" type="text/css">
 </head>
 
 <body>
@@ -346,4 +335,27 @@ shuffle($ad_data);
             ?>
         </ul>
     </div>
-    <?php require_once 'advertise.php'; ?>
+
+<?php
+require_once 'advertise.php';
+
+echo '<script>
+    var All_comments = [];
+    var pressed = Array(999).fill(1);
+    </script>';
+
+$NewPostData = $data;
+shuffle($NewPostData);
+
+$adNum = 0;
+$ad_data = array();
+foreach ($data['adv'] as $temp) {
+    if (($temp['max_view'] < $temp['views']) || (time() > strtotime($temp['end_at'])) ){
+        continue;
+    }
+    for ($i = 0; $i < $temp['trend']; $i++) {
+        array_push($ad_data, $temp);
+    }
+}
+shuffle($ad_data);
+?>
