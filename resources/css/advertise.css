@@ -516,9 +516,12 @@
 
             .FinnalCost{
                 position: absolute;
-                transform: translate(180px, 8px);
-                font-size: 14px;
+                display: flex;
+                width: 160px;
+                transform: translate(178px, 8px);
+                font-size: 16px;
                 font-weight: 600;
+                color: darkgreen;
             }
             #uploadNewAdvertise {
                 float: right;

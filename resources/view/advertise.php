@@ -10,7 +10,7 @@
                 '<a href="http://localhost/project-a/profile" class="PostAva"><img src=' . $currentUserAvatarLink . '></a>
         <div class="nameMoneyContainer">
             <p class="userName">' . $currentUserName . '</p>
-            <div class="moneyLeft">Số dư tài khoản:  <b>' . $money . '</b>  vnđ <button type="button" class="addMoney" onclick=""><img src="resources\image\addMoneyICon.png"></button></div>
+            <div class="moneyLeft">Số dư tài khoản:<pre> <b>' . $money . '</b> </pre>vnđ <button type="button" class="addMoney" onclick=""><img src="resources\image\addMoneyICon.png"></button></div>
         </div>'
                 ?>
         </div>
@@ -110,7 +110,8 @@
             <!-- Đăng/Hủy bài viết-->
             <div class="btnContainer">
                 <button type="submit" name="submit" id="uploadNewAdvertise" onclick="">Thanh toán và đăng</button>
-                <div class="FinnalCost">Giá: 56.000 VNĐ</div>
+                <div class="FinnalCost" id="FinnalCostAdv">Giá: 95000 VNĐ</div>
+                <input type="hidden" name="cost" id="advCost" value="95000">
                 <button type="reset" id="resetNewAd" onclick="deleteCreatingAd()">Hủy</button>
             </div>
         </form>

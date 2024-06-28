@@ -81,13 +81,11 @@ const observer = new IntersectionObserver((entries) => {
         id = ad.id.slice(3, ad.id.length);
 
         if (!Seen[id]){
-            console.log(id);
             var xhttp = new XMLHttpRequest();
             xhttp.open("GET", "adv-view-plus?id=" + id, true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("id=" + id);
             Seen[id] = true;
-            console.log("Done");
         }
     }
   });
@@ -106,7 +104,53 @@ function doneDeleteAd(command) {
     document.getElementById('deleteAdReminderBackground').style.display = 'none';
     if (command){
         document.getElementById("adReview" + aWait).style.display = 'none';
-        console.log('deleted');
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "adv-delete?id=" + aWait, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + aWait);
     }
 }
 
+
+// Kiem tra gia tien thanh toan
+function sum(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    return sum;
+}
+
+var cost = [50000, 35000, 10000];
+function Advertise_cost(vnd, index) {
+    cost[index] = vnd
+    Total = sum(cost)
+    document.getElementById('FinnalCostAdv').innerHTML = 'Giá: ' + Total + ' VNĐ';
+    document.getElementById('advCost').value = Total
+}
+
+document.querySelectorAll('.containerDetailsOptions select').forEach(function(select) {
+    select.addEventListener("change", function() {
+    if (this.value == "5") { // Gia tien cua Rate
+        Advertise_cost(50000, 0);
+    }else if (this.value == "10"){
+        Advertise_cost(95000, 0);
+    }else if (this.value == "20"){
+        Advertise_cost(180000, 0);
+    }
+    else if (this.value == "7"){ // Gia tien cua Time
+        Advertise_cost(35000, 1);
+    }else if (this.value == "14"){
+        Advertise_cost(65000, 1);
+    }else if (this.value == "30"){
+        Advertise_cost(140000, 1);
+    }
+    else if (this.value == "1000"){ // gia tien cua views
+        Advertise_cost(10000, 2);
+    }else if (this.value == "5000"){
+        Advertise_cost(45000, 2);
+    }else if (this.value == "10000"){
+        Advertise_cost(90000, 2);
+    }
+  });
+});

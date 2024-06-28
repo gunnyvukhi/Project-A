@@ -153,7 +153,6 @@ class Controller{
                 $follow[] = $friend;
             }
         }
-
         
 
         return $friendIs;
