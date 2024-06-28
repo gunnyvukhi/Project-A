@@ -43,7 +43,7 @@
                 position: absolute;
                 z-index: 9;
                 left: 230px;
-                top: 90%;
+                top: 87%;
                 opacity: 0.5;
             }
 
@@ -484,7 +484,7 @@
             .name {
                 position: absolute;
                 left: 325px;
-                top: 81%;
+                top: 84%;
                 font-size: 30px;
             }
 
@@ -492,7 +492,7 @@
                 position: absolute;
                 z-index: 8;
                 left: 50px;
-                top: 67%;
+                top: 69%;
                 border-radius: 50%;
             }
 
@@ -967,7 +967,7 @@
 
 .Profile2 {
     margin-top: 50px;
-    margin-left: 150px;
+    margin-left: 12%;
 }
 
 
