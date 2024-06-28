@@ -18,21 +18,21 @@ if (count($event_data)>0){
         }
             
         echo '</ul>
-    </div>';
+        </div>';
 }
 
-    echo '<div class="ListContainer">
+echo '<div class="ListContainer">
         <h3>Người liên hệ</h3>
-        <ul>
-            <li>
+        <ul>';
+
+        echo '<li>
                 <a href="#" class="ContentLink">
                 <img class="contentPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
                 <div class="ContentContainer">
                     <p class="FriendsName">' . $currentUserName . '</p>
                 </div>
                 </a>
-            </li>
-        </ul>
-    </div>
-</div>
-';
+            </li>';
+        echo '</ul>
+            </div>
+        </div>';

@@ -251,25 +251,24 @@ shuffle($ad_data);
             // lấy dữ liệu thông báo
             $notificationRawData = array_fill(0, count($data), array_fill(0, 4, array()));
             foreach ($data as $postData) {
-                
-                if (!isset($postData["actionLogs"])) {
-                    continue;
-                }
-                if ($postData["user_id"] != $_SESSION['userId']) {
-                    continue;
+                if (!isset($postData["user_id"]) || $postData["user_id"] != $_SESSION['userId']) {
+                    continue;;
                 };
-                foreach ($postData["actionLogs"] as $notiData) {
-                    $postNotiId = $notiData["post_id"];
-                    if ($notiData["action_performed"] == "like") {
-                        $type = 1; // like là 1
-                    } else if ($notiData["action_performed"] == "unlike") {
-                        $type = 2; // unlike là 2
-                    } else {
-                        $type = 0;
+                $postNotiId = $postData["post_id"];
+                if (isset($postData["actionLogs"])) {
+                    foreach ($postData["actionLogs"] as $notiData) {
+                        if ($notiData["action_performed"] == "like") {
+                            $type = 1; // like là 1
+                        } else if ($notiData["action_performed"] == "unlike") {
+                            $type = 2; // unlike là 2
+                        } else {
+                            $type = 0;
+                        }
+                        ;
+                        array_push($notificationRawData[$postNotiId][$type], $notiData);
                     }
-                    ;
-                    array_push($notificationRawData[$postNotiId][$type], $notiData);
                 }
+                
                 foreach ($postData["comments"] as $commentNotification) {
                     array_push($notificationRawData[$postNotiId][3], $commentNotification);
                 }

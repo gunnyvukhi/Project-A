@@ -10,7 +10,7 @@
                 '<a href="http://localhost/project-a/profile" class="PostAva"><img src=' . $currentUserAvatarLink . '></a>
         <div class="nameMoneyContainer">
             <p class="userName">' . $currentUserName . '</p>
-            <div class="moneyLeft">Số dư tài khoản:<pre> <b>' . $money . '</b> </pre>vnđ <button type="button" class="addMoney" onclick=""><img src="resources\image\addMoneyICon.png"></button></div>
+            <div class="moneyLeft">Số dư tài khoản:<pre> <b>' . $money . '</b> </pre>vnđ<button type="button" class="addMoney" onclick=""><img src="resources\image\addMoneyICon.png"></button></div>
         </div>'
                 ?>
         </div>
