@@ -14,7 +14,7 @@
         $postData["post_id"], $postData["update_at"], $postData['content'], $postData['image'],
         $postData['count_like'], $postData['comments'], $postData["hasLiked"], $currentUserAvatarLink);
         }
-        if (Rate(100)) {
+        if (Rate(10)) {
             if (!isset($ad_data[$adNum])) {
                 $adNum = 0;
             }

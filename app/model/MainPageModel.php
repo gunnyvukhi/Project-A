@@ -121,9 +121,9 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
             </script>';
                 }
             }
-            echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img loading="lazy" src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>
-            <button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img loading="lazy" src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>
-        </form>
+            echo '<button class="LikeShareButton" name="commentButton" id='. "commentButton" . $postId  .' type="button" onclick="display_Comment(this.id)"><img loading="lazy" src="resources\image\commentIcon1.png" alt="comment" />Bình luận</button>';
+            echo '<button class="LikeShareButton" name="shareButton" id='. "shareButton" . $postId  .' type="button" onclick=""><img loading="lazy" src="resources\image\shareIcon1.png" alt="share" />Chia sẻ</button>';
+        echo '</form>
 
         <!-- GỬi bình luận bài viết -->
         <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>

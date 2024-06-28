@@ -105,4 +105,5 @@
 </body>
 <script lang="javascript" type="text/javascript" src="resources/js/watch.js"></script>
 <?php include_once 'footer.php' ?>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 </html>
