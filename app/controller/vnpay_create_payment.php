@@ -1,5 +1,16 @@
 <?php
 
+
+
+
+// tai khoan ngan hang test
+//Ngân hàng	NCB
+// Số thẻ	9704198526191432198
+// Tên chủ thẻ	NGUYEN VAN A
+// Ngày phát hành	07/15
+// Mật khẩu OTP	123456
+
+
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
@@ -18,7 +29,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $vnp_TmnCode = "1BLQTFZU"; //Mã định danh merchant kết nối (Terminal Id)
 $vnp_HashSecret = "H9W922TY26GY8NCS9TW4LVSLVMVZPETZ"; //Secret key
 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-$vnp_Returnurl = APPURL . 'confirmation';
+$vnp_Returnurl = APPURL . 'payment-adv';
 $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
 $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
 //Config input format
@@ -27,9 +38,9 @@ $startTime = date("YmdHis");
 $expire = date('YmdHis',strtotime('+15 minutes',strtotime($startTime)));
 
 $vnp_TxnRef = rand(1,10000); //Mã giao dịch thanh toán tham chiếu của merchant
-$vnp_Amount = $_SESSION['$totalAll']; // Số tiền thanh toán
+$vnp_Amount = $_SESSION['cost']; // Số tiền thanh toán
 $vnp_Locale = 'vn'; //Ngôn ngữ chuyển hướng thanh toán
-$vnp_BankCode = 'NCB'; //Mã phương thức thanh toán
+$vnp_BankCode = 'VNBANK'; //Mã phương thức thanh toán
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
 
 $inputData = array(
