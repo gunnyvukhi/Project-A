@@ -15,21 +15,20 @@ class advController{
     public function add(){
         $advModel = new AdvModel();
         if(isset($_POST['submit'])){
-            $caption = $_POST['caption'];
-            $views = 0;
+
+            $_SESSION['cost'] = $_POST['cost'];
+            $_SESSION['data'] = $_POST;
+
             $image = $_FILES['image']['name'];
-            $URL = $_POST['adLinkToBoxInput'];
-            $create_at = date('Y-m-d H:i:s');
-            $end_at = $_POST['end_at'];
-            $end_at = date('Y-m-d H:i:s', strtotime($create_at . ' + ' . $end_at . ' days'));
             $target = 'resources\image\adv\\' . $image;
             move_uploaded_file($_FILES['image']['tmp_name'], $target);
 
-            $trend = $_POST['trend'];
-            $max_view = $_POST['max_view'];
-            $user_id = $_SESSION['userId'];
-            $advModel->addAdv($user_id, $caption, $URL, $views, $image, $create_at, $end_at, $trend, $max_view);
-            header('Location: ' . APPURL);
+            $_SESSION['image'] = $image;
+
+            require 'app/controller/vnpay_create_payment.php'; 
+
+
+            
         }
     }
 
@@ -42,6 +41,34 @@ class advController{
     public function delete(){
         $advModel = new AdvModel();
         $advModel->deleteAdv($_GET['id']);
+    }
+
+    public function payment(){
+
+        if(isset($_GET['vnp_ResponseCode'])){
+            $vnp_ResponseCode = $_GET['vnp_ResponseCode'];
+            if($vnp_ResponseCode == '00'){
+                $advModel = new AdvModel();
+                $data = $_SESSION['data'];
+                $caption = $data['caption'];
+                $views = 0;
+                $URL = $data['adLinkToBoxInput'];
+                $create_at = date('Y-m-d H:i:s');
+                $end_at = $data['end_at'];
+                $end_at = date('Y-m-d H:i:s', strtotime($create_at . ' + ' . $end_at . ' days'));
+                $trend = $data['trend'];
+                $max_view = $data['max_view'];
+                $user_id = $_SESSION['userId'];
+                $image = $_SESSION['image'];
+                $advModel->addAdv($user_id, $caption, $URL, $views, $image, $create_at, $end_at, $trend, $max_view);
+                
+            }
+        }
+        unset($_SESSION['data']);
+        unset($_SESSION['image']);
+        unset($_SESSION['cost']);
+        header('Location: ' . APPURL);
+        
     }
 }
 

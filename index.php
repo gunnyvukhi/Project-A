@@ -150,6 +150,10 @@ switch ($url[2]) {
         $adv = new advController();
         $adv->delete();
         break;
+    case 'payment-adv':
+        $adv = new advController();
+        $adv->payment();
+        break;
 
     default:
         echo "404 Not Found";
