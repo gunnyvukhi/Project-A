@@ -10,6 +10,8 @@ class HomeController {
         
         $data = Controller::Data();
 
+        $friends = Controller::DataFriend();
+
         require_once 'resources\view\mainPage.php';
         
     }
