@@ -42,7 +42,6 @@ class advController{
     public function delete(){
         $advModel = new AdvModel();
         $advModel->deleteAdv($_GET['id']);
-        header('Location: ' . APPURL . 'adv');
     }
 }
 

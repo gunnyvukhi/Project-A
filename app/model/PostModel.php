@@ -45,7 +45,7 @@ class PostModel{
     }
 
     public function getPostById($postId){
-        $sql = "SELECT * FROM posts WHERE id = $postId";
+        $sql = "SELECT * FROM posts WHERE post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetch(PDO::FETCH_ASSOC);
@@ -129,6 +129,15 @@ class PostModel{
         $sql = "DELETE FROM post_likes WHERE user_id = $userId AND post_id = $postId";
         $db = new DB;
         $db = $db->query($sql);
+        return $db;
+    }
+
+    //get all post by user id
+    public function getPostByUserId($userId){
+        $sql = "SELECT * FROM posts WHERE user_id = $userId";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetchAll(PDO::FETCH_ASSOC);
         return $db;
     }
 

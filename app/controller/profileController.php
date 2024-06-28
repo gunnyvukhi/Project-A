@@ -18,7 +18,7 @@ class profileController
         $userDetail = $userDetailModel->getUserDetail($_SESSION['userId']);
 
         $controller = new Controller();
-        $data = $controller->Data();
+        $data = $controller->DataId($_SESSION['userId']);
 
         require_once 'resources\view\Profile.php';
     }

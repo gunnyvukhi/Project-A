@@ -146,6 +146,10 @@ switch ($url[2]) {
         $adv = new advController();
         $adv->viewPlus();
         break;
+    case 'adv-delete':
+        $adv = new advController();
+        $adv->delete();
+        break;
 
     default:
         echo "404 Not Found";
