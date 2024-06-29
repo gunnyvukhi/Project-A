@@ -40,6 +40,14 @@ class ActionLogModel{
         return $db;
     }
 
+    //changeStatusLogAction
+    public function changeStatusLogAction($activity_id){
+        $sql = "UPDATE activity_log SET status = 1 WHERE activity_id = $activity_id";
+        $db = new DB;
+        $db = $db->query($sql);
+        return $db;
+    }
+
 
 
 }

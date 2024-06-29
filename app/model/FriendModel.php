@@ -43,4 +43,24 @@ class FriendModel
         $db = $db->query($sql);
         return $db;
     }
+
+    //getAvatar
+    public function getAvatar($user_id)
+    {
+        $sql = "SELECT avatar FROM user_basic WHERE user_id = $user_id";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetch(PDO::FETCH_ASSOC);
+        return $db['avatar'];
+    }
+
+    //getName
+    public function getName($user_id)
+    {
+        $sql = "SELECT last_name FROM user_basic WHERE user_id = $user_id";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetch(PDO::FETCH_ASSOC);
+        return $db['last_name'];
+    }
 }

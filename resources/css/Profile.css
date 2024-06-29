@@ -24,7 +24,7 @@
                 position: absolute;
                 z-index: 9;
                 right: 15px;
-                top: 539px;
+                top: 94%;
                 opacity: 0.5;
             }
 
@@ -43,7 +43,7 @@
                 position: absolute;
                 z-index: 9;
                 left: 230px;
-                top: 690px;
+                top: 87%;
                 opacity: 0.5;
             }
 
@@ -484,7 +484,7 @@
             .name {
                 position: absolute;
                 left: 325px;
-                top: 607px;
+                top: 84%;
                 font-size: 30px;
             }
 
@@ -492,7 +492,7 @@
                 position: absolute;
                 z-index: 8;
                 left: 50px;
-                top: 500px;
+                top: 69%;
                 border-radius: 50%;
             }
 
@@ -576,16 +576,115 @@
     font-size: 20px;
 }
 
+#Profile__About__Edit {
+
+    height: 650px;
+    display: none;
+
+    /* dang cai dat display: none; */
+
+    .EditArea {
+        display: block;
+        height: fit-content;
+        width: 100%;
+
+        #Privacy {
+            top: 30px;
+            display: inline-block;
+            align-items: center;
+            /* justify-content: space-between; */
+            width: 100%;
+            padding: 15px;
+            border-top: 0.5px solid #E4E6EB;
+            position: relative;
+
+            #privacybtn {
+                top: 5px;
+                position: relative;
+                left: 20px;
+            }
+
+            #save {
+                position: absolute;
+                right: 10px;
+                background-color: #E4E6EB;
+                color: #1c1e21;
+                border-radius: 5px;
+                width: 82px;
+                height: 35px;
+                border: none;
+            }
+
+            #cancel {
+                position: absolute;
+                right: 102px;
+                background-color: #E4E6EB;
+                color: #1c1e21;
+                border-radius: 5px;
+                width: 82px;
+                height: 35px;
+                border: none;
+            }
+        }
+
+        .EditGroup {
+            display: block;
+            align-items: center;
+            width: 539px;
+            padding: 10px;
+            margin: 15px;
+            width: 80%;
+
+            .textArea {
+                width: 100%;
+                height: 36px;
+                border: 0.5px solid #E4E6EB;
+                border-radius: 5px;
+                background-color: #fff;
+                padding-left: 10px;
+                font-size: 10px;
+
+                ::placeholder {
+                    border: 0.1px solid #1c1e21;
+                }
+
+
+            }
+
+
+            
+
+            #edit__btn {
+                display: block;
+                height: fit-content;
+
+
+
+                .btn {
+                    height: 35px;
+                    width: 70px;
+                    color: #1c1e21;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    font-size: 15px;
+                    display: flex;
+                }
+
+
+            }
+        }
+    }
+
+}
 
 
 #ProfilePost {
-    display: flexbox;
+    display: flex;
     width: 90%;
 
+
     #Intro {
-        position: absolute;
-        left: 180px;
-        top: 797px;
+        height: fit-content;
         font-size: 15px;
         border-radius: 24px;
         border: 1px solid #E4E6EB;
@@ -653,7 +752,7 @@
             background-color: #E4E6EB;
             justify-content: center;
             align-items: center;
-            width: 345px;
+            width: 90%;
             height: 28px;
             border-radius: 5px;
             display: flex;
@@ -666,23 +765,18 @@
             background-color: #E4E6EB;
             justify-content: center;
             align-items: center;
-            width: 345px;
+            width: 90%;
             height: 28px;
             border-radius: 5px;
             display: flex;
+            margin-top: 10px;
         }
 
     }
 
     #Profile_Post {
-        width: 60%;
-        left: 590px;
-        position: absolute;
-
-        #PostList {
-            margin-top: 20px;
-            position: relative;
-        }
+        margin-left: 30px;
+        height: fit-content;
     }
 }
 
@@ -693,14 +787,12 @@
 
 
 #ProfileAbout {
-    position: absolute;
     display: none;
-    left: 180px;
     border-radius: 24px;
     border: 1px solid #E4E6EB;
     min-height: 420px;
     width: 75%;
-    top: 797px;
+    height: fit-content;
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -749,7 +841,7 @@
 
     #Profile__About__Content {
 
-        width: 70%;
+        width: 90%;
         display: block;
 
 
@@ -769,117 +861,10 @@
                 display: none;
             }
 
-            /* tam thoi de display: none; */
-            .Profile__About__Edit {
-                height: 420px;
-                display: none;
-
-                /* dang cai dat display: none; bt: block */
-
-                .EditArea {
-                    display: block;
-                    height: fit-content;
-
-                    #RelationshipValue {
-                        border: 0.5px solid #E4E6EB;
-                        border-radius: 5px;
-                        background-color: #fff;
-                        width: 519px;
-                        height: 36px;
-                        margin-left: 24px;
-                    }
-
-                    .EditGroup {
-                        display: block;
-                        align-items: center;
-                        width: 539px;
-                        padding: 10px;
-                        margin: 15px;
-
-
-
-
-                        .textArea {
-                            width: 100%;
-                            height: 36px;
-                            border: 0.5px solid #E4E6EB;
-                            border-radius: 5px;
-                            background-color: #fff;
-                            padding-left: 10px;
-                            font-size: 10px;
-
-                            ::placeholder {
-                                border: 0.1px solid #1c1e21;
-                            }
-                        }
-
-                        #Privacy {
-                            top: 30px;
-                            display: flex;
-                            align-items: center;
-                            /* justify-content: space-between; */
-                            width: 100%;
-                            padding: 15px;
-                            border-top: 0.5px solid #E4E6EB;
-                            position: relative;
-
-                            #privacybtn {
-                                top: 5px;
-                                position: relative;
-                                left: 20px;
-                            }
-
-                            #save {
-                                position: absolute;
-                                right: 10px;
-                                background-color: #E4E6EB;
-                                color: #1c1e21;
-                                border-radius: 5px;
-                                width: 82px;
-                                height: 35px;
-                                border: none;
-                            }
-
-                            #cancel {
-                                position: absolute;
-                                right: 110px;
-                                background-color: #E4E6EB;
-                                color: #1c1e21;
-                                border-radius: 5px;
-                                width: 82px;
-                                height: 35px;
-                                border: none;
-                            }
-                        }
-
-                        #edit__btn {
-                            display: block;
-                            height: fit-content;
-
-
-
-                            .btn {
-                                height: 35px;
-                                width: 70px;
-                                color: #1c1e21;
-                                background-color: #fff;
-                                border-radius: 5px;
-                                font-size: 15px;
-                                display: flex;
-                            }
-
-                            #Year {
-                                width: 100%;
-                            }
-                        }
-                    }
-                }
-            }
 
             .Overview__Content {
                 padding: 20px;
                 margin: 20px;
-                width: 600px;
                 position: relative;
                 display: block;
 
@@ -901,102 +886,7 @@
             margin: 10px;
             display: block;
 
-            .Profile__About__Edit {
 
-                height: 420px;
-                display: none;
-
-                /* dang cai dat display: none; */
-
-                .EditArea {
-                    display: block;
-                    height: fit-content;
-
-                    .EditGroup {
-                        display: block;
-                        align-items: center;
-                        width: 539px;
-                        padding: 10px;
-                        margin: 15px;
-
-                        .textArea {
-                            width: 100%;
-                            height: 36px;
-                            border: 0.5px solid #E4E6EB;
-                            border-radius: 5px;
-                            background-color: #fff;
-                            padding-left: 10px;
-                            font-size: 10px;
-
-                            ::placeholder {
-                                border: 0.1px solid #1c1e21;
-                            }
-                        }
-
-                        #Privacy {
-                            top: 30px;
-                            display: inline-block;
-                            align-items: center;
-                            /* justify-content: space-between; */
-                            width: 100%;
-                            padding: 15px;
-                            border-top: 0.5px solid #E4E6EB;
-                            position: relative;
-
-                            #privacybtn {
-                                top: 5px;
-                                position: relative;
-                                left: 20px;
-                            }
-
-                            #save {
-                                position: absolute;
-                                right: 10px;
-                                background-color: #E4E6EB;
-                                color: #1c1e21;
-                                border-radius: 5px;
-                                width: 82px;
-                                height: 35px;
-                                border: none;
-                            }
-
-                            #cancel {
-                                position: absolute;
-                                right: 102px;
-                                background-color: #E4E6EB;
-                                color: #1c1e21;
-                                border-radius: 5px;
-                                width: 82px;
-                                height: 35px;
-                                border: none;
-                            }
-                        }
-
-                        #edit__btn {
-                            display: block;
-                            height: fit-content;
-
-
-
-                            .btn {
-                                height: 35px;
-                                width: 70px;
-                                color: #1c1e21;
-                                background-color: #fff;
-                                border-radius: 5px;
-                                font-size: 15px;
-                                display: flex;
-                            }
-
-                            #Year {
-                                width: 100%;
-                            }
-                            
-                        }
-                    }
-                }
-
-            }
 
             .Title {
                 font-size: 1.25rem;
@@ -1075,12 +965,53 @@
 
 }
 
+.Profile2 {
+    margin-top: 50px;
+    margin-left: 12%;
+}
 
 
-#Photos {
+#ProfilePhotos {
     display: none;
+    left: 180px;
+    border-radius: 24px;
+    border: 1px solid #E4E6EB;
+    min-height: 420px;
+    width: 75%;
+    top: 797px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #FriendsContainer {
     display: none;
+}
+select[id="RelationshipSelect"] {
+    width: 78%;
+    /* Chiều rộng tối đa */
+    padding: 15px;
+    margin: 27px;
+    /* Khoảng cách bên trong để tạo ra cảm giác thoải mái khi nhìn và sử dụng */
+    border: 1px solid #E4E6EB;
+    /* Đường viền mảnh và nhẹ */
+    border-radius: 4px;
+    /* Bo góc để tạo ra cảm giác hiện đại và mềm mại */
+    background-color: white;
+    /* Màu nền trắng để dễ dàng phối hợp với các thiết kế khác */
+    color: #333;
+    /* Màu chữ tối giản nhưng dễ đọc */
+    -webkit-appearance: none;
+    /* Loại bỏ kiểu mặc định của Safari */
+    -moz-appearance: none;
+    /* Loại bỏ kiểu mặc định của Firefox */
+    appearance: none;
+    /* Loại bỏ kiểu mặc định trên các trình duyệt hiện đại */
+    background-image: url('dropdown-icon.png');
+    /* Thêm biểu tượng dropdown */
+    background-repeat: no-repeat;
+    /* Không lặp lại hình ảnh */
+    background-position: right 10px center;
+    /* Vị trí của biểu tượng dropdown */
+    cursor: pointer;
+    /* Thay đổi con trỏ khi di chuyển qua */
 }

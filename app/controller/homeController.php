@@ -151,4 +151,13 @@ class HomeController {
             $HiddenPostModel->deleteHiddenPost($userId, $postId);
         }
     }
+
+    //change status logaction
+    public function changeStatusLogAction() {
+        if(isset($_POST['changeStatusLogAction'])){
+            $actionLogId = $_POST['actionLogId'];
+            $ActionLogModel = new ActionLogModel();
+            $ActionLogModel->changeStatusLogAction($actionLogId);
+        }
+    }
 }
