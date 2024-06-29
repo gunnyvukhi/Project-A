@@ -101,6 +101,21 @@ function openChangeForm1() {
     
 };
 
+function importFile(){
+    document.getElementById('newPostFileInput').click();
+};
+
+
+
+function deleteCreatingPost(){
+    document.getElementById('newPostFileInput').value = '';
+    document.getElementById('newPostCaption').value = ''
+    document.getElementById('newPostPrivacy').value = ''
+    document.getElementById('previewNewPostFile').innerHTML = ''
+    document.getElementById('selectFileForNewPost').style.display = 'block'
+    document.getElementById('modalBackGround').style.display = 'none';
+};
+
 
 function closeChangeForm1() {
     document.getElementById('modalBackGround1').style.display = 'none';
