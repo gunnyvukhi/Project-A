@@ -17,7 +17,7 @@ class RegisterController {
 
             if ($password == $confirmPassword) {
                 $db = new DB();
-                $sql = "INSERT INTO user_basic (last_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
+                $sql = "INSERT INTO user_basic (user_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
                 $user = $db->query($sql);
 
                 header('Location: ' . APPURL . 'login');

@@ -41,19 +41,21 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
   `post_id` int NOT NULL,
   `action_performed` varchar(15) DEFAULT NULL,
   `activity_date` datetime DEFAULT NULL,
+  `status` int DEFAULT NULL,
   PRIMARY KEY (`user_id`,`post_id`,`activity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.activity_log: ~4 rows (approximately)
 INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
-(1, 1, 5, 'like', '2024-06-14 08:31:53'),
-(2, 2, 5, 'like', '2024-06-14 08:31:53'),
-(3, 5, 5, 'like', NULL),
-(4, 6, 5, 'like', NULL);
+(1, 1, 5, 'like', '2024-06-14 08:31:53', 0),
+(2, 2, 5, 'like', '2024-06-14 08:31:53', 0),
+(3, 5, 5, 'like', NULL, 0),
+(4, 6, 5, 'like', NULL, 0);
 
 -- Dumping structure for table project_a.address
 CREATE TABLE IF NOT EXISTS `address` (
   `address_id` int NOT NULL AUTO_INCREMENT,
+  `address` varchar(80) DEFAULT NULL,
   `street` varchar(80) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `state` varchar(35) DEFAULT NULL,
@@ -61,8 +63,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `zipcode` int(10) unsigned zerofill DEFAULT NULL,
   `region` varchar(35) DEFAULT NULL,
   PRIMARY KEY (`address_id`),
-  UNIQUE KEY `Address_id_UNIQUE` (`address_id`),
-  CONSTRAINT `address_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `user_about` (`address_id`)
+  UNIQUE KEY `Address_id_UNIQUE` (`address_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=200531 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.address: ~0 rows (approximately)
@@ -191,6 +192,7 @@ CREATE TABLE IF NOT EXISTS `user_about` (
   `education_level` varchar(50) DEFAULT NULL,
   `lives_in` varchar(45) DEFAULT NULL,
   `address_id` int DEFAULT NULL,
+  `relationship` varchar(40) DEFAULT NULL,
   `date_of_joining` date DEFAULT NULL,
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`),
@@ -205,8 +207,7 @@ CREATE TABLE IF NOT EXISTS `user_about` (
 -- Dumping structure for table project_a.user_basic
 CREATE TABLE IF NOT EXISTS `user_basic` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(60) DEFAULT NULL,
+  `user_name` varchar(60) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `mobile_no` varchar(20) DEFAULT NULL,
@@ -221,13 +222,13 @@ CREATE TABLE IF NOT EXISTS `user_basic` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.user_basic: ~2 rows (approximately)
-INSERT INTO `user_basic` (`user_id`, `first_name`, `last_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `avatar_backgroud`, `status`, `create_at`) VALUES
-(1, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', 'user1.jpg', 'user1.jpeg', 'online', NULL),
-(2, NULL, 'Đặng Nhật Minh', '12345', 'Minh@gmail.com', '0123456789', '2024-06-03', 'Nam', NULL, NULL, NULL, NULL),
-(3, NULL, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', 'user2.jpg', 'user2.jpeg', NULL, '2024-06-02 01:47:13'),
-(4, NULL, 'Nguyễn Tuấn Anh', '12345', 'gunnytuananh@gmail.com', '0879524005', '2024-06-03', 'nam', 'user3.jpeg', 'user3.jpeg', 'online', '2024-06-12 04:56:10'),
-(5, NULL, 'Nguyễn Tuấn Em', '12345', 'gunnytuananh2@gmail.com', '0879524005', '2024-06-02', 'nam', NULL, NULL, NULL, '2024-06-12 05:00:18'),
-(6, NULL, 'Phan Anh Hữu', '12345', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user_basic` (`user_id`, `user_name`, `password`, `email`, `mobile_no`, `birth_date`, `gender`, `avatar`, `avatar_backgroud`, `status`, `create_at`) VALUES
+(1, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh27@gmail.com', '0336054243', '2024-05-01', 'nam', 'user1.jpg', 'user1.jpeg', 'online', NULL),
+(2, 'Đặng Nhật Minh', '12345', 'Minh@gmail.com', '0123456789', '2024-06-03', 'Nam', NULL, NULL, NULL, NULL),
+(3, 'Trịnh Nhật Anh', '123456', 'trinhnhatanh37@gmail.com', '0336054243', '2024-06-20', 'nam', 'user2.jpg', 'user2.jpeg', NULL, '2024-06-02 01:47:13'),
+(4, 'Nguyễn Tuấn Anh', '12345', 'gunnytuananh@gmail.com', '0879524005', '2024-06-03', 'nam', 'user3.jpeg', 'user3.jpeg', 'online', '2024-06-12 04:56:10'),
+(5, 'Nguyễn Tuấn Em', '12345', 'gunnytuananh2@gmail.com', '0879524005', '2024-06-02', 'nam', NULL, NULL, NULL, '2024-06-12 05:00:18'),
+(6, 'Phan Anh Hữu', '12345', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

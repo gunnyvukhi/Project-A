@@ -34,6 +34,8 @@ require_once 'app/controller/profileController.php';
 require_once 'app/controller/auth/logoutController.php';
 require_once 'app/controller/friendController.php';
 require_once 'app/controller/advController.php';
+require_once 'app/controller/searchController.php';
+
 
 
 
@@ -153,6 +155,10 @@ switch ($url[2]) {
     case 'payment-adv':
         $adv = new advController();
         $adv->payment();
+        break;
+    case 'search':
+        $search = new searchController();
+        $search->search();
         break;
 
     default:

@@ -19,6 +19,12 @@ $UserBirthmonth = 3;
 $UserBirthyear = 2005;
 $UserEvent = "";
 
+//information of current user
+// echo '<pre>';
+// print_r($userDetail);
+// print_r($dataid);
+// print_r($user);
+// echo '</pre>';
 
 ?>
 
@@ -333,7 +339,7 @@ $UserEvent = "";
 
                         <div id="Privacy">
                             <div class="save">
-                                <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                <button class="btn" type="submit" name="submit" id="save" onclick="CloseOverview(this)">Save</button>
                             </div>
                             <div class="cancel">
                                 <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>

@@ -52,7 +52,7 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
 
         $PostUserModel = new UserModel();
         $PostUser = $PostUserModel->getUserById($user_id);
-        $userName = $PostUser["last_name"];
+        $userName = $PostUser["user_name"];
 
         $comment_num = count($comment);
         
@@ -149,7 +149,7 @@ function Create_adv($user_id, $adv_id, $caption, $photo, $URL){
     $postId = 'advNumber'. strval($adv_id);
     $PostUserModel = new UserModel();
     $PostUser = $PostUserModel->getUserById($user_id);
-    $userName = $PostUser["last_name"];
+    $userName = $PostUser["user_name"];
 
     if (!isset($URL)) {
         $URL = "#";

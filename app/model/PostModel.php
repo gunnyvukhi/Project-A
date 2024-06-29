@@ -92,7 +92,7 @@ class PostModel{
         $userModel = new UserModel();
         foreach ($db as $key => $value) {
             $user = $userModel->getUserById($value['user_id']);
-            $db[$key]['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
+            $db[$key]['user_name'] = $user['user_name'];
             $db[$key]['avatar'] = $user['avatar'];
         }
 
@@ -135,6 +135,15 @@ class PostModel{
     //get all post by user id
     public function getPostByUserId($userId){
         $sql = "SELECT * FROM posts WHERE user_id = $userId";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetchAll(PDO::FETCH_ASSOC);
+        return $db;
+    }
+
+    //search post by content
+    public function searchPost($content){
+        $sql = "SELECT * FROM posts WHERE content LIKE '%$content%'";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);

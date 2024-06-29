@@ -39,7 +39,7 @@ $data = Controller::Data();
         <!-- Thanh tìm kiếm -->
         <div class="searchContainer">
             <div class="searchBox" id="searchBox">
-                <form name="search">
+                <form name="search" action="search">
                     <input type="text" name="searchBoxInput" class="searchBoxInput" id="searchBoxInput">
                 </form>
                 <img id="searchImage" src="resources\image\searchIcon.png">
