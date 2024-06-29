@@ -305,17 +305,18 @@ $data = Controller::Data();
                 
                 $comments = count($ThisPostNoti[3]);
                 if ($comments > 0) {
-                    foreach ($ThisPostNoti[3] as $comment_) {
-                    $timeNoti = Get_Time(strval($comment_['update_at']));
-                    $temp = '<li><a href="#" class="NotificationLink">
-                    <img class="NotificationAvaPic" src="resources\image\userAvater\\' . $comment_['avatar'] . '" alt=' .  $comment_['user_name'] . ' />
-                    <div class="NotificationContentContainer">
-                        <p class="NotificationContent"><b>' . $comment_['user_name'] . '</b> đã bình luận về một bài viết của bạn</p>
-                        <p class="NotificationTime">' . $timeNoti . '</p>
-                    </div>
-                    </a>
-                    </li>';
-                    array_push($finalNotification, [$temp, $comment_['update_at']]);
+                    foreach ($ThisPostNoti[3] as $comment_) {;
+                        if ($comment_['user_name'] == $_SESSION['userName']){continue;}
+                        $timeNoti = Get_Time(strval($comment_['update_at']));
+                        $temp = '<li><a href="#" class="NotificationLink">
+                        <img class="NotificationAvaPic" src="resources\image\userAvater\\' . $comment_['avatar'] . '" alt=' .  $comment_['user_name'] . ' />
+                        <div class="NotificationContentContainer">
+                            <p class="NotificationContent"><b>' . $comment_['user_name'] . '</b> đã bình luận về một bài viết của bạn</p>
+                            <p class="NotificationTime">' . $timeNoti . '</p>
+                        </div>
+                        </a>
+                        </li>';
+                        array_push($finalNotification, [$temp, $comment_['update_at']]);
                     }
                 }
             }

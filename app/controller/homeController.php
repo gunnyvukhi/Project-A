@@ -5,6 +5,8 @@ require_once 'app/model/HiddenPostModel.php';
 require_once 'app/model/ActionLogModel.php';
 require_once 'app/controller/Controller.php';
 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 class HomeController {
     public function index() {
         
