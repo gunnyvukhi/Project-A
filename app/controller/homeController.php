@@ -14,6 +14,8 @@ class HomeController {
 
         $friends = Controller::DataFriend();
 
+        $following = Controller::DataFollow();
+
         require_once 'resources\view\mainPage.php';
         
     }
