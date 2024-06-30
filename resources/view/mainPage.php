@@ -2,9 +2,9 @@
 <?php   require_once "header.php";   ?>
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 
-<!-- <pre>
-    <?php //var_dump($_SESSION['user_name']) ?>
-</pre> -->
+<pre>
+    <?php var_dump($friends) ?>
+</pre>
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">
     <div class="fuctionNemuContainer">

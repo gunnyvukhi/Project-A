@@ -20,19 +20,30 @@ if (count($event_data)>0){
         echo '</ul>
         </div>';
 }
-
+$displayed_Friends = array();
 echo '<div class="ListContainer">
         <h3>Người liên hệ</h3>
         <ul>';
+        foreach ($friends as $friend_data){
+            if (in_array($friend_data["user_id"], $displayed_Friends)) {continue;}
+            if (!isset($friend_data["isFriend"])){continue;}
 
-        echo '<li>
-                <a href="#" class="ContentLink">
-                <img class="contentPic" src=' . $currentUserAvatarLink . ' alt=' . $currentUserName . ' />
-                <div class="ContentContainer">
-                    <p class="FriendsName">' . $currentUserName . '</p>
-                </div>
-                </a>
-            </li>';
+            if (isset($friend_data['avatar'])){
+                $friend_data['avatar'] = 'resources\image\userAvater\\' . $friend_data['avatar'];
+            } else {
+                $friend_data['avatar'] = 'resources\image\demoPersonIcon.png';
+            }
+            
+            echo '<li>
+                    <a href="#" class="ContentLink">
+                    <img class="contentPic" src=' . $friend_data['avatar'] . ' />
+                    <div class="ContentContainer">
+                        <p class="FriendsName">' . $friend_data['last_name'] . '</p>
+                    </div>
+                    </a>
+                </li>';
+                array_push($displayed_Friends, $friend_data["user_id"]);
+        }
         echo '</ul>
             </div>
         </div>';

@@ -143,7 +143,7 @@ class PostModel{
 
     //search post by content
     public function searchPost($content){
-        $sql = "SELECT * FROM posts WHERE content LIKE '%$content%'";
+        $sql = "SELECT post_id FROM posts WHERE content LIKE '%$content%'";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetchAll(PDO::FETCH_ASSOC);

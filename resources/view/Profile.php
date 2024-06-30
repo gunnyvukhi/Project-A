@@ -373,5 +373,5 @@ $Birthdate = $user['birth_date'];
         <?php include_once "postedlist.php";
         include 'footer.php'; ?>
 </body>
-
+<script lang="javascript" type="text/javascript" src="resources/js/Profile.js"></script>
 </html>
