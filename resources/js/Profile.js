@@ -96,30 +96,54 @@ function CloseOverview(event) {
 
 //thay anh bia
 
-function openChangeForm1() {
-    document.getElementById('modalBackGround1').style.display = 'block';
-    
-};
 
-function importFile(){
-    document.getElementById('newPostFileInput').click();
+function openChangeFormCover() {
+    document.getElementById('modalBackGroundCover').style.display = 'block';
 };
 
 
-
-function deleteCreatingPost(){
-    document.getElementById('newPostFileInput').value = '';
-    document.getElementById('newPostCaption').value = ''
-    document.getElementById('newPostPrivacy').value = ''
-    document.getElementById('previewNewPostFile').innerHTML = ''
-    document.getElementById('selectFileForNewPost').style.display = 'block'
-    document.getElementById('modalBackGround').style.display = 'none';
+function closeChangeFormCover() {
+    document.getElementById('modalBackGroundCover').style.display = 'none';
 };
 
 
-function closeChangeForm1() {
-    document.getElementById('modalBackGround1').style.display = 'none';
+document.getElementById('newCoverFileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var preview = document.getElementById('previewNewCoverFile');
+    var buttonImportFile = document.getElementById('selectFileForNewCover');
+
+        preview.innerHTML = '';
+        buttonImportFile.style.display = 'none';
+    var img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    img.style.width = '468px';
+    img.style.display = 'block';
+    img.style.borderRadius = '24px'
+    preview.appendChild(img);
+    document.getElementById('deleteFileForNewCover').style.display = 'block'
+});
+
+
+function importCoverFile(){
+    document.getElementById('newCoverFileInput').click();
 };
+
+function deleteCreatingCover(){
+    document.getElementById('newCoverFileInput').value = '';
+    document.getElementById('newCoverCaption').value = ''
+    document.getElementById('newCoverPrivacy').value = ''
+    document.getElementById('previewNewCoverFile').innerHTML = ''
+    document.getElementById('selectFileForNewCover').style.display = 'block'
+    document.getElementById('modalBackGroundCover').style.display = 'none';
+};
+
+function deleteCoverFile() {
+    document.getElementById('previewNewCoverFile').innerHTML = ''
+    document.getElementById('selectFileForNewCover').style.display = 'block'
+    document.getElementById('newCoverFileInput').value = ''
+    document.getElementById('deleteFileForNewCover').style.display = 'none'
+
+}
 
 
 //Thay ảnh đại diện

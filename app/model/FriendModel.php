@@ -57,10 +57,10 @@ class FriendModel
     //getName
     public function getName($user_id)
     {
-        $sql = "SELECT last_name FROM user_basic WHERE user_id = $user_id";
+        $sql = "SELECT user_name FROM user_basic WHERE user_id = $user_id";
         $db = new DB;
         $db = $db->query($sql);
         $db = $db->fetch(PDO::FETCH_ASSOC);
-        return $db['last_name'];
+        return $db['user_name'];
     }
 }

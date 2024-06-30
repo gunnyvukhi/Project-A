@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="resources/css/mainPage.css" type="text/css">
 
 <!-- <pre>
-    <?php //var_dump($friends) ?>
+    <?php //var_dump($_SESSION['user_name']) ?>
 </pre> -->
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">

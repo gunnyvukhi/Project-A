@@ -90,7 +90,7 @@ class Controller{
     //data with id
     public static function DataId($id){
         $PostModel = new PostModel();
-        $data = $PostModel->getPostByUserId($id);  
+        $data = $PostModel->getPostByUserId($id); 
         
         //check is_deleted
         $data = array_filter($data, function($post){

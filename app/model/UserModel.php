@@ -31,6 +31,15 @@ class UserModel{
         return $db;
     }
 
+    //search user by name
+    public function searchUser($name){
+        $sql = "SELECT * FROM user_basic WHERE user_name LIKE '%$name%'";
+        $db = new DB;
+        $db = $db->query($sql);
+        $db = $db->fetchAll(PDO::FETCH_ASSOC);
+        return $db;
+    }
+
 
 
  

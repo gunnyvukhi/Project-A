@@ -2,7 +2,7 @@
 $UserId = 1;
 $SessionId = 1;
 $userName = $currentUserName; // tạm thời
-$UserAvatar = $currentUserAvatar; // tạm thời
+$UserAvatar = $currentUserAvatarLink; // tạm thời
 $UserWork = "Công ty Nước Sạch Hà Nội";
 $UserPosition = "Giám đốc";
 $UserUniversity = "Đại học Bách Khoa Hà Nội";
@@ -20,6 +20,12 @@ $UserBirthmonth = 3;
 $UserBirthyear = 2005;
 $UserEvent = "";
 
+//information of current user
+// echo '<pre>';
+// print_r($userDetail);
+// print_r($dataid);
+// print_r($user);
+// echo '</pre>';
 
 ?>
 
@@ -41,7 +47,7 @@ $UserEvent = "";
         <div class="outside" id="outside">
             <div class="Profile__header" id="Profile__header">
                 <div class="Profile__header__cover" id="Profile__header__cover">
-                    <i id="icon1" class="fa fa-camera" style="font-size:24px" onclick="openChangeForm1()"></i>
+                    <i id="icon1" class="fa fa-camera" style="font-size:24px" onclick="openChangeFormCover()"></i>
                     <div class="Profile__header__cover__img">
                         <img src="resources/image/Profileimg/bia<?php echo $UserId ?>.jpg" id="cover" class="cover" alt="Cover">
                     </div>
@@ -55,9 +61,9 @@ $UserEvent = "";
                 <!-- Thẻ form thay ảnh bìa -->
                 <!--------------------------->
                 <div id="ChangeCover">
-                    <div id="modalBackGround1">
+                    <div id="modalBackGroundCover">
                         <div class="ChangeCoverForm">
-                            <button type="button" id="closeNewPostForm" onclick="closeChangeForm1()">&times;</button>
+                            <button type="button" id="closeNewCoverForm" onclick="closeChangeFormCover()">&times;</button>
                             <h2>Đổi ảnh bìa </h2>
                             <form method="post" action="ChangeCover" enctype="multipart/form-data">
                                 <div class="postHead">
@@ -68,7 +74,7 @@ $UserEvent = "";
                                         <!-- phần tên người dùng -->
                                         <?php echo '<p class="userName">' . $currentUserName . '</p>' ?>
                                         <!-- đây là chỗ chọn chế độ chia sẻ-->
-                                        <select name="newPostPrivacy" id="newPostPrivacy">
+                                        <select name="newCoverPrivacy" id="newCoverPrivacy">
                                             <option value="public" selected>Công khai</option>
                                             <option value="private">Chỉ tôi</option>
                                             <option value="friendOnly">Bạn bè</option>
@@ -76,23 +82,23 @@ $UserEvent = "";
                                     </div>
                                 </div>
                                 <!-- Nội dung text của bài viết -->
-                                <textarea name="newPostCaption" id="newPostCaption" placeholder="Hôm nay bạn cảm thấy thế nào ?"></textarea>
+                                <textarea name="newCoverCaption" id="newCoverCaption" placeholder="Hãy nói gì đó về ảnh bìa của bạn ?"></textarea>
                                 <!-- Nội dung hình ảnh/video -->
                                 <div class="containerForFile">
-                                    <input type="file" id="newPostFileInput" name="newPostFileInput" accept=".png, .jpg, .bmp, .jpeg, .gif, .ico, .psd, .mp4, .wmv, .mov, .avi, .flv">
+                                    <input type="file" id="newCoverFileInput" name="newCoverFileInput" accept=".png, .jpg, .bmp, .jpeg, .gif, .ico, .psd, .mp4, .wmv, .mov, .avi, .flv">
 
-                                    <button type="button" id="deleteFileForNewCover" onclick="deleteFile()">&times;</button>
+                                    <button type="button" id="deleteFileForNewCover" onclick="deleteCoverFile()">&times;</button>
 
-                                    <button type="button" id="selectFileForNewCover" onclick="importFile()">
+                                    <button type="button" id="selectFileForNewCover" onclick="importCoverFile()">
                                         <img src="resources/image/pictureIcon.png" alt="picture"><br>
                                         <p>Thêm ảnh/video</p>
                                     </button>
-                                    <div id="previewNewPostFile"></div>
+                                    <div id="previewNewCoverFile"></div>
                                 </div>
                                 <!-- Đăng/Hủy bài viết-->
                                 <div class="btnContainer">
                                     <button type="submit" name="submit" id="uploadNewCover" onclick="">Đăng</button>
-                                    <button type="reset" id="resetNewPost" onclick="deleteCreatingPost()">Hủy</button>
+                                    <button type="reset" id="resetNewCover" onclick="deleteCreatingCover()">Hủy</button>
                                 </div>
                             </form>
                         </div>
@@ -342,7 +348,7 @@ $UserEvent = "";
 
                         <div id="Privacy">
                             <div class="save">
-                                <button class="btn" id="save" onclick="CloseOverview(this)">Save</button>
+                                <button class="btn" type="submit" name="submit" id="save" onclick="CloseOverview(this)">Save</button>
                             </div>
                             <div class="cancel">
                                 <button class="btn" id="cancel" onclick="CloseOverview(this)">Cancel</button>
@@ -358,15 +364,8 @@ $UserEvent = "";
         <div id="ProfilePhotos" class="Profile2">
             <p>Photos</p>
         </div>
-
-
-
-
-
-
-
-        <script src="resources/js/Profile.js"></script>
-        <?php include 'footer.php'; ?>
+        <?php include_once "postedlist.php";
+        include 'footer.php'; ?>
 </body>
 
 </html>
