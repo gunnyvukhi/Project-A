@@ -1,7 +1,8 @@
 <?php include_once 'header.php';
 $UserId = 1;
 $SessionId = 1;
-$userName = "Dang Minh";
+$userName = $currentUserName; // tạm thời
+$UserAvatar = $currentUserAvatar; // tạm thời
 $UserWork = "Công ty Nước Sạch Hà Nội";
 $UserPosition = "Giám đốc";
 $UserUniversity = "Đại học Bách Khoa Hà Nội";
@@ -47,8 +48,12 @@ $UserEvent = "";
                 </div>
             </div>
             <div class="Profile__header__avatar" id="Profile__header__avatar">
-                <img src="resources/image/Profileimg/avatar<?php echo $UserId ?>.jpg" id="avatar" class="img-thumbnail" alt="Avatar">
-                <i id="icon2" class="fa fa-camera" style="font-size:24px" onclick="openChangeForm()"></i>
+                <?php echo'<img src="'.$UserAvatar.'" id="avatar" class="img-thumbnail" alt="Avatar">'; ?>
+                <i id="icon2" class="fa fa-camera" style="font-size:24px" onclick="openChangeFormAva()"></i>
+
+                <!--------------------------->
+                <!-- Thẻ form thay ảnh bìa -->
+                <!--------------------------->
                 <div id="ChangeCover">
                     <div id="modalBackGround1">
                         <div class="ChangeCoverForm">
@@ -93,10 +98,14 @@ $UserEvent = "";
                         </div>
                     </div>
                 </div>
+
+                <!-------------------------->
+                <!-- Thẻ form thay Avatar -->
+                <!-------------------------->
                 <div id="ChangeAvatar">
-                    <div id="modalBackGround">
+                    <div id="modalBackGroundAva">
                         <div class="ChangeAvatarForm">
-                            <button type="button" id="closeNewPostForm" onclick="closeChangeForm()">&times;</button>
+                            <button type="button" id="closeNewAvaForm" onclick="closeChangeFormAva()">&times;</button>
                             <h2>Đổi ảnh đại diện</h2>
                             <form method="post" action="ChangeAvatar" enctype="multipart/form-data">
                                 <div class="postHead">
@@ -107,7 +116,7 @@ $UserEvent = "";
                                         <!-- phần tên người dùng -->
                                         <?php echo '<p class="userName">' . $currentUserName . '</p>' ?>
                                         <!-- đây là chỗ chọn chế độ chia sẻ-->
-                                        <select name="newPostPrivacy" id="newPostPrivacy">
+                                        <select name="newAvaPrivacy" id="newAvaPrivacy">
                                             <option value="public" selected>Công khai</option>
                                             <option value="private">Chỉ tôi</option>
                                             <option value="friendOnly">Bạn bè</option>
@@ -115,23 +124,23 @@ $UserEvent = "";
                                     </div>
                                 </div>
                                 <!-- Nội dung text của bài viết -->
-                                <textarea name="newPostCaption" id="newPostCaption" placeholder="Hôm nay bạn cảm thấy thế nào ?"></textarea>
+                                <textarea name="newAvaCaption" id="newAvaCaption" placeholder="Hãy nói gì đó về ảnh đại diện của bạn ?"></textarea>
                                 <!-- Nội dung hình ảnh/video -->
                                 <div class="containerForFile">
-                                    <input type="file" id="newPostFileInput" name="newPostFileInput" accept=".png, .jpg, .bmp, .jpeg, .gif, .ico, .psd, .mp4, .wmv, .mov, .avi, .flv">
+                                    <input type="file" id="newAvaFileInput" name="newAvaFileInput" accept=".png, .jpg, .bmp, .jpeg, .gif, .ico, .psd, .mp4, .wmv, .mov, .avi, .flv">
 
-                                    <button type="button" id="deleteFileForNewAvatar" onclick="deleteFile()">&times;</button>
+                                    <button type="button" id="deleteFileForNewAva" onclick="deleteAvaFile()">&times;</button>
 
-                                    <button type="button" id="selectFileForNewAvatar" onclick="importFile()">
+                                    <button type="button" id="selectFileForNewAva" onclick="importAvaFile()">
                                         <img src="resources/image/pictureIcon.png" alt="picture"><br>
                                         <p>Thêm ảnh/video</p>
                                     </button>
-                                    <div id="previewNewPostFile"></div>
+                                    <div id="previewNewAvaFile"></div>
                                 </div>
                                 <!-- Đăng/Hủy bài viết-->
                                 <div class="btnContainer">
                                     <button type="submit" name="submit" id="uploadNewAvatar" onclick="">Đăng</button>
-                                    <button type="reset" id="resetNewPost" onclick="deleteCreatingPost()">Hủy</button>
+                                    <button type="reset" id="resetNewAva" onclick="deleteCreatingAva()">Hủy</button>
                                 </div>
                             </form>
                         </div>

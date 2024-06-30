@@ -124,14 +124,53 @@ function closeChangeForm1() {
 
 //Thay ảnh đại diện
 
-function openChangeForm() {
-    document.getElementById('modalBackGround').style.display = 'block';
+function openChangeFormAva() {
+    document.getElementById('modalBackGroundAva').style.display = 'block';
 };
 
 
-function closeChangeForm() {
-    document.getElementById('modalBackGround').style.display = 'none';
+function closeChangeFormAva() {
+    document.getElementById('modalBackGroundAva').style.display = 'none';
 };
+
+
+document.getElementById('newAvaFileInput').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var preview = document.getElementById('previewNewAvaFile');
+    var buttonImportFile = document.getElementById('selectFileForNewAva');
+
+        preview.innerHTML = '';
+        buttonImportFile.style.display = 'none';
+    var img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    img.style.width = '468px';
+    img.style.display = 'block';
+    img.style.borderRadius = '24px'
+    preview.appendChild(img);
+    document.getElementById('deleteFileForNewAva').style.display = 'block'
+});
+
+
+function importAvaFile(){
+    document.getElementById('newAvaFileInput').click();
+};
+
+function deleteCreatingAva(){
+    document.getElementById('newAvaFileInput').value = '';
+    document.getElementById('newAvaCaption').value = ''
+    document.getElementById('newAvaPrivacy').value = ''
+    document.getElementById('previewNewAvaFile').innerHTML = ''
+    document.getElementById('selectFileForNewAva').style.display = 'block'
+    document.getElementById('modalBackGroundAva').style.display = 'none';
+};
+
+function deleteAvaFile() {
+    document.getElementById('previewNewAvaFile').innerHTML = ''
+    document.getElementById('selectFileForNewAva').style.display = 'block'
+    document.getElementById('newAvaFileInput').value = ''
+    document.getElementById('deleteFileForNewAva').style.display = 'none'
+
+}
 
 
 //About Button
