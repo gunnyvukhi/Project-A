@@ -20,7 +20,7 @@ class LoginController {
             $user = $user->fetch(PDO::FETCH_ASSOC);
 
             if ($user) {
-                $_SESSION['userName'] = $user['first_name'] . ' ' . $user['last_name'];
+                $_SESSION['userName'] = $user['user_name'];
                 $_SESSION['userEmail'] = $user['email'];
                 $_SESSION['userAvatar'] = $user['avatar'];
                 $_SESSION['userId'] = $user['user_id'];

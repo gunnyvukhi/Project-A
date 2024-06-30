@@ -184,16 +184,76 @@ class Controller{
         $friendIs = array_filter($friendIs, function($friend){
             return $friend['friends_User_id'] == $_SESSION['userId'];
         });
-
-        //get follow with user_id or friends_User_id
         
 
-
-        
-
-        //gop lai thanh 1 mang
-        $friendIs = array_merge($friendIs, $follow);
 
         return $friendIs;
+    }
+
+    //data follow
+    public static function DataFollow(){
+        $FriendModel = new FriendModel();
+        //get all friend
+        $friends = $FriendModel->getAllFriend();
+
+        // check la ban be khi ca hai deu co user_id trong cot user_id va friends_User_id
+        foreach($friends as $key => $friend){
+            foreach($friends as $key2 => $friend2){
+                if($friend['user_id'] == $friend2['friends_User_id'] && $friend['friends_User_id'] == $friend2['user_id']){
+                    $friends[$key]['isFriend'] = 1;
+                }
+            }
+        }
+
+        
+
+        //check if have not isFriend then isFollow
+        $follow = [];
+        $friendIs = [];
+        foreach($friends as $key => $friend){
+            if(isset($friend['isFriend'])){
+                $friendIs[] = $friend;
+            }else{
+                $follow[] = $friend;
+            }
+        }
+
+
+
+        $follow = array_map(function($friend){
+            if($friend['user_id'] == $_SESSION['userId']){
+               
+                $FriendModel = new FriendModel();
+                $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['user_id']);
+                return $friend;
+            }else if($friend['friends_User_id'] == $_SESSION['userId']){
+                $FriendModel = new FriendModel();
+                $friend['avatar'] = $FriendModel->getAvatar($friend['friends_User_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['friends_User_id']);
+                return $friend;
+            }
+        }, $follow);
+
+        //get friendIs with user_id or friends_User_id
+        $friendIs = array_filter($friendIs, function($friend){
+            return $friend['friends_User_id'] == $_SESSION['userId'];
+        });
+
+        //delete follow with null
+        $follow = array_filter($follow, function($friend){
+            return $friend != null;
+        });
+
+
+
+
+
+        
+
+
+        
+
+        return $follow;
     }
 }

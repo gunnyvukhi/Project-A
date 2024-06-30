@@ -46,12 +46,15 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.activity_log: ~4 rows (approximately)
+<<<<<<< HEAD
 INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
 (1, 1, 5, 'like', '2024-06-14 08:31:53'),
 (2, 2, 5, 'like', '2024-06-14 08:31:53'),
 (3, 5, 5, 'like', NULL),
 (4, 6, 5, 'like', NULL);
 
+=======
+>>>>>>> 6f18cc6e40c16e0eb2ab871cc5fea9e091f44a9c
 -- Dumping structure for table project_a.address
 CREATE TABLE IF NOT EXISTS `address` (
   `address_id` int NOT NULL AUTO_INCREMENT,
