@@ -16,6 +16,11 @@ class HomeController {
 
         $following = Controller::DataFollow();
 
+        echo '<pre>';
+        var_dump($friends);
+        var_dump($following);
+        echo '</pre>';
+
         require_once 'resources\view\mainPage.php';
         
     }

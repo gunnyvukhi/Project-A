@@ -218,23 +218,16 @@ class Controller{
             }
         }
 
-        //get avatar and name
-        $friendIs = array_map(function($friend){
-            $FriendModel = new FriendModel();
-            $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
-            $friend['last_name'] = $FriendModel->getName($friend['user_id']);
-            return $friend;
-        }, $friendIs);
 
 
         $follow = array_map(function($friend){
-            if($friend['user_id'] != $_SESSION['userId']){
+            if($friend['user_id'] == $_SESSION['userId']){
                
                 $FriendModel = new FriendModel();
                 $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
                 $friend['last_name'] = $FriendModel->getName($friend['user_id']);
                 return $friend;
-            }else{
+            }else if($friend['friends_User_id'] == $_SESSION['userId']){
                 $FriendModel = new FriendModel();
                 $friend['avatar'] = $FriendModel->getAvatar($friend['friends_User_id']);
                 $friend['last_name'] = $FriendModel->getName($friend['friends_User_id']);
@@ -246,6 +239,16 @@ class Controller{
         $friendIs = array_filter($friendIs, function($friend){
             return $friend['friends_User_id'] == $_SESSION['userId'];
         });
+
+        //delete follow with null
+        $follow = array_filter($follow, function($friend){
+            return $friend != null;
+        });
+
+
+
+
+
         
 
 
