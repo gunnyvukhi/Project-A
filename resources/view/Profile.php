@@ -1,32 +1,39 @@
 <?php include_once 'header.php';
 $UserId = 1;
 $SessionId = 1;
-$userName = "Dang Minh";
-$UserWork = "Công ty Nước Sạch Hà Nội";
-$UserPosition = "Giám đốc";
-$UserUniversity = "Đại học Bách Khoa Hà Nội";
-$UniversityStatus = "Đã học";
-$HighschoolStatus = "Đã học";
-$UserHighSchool = "Trường THPT Chuyên Khoa Học Tự Nhiên";
-$UserLive = "Hà Nội";
-$UserHomeTown = "Hà Nội";
-$UserRelationship = "Độc thân";
-$UserPhone = "0123456789";
-$UserEmail = "abc@gmail.com";
-$UserGender = 1;
-$UserBirthdate = 3;
-$UserBirthmonth = 3;
-$UserBirthyear = 2005;
-$UserEvent = "";
+// $userName = $user['user_name'];
+// Giả định $userDetail được dự định chứa thông tin chi tiết
+// và là mảng đầu tiên được in ra trong đầu ra
+// $UserWork = $userDetail[0]['occupation']; // Truy cập phần tử đầu tiên của $userDetail
+// $UserEducation = $user['education_level'];
+// $UserLive = $user['lives_in'];
+// $UserHomeTown = "Hà Nội";
+// $UserRelationship = $user['relationship'];
+// $UserPhone = $user['mobile_no']; // Truy cập từ $user dựa trên đầu ra được in
+// $UserEmail = $user['email']; // Truy cập từ $user
+// $UserGender = $user['gender']; // Truy cập từ $user
+// $UserBirthdate = $user['birth_date']; // Truy cập từ $user
 
-//information of current user
+// Thông tin của người dùng hiện tại
+
+$UserName = $user['user_name'];
+$UserId = 1;
+$Occupation = $userDetail[0]['occupation'];
+$EducationLevel = $userDetail[0]['education_level'];
+$LivesIn = $userDetail[0]['lives_in'];
+$Relationship = $userDetail[0]['relationship'];
+$MobileNo = $user['mobile_no'];
+$Email = $user['email'];
+$Gender = $user['gender'];
+$Birthdate = $user['birth_date'];
+
 // echo '<pre>';
 // print_r($userDetail);
 // print_r($dataid);
 // print_r($user);
 // echo '</pre>';
-
 ?>
+<head>
 
 <head>
     <meta charset="UTF-8">
@@ -143,7 +150,7 @@ $UserEvent = "";
                         </div>
                     </div>
                 </div>
-                <h2 id="Username" class="name"> <?php echo $userName ?> </h2>
+                <h2 id="Username" class="name"> <?php echo $UserName ?> </h2>
                 <div id="Profile_Header_Button" class="Profile_Header_Button">
                     <?php if ($SessionId == $UserId) {  ?>
                         <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add to story</a>
@@ -202,10 +209,10 @@ $UserEvent = "";
 
             <a class="Intro__Detail" name="Intro_Edit" id="editBtn" class="btn btn-primary" href="#" role="button" onclick="OpenIntro__EditArea(this)">Chỉnh sửa tiểu sử</a>
             <p class="Intro__Detail" id="Intro_Address" class="Intro_Detail">
-                <i class="fa fa-map-marker" aria-hidden="true"> <?php echo $UserHomeTown ?> </i>
+                <i class="fa fa-map-marker" aria-hidden="true"> <?php echo $LivesIn ?> </i>
             </p>
             <p class="Intro__Detail" id="Intro_Relationship" class="Intro_Detail">
-                <i class="fa fa-heart" aria-hidden="true"></i> <?php echo $UserRelationship ?>
+                <i class="fa fa-heart" aria-hidden="true"></i> <?php echo $Relationship ?>
             </p>
             <p class="Intro__Detail" id="Intro_Ig" class="Intro_Detail">
                 <i class="fa fa-instagram" aria-hidden="true"> dang___minh</i>
@@ -238,8 +245,8 @@ $UserEvent = "";
                 <!-- Phần Overview__Name -->
 
                 <div class="Overview__Content" id="workingContainer">
-                    <?php if ($UserWork != "") { ?>
-                        <i class="fa fa-briefcase" aria-hidden="true"> <?php echo $UserPosition ?> tại <?php echo $UserWork ?></i>
+                    <?php if ($Occupation != "") { ?>
+                        <i class="fa fa-briefcase" aria-hidden="true"><?php echo $Occupation ?></i>
                     <?php } else { ?>
                         <i class="fa fa-briefcase" aria-hidden="true"> Chưa có thông tin về công việc</i>
                     <?php } ?>
@@ -249,8 +256,8 @@ $UserEvent = "";
                 <!-- phần Overview__HighSchool     -->
 
                 <div id="HighSchoolContainer" class="Overview__Content">
-                    <?php if ($UserHighSchool != "") { ?>
-                        <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"> <?php echo $HighschoolStatus ?> tại <?php echo $UserHighSchool ?></i>
+                    <?php if ($EducationLevel != "") { ?>
+                        <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"><?php echo $EducationLevel ?></i>
                     <?php } else { ?>
                         <i id="Overview__Content__study" class="fa fa-graduation-cap" aria-hidden="true"> Chưa có thông tin về trường học</i>
                     <?php } ?>
@@ -260,8 +267,8 @@ $UserEvent = "";
                 <!-- Phần Overview__Live -->
 
                 <div class=" Overview__Content" id="LiveContainer">
-                            <?php if ($UserLive != "") { ?>
-                                <i class="fa fa-home" aria-hidden="true"> Sống tại <?php echo $UserLive ?></i>
+                            <?php if ($LivesIn != "") { ?>
+                                <i class="fa fa-home" aria-hidden="true"> Sống tại <?php echo $LivesIn ?></i>
                             <?php } else { ?>
                                 <i class="fa fa-homearia-hidden=" true"> Chưa có thông tin về nơi sống</i>
                             <?php } ?>
@@ -271,8 +278,8 @@ $UserEvent = "";
                 <!-- Phần Overview__HomeTown -->
 
                 <div class="Overview__Content" id="HomeTownContainer">
-                    <?php if ($UserHomeTown != "") { ?>
-                        <i class="fa fa-map-marker" aria-hidden="true"> Đến từ <?php echo $UserHomeTown ?></i>
+                    <?php if ($Gender != "") { ?>
+                        <i class="fa fa-map-marker" aria-hidden="true"> Đến từ <?php echo $Gender ?></i>
                     <?php } else { ?>
                         <i class="fa fa-map-marker" aria-hidden="true"> Chưa có thông tin về quê quán</i>
                     <?php } ?>
@@ -282,8 +289,8 @@ $UserEvent = "";
                 <!-- Phần Overview__Relationship -->
 
                 <div class="Overview__Content" id="RelationshipContainer">
-                    <?php if ($UserRelationship != "") { ?>
-                        <i class="fa fa-heart" aria-hidden="true"> Đang <?php echo $UserRelationship ?></i>
+                    <?php if ($Relationship != "") { ?>
+                        <i class="fa fa-heart" aria-hidden="true"> Đang <?php echo $Relationship ?></i>
                     <?php } else { ?>
                         <i class="fa fa-heart" aria-hidden="true"> Chưa có thông tin về mối quan hệ</i>
                     <?php } ?>
@@ -294,8 +301,8 @@ $UserEvent = "";
                 <!-- Phần Overview__Phone -->
 
                 <div class="Overview__Content" id="PhoneContainer">
-                    <?php if ($UserPhone != "") { ?>
-                        <i class="fa fa-phone" aria-hidden="true"> Số điện thoại <?php echo $UserPhone ?></i>
+                    <?php if ($MobileNo != "") { ?>
+                        <i class="fa fa-phone" aria-hidden="true"> Số điện thoại <?php echo $MobileNo ?></i>
                     <?php } else { ?>
                         <i class="fa fa-phone" aria-hidden="true"> Chưa có thông tin về số điện thoại</i>
                     <?php } ?>

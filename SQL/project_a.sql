@@ -27,7 +27,7 @@ CREATE TABLE `advs` (
   `trend` INT NULL,
   `max_view` INT NULL,
 	`create_at` DATETIME NULL,
-	`end_at` DATETIME NULL,
+	`end_at` DATETIME NULL
 );
 
 INSERT INTO `advs` (`id`, `user_id`, `caption`, `URL`, `image`, `views`, `trend`, `max_view`, `create_at`, `end_at`) VALUES
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
 
 -- Dumping data for table project_a.activity_log: ~4 rows (approximately)
 INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
-(1, 1, 5, 'like', '2024-06-14 08:31:53', 0),
-(2, 2, 5, 'like', '2024-06-14 08:31:53', 0),
-(3, 5, 5, 'like', NULL, 0),
-(4, 6, 5, 'like', NULL, 0);
+(1, 1, 5, 'like', '2024-06-14 08:31:53'),
+(2, 2, 5, 'like', '2024-06-14 08:31:53'),
+(3, 5, 5, 'like', NULL),
+(4, 6, 5, 'like', NULL);
 
 -- Dumping structure for table project_a.address
 CREATE TABLE IF NOT EXISTS `address` (
