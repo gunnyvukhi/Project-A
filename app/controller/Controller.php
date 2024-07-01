@@ -224,13 +224,13 @@ class Controller{
             if($friend['user_id'] == $_SESSION['userId']){
                
                 $FriendModel = new FriendModel();
-                $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
-                $friend['last_name'] = $FriendModel->getName($friend['user_id']);
+                $friend['avatar'] = $FriendModel->getAvatar($friend['friends_User_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['friends_User_id']);
                 return $friend;
             }else if($friend['friends_User_id'] == $_SESSION['userId']){
                 $FriendModel = new FriendModel();
-                $friend['avatar'] = $FriendModel->getAvatar($friend['friends_User_id']);
-                $friend['last_name'] = $FriendModel->getName($friend['friends_User_id']);
+                $friend['avatar'] = $FriendModel->getAvatar($friend['user_id']);
+                $friend['last_name'] = $FriendModel->getName($friend['user_id']);
                 return $friend;
             }
         }, $follow);
