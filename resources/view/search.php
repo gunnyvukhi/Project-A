@@ -1,5 +1,7 @@
 <?php
-var_dump($users);
+// var_dump($users);
+$All_user = json_encode($users);
+echo '<script lang="javascript" type="text/javascript">var All_user = '. $All_user .'</script>';
 for ($i = 0; $i < count($posts); $i++){$posts[$i] = $posts[$i]['post_id'];}
 // var_dump($posts);
 
@@ -8,7 +10,6 @@ for ($i = 0; $i < count($posts); $i++){$posts[$i] = $posts[$i]['post_id'];}
 <?php require_once 'header.php' ?>
 <link rel="stylesheet" href="resources/css/seach.css" type="text/css">
 <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-
 
 <!-- Phần Nemu bên trái -->
 <div id="mainContentLeftContainer">
@@ -67,17 +68,9 @@ for ($i = 0; $i < count($posts); $i++){$posts[$i] = $posts[$i]['post_id'];}
 <div class="mainPostContainer" id="mainContainer">
     <div class="peopleContainer postContainer">
         <p class="title">Mọi người</p>
-        <ul>
-            <li>
-                <div class="UsersContainer">
-                <a href="#" class="userAvatarLink"><img class="userAvatar" src="resources\image\userAvater\user3.jpeg"></a>
-                <div class="userInfomationContainer">
-                    <a href="#" class="userName">Nguyễn Tuấn Anh</a>
-                    <p class="otherInfomation" >Song tai Hanoi</p>
-                </div></div>
-                <a href="" class="seeProfileBtn">Xem trang cá nhân</a>
-            </li>
+        <ul id="DisplayUserResult">
         </ul>
+        <button type="button" class="SeeAllBtn">Xem tất cả</button>
     </div>
 <?php
     for ($i = 0; $i < count($NewPostData); $i++)
