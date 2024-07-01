@@ -26,7 +26,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     z-index: 2;
-    width: 1000px !important;
+    width: 800px !important;
     height: fit-content;
     border-radius: 24px;
     background-color: #ffffff;
@@ -111,7 +111,7 @@ body {
     }
 
     .contentContainer {
-        width: 968px;
+        width: 768px;
         height: fit-content;
 
         .postCaption {
@@ -130,7 +130,7 @@ body {
         }
 
         .postPhoto {
-            width: 968px;
+            width: 768px;
             border-radius: 12px;
         }
     }
@@ -172,7 +172,7 @@ body {
         margin-top: 8px;
         margin-bottom: 8px;
         padding: 8px;
-        width: 968px;
+        width: 768px;
         border-top: #e1e2e3 solid 1px;
         border-bottom: #e1e2e3 solid 1px;
         display: flex;
@@ -236,7 +236,7 @@ body {
 
             textarea[class="newComment"] {
                 margin-left: 8px;
-                width: 896px;
+                width: 696px;
                 min-height: 64px;
                 height: fit-content;
                 border-radius: 12px;
@@ -283,7 +283,7 @@ body {
 
             .othersComments {
                 margin-left: 8px;
-                width: 896px;
+                width: 696px;
                 height: fit-content;
                 border-radius: 12px;
                 background-color: #e1e2e378;
@@ -309,7 +309,7 @@ body {
     .lessComments {
         display: none;
         margin-top: 16px;
-        margin-left: 864px;
+        margin-left: 664px;
         font-weight: 600;
         font-size: 14px;
         color: rgb(104, 104, 104);
@@ -340,6 +340,73 @@ body {
     }
 }
 
+.peopleContainer{
+    flex-wrap: nowrap;
+    flex-direction: column;
+    .title{
+        font-size: 18px;
+        font-weight: 600;
+        margin: 8px;
+    }
+    ul{
+        margin: 8px 0px 0px 8px;
+        list-style: none;
+        li{
+            display: flex;
+            flex-wrap: wrap !important;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .UsersContainer{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .userAvatar{
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+        }
+        .userInfomationContainer{
+            margin-left: 12px;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 480px;
+            .userName{
+                font-weight: 600;
+                width: 480px;
+                font-size: 16px;
+                margin-bottom: 4px;
+            }
+            .userName:hover{
+                text-decoration: underline;
+            }
+            .otherInfomation{
+                font-size: 15px;
+            }
+        }
+        .seeProfileBtn{
+            border-radius: 4px;
+            padding: 8px;
+            background-color: #DFE9F2;
+            color: #005FC6;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        .seeProfileBtn:hover{
+            opacity: 1;
+            background-color: rgba(169, 169, 169, 0.3);
+        }
+    }
+    
+}
 
 /*                              */
 /*      Khu vực Nemu trái       */
@@ -458,8 +525,8 @@ body {
     overflow: hidden;
 }
 .video-js {
-    width: 968px;
-    height: 544.5px;
+    width: 768px;
+    height: 432px;
     cursor: pointer;
   }
   
