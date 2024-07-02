@@ -3,6 +3,7 @@
 require_once 'app/model/UserModel.php';
 require_once 'app/model/PostModel.php';
 require_once 'app/controller/Controller.php';
+require_once 'app/model/UserDetailModel.php';
 
 class searchController{
     public function search(){
@@ -50,6 +51,21 @@ class searchController{
             return $b['count_like'] - $a['count_like'];
         });
 
+        // echo '<pre>';
+        // var_dump($users);
+        // echo '</pre>';
+
+        //get user detail with users by user_id
+        $userDetailModel = new UserDetailModel();
+        $userDetail = [];
+        foreach($users as $user){
+            $userDetail[] = $userDetailModel->getUserDetail($user['user_id']);
+        }
+
+        //merge user and user detail    
+        for($i = 0; $i < count($users); $i++){
+            $users[$i] = array_merge($users[$i], $userDetail[$i]);
+        }
         // echo '<pre>';
         // var_dump($users);
         // echo '</pre>';
