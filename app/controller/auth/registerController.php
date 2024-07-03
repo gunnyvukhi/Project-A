@@ -15,15 +15,33 @@ class RegisterController {
             $confirmPassword = $_POST['passwordConfirm'];
             $create_at = date('Y-m-d H:i:s');
 
-            if ($password == $confirmPassword) {
+            //check password is 6 character
+            if (strlen($password) < 6) {
+                echo "<script>alert('Mật khẩu phải có ít nhất 6 ký tự');</script>";
+            }else{
+                //check email exist
                 $db = new DB();
-                $sql = "INSERT INTO user_basic (user_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
+                $sql = "SELECT * FROM user_basic WHERE email = '$email'";
                 $user = $db->query($sql);
-
-                header('Location: ' . APPURL . 'login');
-            } else {
-                echo "<script>success=0</script>";
+                $user = $user->fetch(PDO::FETCH_ASSOC);
+                // echo print_r($user);
+                if (!empty($user)) {
+                    //alert email exist
+                    echo "<script>alert('Email đã tồn tại');</script>";
+                }else{
+                    if ($password == $confirmPassword) {
+                        $db = new DB();
+                        $sql = "INSERT INTO user_basic (user_name, email, password, mobile_no, birth_date, gender, create_at) VALUES ('$name', '$email', '$password', '$mobileNo', '$birthDate', '$gender', '$create_at')";
+                        $user = $db->query($sql);
+        
+                        header('Location: ' . APPURL . 'login');
+                    } else {
+                        echo "<script>success=0</script>";
+                    }
+                }
             }
+
+
         }
 
         require_once 'resources/view/signIn.html';

@@ -45,16 +45,12 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
   PRIMARY KEY (`user_id`,`post_id`,`activity_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- Dumping data for table project_a.activity_log: ~4 rows (approximately)
-<<<<<<< HEAD
 INSERT INTO `activity_log` (`activity_id`, `user_id`, `post_id`, `action_performed`, `activity_date`) VALUES
 (1, 1, 5, 'like', '2024-06-14 08:31:53'),
 (2, 2, 5, 'like', '2024-06-14 08:31:53'),
 (3, 5, 5, 'like', NULL),
 (4, 6, 5, 'like', NULL);
 
-=======
->>>>>>> 6f18cc6e40c16e0eb2ab871cc5fea9e091f44a9c
 -- Dumping structure for table project_a.address
 CREATE TABLE IF NOT EXISTS `address` (
   `address_id` int NOT NULL AUTO_INCREMENT,
@@ -93,21 +89,23 @@ CREATE TABLE IF NOT EXISTS `events` (
   `event_name` text,
   `event` text,
   `date_time` datetime DEFAULT NULL,
+  `image` text,
   PRIMARY KEY (`event_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 -- Dumping data for table project_a.events: ~10 rows (approximately)
-INSERT INTO `events` (`event_id`, `event_name`, `event`, `date_time`) VALUES
-	(1, 'Ngày thành lập Đảng Cộng sản Việt Nam', 'Ngày 3 tháng 2 năm 1930, Đảng Cộng sản Việt Nam được thành lập.', '1930-02-03 00:00:00'),
-	(2, 'Cách mạng tháng Tám', 'Ngày 19 tháng 8 năm 1945, nhân dân Hà Nội tiến hành khởi nghĩa giành chính quyền, mở đầu cho cuộc Tổng khởi nghĩa tháng Tám.', '1945-08-19 00:00:00'),
-	(3, 'Ngày Quốc khánh', 'Ngày 2 tháng 9 năm 1945, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.', '1945-09-02 00:00:00'),
-	(4, 'Chiến thắng Điện Biên Phủ', 'Ngày 7 tháng 5 năm 1954, quân đội Việt Nam giành chiến thắng tại Điện Biên Phủ, kết thúc chiến tranh Đông Dương.', '1954-05-07 00:00:00'),
-	(5, 'Hiệp định Genève', 'Ngày 21 tháng 7 năm 1954, Hiệp định Genève được ký kết, chia đôi Việt Nam thành hai miền với giới tuyến tại vĩ tuyến 17.', '1954-07-21 00:00:00'),
-	(6, 'Chiến dịch Mậu Thân', 'Ngày 30 tháng 1 năm 1968, Quân Giải phóng miền Nam Việt Nam phát động cuộc tổng tiến công và nổi dậy trên toàn miền Nam.', '1968-01-30 00:00:00'),
-	(7, 'Giải phóng miền Nam', 'Ngày 30 tháng 4 năm 1975, quân đội Giải phóng miền Nam tiến vào Sài Gòn, giải phóng hoàn toàn miền Nam, thống nhất đất nước.', '1975-04-30 00:00:00'),
-	(8, 'Ngày thành lập Hội Liên hiệp Phụ nữ Việt Nam', 'Ngày 20 tháng 10 năm 1930, Hội Liên hiệp Phụ nữ Việt Nam được thành lập.', '1930-10-20 00:00:00'),
-	(9, 'Ngày nhà giáo Việt Nam', 'Ngày 20 tháng 11 hàng năm được chọn làm Ngày nhà giáo Việt Nam để tôn vinh các thầy cô giáo.', '1958-11-20 00:00:00'),
-	(10, 'Việt Nam gia nhập ASEAN', 'Ngày 28 tháng 7 năm 1995, Việt Nam chính thức gia nhập Hiệp hội các quốc gia Đông Nam Á (ASEAN).', '1995-07-28 00:00:00');
+INSERT INTO `events` (`event_id`, `event_name`, `event`, `date_time`, `image`) VALUES
+  (1, 'Ngày thành lập Đảng Cộng sản Việt Nam', 'Ngày 3 tháng 2 năm 1930, Đảng Cộng sản Việt Nam được thành lập.', '1930-02-03 00:00:00', 'resources/image/event/1.jpg'),
+  (2, 'Cách mạng tháng Tám', 'Ngày 19 tháng 8 năm 1945, nhân dân Hà Nội tiến hành khởi nghĩa giành chính quyền, mở đầu cho cuộc Tổng khởi nghĩa tháng Tám.', '1945-08-19 00:00:00', 'resources/image/event/2.jpg'),
+  (3, 'Ngày Quốc khánh', 'Ngày 2 tháng 9 năm 1945, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.', '1945-09-02 00:00:00', 'resources/image/event/3.jpg'),
+  (4, 'Chiến thắng Điện Biên Phủ', 'Ngày 7 tháng 5 năm 1954, quân đội Việt Nam giành chiến thắng tại Điện Biên Phủ, kết thúc chiến tranh Đông Dương.', '1954-05-07 00:00:00', 'resources/image/event/4.jpg'),
+  (5, 'Hiệp định Genève', 'Ngày 21 tháng 7 năm 1954, Hiệp định Genève được ký kết, chia đôi Việt Nam thành hai miền với giới tuyến tại vĩ tuyến 17.', '1954-07-21 00:00:00', 'resources/image/event/5.jpg'),
+  (6, 'Chiến dịch Mậu Thân', 'Ngày 30 tháng 1 năm 1968, Quân Giải phóng miền Nam Việt Nam phát động cuộc tổng tiến công và nổi dậy trên toàn miền Nam.', '1968-01-30 00:00:00', 'resources/image/event/6.jpg'),
+  (7, 'Giải phóng miền Nam', 'Ngày 30 tháng 4 năm 1975, quân đội Giải phóng miền Nam tiến vào Sài Gòn, giải phóng hoàn toàn miền Nam, thống nhất đất nước.', '1975-04-30 00:00:00', 'resources/image/event/7.jpg'),
+  (8, 'Ngày thành lập Hội Liên hiệp Phụ nữ Việt Nam', 'Ngày 20 tháng 10 năm 1930, Hội Liên hiệp Phụ nữ Việt Nam được thành lập.', '1930-10-20 00:00:00', 'resources/image/event/8.jpg'),
+  (9, 'Ngày nhà giáo Việt Nam', 'Ngày 20 tháng 11 hàng năm được chọn làm Ngày nhà giáo Việt Nam để tôn vinh các thầy cô giáo.', '1958-11-20 00:00:00', 'resources/image/event/9.jpg'),
+  (10, 'Việt Nam gia nhập ASEAN', 'Ngày 28 tháng 7 năm 1995, Việt Nam chính thức gia nhập Hiệp hội các quốc gia Đông Nam Á (ASEAN).', '1995-07-28 00:00:00', 'resources/image/event/10.jpg');
+
 
 -- Dumping structure for table project_a.friends
 CREATE TABLE IF NOT EXISTS `friends` (

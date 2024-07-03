@@ -1,4 +1,6 @@
 <?php include_once 'header.php';
+// print_r($friends);
+
 $UserId = 1;
 $SessionId = 1;
 // $userName = $user['user_name'];
@@ -17,6 +19,7 @@ $SessionId = 1;
 // Thông tin của người dùng hiện tại
 
 $UserName = $user['user_name'];
+$UserAvatar = $user['avatar'];
 $UserId = 1;
 $Occupation = $userDetail[0]['occupation'];
 $EducationLevel = $userDetail[0]['education_level'];
@@ -60,7 +63,7 @@ $Birthdate = $user['birth_date'];
                 </div>
             </div>
             <div class="Profile__header__avatar" id="Profile__header__avatar">
-                <?php echo'<img src="'.$UserAvatar.'" id="avatar" class="img-thumbnail" alt="Avatar">'; ?>
+                <?php echo'<img src="resources\image\avatar\\'. $UserAvatar  .'" id="avatar" class="img-thumbnail" alt="Avatar">'; ?>
                 <i id="icon2" class="fa fa-camera" style="font-size:24px" onclick="openChangeFormAva()"></i>
 
                 <!--------------------------->
@@ -165,7 +168,7 @@ $Birthdate = $user['birth_date'];
                         <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
                     <?php } else { ?>
                         <a name="" id="Profile_Header_themtin" class="btn btn-primary" href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add Friend </a>
-                        <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Folow </a>
+                        <a name="" id="Profile_Header_chinhsua" class="btn btn-primary" href="#" role="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Follow </a>
                     <?php } ?>
                 </div>
             </div>
@@ -223,7 +226,8 @@ $Birthdate = $user['birth_date'];
                 <i class="fa fa-heart" aria-hidden="true"></i> <?php echo $Relationship ?>
             </p>
             <p class="Intro__Detail" id="Intro_Ig" class="Intro_Detail">
-                <i class="fa fa-instagram" aria-hidden="true"> dang___minh</i>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                dang___minh
             </p>
             <a name="Intro_EditDetail" id="editDetailBtn" class="btn btn-primary" href="#" role="button" onclick="CloseIntro__EditArea(this)">Chỉnh sửa chi tiết</a>
         </div>

@@ -11,44 +11,63 @@ class profileController
 {
     public function index()
     {
-        $userModel = new UserModel();
-        $user = $userModel->getUserById($_SESSION['userId']);
-
+        $user = [];
+        $userDetail = [];
+        $dataid = [];
+        if(isset($_GET['id'])){
+            $uID = $_GET['id'];
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($uID);
+    
+            
+            $userDetailModel = new UserDetailModel();
+            $userDetail = $userDetailModel->getUserDetail($uID);
+    
+            $controller = new Controller();
+            $dataid = $controller->DataId($uID);
+    
+            $addressModel = new AddressModel();
+            $user = $userModel->getUserById($uID);
         
-        $userDetailModel = new UserDetailModel();
-        $userDetail = $userDetailModel->getUserDetail($_SESSION['userId']);
+        }else{
+            $uID = $_SESSION['userId'];
+            $userModel = new UserModel();
+            $user = $userModel->getUserById($uID);
+    
+            
+            $userDetailModel = new UserDetailModel();
+            $userDetail = $userDetailModel->getUserDetail($uID);
+    
+            $controller = new Controller();
+            $dataid = $controller->DataId($uID);
+    
+            $addressModel = new AddressModel();
+            $user = $userModel->getUserById($uID);
+    
 
-        $controller = new Controller();
-        $dataid = $controller->DataId($_SESSION['userId']);
-
-        $addressModel = new AddressModel();
-        $user = $userModel->getUserById($_SESSION['userId']);
-
-
-
-        if (isset($_POST['submit'])) {
-            $company = $_POST['Company'];
-            $role = $_POST['Position'];
-            $occupation = $company . ' - ' . $role;
-            $education = $_POST['School'];
-            $lives = $_POST['Live'];
-            $relationship = $_POST['RelationshipSelect'];
-            $date = date('Y-m-d H:i:s');
-            $update = date('Y-m-d H:i:s');
-
-            $homeTown = $_POST['HomeTown'];
-
-            $addressModel->createAddress($homeTown);
-            $address_id = $addressModel->getLastAddressId();
-            $getuserDetail = $userDetailModel->getUserDetail($_SESSION['userId']);
-            if(empty($getuserDetail)){
-                $userDetailModel->createUserDetail($_SESSION['userId'], $occupation, $education, $lives, $address_id, $relationship, $date, $update);
-            }else{
-                $userDetailModel->updateUserDetail($_SESSION['userId'], $occupation, $education, $lives, $address_id, $relationship, $update);
+            if (isset($_POST['submit'])) {
+                $company = $_POST['Company'];
+                $role = $_POST['Position'];
+                $occupation = $company . ' - ' . $role;
+                $education = $_POST['School'];
+                $lives = $_POST['Live'];
+                $relationship = $_POST['RelationshipSelect'];
+                $date = date('Y-m-d H:i:s');
+                $update = date('Y-m-d H:i:s');
+    
+                $homeTown = $_POST['HomeTown'];
+    
+                $addressModel->createAddress($homeTown);
+                $address_id = $addressModel->getLastAddressId();
+                $getuserDetail = $userDetailModel->getUserDetail($uID);
+                if(empty($getuserDetail)){
+                    $userDetailModel->createUserDetail($uID, $occupation, $education, $lives, $address_id, $relationship, $date, $update);
+                }else{
+                    $userDetailModel->updateUserDetail($uID, $occupation, $education, $lives, $address_id, $relationship, $update);
+                }
+                header('Location: ' . APPURL . 'profile');
             }
-            header('Location: ' . APPURL . 'profile');
         }
-
         require_once 'resources\view\Profile.php';
     }
 

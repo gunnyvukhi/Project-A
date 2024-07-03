@@ -69,10 +69,6 @@ class LoginController {
             }
             
         }
-
-
-
-
         if($check) {
             require_once 'resources/view/login.html';
             echo "<script>document.getElementById('result').innerHTML = 'Sai tài khoản email hoặc mật khẩu';</script>";

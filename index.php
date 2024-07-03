@@ -139,7 +139,6 @@ switch ($url[2]) {
         $friend = new FriendController();
         $friend->addFriend();
         break;
-
     case 'add-adv':
         $adv = new advController();
         $adv->add();
