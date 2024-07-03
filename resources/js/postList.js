@@ -109,7 +109,7 @@ function More_comments(id){
 
         avatar = document.createElement('a')
         avatar.className = "PostAva";
-        avatar.href = "#"
+        avatar.href = "http://localhost/project-a/profile?id=" + All_comments[id_][i]["user_id"]
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){
@@ -189,7 +189,7 @@ function send_comment(commentId){
 
         avatar = document.createElement('a')
         avatar.className = "PostAva";
-        avatar.href = "#"
+        avatar.href = "http://localhost/project-a/profile?id=" + All_comments[id_][i]["user_id"]
 
         avatar_picture = document.createElement('img');
         if (All_comments[id_][i]["avatar"]){

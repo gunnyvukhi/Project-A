@@ -35,7 +35,7 @@ echo '<div class="ListContainer">
             }
             
             echo '<li>
-                    <a href="#" class="ContentLink">
+                    <a href="http://localhost/project-a/profile?id='. $friend_data["user_id"] .'" class="ContentLink">
                     <img class="contentPic" src=' . $friend_data['avatar'] . ' />
                     <div class="ContentContainer">
                         <p class="FriendsName">' . $friend_data['last_name'] . '</p>

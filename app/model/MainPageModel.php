@@ -64,7 +64,7 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
         
 
         echo '  <div class="postContainer" id='. $postId .'>
-        <a href="#" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' loading="lazy" /></a>
+        <a href="http://localhost/project-a/profile?id='. $user_id .'" alt=' . $userName . ' class="PostAva"><img src=' . $avatarLink . ' alt=' . $userName . ' loading="lazy" /></a>
         <div class="nameTimeContainer">
             <p class="userName">' . $userName . '</p>
             <p class="timePosted">' . $timePosted . '</p>
@@ -129,7 +129,7 @@ function Create_post($user_id, $is_video, $allow_video, $post_id, $update_at, $c
         <div class="commentsContainer" id='. "commentsContainer" . $postId  .'>
             <button class="moreComments" id='. "moreComments" . $postId  .' onclick="More_comments(this.id)">Xem thêm bình luận</button>
             <form action="" class="sendComment" method="post">
-                <a href="#" alt=' . $userName . ' class="PostAva"><img loading="lazy" src="' . $currentUserAvatarLink . '"/></a>
+                <a href="http://localhost/project-a/profile?id'. $user_id .'=" alt=' . $userName . ' class="PostAva"><img loading="lazy" src="' . $currentUserAvatarLink . '"/></a>
 
                 <!-- Nơi viết bình luận -->
                 <textarea name="newComment" id='. "newComment" . $postId  .' class="newComment" placeholder="Viết bình luận..."></textarea>

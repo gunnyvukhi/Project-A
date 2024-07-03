@@ -11,7 +11,8 @@ if (isset($_SESSION['userAvatar'])) {
 }
 
 $data = Controller::Data();
-
+$friends = Controller::DataFriend();
+$following = Controller::DataFollow();
 ?>
 <!DOCTYPE html>
 <html lang="en">
